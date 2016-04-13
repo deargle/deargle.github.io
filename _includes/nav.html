@@ -1,36 +1,49 @@
 {% if site.github.url %}
-  {% assign url_base = site.github.url %}
+{% assign url_base = site.github.url %}
 {% else %}
-  {% assign url_base = site.url %}
+{% assign url_base = site.url %}
 {% endif %}
 <nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://data-vocabulary.org/Person">
-  <meta itemprop="url" content="{{ url_base }}" />
-  <meta itemprop="title" content="{{ site.job_title }}" />
-  <meta itemprop="affiliation" content="{{ site.employer }}" />
-  <meta itemprop="photo" content="http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png" />
-  <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-    <meta itemprop="locality" content="{{ site.location.city }}" />
-    <meta itemprop="region" content="{{ site.location.state }}" />
-    <meta itemprop="country-name" content="{{ site.location.country }}" />
-    <a href="https://plus.google.com/+{{ site.google_plus_id }}" rel="publisher" class="hidden">Ben Balter</a>
-  </span>
-  <ul class="nav navbar-nav">
-    <li><h1><a class="navbar-brand" href="{{ url_base }}/"><span itemprop="name">{{ site.name }}</span></a></h1></li>
-    <li id="home"{% if page.url == '/index.html' %} class="active"{% endif %}>
-      <a href="{{ url_base }}/">Posts</a>
-    </li>
-    <li id="talks"{% if page.url == "/talks/"%} class="active"{% endif %}>
-      <a href="{{ url_base }}/talks/">Talks</a>
-    </li>
-    <li id="press"{% if page.url == "/press/"%} class="active"{% endif %}>
-      <a href="{{ url_base }}/press/">Press</a>
-    </li>
-    <li id="about"{% if page.url == "/about/"%} class="active"{% endif %}>
-      <a href="{{ url_base }}/about/" rel="author">About</a>
-    </li>
-    <li id="contact"{% if page.url == "/contact/"%} class="active"{% endif %}>
-      <a href="{{ url_base }}/contact/">Contact</a>
-    </li>
-  </ul>
-  <p class="navbar-text pull-right" itemprop="role">{{ site.description }}</p>
+    <meta itemprop="url" content="{{ url_base }}" />
+    <meta itemprop="title" content="{{ site.job_title }}" />
+    <meta itemprop="affiliation" content="{{ site.employer }}" />
+    <meta itemprop="photo" content="http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png" />
+    <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+        <meta itemprop="locality" content="{{ site.location.city }}" />
+        <meta itemprop="region" content="{{ site.location.state }}" />
+        <meta itemprop="country-name" content="{{ site.location.country }}" />
+    </span>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>    
+        <div>
+        <a class="navbar-brand" itemprop="name" href="{{ url_base }}">{{ site.name }}</a>
+        </div>
+    </div>
+    <div class='navbar-collapse collapse'>
+        <!--p class='navbar-text'>{{ site.description }}</p-->
+        <ul class="nav navbar-nav navbar-right" >
+            <li>
+                <a href="{{ url_base }}/Dave_Eargle_Vitae.pdf">Vita</a>
+            </li>
+            <li id="research"{% if page.url == "/research/"%} class="active"{% endif %}>
+                <a href="https://scholar.google.com/citations?user=Nw7ibigAAAAJ&hl=en">Research</a>
+            </li>
+            <li id="portfolio"{% if page.url == "/portfolio/"%} class="active"{% endif %}>
+                <a href="{{ url_base }}/portfolio/">Portfolio</a>
+            </li>
+            <!--li id="blog"{% if page.url == "/blog/"%} class="active"{% endif %}>
+                <a href="{{ url_base }}/blog/">Blog</a>
+            </li-->
+            <li id="about"{% if page.url == "/about/"%} class="active"{% endif %}>
+                <a href="{{ url_base }}/about/" rel="author">About</a>
+            </li>
+            <li id="contact"{% if page.url == "/contact/"%} class="active"{% endif %}>
+                <a href="{{ url_base }}/contact/">Contact</a>
+            </li>
+        </ul>
+    </div>
 </nav><!-- navbar -->

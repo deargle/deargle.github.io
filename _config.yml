@@ -1,42 +1,53 @@
 #Jekyll config file
 
 # Basics
-name: Ben Balter
-title: Ben Balter
-description: "Attorney, open source developer, product manager"
-author: benbalter
-repository: benbalter/benbalter.github.com
+name: Dave Eargle
+title: Dave Eargle
+description: Information Systems Management Researcher
+author: deargle
+repository: 'deargle/benbalter.github.com'
 
 # Images
-gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
+avatar: 'https://avatars2.githubusercontent.com/u/1174653?v=3&s=460'
+gravatar_id: 
 
 # RDFa structured data
-job_title: Open source Evangelist
-employer: GitHub
-url: "http://ben.balter.com"
-location:
-  city: Washington
-  state: District of Columbia
-  country: United States of America
+job_title: 
+employer: 
+url: 'http://daveeargle.com'
+location: 
+  city: 'Pittsburgh'
+  state: 
+  country: 
 
 # Social metadata (JSON-LD)
 social:
-  name: Ben Balter
+  name: 
   links:
-    - https://twitter.com/BenBalter
-    - https://www.facebook.com/ben.balter
-    - https://www.linkedin.com/in/BenBalter
-    - https://plus.google.com/+BenBalter
-    - https://github.com/benbalter
-    - https://keybase.io/benbalter
+      
+# Includes an icon in the footer for each username you enter
+footer-links:
+  dribbble:
+  email: 
+  facebook: 
+  flickr:
+  github: deargle
+  instagram:
+  linkedin: dave-eargle-097a2925
+  pinterest:
+  rss: # just type anything here for a working RSS icon
+  twitter: DavidEargle
+  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+  youtube: # channel/<your_long_string> or user/<user-name>
+  googleplus: # anything in your profile username that comes after plus.google.com/
 
-logo: /assets/img/headshot.jpg
-
+logo: 
+     
 # Misc
 twitter:
-  username: "@benbalter"
-google_plus_id: BenBalter
-ga_username: 'UA-18088627-1'
+  username: 
+google_plus_id: 
+google_analytics: 'UA-35065822-1'
 
 #files to exclude, array
 exclude:
@@ -88,13 +99,13 @@ defaults:
     values:
       layout: post
       comments: true
-      author: benbalter
+      author: 
 
 #disqus widget
 disqus:
-  shortname: 'benbalter'
-  count: 5
-  api_key: "OQ5OlN2AtWDfIQ0bjIGwdfq9SsEB3P8NdzhYTRak7R45KeAD744aVIqJZDYqvmuL"
+  shortname: 
+  count: 
+  api_key:
 
 #build config
 timezone: America/New_York
@@ -108,7 +119,6 @@ gems:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-avatar
   - jekyll-github-metadata
 
 sass:
@@ -122,3 +132,5 @@ highlighter: rouge
 gist:
  noscript: false
 future: true
+
+host: 0.0.0.0

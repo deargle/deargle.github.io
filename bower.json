@@ -2,11 +2,11 @@
   "name": "benbalter.github.com",
   "main": "index.html",
   "version": "0.0.1",
-  "homepage": "http://ben.balter.com",
+  "homepage": "http://daveeargle.com",
   "authors": [
-    "Ben Balter <ben.balter@github.com>"
+    "Dave Eargle <dave@daveeargle.com>"
   ],
-  "description": "The personal website of Ben Balter. Built using Jekyll and GitHub Pages. See humans.txt for more infos.",
+  "description": "The personal website of Dave Eargle. Built using Jekyll and GitHub Pages.",
   "license": "MIT",
   "private": true,
   "ignore": [
