@@ -1,7 +1,7 @@
 ---
 title: Portfolio
 layout: page
-permalink: /portfolio
+permalink: /portfolio/
 ---
 {% if site.github.url %}
     {% assign url_base = site.github.url %}
