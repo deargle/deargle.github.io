@@ -3,11 +3,6 @@ title: Portfolio
 layout: page
 permalink: /portfolio/
 ---
-{% if site.github.url %}
-    {% assign url_base = site.github.url %}
-{% else %}
-    {% assign url_base = site.url %}
-{% endif %}
 
 ### Course assignments
 
@@ -17,7 +12,7 @@ This is a sampling of assignments I have created for use in introductory Managem
 
 While I am comfortable with R and Python, I wrote these data mining assignments to be used with [RapidMiner](https://rapidminer.com/) in mind. RapidMiner has a nice graphical interface that I think introductory business students can pick up without having to learn to code. It's also open-source as well.
 
-1.  ##### [Twitter Airline Sentiment]({{url_base}}/assignments/data-mining/twitter-airline-sentiment.docx)
+1.  ##### [Twitter Airline Sentiment]({{site.url}}/assignments/data-mining/twitter-airline-sentiment.docx)
     
     _Last Updated: 4/5/2016_
     {: .date}
@@ -33,7 +28,7 @@ While I am comfortable with R and Python, I wrote these data mining assignments 
     * Working with Loops
 
 
-2.  ##### [Clinton redacted emails]({{url_base}}/assignments/data-mining/clinton-redacted-emails.docx)
+2.  ##### [Clinton redacted emails]({{site.url}}/assignments/data-mining/clinton-redacted-emails.docx)
     
     _Last Updated: 4/5/2016_
     {: .date}
@@ -48,7 +43,7 @@ While I am comfortable with R and Python, I wrote these data mining assignments 
     * Create scatterplots
     * Create and interpret K-means clusters
 
-3.  ##### [Restaurant tip ratios]({{url_base}}/assignments/data-mining/restaurant-tip-ratios.docx)
+3.  ##### [Restaurant tip ratios]({{site.url}}/assignments/data-mining/restaurant-tip-ratios.docx)
 
     _Last Updated: 4/5/2016_
     {: .date}
@@ -67,7 +62,7 @@ While I am comfortable with R and Python, I wrote these data mining assignments 
 
 #### Information security and privacy
 
-1.  ##### [Encryption assignment]({{url_base}}/assignments/privacy-security/encryption)
+1.  ##### [Encryption assignment]({{site.url}}/assignments/privacy-security/encryption)
 
     {% assign encryption_assignment = site.pages | where: "title","Encryption assignment" %}
     {% assign encryption_assignment = encryption_assignment[0] %}
