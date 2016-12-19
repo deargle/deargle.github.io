@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://data-vocabulary.org/Person">
-    <meta itemprop="url" content="{{ site.url }}" />
+    <meta itemprop="url" content="{{ site.baseurl }}" />
     <meta itemprop="title" content="{{ site.job_title }}" />
     <meta itemprop="affiliation" content="{{ site.employer }}" />
     <meta itemprop="photo" content="http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png" />
@@ -15,29 +15,29 @@
             <span class="icon-bar"></span>
         </button>    
         <div>
-        <a class="navbar-brand" itemprop="name" href="{{ site.url }}">{{ site.name }}</a>
+        <a class="navbar-brand" itemprop="name" href="{{ site.baseurl }}/">{{ site.name }}</a>
         </div>
     </div>
     <div class='navbar-collapse collapse'>
         <!--p class='navbar-text'>{{ site.description }}</p-->
         <ul class="nav navbar-nav navbar-right" >
             <li>
-                <a href="{{ site.url }}/assets/Dave_Eargle_Vitae.pdf">Vita</a>
+                <a href="{{ site.baseurl }}/assets/Dave_Eargle_Vitae.pdf">Vita</a>
             </li>
             <li id="research"{% if page.url == "/research/"%} class="active"{% endif %}>
                 <a href="https://scholar.google.com/citations?user=Nw7ibigAAAAJ&hl=en">Research</a>
             </li>
             <li id="portfolio"{% if page.url == "/portfolio/"%} class="active"{% endif %}>
-                <a href="{{ site.url }}/portfolio/">Portfolio</a>
+                <a href="{{ site.baseurl }}/portfolio/">Portfolio</a>
             </li>
             <li id="blog"{% if page.url == "/blog/"%} class="active"{% endif %}>
                 <a href="{{ url_base }}/blog/">Blog</a>
             </li>
             <li id="about"{% if page.url == "/about/"%} class="active"{% endif %}>
-                <a href="{{ site.url }}/about/" rel="author">About</a>
+                <a href="{{ site.baseurl }}/about/" rel="author">About</a>
             </li>
             <li id="contact"{% if page.url == "/contact/"%} class="active"{% endif %}>
-                <a href="{{ site.url }}/contact/">Contact</a>
+                <a href="{{ site.baseurl }}/contact/">Contact</a>
             </li>
         </ul>
     </div>

@@ -1,7 +1,7 @@
 ---
 ---
-$icon-font-path: "{{ site.url }}/assets/vendor/bootstrap-sass/assets/fonts/bootstrap/";
-$fa-font-path: "{{ site.url }}/assets/vendor/font-awesome/fonts";
+$icon-font-path: "{{ site.baseurl }}/assets/vendor/bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "{{ site.baseurl }}/assets/vendor/font-awesome/fonts";
 $font-size-base: 16px;
 
 @import "bootstrap/stylesheets/bootstrap";
@@ -78,7 +78,7 @@ body { padding-top: 20px; font-weight: 200; }
 
 /* Header */
 .hero-unit {
-    background-image: url( '{{ site.url }}/assets/img/profile-pic.jpg' );
+    background-image: url( '{{ site.baseurl }}/assets/img/profile-pic.jpg' );
     background-size: cover;
     background-position: top left;
     height: 400px;
