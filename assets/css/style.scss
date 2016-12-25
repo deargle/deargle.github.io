@@ -118,3 +118,9 @@ body { padding-top: 20px; font-weight: 200; }
 #zen { font-size: 8px; padding: 20px 0px; }
 
 @import "svg-icons";
+
+.syllabus {
+    table {
+        @extend .table;
+    }
+}

@@ -21,8 +21,10 @@
   {% if page.layout == "default" %}
   <!--div class="hero-unit">&nbsp;</div-->
   {% endif %}
-
+  
+  {% unless layout.exclude_nav %}
   {% include nav.html %}
+  {% endunless %}
 
   
   <div class="content" id="content" role="main">
