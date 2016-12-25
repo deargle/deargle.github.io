@@ -1,6 +1,7 @@
 ---
 layout: syllabus
 published: true
+permalink: /class/pitt/busbis1605/
 ---
 
 # BUSBIS 1605 Sec 1210 -- Database Management
