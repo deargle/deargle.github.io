@@ -348,9 +348,7 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>1/10</td>
       <td>Data (1)</td>
       <td>
-        <ul>
-            <li>Install <a href='http://www.mysql.com/products/workbench/'>MySQL Workbench</a></li>
-        </ul></td>
+      </td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
@@ -370,7 +368,8 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>Single Entity (3)</td>
       <td>
         <ul>
-            <li>Install MySQL Community Server (or full stack equivalent, see sofware section);</li>
+            <li>Install <a href='http://www.mysql.com/products/workbench/'>MySQL Workbench</a></li>
+            <li>Install MySQL Community Server (or full stack equivalent, see <a href='#software'>sofware section</a>)</li>
             <li>Complete three MySQL Workbench tutorials: 
                 <ol>
                     <li><a href='https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-create-connection.html'>Creating A New MySQL Connection</a></li>
