@@ -307,7 +307,7 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
 
 #### Team evaluation
 
-This [form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted by **TBA**
+This [form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted **before the final exam.**
 
 
 ### Schedule
@@ -625,6 +625,15 @@ This [form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted 
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
+    </tr>
+    <tr class='danger'>
+      <td>32</td>
+      <td>-</td>
+      <td>TBA</td>
+      <td>Final Exam)</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>Submit <a href='#team-evaluation'>Team Evaluation form</a> before the final.</td>
     </tr>
   </tbody>
 </table>
