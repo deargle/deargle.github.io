@@ -307,7 +307,7 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
 
 #### Team evaluation
 
-This [form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted **before the final exam.**
+[This form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted **before the final exam.**
 
 
 ### Schedule
@@ -334,7 +334,11 @@ This [form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted 
       <td>Thursday</td>
       <td>1/5</td>
       <td>Syllabus, introduction</td>
-      <td>&nbsp;</td>
+      <td>
+          <ul>
+            <li>Read <a href='https://www.weforum.org/agenda/2015/10/worlds-best-job-the-answer-might-surprise-you/'>World's best job</a>. Compare to Glassdoor's best jobs for 2016.</li>
+          </ul> 
+      </td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
@@ -346,7 +350,6 @@ This [form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted 
       <td>
         <ul>
             <li>Install <a href='http://www.mysql.com/products/workbench/'>MySQL Workbench</a></li>
-            <li>Read <a href='https://www.weforum.org/agenda/2015/10/worlds-best-job-the-answer-might-surprise-you/'>World's best job</a> for 2015. Compare to Glassdoor's best jobs for 2016.</li>
         </ul></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
