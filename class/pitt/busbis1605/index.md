@@ -339,7 +339,7 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
             <li>Read <a href='https://www.weforum.org/agenda/2015/10/worlds-best-job-the-answer-might-surprise-you/'>World's best job</a>. Compare to Glassdoor's best jobs for 2016.</li>
           </ul> 
       </td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/sOwiofKLeJqYHUGP2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -632,7 +632,7 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>32</td>
       <td>-</td>
       <td>TBA</td>
-      <td>Final Exam)</td>
+      <td>Final Exam</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>Submit <a href='#team-evaluation'>Team Evaluation form</a> before the final.</td>
