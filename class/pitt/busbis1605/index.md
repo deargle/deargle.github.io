@@ -347,9 +347,8 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>Tuesday</td>
       <td>1/10</td>
       <td>Data (1)</td>
-      <td>
-      </td>
       <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/3uipeb3jKPkVePxD3'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
