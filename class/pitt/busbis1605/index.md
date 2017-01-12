@@ -9,14 +9,17 @@ permalink: /class/pitt/busbis1605/
 _Spring 2016_
 
 Instructor
-: [Dave Eargle]({% link contact.md %}) <br /> 
+: [Dave Eargle]({% link contact.md %}) 
+<br /> 
 
 Class
 : Tues/Thurs 12:30PM - 1:45PM 
 : 209 Mervis Hall 
+<br />
 
 Exam
 : TBA
+<br />
 
 Google Group
 : <a href='https://groups.google.com/forum/#!forum/pitt-busbis1605-spring2017/join'>Subscribe</a>
