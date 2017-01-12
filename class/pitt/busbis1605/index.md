@@ -363,6 +363,7 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>&nbsp;</td>
       <td>
         <ul>
+            <li>Subscribe to the Google Group (link at the <a href='#'>top</a>)</li>
             <li><a href='https://www.amazon.com/gp/help/customer/display.html?nodeId=201252670'>Kindle: Turn Automatic Book Updates On</a></li>
             <li><a href='https://github.com/binarycrafts/ACRExtensions'>How to copy text from Kindle Reader</a></li>
             <li><a href='https://goo.gl/forms/j7uy1baWwvcD2WyI3'>In-class survey</a></li>
