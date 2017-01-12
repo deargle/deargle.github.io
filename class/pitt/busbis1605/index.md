@@ -231,37 +231,83 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </thead>
 <tbody>
 <tr>
-    <td>3D printing</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
     <td>Drones</td>
     <td></td>
-    <td></td>
+    <td>
+        Class 6 <br>
+        1/24
+    </td>
 </tr>
 <tr>
-    <td>Autonomous vehicles</td>
+    <td>3D printing</td>
     <td></td>
-    <td></td>
+    <td>
+        Class 7 <br>
+        1/26
+    </td>
 </tr>
 <tr>
     <td>Bitcoin</td>
     <td></td>
-    <td></td>
+    <td>
+        Class 8 <br>
+        1/31
+    </td>
 </tr>
 <tr>
-    <td>Internet of things</td>
+    <td>Autonomous vehicles</td>
     <td></td>
-    <td></td>
+    <td>
+        Class 9 <br>
+        2/2
+    </td>
 </tr>
 <tr>
     <td>Virtual reality</td>
     <td></td>
+    <td>
+        Class 10 <br>
+        2/7
+    </td>
+</tr>
+<tr>
+    <td>Internet of things</td>
     <td></td>
+    <td>
+        Class 11 <br>
+        2/9
+    </td>
 </tr>
 <tr>
     <td>Augmented reality</td>
+    <td></td>
+    <td>
+        Class 12 <br>
+        2/14
+    </td>
+</tr>
+<tr>
+    <td>Proximity marketing (iBeacon and Eddystone)</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>NFC (payments, etc)</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>IBM's Watson</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>Computer-brain interfaces</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>Smart cities</td>
     <td></td>
     <td></td>
 </tr>
