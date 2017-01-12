@@ -224,15 +224,15 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 <table class='table table-condensed' style='width:50%'>
 <thead>
 <tr>
-<th>Topic</th>
-<th>Group</th>
-<th>Date</th>
+    <th>Topic</th>
+    <th>Group</th>
+    <th>Date</th>
 </tr>
 </thead>
 <tbody>
 <tr>
     <td>Drones</td>
-    <td></td>
+    <td>Fly Boyz</td>
     <td>
         Class 6 <br>
         1/24
@@ -240,7 +240,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 <tr>
     <td>3D printing</td>
-    <td></td>
+    <td>Team Avocado</td>
     <td>
         Class 7 <br>
         1/26
@@ -248,7 +248,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 <tr>
     <td>Bitcoin</td>
-    <td></td>
+    <td>Antoons</td>
     <td>
         Class 8 <br>
         1/31
@@ -256,7 +256,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 <tr>
     <td>Autonomous vehicles</td>
-    <td></td>
+    <td>Über Ëverywhere</td>
     <td>
         Class 9 <br>
         2/2
@@ -264,7 +264,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 <tr>
     <td>Virtual reality</td>
-    <td></td>
+    <td>No name 1</td>
     <td>
         Class 10 <br>
         2/7
@@ -272,7 +272,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 <tr>
     <td>Internet of things</td>
-    <td></td>
+    <td>Group 1</td>
     <td>
         Class 11 <br>
         2/9
@@ -280,7 +280,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 <tr>
     <td>Augmented reality</td>
-    <td></td>
+    <td>No name 2</td>
     <td>
         Class 12 <br>
         2/14
