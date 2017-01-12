@@ -18,6 +18,10 @@ Class
 Exam
 : TBA
 
+Google Group
+: <a href='https://groups.google.com/forum/#!forum/pitt-busbis1605-spring2017/join'>Subscribe</a>
+: Use this for asking questions to all class members -- for instance, tech troubleshooting help questions.
+
 #### Course Description
 
 This course provides a basic understanding of information management in organizations and specifically the design and use of database systems. Topics include data modeling, relational databases, and structured query language. The course is divided into four sections: (1) information management concepts and procedures for Web-based systems; (2) data modeling and database design; (3) data analytics; (4) data management.
@@ -357,7 +361,12 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>1/12</td>
       <td>Information (2)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>
+        <ul>
+            <li><a href='https://www.amazon.com/gp/help/customer/display.html?nodeId=201252670'>Kindle: Turn Automatic Book Updates On</a></li>
+            <li><a href='https://github.com/binarycrafts/ACRExtensions'>How to copy text from Kindle Reader</a></li>
+        </ul>
+      </td>
       <td>&nbsp;</td>
     </tr>
     <tr>
