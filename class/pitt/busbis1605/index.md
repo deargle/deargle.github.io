@@ -9,7 +9,7 @@ permalink: /class/pitt/busbis1605/
 _Spring 2016_
 
 Instructor
-: [Dave Eargle]({% link contact.md %}) 
+: Dave Eargle [contact]({% link contact.md %}) 
 
 Class
 : Tues/Thurs 12:30PM - 1:45PM 
