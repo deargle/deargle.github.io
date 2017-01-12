@@ -212,7 +212,7 @@ A presentation is required from each group on a data management technology, with
 * The presentation should focus on the applications of the selected technology and the business opportunities it provides.
 * Spend no more than 3 minutes, if you judge it necessary, describing or demonstrating how the technology works.
 * A video should not be a substitute for your presentation but should augment it to visualize a point you cannot present otherwise.
-* No handouts (save the trees), but you can post the link to your presentation to the Google Group for the class.
+* No handouts (save the trees), but you can share a link to your presentation with me (the professor), and I'll share it with the  class.
 
 Some suggested topics are listed below (assigned topics have a date of presentation), and you can propose other topics. You should submit your bid for a topic via [e-mail]({% link contact.md %}). When submitting a bid, also specify your team's name. Those who bid early present early.
 
