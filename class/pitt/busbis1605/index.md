@@ -425,7 +425,7 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>
         <ul>
             <li>Install <a href='http://www.mysql.com/products/workbench/'>MySQL Workbench</a></li>
-            <li>Install MySQL Community Server (or full stack equivalent, see <a href='#software'>sofware section</a>)</li>
+            <li>Install <a href='http://dev.mysql.com/downloads/mysql/'>MySQL Community Server</a> (or full stack equivalent, see <a href='#software'>sofware section</a>)</li>
             <li>Complete three MySQL Workbench tutorials: 
                 <ol>
                     <li><a href='https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-create-connection.html'>Creating A New MySQL Connection</a></li>
