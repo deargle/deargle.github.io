@@ -280,7 +280,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 <tr>
     <td>Augmented reality</td>
-    <td>No name 2</td>
+    <td>Purple People Eaters</td>
     <td>
         Class 12 <br>
         2/14
