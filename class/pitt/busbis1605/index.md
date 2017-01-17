@@ -9,7 +9,7 @@ permalink: /class/pitt/busbis1605/
 _Spring 2016_
 
 Instructor
-: Dave Eargle [contact]({% link contact.md %}) 
+: Dave Eargle ([contact]({% link contact.md %})) 
 
 Class
 : Tues/Thurs 12:30PM - 1:45PM 
@@ -288,8 +288,11 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 <tr>
     <td>Proximity marketing (iBeacon and Eddystone)</td>
-    <td></td>
-    <td></td>
+    <td>The Lonely Two</td>
+    <td>
+      Class 13 <br>
+      2/16
+    </td>
 </tr>
 <tr>
     <td>NFC (payments, etc)</td>
@@ -438,6 +441,8 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>
         <ul>
             <li>Load <a href='http://richardtwatson.com/dm6e/Reader/sql/databases.sql'>databases used in textbook plus the ClassicModels database.</a></li>
+            <li><a href='https://goo.gl/forms/KFpXdpjLPoESw5dF2'>In-class survey</a></li>
+            <li>Extra practice: <a href='http://richardtwatson.com/dm6e/Reader/answers/chapter03.html'>textbook exercises</a> and <a href='http://richardtwatson.com/dm6e/Reader/ClassicModels.html'>ClassicModels</a></li>
         </ul></td>
       <td>&nbsp;</td>
     </tr>
