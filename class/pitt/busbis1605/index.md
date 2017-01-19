@@ -15,12 +15,16 @@ Class
 : Tues/Thurs 12:30PM - 1:45PM 
 : 209 Mervis Hall 
 
+Office Hours
+: By appointment (Skype or Hangouts preferred)
+
 Exam
 : TBA
 
 Google Group
 : <a href='https://groups.google.com/forum/#!forum/pitt-busbis1605-spring2017/join'>Subscribe</a>
-: Use this for asking questions to all class members -- for instance, tech troubleshooting help questions.
+: <a href='https://groups.google.com/forum/#!forum/pitt-busbis1605-spring2017'>Visit the group</a>
+: Use the group for asking questions to all class members -- for instance, tech troubleshooting help questions.
 
 #### Course Description
 
@@ -362,6 +366,16 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
 
 [This form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted **before the final exam.**
 
+### Quick Links
+<ul>
+   <li>The <a href='https://goo.gl/forms/3FY7iFDAQLdwqITZ2'>I'm Done Quiz</a></li>
+   
+   <li><a href='http://www.richardtwatson.com/dm6e/index.html'>Textbook homepage</a></li>
+   <ul>
+      <li><a href='http://www.richardtwatson.com/dm6e/Reader/slides.html'>Textbook slides</a></li>
+      <li>Extra practice: Textbook <a href='http://richardtwatson.com/dm6e/Reader/ClassicModels.html'>ClassicModels</a> question set</li>
+   </ul>
+</ul>
 
 ### Schedule
 
@@ -452,7 +466,9 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>1/19</td>
       <td>Single Entity (3)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>
+         <a href='https://goo.gl/forms/RLnM0amkRHAdMzz93'>In-class survey</a>
+      </td>
       <td><a href='#team-work'>Team agreement</a></td>
     </tr>
     <tr>
