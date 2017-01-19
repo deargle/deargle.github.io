@@ -268,7 +268,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 <tr>
     <td>Virtual reality</td>
-    <td>No name 1</td>
+    <td>Nebachenezzer</td>
     <td>
         Class 10 <br>
         2/7
