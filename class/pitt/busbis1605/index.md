@@ -476,8 +476,8 @@ Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for proj
       <td>Tuesday</td>
       <td>1/24</td>
       <td>One-to-Many relationship (4)</td>
-      <td><a href='https://goo.gl/forms/7Y4JGIYLc6EzArm82' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/7Y4JGIYLc6EzArm82' target='_blank'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A1</a></td>
     </tr>
     <tr>
