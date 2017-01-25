@@ -123,4 +123,9 @@ body { padding-top: 20px; font-weight: 200; }
     table {
         @extend .table;
     }
+    
+}
+
+dt {
+    margin-top: 5px;
 }

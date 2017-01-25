@@ -9,14 +9,22 @@ permalink: /class/pitt/busbis1605/
 _Spring 2016_
 
 Instructor
-: [Dave Eargle]({% link contact.md %}) <br /> 
+: Dave Eargle ([contact]({% link contact.md %})) 
 
 Class
 : Tues/Thurs 12:30PM - 1:45PM 
 : 209 Mervis Hall 
 
+Office Hours
+: By appointment (Skype or Hangouts preferred)
+
 Exam
 : TBA
+
+Google Group
+: <a href='https://groups.google.com/forum/#!forum/pitt-busbis1605-spring2017/join'>Subscribe</a>
+: <a href='https://groups.google.com/forum/#!forum/pitt-busbis1605-spring2017'>Visit the group</a>
+: Use the group for asking questions to all class members -- for instance, tech troubleshooting help questions.
 
 #### Course Description
 
@@ -212,7 +220,7 @@ A presentation is required from each group on a data management technology, with
 * The presentation should focus on the applications of the selected technology and the business opportunities it provides.
 * Spend no more than 3 minutes, if you judge it necessary, describing or demonstrating how the technology works.
 * A video should not be a substitute for your presentation but should augment it to visualize a point you cannot present otherwise.
-* No handouts (save the trees), but you can post the link to your presentation to the Google Group for the class.
+* No handouts (save the trees), but you can share a link to your presentation with me (the professor), and I'll share it with the  class.
 
 Some suggested topics are listed below (assigned topics have a date of presentation), and you can propose other topics. You should submit your bid for a topic via [e-mail]({% link contact.md %}). When submitting a bid, also specify your team's name. Those who bid early present early.
 
@@ -220,44 +228,93 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 <table class='table table-condensed' style='width:50%'>
 <thead>
 <tr>
-<th>Topic</th>
-<th>Group</th>
-<th>Date</th>
+    <th>Topic</th>
+    <th>Group</th>
+    <th>Date</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-    <td>3D printing</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
     <td>Drones</td>
-    <td></td>
-    <td></td>
+    <td>Fly Boyz</td>
+    <td>
+        Class 6 <br>
+        1/24
+    </td>
 </tr>
 <tr>
-    <td>Autonomous vehicles</td>
-    <td></td>
-    <td></td>
+    <td>3D printing</td>
+    <td>Team Avocado</td>
+    <td>
+        Class 7 <br>
+        1/26
+    </td>
 </tr>
 <tr>
     <td>Bitcoin</td>
-    <td></td>
-    <td></td>
+    <td>Antoons</td>
+    <td>
+        Class 8 <br>
+        1/31
+    </td>
 </tr>
 <tr>
-    <td>Internet of things</td>
-    <td></td>
-    <td></td>
+    <td>Autonomous vehicles</td>
+    <td>Über Ëverywhere</td>
+    <td>
+        Class 9 <br>
+        2/2
+    </td>
 </tr>
 <tr>
     <td>Virtual reality</td>
+    <td>Nebachenezzer</td>
+    <td>
+        Class 10 <br>
+        2/7
+    </td>
+</tr>
+<tr>
+    <td>Internet of things</td>
+    <td>Group 1</td>
+    <td>
+        Class 11 <br>
+        2/9
+    </td>
+</tr>
+<tr>
+    <td>Augmented reality</td>
+    <td>Purple People Eaters</td>
+    <td>
+        Class 12 <br>
+        2/14
+    </td>
+</tr>
+<tr>
+    <td>Proximity marketing (iBeacon and Eddystone)</td>
+    <td>The Lonely Two</td>
+    <td>
+      Class 13 <br>
+      2/16
+    </td>
+</tr>
+<tr>
+    <td>NFC (payments, etc)</td>
     <td></td>
     <td></td>
 </tr>
 <tr>
-    <td>Augmented reality</td>
+    <td>IBM's Watson</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>Computer-brain interfaces</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>Smart cities</td>
     <td></td>
     <td></td>
 </tr>
@@ -309,6 +366,16 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
 
 [This form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted **before the final exam.**
 
+### Quick Links
+<ul>
+   <li>The <a href='https://goo.gl/forms/3FY7iFDAQLdwqITZ2'>I'm Done Quiz</a></li>
+   
+   <li><a href='http://www.richardtwatson.com/dm6e/index.html'>Textbook homepage</a></li>
+   <ul>
+      <li><a href='http://www.richardtwatson.com/dm6e/Reader/slides.html'>Textbook slides</a></li>
+      <li>Extra practice: Textbook <a href='http://richardtwatson.com/dm6e/Reader/ClassicModels.html'>ClassicModels</a> question set</li>
+   </ul>
+</ul>
 
 ### Schedule
 
@@ -339,7 +406,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
             <li>Read <a href='https://www.weforum.org/agenda/2015/10/worlds-best-job-the-answer-might-surprise-you/'>World's best job</a>. Compare to Glassdoor's best jobs for 2016.</li>
           </ul> 
       </td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/sOwiofKLeJqYHUGP2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -347,9 +414,8 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>Tuesday</td>
       <td>1/10</td>
       <td>Data (1)</td>
-      <td>
-      </td>
-      <td>&nbsp;</td>
+      <td>Acquire the <a href='#text'>Textbook</a></td>
+      <td><a href='https://goo.gl/forms/3uipeb3jKPkVePxD3'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -358,7 +424,14 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>1/12</td>
       <td>Information (2)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>
+        <ul>
+            <li>Subscribe to the Google Group (link at the <a href='#'>top</a>)</li>
+            <li><a href='https://www.amazon.com/gp/help/customer/display.html?nodeId=201252670'>Kindle: Turn Automatic Book Updates On</a></li>
+            <li><a href='https://github.com/binarycrafts/ACRExtensions'>How to copy text from Kindle Reader</a></li>
+            <li><a href='https://goo.gl/forms/j7uy1baWwvcD2WyI3'>In-class survey</a></li>
+        </ul>
+      </td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -369,7 +442,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>
         <ul>
             <li>Install <a href='http://www.mysql.com/products/workbench/'>MySQL Workbench</a></li>
-            <li>Install MySQL Community Server (or full stack equivalent, see <a href='#software'>sofware section</a>)</li>
+            <li>Install <a href='http://dev.mysql.com/downloads/mysql/'>MySQL Community Server</a> (or full stack equivalent, see <a href='#software'>sofware section</a>)</li>
             <li>Complete three MySQL Workbench tutorials: 
                 <ol>
                     <li><a href='https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-create-connection.html'>Creating A New MySQL Connection</a></li>
@@ -382,6 +455,8 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>
         <ul>
             <li>Load <a href='http://richardtwatson.com/dm6e/Reader/sql/databases.sql'>databases used in textbook plus the ClassicModels database.</a></li>
+            <li><a href='https://goo.gl/forms/KFpXdpjLPoESw5dF2'>In-class survey</a></li>
+            <li>Extra practice: <a href='http://richardtwatson.com/dm6e/Reader/answers/chapter03.html'>textbook exercises</a> and <a href='http://richardtwatson.com/dm6e/Reader/ClassicModels.html'>ClassicModels</a></li>
         </ul></td>
       <td>&nbsp;</td>
     </tr>
@@ -391,7 +466,9 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>1/19</td>
       <td>Single Entity (3)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>
+         <a href='https://goo.gl/forms/RLnM0amkRHAdMzz93'>In-class survey</a>
+      </td>
       <td><a href='#team-work'>Team agreement</a></td>
     </tr>
     <tr>
@@ -400,7 +477,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>1/24</td>
       <td>One-to-Many relationship (4)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/7Y4JGIYLc6EzArm82' target='_blank'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A1</a></td>
     </tr>
     <tr>
@@ -409,7 +486,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>1/26</td>
       <td>One-to-Many relationship (4)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/E8SSIQxtWcZB1vAv1' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -632,7 +709,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>32</td>
       <td>-</td>
       <td>TBA</td>
-      <td>Final Exam)</td>
+      <td>Final Exam</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>Submit <a href='#team-evaluation'>Team Evaluation form</a> before the final.</td>
