@@ -104,7 +104,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
 * SQL exercises are based on the [ClassicModels database](http://richardtwatson.com/dm6e/Reader/ClassicModels.html).
 * Please use the assignment identifier so I can keep track of your submissions. As I have many assignments to grade, help me to be efficient.
 * **Resubmission**: If you receive less than full points for an exercise, you can make one resubmission up to one week after the intital due date for the first three assignments.
-* Please submit via CourseWeb and follow the specificied [guidelines](http://people.terry.uga.edu/rwatson/general/dmassignmentsV2.html).
+* Please submit via CourseWeb and **follow the specificied [assignment guidelines]({{ site.baseurl }}/class/general/assignment_guidelines/)**.
 
 <table class='table table-hover'>
 <thead>
@@ -269,7 +269,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 
 Cell phones have replaced landlines in many situations, except hotels, yet the guests of most hotels have a cell phone. Design the database for an app to replace a room's landline and the various paper documentation you find in a hotel room. Convert the data model to a relational database and write 10 queries to access the database. The queries should demonstrate your breadth of understanding of SQL (i.e., 10 simple queries will not score as well as say 4 simple queries and 6 nontrivial queries).
 
-Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for database projects.
+Follow the [guidelines for database project submissions]({{ site.baseurl }}/class/general/dbguidelines/).
 
 Data modeling is difficult and to facilitate learning an initial model must be submitted previous to the due date (see the schedule).
 
@@ -280,7 +280,7 @@ Develop a data model for an application of your choice. The problem must be at l
 
 An initial model must be submitted previous to the due date (see the schedule).
 
-Follow the [guidelines]({{ site.baseurl }}/class/general/dbguidelines/) for project submissions.
+Follow the [guidelines for database project submissions]({{ site.baseurl }}/class/general/dbguidelines/) .
 
 
 #### Grading
