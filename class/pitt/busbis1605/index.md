@@ -495,7 +495,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>1/31</td>
       <td>Many-to-Many relationship (5)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/MEeFFnXsfqimj7wQ2' target='_blank'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A2</a></td>
     </tr>
     <tr>
