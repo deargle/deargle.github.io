@@ -324,7 +324,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 
 #### Database design and implementation project #1 (group)
 
-Cell phones have replaced landlines in many situations, except hotels, yet the guests of most hotels have a cell phone. Design the database for an app to replace a room's landline and the various paper documentation you find in a hotel room. Convert the data model to a relational database and write 10 queries to access the database. The queries should demonstrate your breadth of understanding of SQL (i.e., 10 simple queries will not score as well as say 4 simple queries and 6 nontrivial queries).
+Cell phones have replaced landlines in many situations, except hotels, yet the guests of most hotels have a cell phone. Design the database for an app to replace a room's <a href='https://docs.google.com/document/d/1iKqusrW1mp-yhRWcFXtYy0_5P0UfMBI_2ZoGZH8sAOE/edit?usp=sharing' target='_blank'>landline and the various paper documentation you find in a hotel room</a>. Convert the data model to a relational database and write 10 queries to access the database. The queries should demonstrate your breadth of understanding of SQL (i.e., 10 simple queries will not score as well as say 4 simple queries and 6 nontrivial queries).
 
 Follow the [guidelines for database project submissions]({{ site.baseurl }}/class/general/dbguidelines/).
 
@@ -504,7 +504,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/2</td>
       <td>Many-to-Many relationship (5)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/YnqE24L2Ta0t2Ez53' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
