@@ -513,7 +513,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/7</td>
       <td>Recursive Relationships (6)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/6NTTud9scA8VwpRr2' target='_blank'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A3</a></td>
     </tr>
     <tr>
