@@ -522,7 +522,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/9</td>
       <td>Recursive Relationships (6)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/kDOVTqkFnVQ1qQ1w2' target='_blank'>In-class survey</a></td>
       <td>Initial model of <a href='#database-design-and-implementation-project-1-group'>Project #1</a></td>
     </tr>
     <tr>
