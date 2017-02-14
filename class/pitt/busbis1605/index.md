@@ -530,7 +530,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>Tuesday</td>
       <td>2/14</td>
       <td>Data modeling (7)</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/pLUvc6k0JY46N5UY2' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
       <td><a href='#exercises-on-your-own'>A4</a></td>
     </tr>
