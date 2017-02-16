@@ -540,7 +540,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/16</td>
       <td>Data modeling (7)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/BNlrJvaF64AJXH6v1' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
