@@ -549,7 +549,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/21</td>
       <td>SQL (10)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/hxyI9PORQ9ZoJOCG3' target='_blank'>In-class survey</a></td>
       <td><a href='#database-design-and-implementation-project-1-group'>Project #1</a></td>
     </tr>
     <tr>
