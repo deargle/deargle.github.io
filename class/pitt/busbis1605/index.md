@@ -558,7 +558,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/23</td>
       <td>SQL (10)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/WOeGl0WFipT2AhPC2' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr class='danger'>
