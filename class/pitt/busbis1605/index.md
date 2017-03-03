@@ -567,7 +567,11 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/28</td>
       <td>Mid-term exam</td>
       <td>&nbsp;</td>
-      <td><a href='midterm_spring_2017.docx'><b>The Midterm</b></a></td>
+      <td>
+         <ul>
+         <li><a href='midterm_spring_2017.docx'><b>The Midterm -- Answers</b></a></li>
+         </ul>
+      </td>
       <td><a href='#exercises-on-your-own'>A5</a></td>
     </tr>
     <tr class='danger'>
