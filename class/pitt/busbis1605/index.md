@@ -161,7 +161,8 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
         <b>SQL</b>
         <ul>
             <li>Report the value of each cancelled order for each customer. Sort by customer name and order number.</li>
-            <li>Report the total value ordered for each product line in January 2004 sorted by product line. Hint: See <a href='http://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html'>MySQL date functions</a>.</li>
+            <li>Report the total value ordered for each product line in January 2004 sorted by product line. 
+            : See <a href='http://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html'>MySQL date functions</a>.</li>
         </ul>
     </td>
 </tr>
@@ -194,7 +195,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
 <tr>
     <td>A7</td>
     <td>Data visualization</td>
-    <td>Graph CO2 emissions per capita by year for each of the four countries in the prior exercise. Show separate lines for each country. Hint: To convert a factor to a numeric, use as.numeric(as.character()).</td>
+    <td>Graph CO2 emissions per capita by year for each of the four countries in the prior exercise. Show separate lines for each country. Hint: For a tidier x-axis, see the "Tick sizes and padding" section of the <a href='http://ggvis.rstudio.com/axes-legends.html'>ggvis axes documentation</a>).</td>
 </tr>
 <tr>
     <td>A8</td>
