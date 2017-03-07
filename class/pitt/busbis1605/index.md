@@ -161,7 +161,8 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
         <b>SQL</b>
         <ul>
             <li>Report the value of each cancelled order for each customer. Sort by customer name and order number.</li>
-            <li>Report the total value ordered for each product line in January 2004 sorted by product line. Hint: See <a href='http://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html'>MySQL date functions</a>.</li>
+            <li>Report the total value ordered for each product line in January 2004 sorted by product line. 
+            : See <a href='http://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html'>MySQL date functions</a>.</li>
         </ul>
     </td>
 </tr>
@@ -194,7 +195,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
 <tr>
     <td>A7</td>
     <td>Data visualization</td>
-    <td>Graph CO2 emissions per capita by year for each of the four countries in the prior exercise. Show separate lines for each country. Hint: To convert a factor to a numeric, use as.numeric(as.character()).</td>
+    <td>Graph CO2 emissions per capita by year for each of the four countries in the prior exercise. Show separate lines for each country. Hint: For a tidier x-axis, see the "Tick sizes and padding" section of the <a href='http://ggvis.rstudio.com/axes-legends.html'>ggvis axes documentation</a>).</td>
 </tr>
 <tr>
     <td>A8</td>
@@ -324,7 +325,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 
 #### Database design and implementation project #1 (group)
 
-Cell phones have replaced landlines in many situations, except hotels, yet the guests of most hotels have a cell phone. Design the database for an app to replace a room's landline and the various paper documentation you find in a hotel room. Convert the data model to a relational database and write 10 queries to access the database. The queries should demonstrate your breadth of understanding of SQL (i.e., 10 simple queries will not score as well as say 4 simple queries and 6 nontrivial queries).
+Cell phones have replaced landlines in many situations, except hotels, yet the guests of most hotels have a cell phone. Design the database for an app to replace a room's <a href='https://docs.google.com/document/d/1iKqusrW1mp-yhRWcFXtYy0_5P0UfMBI_2ZoGZH8sAOE/edit?usp=sharing' target='_blank'>landline and the various paper documentation you find in a hotel room</a>. Convert the data model to a relational database and write 10 queries to access the database. The queries should demonstrate your breadth of understanding of SQL (i.e., 10 simple queries will not score as well as say 4 simple queries and 6 nontrivial queries).
 
 Follow the [guidelines for database project submissions]({{ site.baseurl }}/class/general/dbguidelines/).
 
@@ -495,7 +496,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>1/31</td>
       <td>Many-to-Many relationship (5)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/MEeFFnXsfqimj7wQ2' target='_blank'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A2</a></td>
     </tr>
     <tr>
@@ -504,7 +505,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/2</td>
       <td>Many-to-Many relationship (5)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/YnqE24L2Ta0t2Ez53' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -513,7 +514,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/7</td>
       <td>Recursive Relationships (6)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/6NTTud9scA8VwpRr2' target='_blank'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A3</a></td>
     </tr>
     <tr>
@@ -522,7 +523,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/9</td>
       <td>Recursive Relationships (6)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/kDOVTqkFnVQ1qQ1w2' target='_blank'>In-class survey</a></td>
       <td>Initial model of <a href='#database-design-and-implementation-project-1-group'>Project #1</a></td>
     </tr>
     <tr>
@@ -530,7 +531,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>Tuesday</td>
       <td>2/14</td>
       <td>Data modeling (7)</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/pLUvc6k0JY46N5UY2' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
       <td><a href='#exercises-on-your-own'>A4</a></td>
     </tr>
@@ -540,7 +541,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/16</td>
       <td>Data modeling (7)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/BNlrJvaF64AJXH6v1' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -549,7 +550,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/21</td>
       <td>SQL (10)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/hxyI9PORQ9ZoJOCG3' target='_blank'>In-class survey</a></td>
       <td><a href='#database-design-and-implementation-project-1-group'>Project #1</a></td>
     </tr>
     <tr>
@@ -558,7 +559,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/23</td>
       <td>SQL (10)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/WOeGl0WFipT2AhPC2' target='_blank'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr class='danger'>
@@ -567,7 +568,11 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>2/28</td>
       <td>Mid-term exam</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>
+         <ul>
+         <li><a href='midterm_spring_2017.pdf'><b>The Midterm -- Answers</b></a></li>
+         </ul>
+      </td>
       <td><a href='#exercises-on-your-own'>A5</a></td>
     </tr>
     <tr class='danger'>
