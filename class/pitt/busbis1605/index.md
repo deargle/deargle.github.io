@@ -657,7 +657,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/4</td>
       <td>HDFS and MapReduce (17)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='{{ site.baseurl }}/class/general/rmr2/'>Install rmr2</a></td>
       <td><a href='#exercises-on-your-own'>A7</a></td>
     </tr>
     <tr>
