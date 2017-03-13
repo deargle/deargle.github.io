@@ -570,7 +570,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>&nbsp;</td>
       <td>
          <ul>
-         <li><a href='midterm_spring_2017.pdf'><b>The Midterm -- Answers</b></a></li>
+         <li><a href='midterm_spring_2017_answers.pdf'><b>The Midterm -- Answers</b></a></li>
          </ul>
       </td>
       <td><a href='#exercises-on-your-own'>A5</a></td>
