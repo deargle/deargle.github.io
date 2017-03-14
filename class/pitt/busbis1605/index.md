@@ -608,7 +608,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/14</td>
       <td>Spatial &amp; Temporal data (11)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/9AdR2DsxbjoVqVFq2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
