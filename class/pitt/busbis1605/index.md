@@ -617,7 +617,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/16</td>
       <td>Organizational Intelligence (13) &amp;&nbsp;Pivot Tables</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/zyeuHUkCnsstEAnk2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
