@@ -626,7 +626,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/21</td>
       <td>Introduction to R (14)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/kETe73UFZGeLUekc2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
