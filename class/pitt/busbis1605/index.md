@@ -635,7 +635,10 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/23</td>
       <td>Introduction to R (14)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><ul>
+      <li><a href='https://goo.gl/forms/ktkolQbkuzcVvRcO2'>In-class survey</a></li>
+      <li><a href='http://people.terry.uga.edu/rwatson/data/CO2_yearly_emissions.csv'>co2_yearly_emmissions.csv</a></li>
+      </ul></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
