@@ -647,7 +647,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/28</td>
       <td>Data visualization (15)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/TLxTtU9jOpQNAFww2'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A6</a></td>
     </tr>
     <tr>
