@@ -570,7 +570,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>&nbsp;</td>
       <td>
          <ul>
-         <li><a href='midterm_spring_2017.pdf'><b>The Midterm -- Answers</b></a></li>
+         <li><a href='midterm_spring_2017_answers.pdf'><b>The Midterm -- Answers</b></a></li>
          </ul>
       </td>
       <td><a href='#exercises-on-your-own'>A5</a></td>
@@ -608,7 +608,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/14</td>
       <td>Spatial &amp; Temporal data (11)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/9AdR2DsxbjoVqVFq2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -617,7 +617,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/16</td>
       <td>Organizational Intelligence (13) &amp;&nbsp;Pivot Tables</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/zyeuHUkCnsstEAnk2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -626,7 +626,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/21</td>
       <td>Introduction to R (14)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/kETe73UFZGeLUekc2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -635,7 +635,10 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/23</td>
       <td>Introduction to R (14)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><ul>
+      <li><a href='https://goo.gl/forms/ktkolQbkuzcVvRcO2'>In-class survey</a></li>
+      <li><a href='http://people.terry.uga.edu/rwatson/data/CO2_yearly_emissions.csv'>co2_yearly_emmissions.csv</a></li>
+      </ul></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -644,7 +647,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/28</td>
       <td>Data visualization (15)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/TLxTtU9jOpQNAFww2'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A6</a></td>
     </tr>
     <tr>
