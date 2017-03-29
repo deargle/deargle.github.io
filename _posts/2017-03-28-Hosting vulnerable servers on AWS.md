@@ -1,59 +1,62 @@
 ---
 title: Hosting vulnerable servers on AWS
-description:
+description: Notebook on how I configured an AWS VPC with an OpenVPN server for hosting a set of vulnerable virtual images, 
+    intended for students to do vulnerability assessments with.
 ---
 
-I'll be starting a new job at CU Boulder soon. One of my responsibilities will be to teach an information security management class to business school students. I don't know whether there will be a lab available where I can host VMs for students to do vulnerability assessments on, and I can't just distribute OVAs for this because of how easy it would be to boot into root. So I want to host vulnerable servers on something like AWS. Obvious problem is that vulnerable servers are... vulnerable. I don't want the boxes to get pwned before the students can start playing with them.
-
-So for the last day or so I learned about taking vulnerable VMs and launching them into a VPN on AWS. This post documents what I learned. (Prepare yourself for acronyms aplenty.)
+I'll be starting a new job at CU Boulder soon. One of my responsibilities will be to teach an information security management class to business school students. I don't know whether there will be a lab available where I can host VMs for students to do vulnerability assessments on, and I can't just distribute OVAs for this because of how easy it would be to boot into root. So I want to host vulnerable servers on something like AWS. Obvious problem is that vulnerable servers are... vulnerable. I don't want the boxes to be pwned before the students can start playing with them. So for the last day or so I learned about taking vulnerable VMs and launching them into a VPN on AWS. This post documents what I learned. 
 
 Went like this:
 
 * make a vulnerable virtual image
-* Convert an OVA to an AMI 
+* Export the appliance and convert it to an AMI 
 * create a VPC on AWS
 * configure OpenVPN community on an Ubuntu AMI
-* launch 1-to-many vuln AMIs into the VPN
+* launch 1-to-many instances of your vulnerable AMIs into the VPN
 
 ### Make a vulnerable virtual image, then export it
 
-I skipped this step, but here you'd create a VM however you like, and make it nice and vulnerable. Then you get your image into a format that AWS likes. There are [several acceptable formats for AWS mentioned in the docs](http://docs.aws.amazon.com/vm-import/latest/userguide/export-vm-image.html), OVA included. In VirtualBox, you can export a VM as an OVA using `File > Export Appliance...`. 
+I skipped this step, but here you'd create a VM however you like, making it nice and vulnerable. Then you export your image into a format that AWS likes. There are [several acceptable formats for AWS mentioned in the docs](http://docs.aws.amazon.com/vm-import/latest/userguide/export-vm-image.html), OVA included. In VirtualBox, you can export a VM as an OVA using `File > Export Appliance...`. 
 
-The important thing to note here is that only certain OSes are compatible with AWS's AMI format. [Thankfully, the list is long](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html).
+The important thing to note here is that only certain OSes are compatible with AWS's AMI format. [Thankfully, the list is long.](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html)
+
 
 ### Convert your image to an AMI 
 
-I started here with an unedited copy of [Violator](https://www.vulnhub.com/entry/violator-1,153/), pulled from VulnHub. 
+I started at this step, with an unedited copy of [Violator](https://www.vulnhub.com/entry/violator-1,153/), pulled from VulnHub. 
 
 You'll need the [AWS CLI](https://aws.amazon.com/cli/).
 
-The process for creating an AMI involves 
+The process for creating an AMI involves: 
 
 * uploading your image to an S3 bucket, 
 * creating an IAM `VM Import Service Role`, 
 * invoking the magic spells in the aws console to import the image from S3 into an AMI.
 
-Docs [here](http://docs.aws.amazon.com/vm-import/latest/userguide/import-vm-image.html). Went smoothly for me, although the actual import took 10+ minutes.
+Docs [here](http://docs.aws.amazon.com/vm-import/latest/userguide/import-vm-image.html). Went smoothly for me, although the actual import took 10+ minutes. When you create your own AMI, AWS launches a copy of your instance appliance and then takes a snapshot of it. That snapshot will be associated with your new AMI, and is not deletable unless you first unregister your AMI. So be aware, you'll be paying for the storage of that snapshot as long as you have the AMI.
+
 
 ### Create a VPC
 
-I created a new VPC just for vulnerable servers + the OpenVPN server. I created two subnets: one default public, where I put the openVPN server, and another default private, where all the violator instances were launched.
+I created a new VPC intended just for vulnerable servers + the OpenVPN server. I created two subnets: one default public, where I put the openVPN server, and another default private, where all the violator instances were launched.
 
 In my config:
 
-* vpc with subnet `172.32.0.0/16` (just has to be different from whatever VPCs you already have)
+* vpc with subnet `172.32.0.0/16`. Your CIDR just has to be different from whatever VPCs you already have.
 * created a new internet gateway, attached it to the new VPC
 * Two subnets, named one 'public' and the other 'private', CIDR's `172.32.0.0/20` and `172.32.16.0/20`
-* edited the route table for the two subnets to include the new gateway: Destination `0.0.0.0/0` Target `<the gateway>`. Although you may not want your vulnerable servers to have internet access? Up to you. OpenVPN definitely needs it.
+* edited the route table for the two subnets to include the new internet gateway: Destination `0.0.0.0/0` Target `<the gateway>`. Although you may not want your vulnerable servers to have internet access? Up to you. OpenVPN definitely needs it.
 * While in the VPC Dashboard, check your Network ACLs, and make sure that you're wide open on inbound rules. Also check your default security group for your new VPC, and change the source to `0.0.0.0/0`. (I don't use the default for the openvpn server, just for the instances launched into the private-only subnet).
 
-Now I admit something, that last step took me late into the night. I must have kept looking over the Source error, I could not figure out why I couldn't ssh into my openvpn server. I'm pretty certain the security group stuff here is the same as it is on the ec2 dashboard page. Note to self though, if no connectivity, it's almost certaintly the security group stuff somewhere.
+Now I'll admit something: that last step took me late into the night. I must have kept looking over the Source error in the security rule, I could not figure out why I couldn't ssh into my openvpn server. I'm pretty certain the security group stuff here is the same as it is on the ec2 dashboard page. Note to self though, if no connectivity, it's almost certaintly security group stuff somewhere.
 
 
 
 ### Configure OpenVPN community on an Ubuntu AMI
 
-Now from the EC2 dashboard. I created a new instance micro ubuntu 16.04 image.
+Now from the EC2 dashboard. I created a new micro instance from an official ubuntu 16.04 AWS AMI.
+
+During the launch config: 
 
 * Change Network to the new VPC
 * Change Subnet to your public one
@@ -70,7 +73,7 @@ For configuring OpenVPN server, I leaned mostly on [this blog post](https://rbge
 Assume `sudo` when not root.
 
 ```
-apt-get update -y && apt-get upgrade
+apt-get update -y && apt-get upgrade -y
 apt-get install openvpn easy-rsa
 cd /etc/openvpn/
 mkdir easy-rsa
