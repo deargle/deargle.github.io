@@ -656,7 +656,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/30</td>
       <td>Data visualization (15)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/BDazYLcliXYSTR7B2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
