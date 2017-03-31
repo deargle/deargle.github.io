@@ -1,0 +1,164 @@
+---
+layout: assignment
+title: Lab &ndash; Symmetric Encryption and Hashing 
+---
+
+# Part 1
+
+## Polyalphabetic substitution and Transposition Ciphers
+
+1.  Using polyalphabetic substitution, with alphabet a–z (no caps) and a space (as the last character of the alphabet), use the private key security to encrypt the plaintext message:
+     
+         send money
+	
+    To help you, use the following formula:
+	
+        Encryption: ciphertext = (plaintext + key) mod 27
+
+        Decryption: plaintext = (ciphertext - key) mod 27
+	
+    Important: Number your alphabet so that it starts with zero, e.g., A = 0.
+    
+    **Answer:**
+    
+2.	Consider the transposition method discussed in class.  Assume the plaintext is
+		
+        attack postponed until two am
+		
+    and the key is `{4312567}`
+        
+    Create the ciphertext as was demonstrated in class. Pad the message so that there is an even block of characters, meaning that each column will have the same number of characters. One way to do this is to pad the block by repeating the message until the block is complete. Show your result.
+    
+    **Answer:**
+
+## Frequency analysis
+
+Open CrypTool 2.0. Under Templates, select Cryptanalysis, then Classical, and double-click on Frequency Analysis. Paste the cipher text below into the Text Input box and hit the Play button.  The results of the analysis will show up in the box on the right.
+
+Use CrypTool’s cryptanalysis function, “Frequency Test,” to analyze the following message:
+
+    Hvs Qosgof qwdvsf wg boasr othsf Xizwig Qosgof, kvc, oqqcfrwbu hc Gishcbwig, igsr wh kwhv o gvwth ct hvfss hc dfchsqh asggousg ct awzwhofm gwubwtwqobqs. Kvwzs Qosgof'g kog hvs twfgh fsqcfrsr igs ct hvwg gqvsas, chvsf gipghwhihwcb qwdvsfg ofs ybckb hc vojs pssb igsr sofzwsf.
+
+    Wt vs vor obmhvwbu qcbtwrsbhwoz hc gom, vs kfchs wh wb qwdvsf, hvoh wg, pm gc qvobuwbu hvs cfrsf ct hvs zshhsfg ct hvs ozdvopsh, hvoh bch o kcfr qcizr ps aors cih. Wt obmcbs kwgvsg hc rsqwdvsf hvsgs, obr ush oh hvswf asobwbu, vs aigh gipghwhihs hvs tcifhv zshhsf ct hvs ozdvopsh, boaszm R, tcf O, obr gc kwhv hvs chvsfg.
+    —Gishcbwig, Zwts ct Xizwig Qosgof 56
+
+    Vwg bsdvsk, Oiuighig, ozgc igsr hvs qwdvsf, pih kwhv o fwuvh gvwth ct cbs, obr wh rwr bch kfod ofcibr hc hvs psuwbbwbu ct hvs ozdvopsh:
+    Kvsbsjsf vs kfchs wb qwdvsf, vs kfchs P tcf O, Q tcf P, obr hvs fsgh ct hvs zshhsfg cb hvs goas dfwbqwdzs, igwbu OO tcf L.
+    —Gishcbwig, Zwts ct Oiuighig 88
+
+    Hvsfs wg sjwrsbqs hvoh Xizwig Qosgof igsr acfs qcadzwqohsr gmghsag og kszz, obr cbs kfwhsf, Oizig Uszzwig, fstsfg hc o (bck zcgh) hfsohwgs cb vwg qwdvsfg:
+    Hvsfs wg sjsb o fohvsf wbusbwcigzm kfwhhsb hfsohwgs pm hvs ufoaaofwob Dfcpig qcbqsfbwbu hvs gsqfsh asobwbu ct zshhsfg wb hvs qcadcgwhwcb ct Qosgof'g sdwghzsg.
+    —Oizig Uszzwig, Ohhwq Bwuvhg
+
+    Wh wg ibybckb vck sttsqhwjs hvs Qosgof qwdvsf kog oh hvs hwas, pih wh wg zwyszm hc vojs pssb fsogcbopzm gsqifs, bch zsogh psqoigs acgh ct Qosgof'g sbsawsg kcizr vojs pssb wzzwhsfohs obr chvsfg kcizr vojs oggiasr hvoh hvs asggousg ksfs kfwhhsb wb ob ibybckb tcfswub zobuious. Hvsfs wg bc fsqcfr oh hvoh hwas ct obm hsqvbweisg tcf hvs gczihwcb ct gwadzs gipghwhihwcb qwdvsfg. Hvs sofzwsgh gifjwjwbu fsqcfrg rohs hc hvs 9hv qsbhifm kcfyg ct Oz-Ywbrw wb hvs Ofop kcfzr kwhv hvs rwgqcjsfm ct tfseisbqm obozmgwg.
+
+    Qosgsf_qwdvsf, Kwywdsrwo
+
+**Questions:**
+
+1. Examine the frequency table in the Frequency Test component (drag the component until the frequency chart is visible. What are the four most frequent characters, in descending order? Examine the frequency table chart at http://en.wikipedia.org/wiki/Frequency_analysis. What does this suggest the four letters identified correspond to?
+
+	**Answer:**
+
+2. Do the same analysis, but for character pairs (bigrams) or trigrams. You can either open up a new Frequency Test or hit the Stop button and modify the test you’re currently running.  Under the settings tab of the Frequency Test box, you can change the length of n-grams.  Hit Play and then view the Presentation tab for a graphical view of your results.  What are the three most frequent N-grams in your analysis? Examine the frequency table chart at http://en.wikipedia.org/wiki/Bigram or http://en.wikipedia.org/wiki/Trigram. What does this suggest the three N-grams identified correspond to?
+
+    ![image_1](../images/lab_2/lab_2_1.png)
+    
+    **Answer:**
+    
+3. Given the above information, what is the key (the number of characters shifted)?  Don’t be proud; you can use your fingers to count.   
+
+    **Answer:**
+
+4. What is the plaintext?  (Hint: Which cipher shifts all the characters by a fixed number?  It’s listed as one of the Classic Ciphers in this tool.)
+
+	**Answer:**
+    
+## One-time Pad
+
+Using Cryptool2, decrypt the following ciphertext using the following one-time pads. 
+**Note:** You’ll need to use the XOR function under “Classic Ciphers” to do the encryption. You’ll also need to use the “String Decoder” to decode the string as hexadecimal before passing the stream to the XOR function (see screenshot below).  I like to use the Tools tab to drag components into my project.
+
+![image_1](../images/lab_2/lab_2_2.png)
+
+Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
+
+1. One-time pad 1: `A1 B1 C1 D1 E1 F1 AA BB CC DD EE FF 10 34 76`
+    
+    **Answer:**
+
+2. One-time pad 2: `B2 A0 C1 C2 E7 FB FE FA D9 89 AA AF 56 6A 67`
+    
+    **Answer:** 
+
+3. One-time pad 3: `B3 B0 C7 C2 E7 F4 EE BF CA DD EC F1 15 2E 76`
+    
+    **Answer:** 
+
+4. One-time pad 4: `B4 AD D0 90 E1 FB FE FA D1 8E AA FA 02 3B 33`
+    
+    **Answer:** 
+
+**Question:** How many possible ASCII plaintexts are there for this ciphertext? What does the above tell you about the security of one-time pads, if each of the above one-time pads are equally likely? 
+
+**Answer:**
+
+# Part 2
+
+## Hashing
+
+Find a large ISO file and hash it with multiple hashing algorithms (e.g., using md5deep64.exe, sha1deep64.exe, and sha256deep.exe, command-line tools installed on the lab workstations).  
+
+**Questions:**
+
+1.	What is the length of each algorithm hash in characters? How many bits does each hash represent? 
+
+**Answer:** 
+
+Make a copy of the ISO file and open the copy in HxD. (HxD can be found at S:\Source\IS560.) Use the hexeditor to change just a single bit (e.g, change an “A” — 1010 to a B — 1011. Use Windows Calculator in the “Programmer” to be sure that your hexcode change represents a change of only one bit. Save the modified file and hash it again. Since you only changed a single bit in a file of billions of bits, you might reason that the hashes would be nearly the same.  Are they? Explain why.
+
+**Answer:**
+
+**Optional:** Use the MD5 function in CrypTool to hash a file. Look at the graphical depiction for how it works.
+
+
+## Symmetric encryption with AES
+
+Decrypt the message below using AES and the following parameters:
+Message (base64): 
+
+    K2NsjCqFlnNVFK1dTTm/opzc0Fq+qNj8UVg+nvIzeEgv5Y3GHATcnyROU6eg+6BAesm5qrtZe5vdjP+ffI/vYIEqIxZh9CSCbxBCo2HEYjbOFCIkx3OuoaomxGChwwbRS2lX37prQMR3VYKVXvQoLUPocPXn+oxnqqHXS/2JbLkTlOje6mrLhnjlI6VDkGDMZI3WqWRe5aHNyzQTEdhXbizHGcKrk/JpX7L1ODY0gdw6InhXew5c4EEcqQInONbYel8W5xwPYFojsKTbKRAOrNqIfI46vD9ziAFCbkG10aIRzLJmxQrkiX+DPwjuxC/p97C9Rm9DS2zn4Yy1mZCFalVDk2MLfgRtW2MBpHDHV1FGdhusnH1E0WNaOfTKlU5tyh3ImBEHS0VBlv3wEEm9f2MVyxK/0T6JdfHD/Szf1yj0GNNMGeKTpmPjP0lmwVdo5GkJJsVBPAWzGqeI+q9phUGw6YC7f4NvlT/RiyOoM8aFAwJxA7MsKTFxyv9ib47pYC8YfOJPpnuGiHw2GutS17KxiROs6fZX0xEx0Iw0fEKYVYNQwAAzskej6pMeUcnBMRBXKPZkHPFOvR4UXQymkf8NtToQrIM4ZYFBX6+TGoA=
+
+- Algorithm: AES
+- Chaining mode: CBC
+- Padding mode: Zeros
+- IV (hexadecimal): `15 7F 14 FF DF D1 D4 25 D9 CB BD 12 ED 98 49 2F`
+- Key (hexadecimal): `FA 71 7D 51 3F D7 32 7D D9 C7 13 84 43 47 C2 5B 2F 9C 1E 48 67 C6 81 32 85 5A 13 92 60 A8 79 44`
+- Keysize: `?` (hint: how many bits are in one hex digit -- also called a 'nibble'?)
+- Blocksize (IV block length): `?` (hint: count the IV above)
+
+![image_1](../images/lab_2/lab_2_3.png)
+
+**Question:** What is the plaintext of the message?
+
+**Answer:**
+
+## Message Sharing
+
+Use AES or another symmetric block cipher to encrypt/decrypt messages exchanged between you and another class member.
+Questions:
+
+1.	How did you ensure that the key exchange was safe? How would you exchange keys if you weren’t in the same location?
+
+    **Answer:**
+
+2.	Was it important that the other parameters of the block cipher (algorithm name, mode of operation, IV (if any), key length, etc.) was kept secret?
+
+    **Answer:** 
+
+
+
+
+
+
+    
