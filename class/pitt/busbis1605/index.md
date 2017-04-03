@@ -203,8 +203,8 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
     <td>Using Delta’s <a href='/{{ site.baseurl }}class/data/Delta_2013_2.csv'>performance data for February 2013</a> do the following:
         <ol type='a'>
             <li>Using regular R commands, compute the minimum, average, and maximum departure delay in minutes (DepDelayMinutes) for each origin airport. Use head() to show the first six rows.</li>
-            <li>Use MapReduce to undertake the same computations. Test your code in local mode. Use head() to show the first six rows.
-            You will need to use RStudio server for testing your code.</li>
+            <li>Use MapReduce to undertake the same computations. Use head() to show the first six rows.
+            </li>
         </ol>
     </td>
 </tr>
