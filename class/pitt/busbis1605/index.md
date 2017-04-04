@@ -665,7 +665,12 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/4</td>
       <td>HDFS and MapReduce (17)</td>
       <td>&nbsp;</td>
-      <td><a href='{{ site.baseurl }}/class/general/rmr2/'>Install rmr2</a></td>
+      <td>
+      <ul>
+         <li><a href='{{ site.baseurl }}/class/general/rmr2/'>Install rmr2</a></li>
+         <li><a href='https://goo.gl/forms/ijhRWrdwC2NR7wgi1'>In-class survey</a></li>
+      </ul>
+      </td>
       <td><a href='#exercises-on-your-own'>A7</a></td>
     </tr>
     <tr>
