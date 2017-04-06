@@ -1,7 +1,6 @@
 ---
 layout: syllabus
-published: false
-permalink: /class/cu/mgmt4250/
+#permalink: /class/cu/mgmt4250/
 title: MGMT 4250 Sec 001 &ndash; Information Security Management
 ---
 
@@ -190,6 +189,6 @@ Similarly, you can **replace your lowest lab score** by reading a second _securi
 
 TBD
 
-#### Acknowledgements
-
+<br>
+<br>
 _This syllabus is a fork of one created by [Dr. Anthony Vance](http://anthonyvance.com/). Many thanks to Tony._
