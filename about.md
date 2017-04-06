@@ -18,3 +18,15 @@ Dave is married, with three young children (all boys!). Dave enjoys hobbies such
 Feel free to e-mail him at <strong>{% include email-encoded.html %}</strong> or you can find him on these social networks: 
 
 {% include contact-links.html %}
+
+### Miscellanea
+
+My read shelf:  <a href="https://www.goodreads.com/review/list/25511626?shelf=read" title="Dave Eargle's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)"><img border="0" alt="Dave Eargle's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)" src="https://www.goodreads.com/images/badge/badge1.jpg"></a>
+
+My old band, *[The Supreme Quartet](https://www.last.fm/music/The+Supreme+Quartet)*. Relatedly, [my Reverb shop](https://reverb.com/shop/deargles-shop) :disappointed:
+
+Some older [profile pictures](/past-profile-pictures).
+
+My sister made [a MySpace page for me](https://myspace.com/deargle) in high school, and it still exists (who knew?).
+
+
