@@ -3,10 +3,12 @@
 $icon-font-path: "{{ site.baseurl }}/assets/vendor/bootstrap-sass/assets/fonts/bootstrap/";
 $fa-font-path: "{{ site.baseurl }}/assets/vendor/font-awesome/fonts";
 $font-size-base: 16px;
+$syllabus-font-size-base: 12px;
 
 @import "bootstrap/stylesheets/bootstrap";
 @import "highlighting";
 @import "font-awesome/font-awesome";
+@import "syllabus-type";
 
 body { padding-top: 20px; font-weight: 200; }
 @media (max-width: 768px) {
@@ -123,9 +125,19 @@ body { padding-top: 20px; font-weight: 200; }
     table {
         @extend .table;
     }
-    
+    h1.title {
+        font-size: ($syllabus-font-size-h1 * 1.25)
+    }
 }
 
 dt {
     margin-top: 5px;
+}
+
+.bottom-divider {
+    /*border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-bottom: -1px;*/
+    padding-top: 6px;
+    padding-bottom: 6px;
 }

@@ -3,17 +3,8 @@ layout: default
 exclude_nav: true
 ---
 
+<h1 class='title'>{{ page.title }}</h1> 
+
 {{ content }}
 
-<script type='text/javascript'>
-    var $ul = $('<ul></ul>').addClass('nav nav-pills');
-    $('h3').each(function() {
-        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-');
-        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
-        $li = $('<li></li>');
-        $li.append($a);
-        $ul.append($li);
-    });
-    $('#nav-bar').append($ul);
-    
-</script>
+{% include nav-pills.html %}
