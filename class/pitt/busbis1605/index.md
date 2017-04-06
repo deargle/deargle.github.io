@@ -682,7 +682,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/6</td>
       <td>HDFS and MapReduce (17)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/nMn7TSPr4DmkvdVl1'>In-class survey</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
