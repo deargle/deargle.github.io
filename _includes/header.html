@@ -16,7 +16,7 @@
   {% seo %}
 
 </head>
-<body class="{{ page.layout }} post{{ page.id | replace:"/","-" }}">
+<body class="{{ page.layout }} post{{ page.id | replace:"/","-" }}" id="{{ page.id }}">
 
 <div class="container">
 
@@ -25,7 +25,9 @@
   {% endif %}
   
   {% unless layout.exclude_nav %}
-  {% include nav.html %}
+    {% unless page.exclude_nav %}
+        {% include nav.html %}
+    {% endunless %}
   {% endunless %}
 
   
