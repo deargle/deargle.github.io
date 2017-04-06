@@ -1,8 +1,8 @@
 ---
-layout: assignment
 title: Lab &ndash; Threat Modeling with Attack Trees
+number: 1
 ---
-
+ 
 Note: you can do this assignment alone or in groups of 2–3.
 
 In this lab, you will create attack trees for different attacker goals to help you systematically think through various attacks. You can represent your attack tree graphically (like those depicted in Schneier Chapter 21), or as a numbered list (e.g., 1, 1.1, 1.2, 1.2.1, 1.3, …). The below questions are in part from Cryptography Engineering, 2nd edition, by Ferguson, Schneier and Kohno (2010).

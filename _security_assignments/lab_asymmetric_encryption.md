@@ -1,6 +1,7 @@
 ---
-layout: assignment
+
 title: Lab &ndash; Asymmetric Encryption
+number: 3
 ---
 
 <div class='alert alert-danger'><strong>Important:</strong> To receive full credit, you must complete Part 1 of the lab by end of day Friday (marked in the calendar) which entails setting up GPG on your computer and sending Dr. Eargle your PGP public (not private) key. This is required for the PGP key signing class activity on Monday (marked in the calendar). Instructions for creating your PGP public key is described in the “Install PGP and Create a Public-Private Key Pair” section in this document.</div>

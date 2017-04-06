@@ -1,6 +1,7 @@
 ---
-layout: assignment
+
 title: Lab &ndash; Symmetric Encryption and Hashing 
+number: 2
 ---
 
 # Part 1
