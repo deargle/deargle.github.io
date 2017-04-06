@@ -25,6 +25,14 @@ social:
   name: 
   links:
       
+# Collections
+collections:
+    security_assignments:
+        output: true
+        permalink: /security-assignments/:path/
+    security_books:
+    security_films:
+      
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
@@ -99,7 +107,13 @@ defaults:
     values:
       layout: post
       comments: true
-      author: 
+      author:
+  -
+    scope:
+      path: ""
+      type: security_assignments
+    values:
+      layout: tony-assignment
 
 #disqus widget
 disqus:
@@ -123,6 +137,17 @@ gems:
 
 sass:
   style: :compressed
+
+# markdown: redcarpet
+# redcarpet:
+#   extensions:
+#     - no_intra_emphasis
+#     - fenced_code_blocks
+#     - autolink
+#     - tables
+#     - strikethrough
+#     - superscript
+#     - with_to_data
 
 kramdown:
  input: GFM
