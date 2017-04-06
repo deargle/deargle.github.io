@@ -206,8 +206,8 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
     <td>Using Delta’s <a href='/{{ site.baseurl }}class/data/Delta_2013_2.csv'>performance data for February 2013</a> do the following:
         <ol type='a'>
             <li>Using regular R commands, compute the minimum, average, and maximum departure delay in minutes (DepDelayMinutes) for each origin airport. Use head() to show the first six rows.</li>
-            <li>Use MapReduce to undertake the same computations. Test your code in local mode. Use head() to show the first six rows.
-            You will need to use RStudio server for testing your code.</li>
+            <li>Use MapReduce to undertake the same computations. Use head() to show the first six rows.
+            </li>
         </ol>
     </td>
 </tr>
@@ -659,7 +659,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>3/30</td>
       <td>Data visualization (15)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/BDazYLcliXYSTR7B2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -668,7 +668,12 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/4</td>
       <td>HDFS and MapReduce (17)</td>
       <td>&nbsp;</td>
-      <td><a href='{{ site.baseurl }}/class/general/rmr2/'>Install rmr2</a></td>
+      <td>
+      <ul>
+         <li><a href='{{ site.baseurl }}/class/general/rmr2/'>Install rmr2</a></li>
+         <li><a href='https://goo.gl/forms/ijhRWrdwC2NR7wgi1'>In-class survey</a></li>
+      </ul>
+      </td>
       <td><a href='#exercises-on-your-own'>A7</a></td>
     </tr>
     <tr>
