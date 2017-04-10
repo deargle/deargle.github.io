@@ -723,8 +723,8 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
     </tr>
     <tr class='danger'>
       <td>32</td>
-      <td>-</td>
-      <td>TBA</td>
+      <td>Monday &ndash; Thursday</td>
+      <td>4/24 &ndash; 4/27</td>
       <td>Final Exam</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
