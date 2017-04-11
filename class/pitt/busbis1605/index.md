@@ -691,7 +691,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/11</td>
       <td>Data structure and storage (19)</td>
       <td>&nbsp;</td>
-      <td><a href='https://goo.gl/forms/yn92iF6k2C3of2ub2'></a></td>
+      <td><a href='https://goo.gl/forms/yn92iF6k2C3of2ub2'>In-class survey</a></td>
       <td>Initial model of <a href='#database-design-and-implementation-project-2-group'>Project #2</a></td>
     </tr>
     <tr>
