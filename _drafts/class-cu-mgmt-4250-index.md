@@ -187,8 +187,91 @@ Similarly, you can **replace your lowest lab score** by reading a second _securi
 
 # Schedule
 
-TBD
+
+<div class='small'>
+<table class='table table-condensed table-hover'>
+    <thead>
+    <tr>
+        <th rowspan='2'>Week</th>
+        <th rowspan='2'>Class</th>
+        <th rowspan='2'>Date</th>
+        <th rowspan='2'>Topic</th>
+        <th colspan='3' class='text-center'>Activities</th>
+    </tr>
+    <tr>
+        <th class='col-md-4'>Due Before Class</th>
+        <th class='col-md-4'>In-Class</th>
+        <th class='col-md-4'>Due by 11:59pm</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for week in site.data.schedules.security %}
+
+    {% assign weeknum = week[0] %}
+    {% assign days = week[1] %}
+    {% for day in days %}
+     
+    {% if forloop.last == true %}
+        {% assign custom_css = 'border-bottom' %}
+    {% else %}
+        {% assign custom_css = '' %}
+    {% endif %}
+    
+    {% if day.custom_css %}
+        {% assign custom_css = custom_css | append: ' ' | append: day.custom_css %}
+    {% endif %}
+    
+    {% if custom_css %}
+        <tr class="{{ custom_css }}">
+    {% else %}
+        <tr>
+    {% endif %}
+     
+    {% if forloop.first == true %}
+            <td>{{ weeknum }}</td>
+    {% else %}
+            <td></td> 
+    {% endif %}    
+    
+            <td>{{ day.class_num }}</td>
+            <td>{{ day.date | date: "%a, %b %d"}}</td>
+            <td>{{ day.title }}</td>
+            <td>
+                {% if day.due_before %}
+                    <ul>
+                    {% for due_before in day.due_before %}
+                        <li>{{ due_before.name }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </td>
+            <td>
+                {% if day.assigned_today %}
+                    <ul>
+                    {% for assignment in day.assigned_today %}
+                        <li>{{ assignment.name }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </td>
+            <td>
+                {% if day.due_tonight %}
+                    <ul>
+                    {% for due_tonight in day.due_tonight %}
+                        <li>{{ due_tonight.name }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </td> 
+        </tr>
+
+    {% endfor %}
+{% endfor %}
+</tbody>
+</table>
+</div>
 
 <br>
 <br>
+ 
 _This syllabus is a fork of one created by [Dr. Anthony Vance](http://anthonyvance.com/). Many thanks to Tony._

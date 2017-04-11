@@ -128,6 +128,11 @@ body { padding-top: 20px; font-weight: 200; }
     h1.title {
         font-size: ($syllabus-font-size-h1 * 1.25)
     }
+    
+    
+    tbody > tr.border-bottom > td {
+        border-bottom: 1px solid black !important;
+    }
 }
 
 dt {
@@ -141,3 +146,5 @@ dt {
     padding-top: 6px;
     padding-bottom: 6px;
 }
+
+
