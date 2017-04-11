@@ -682,7 +682,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/6</td>
       <td>HDFS and MapReduce (17)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/nMn7TSPr4DmkvdVl1'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -691,7 +691,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/11</td>
       <td>Data structure and storage (19)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/yn92iF6k2C3of2ub2'></a></td>
       <td>Initial model of <a href='#database-design-and-implementation-project-2-group'>Project #2</a></td>
     </tr>
     <tr>
@@ -723,8 +723,8 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
     </tr>
     <tr class='danger'>
       <td>32</td>
-      <td>-</td>
-      <td>TBA</td>
+      <td>Monday &ndash; Thursday</td>
+      <td>4/24 &ndash; 4/27</td>
       <td>Final Exam</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>

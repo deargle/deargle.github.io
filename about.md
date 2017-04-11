@@ -27,6 +27,4 @@ My old band, *[The Supreme Quartet](https://www.last.fm/music/The+Supreme+Quarte
 
 Some older [profile pictures](/past-profile-pictures).
 
-My sister made [a MySpace page for me](https://myspace.com/deargle) in high school, and it still exists (who knew?).
-
 
