@@ -700,7 +700,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/13</td>
       <td>Data structure and storage (19)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/Hfe0WuTf5nwN2M5m2'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A8</a></td>
     </tr>
     <tr>
