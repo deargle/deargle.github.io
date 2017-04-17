@@ -691,7 +691,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/11</td>
       <td>Data structure and storage (19)</td>
       <td>&nbsp;</td>
-      <td><a href='https://goo.gl/forms/yn92iF6k2C3of2ub2'></a></td>
+      <td><a href='https://goo.gl/forms/yn92iF6k2C3of2ub2'>In-class survey</a></td>
       <td>Initial model of <a href='#database-design-and-implementation-project-2-group'>Project #2</a></td>
     </tr>
     <tr>
@@ -700,7 +700,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/13</td>
       <td>Data structure and storage (19)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/Hfe0WuTf5nwN2M5m2'>In-class survey</a></td>
       <td><a href='#exercises-on-your-own'>A8</a></td>
     </tr>
     <tr>
@@ -710,7 +710,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>Data processing architectures (20)</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-      <td><a href='#database-design-and-implementation-project-2-group'>Project #2</a></td>
+      <td>&nbsp;</td>
     </tr>
     <tr>
       <td>31</td>
@@ -719,7 +719,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>Data integrity (22)</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='#database-design-and-implementation-project-2-group'>Project #2</a></td>
     </tr>
     <tr class='danger'>
       <td>32</td>
@@ -742,6 +742,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
 | revision date |          notes          |
 |---------------|-------------------------|
 | 12/24/2016    | Original version posted |
+| 4/17/2017 | Moved back due date of Project #2 |
 
 </div>
 </div>
