@@ -709,7 +709,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/18</td>
       <td>Data processing architectures (20)</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><a href='https://goo.gl/forms/u0q2McRN5iYYqPat2'>In-class survey</a></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
