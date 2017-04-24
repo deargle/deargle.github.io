@@ -727,7 +727,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>4/24 &ndash; 4/27</td>
       <td>Final Exam</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><b><a href='final_spring_2017.docx'>The Final Exam</a></b></td>
       <td>Submit <a href='#team-evaluation'>Team Evaluation form</a> before the final.</td>
     </tr>
   </tbody>
