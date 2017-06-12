@@ -192,8 +192,6 @@ Similarly, you can **replace your lowest lab score** by reading a second _securi
 <table class='table table-condensed table-hover'>
     <thead>
     <tr>
-        <th rowspan='2'>Week</th>
-        <th rowspan='2'>Class</th>
         <th rowspan='2'>Date</th>
         <th rowspan='2'>Topic</th>
         <th colspan='3' class='text-center'>Activities</th>
@@ -227,13 +225,6 @@ Similarly, you can **replace your lowest lab score** by reading a second _securi
         <tr>
     {% endif %}
      
-    {% if forloop.first == true %}
-            <td>{{ weeknum }}</td>
-    {% else %}
-            <td></td> 
-    {% endif %}    
-    
-            <td>{{ day.class_num }}</td>
             <td>{{ day.date | date: "%a, %b %d"}}</td>
             <td>{{ day.title }}</td>
             <td>
