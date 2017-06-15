@@ -52,8 +52,8 @@ Appreciate the broad disiciplines required for IS security
 
 ## Materials
 
-* Security Engineering 2e by Ross Anderson (legitimately available online for free)
-* Secrets & Lies by Bruce Schneier (selected chapter will be made available)
+* Security Engineering 2e by Ross Anderson (available online [here](http://www.cl.cam.ac.uk/~rja14/book.html))
+* "Secrets & Lies" by Bruce Schneier (available online [through CU](http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbU5lBl_IAKxtg8x50_hgXsJ4xBTUVDI05oLFtZGwCOg_NgpNBIBjUQiopVgD2nRWALa9ibgYNN9cQZw_d0mR4pzHe2MwAdLpDPHT4BHSsiDnouluilQIAZj8pTQ))
 
 
 
@@ -197,7 +197,7 @@ Similarly, you can **replace your lowest lab score** by reading a second _securi
         <th colspan='3' class='text-center'>Activities</th>
     </tr>
     <tr>
-        <th class='col-md-4'>Due Before Class</th>
+        <th class='col-md-4'>Before Class</th> 
         <th class='col-md-4'>In-Class</th>
         <th class='col-md-4'>Due by 11:59pm</th>
     </tr>
@@ -207,7 +207,7 @@ Similarly, you can **replace your lowest lab score** by reading a second _securi
 
     {% assign weeknum = week[0] %}
     {% assign days = week[1] %}
-    {% for day in days %}
+    {% for day in days %} 
      
     {% if forloop.last == true %}
         {% assign custom_css = 'border-bottom' %}
@@ -217,18 +217,28 @@ Similarly, you can **replace your lowest lab score** by reading a second _securi
     
     {% if day.custom_css %}
         {% assign custom_css = custom_css | append: ' ' | append: day.custom_css %}
-    {% endif %}
+    {% endif %} 
     
     {% if custom_css %}
         <tr class="{{ custom_css }}">
     {% else %}
         <tr>
-    {% endif %}
+    {% endif %} 
      
             <td>{{ day.date | date: "%a, %b %d"}}</td>
             <td>{{ day.title }}</td>
             <td>
+                {% if day.readings %}
+                    <b>Readings</b>
+                    <ul>
+                    {% for reading in day.readings %}
+                        <li>{{ reading }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                
                 {% if day.due_before %}
+                    <b>Due before class</b>
                     <ul>
                     {% for due_before in day.due_before %}
                         <li>{{ due_before.name }}</li>
@@ -237,7 +247,15 @@ Similarly, you can **replace your lowest lab score** by reading a second _securi
                 {% endif %}
             </td>
             <td>
+                {% if day.activities %}
+                    <ul> 
+                    {% for activity in day.activities %}
+                        <li>{{ activity }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
                 {% if day.assigned_today %}
+                    <b>Assigned Today</b> 
                     <ul>
                     {% for assignment in day.assigned_today %}
                         <li>{{ assignment.name }}</li>
