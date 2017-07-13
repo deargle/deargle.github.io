@@ -135,13 +135,6 @@ All assignments and projects are to be submitted on time or early, so plan accor
 
 Labs are hands-on learning activities that will be begun in class and completed outside of class. Labs are typically due one week after they are introduced in class.
 
-{% assign assignments = site.security_assignments | sort: 'number' %}
-{% for assignment in assignments %}
-
-* [{{ assignment.title }}]( {{ assignment.url }} )
-
-{% endfor %}
-
 
 ## Midterm vulnerability assessment project
 
@@ -149,7 +142,7 @@ This is a group project. The midterm will be a vulnerability and penetration ass
 
 ## Current event threat assessment
 
-This is a group project. Teams will choose a recent security breach incident and report on it as if it just occurred. The report will summarize the incident and give recommendations for how to manage the threat. The report will also include a risk assessment of  other potential threats the chosen organization faces, along with recommendations for mitigating each identified threat. Deliverables include a written report and a presentation.
+This is a group project. Teams will choose a recent security breach incident and report on it as if it just occurred. The report will summarize the incident and give recommendations for how to manage the threat. The report will also include a risk assessment of other potential threats the chosen organization faces, along with recommendations for mitigating each identified threat. Deliverables include a written report and a presentation.
 
 
 ## Readings Quizzes
