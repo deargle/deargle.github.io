@@ -152,10 +152,6 @@ Most readings and videos on the schedule have associated quizzes. Quizzes are op
 Quizzes are due before class on the date due.
 
 
-## Security Book
-
-Read one of the books on the [Security Readings and Films list]({% link security-assignments/security-reading-and-film-list/index.md %}) by the last day of class. To receive credit, submit your report via a quiz. Indicate which book you read, whether you read the whole book, and give your brief reaction to it.
-
 
 ## Security Films
 
@@ -164,9 +160,9 @@ Two films are required viewing for this course: "Zeros Days" and "Citizenfour." 
 
 ## Extra Credit
 
-You can **replace your lowest quiz score** by watching a second _security film_ from the [Security Readings and Films list]({% link security-assignments/security-reading-and-film-list/index.md %}) submitting a few sentences about what you thought about it.
+You can **replace your lowest quiz score** by watching a third _security film_ from the [Security Readings and Films list]({% link security-assignments/security-reading-and-film-list/index.md %}) submitting a few sentences about what you thought about it.
 
-Similarly, you can **replace your lowest lab score** by reading a second _security book_ from the [Security Readings and Films list]({% link security-assignments/security-reading-and-film-list/index.md %}) and submitting a few sentences about what you thought about it.
+Similarly, you can **replace your lowest lab score** by reading a _security book_ from the [Security Readings and Films list]({% link security-assignments/security-reading-and-film-list/index.md %}) and submitting a few sentences about what you thought about it.
 
 
 ## Team evaluation
