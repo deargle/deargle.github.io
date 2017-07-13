@@ -71,15 +71,12 @@ To receive credit for the certification, a student must show evidence of having 
 
 |                Item                | Points |
 |------------------------------------|--------|
-| Quizzes  |   70   |
+| Quizzes  | 125 |
 | Labs | 200 |
-| Participation | 40 | 
-| Course Evaluation | 10 |
-| Security Book | 100 |
-| Security Films | 30 | 
-| Midterm project |  175 |
+| Midterm project |  200 |
 | Threat assessment project | 175 |
-| Final Exam | 200 | 
+| Security Films | 50 | 
+| Final Exam | 250 | 
 |=|=|
 | **Total** |    **1000** |
 
