@@ -19,7 +19,7 @@ Office Hours
 : By appointment (Skype or Hangouts preferred)
  
 
-
+{{ site.security_assignments | inspect }}
 
 # Course Information
 

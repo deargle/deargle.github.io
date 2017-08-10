@@ -6,11 +6,11 @@
     -
         class_num: 1
         title: Introduction
-        date: 28-08-2017
+        date: 29-08-2017
     -  
         class_num: 2
         title: Threat Modeling
-        date: 30-08-2017
+        date: 31-08-2017
         readings:
             - "<a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbU5lBl_IAKxtg8x50_hgXsJ4xBTUVDI05oLFtZGwCOg_NgpNBIBjUQiopVgD2nRWALa9ibgYNN9cQZw_d0mR4pzHe2MwAdLpDPHT4BHSsiDnouluilQIAZj8pTQ'>Secrets & Lies</a> Chapters 19 and 21"
         due_before:
@@ -18,77 +18,73 @@
                 name: '<span class="label label-danger">Quiz:</span> Threat Modeling'
         assigned_today:
             -
-                name: "Lab &ndash; Threat Modeling"
+                name: "<a href='/security-assignments/lab_threat_modeling/'>Lab &ndash; Threat Modeling</a>"
 2:
     -
-        title: Labor Day
-        date: 04-09-2017
-        custom_css: success
-
-    -
+        date: 05-09-2017
         class_num: 3
         title: "Cryptography &ndash; Introduction"
-        date: 06-09-2017
 
         assigned_today:
             -
                 name: "Install Windows VM if necessary"
             -
                 name: "Install Cryptool 2.0 and submit screenshot"
-3:
+
     -
+        date: 07-09-2017
         class_num: 4
-        date: 11-09-2017
 
         title: "Cryptography &ndash; Hashes & Symmetric"
         readings:
             - <a href='http://www.cl.cam.ac.uk/~rja14/Papers/SEv2-c05.pdf'>Anderson, Ch 5,</a> pp. 129-149
             - <a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbU5lBl_IAKxtg8x50_hgXsJ4xBTUVDI05oLFtZGwCOg_NgpNBIBjUQiopVgD2nRWALa9ibgYNN9cQZw_d0mR4pzHe2MwAdLpDPHT4BHSsiDnouluilQIAZj8pTQ'>Secrets & Lies</a> Chapters 6 & 7 (optional but highly recommended)
         due_before:
-            - name: "Install Cryptool 2.0 and submit screenshot"
             - name: '<span class="label label-danger">Quiz:</span> Anderson, Ch. 5, pp. 129-149'
+            - name: "Install Cryptool 2.0 and submit screenshot"
         assigned_today:
-            - name: "Lab &ndash; Symmetric"
+            - name: "<a href='/security-assignments/lab_hashing_and_symmetric_encryption/'>Lab &ndash; Symmetric</a>"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Threat Modeling'
+        
+3:
     -
+        date: 12-09-2017
         class_num: 5
-        date: 13-09-2017
 
         title: "Cryptography &ndash; Asymmetric"
         assigned_today:
             -
-                name: "Lab &ndash; Asymmetric"
+                name: "<a href='/security-assignments/lab_asymmetric_encryption/'>Lab &ndash; Asymmetric</a>"
     -
-        date: 15-09-2017
+        date: 13-09-2017
         due_tonight:
             -
                 name: 'Email your PGP public key to Dr. Eargle (see Lab &ndash; Asymmetric)'
-4:
+                
     -
+        date: 14-09-2017
         class_num: 6
-        date: 18-09-2017
         title: "Cryptography &ndash; Digital Certificates and PKI"
         assigned_today:
             -
-                name: "Lab &ndash; Digital Certificates"
+                name: "<a href='/security-assignments/lab_digital_certificates/'>Lab &ndash; Digital Certificates</a>"
         readings:
             - "Online: Moxie Marlinspike: <a href='http://vimeo.com/32097738'>SSL And The Future Of Authenticity</a>"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Symmetric Encryption and Hashing'
-            
+4:
     -
+        date: 19-09-2017
         class_num: 7
-        date: 20-09-2017
-
         title: "Codes Video"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Asymmetric Encryption'
-5:
+            
     -
+        date: 21-09-2017
         class_num: 8
         title: Physical Security
-        date: 25-09-2017
         readings:
             - <a href='http://www.cl.cam.ac.uk/~rja14/Papers/SEv2-c11.pdf'>Anderson, Chapter 11</a>
         due_before:
@@ -97,19 +93,21 @@
         assigned_today:
             -
                 name: "Lab &ndash; Physical Security"
+        due_tonight:
+            - name: '<span class="label label-success">Lab:</span> Digital Certificates'
+5:
     -
+        date: 26-09-2017
         class_num: 9
-        date: 27-09-2017
 
         title: Introduction to Computer Networking
         activities:
             - "Goal for today: setup your vms and ping them"
         readings:
             - <a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbU5lBl_IAKxtg8x50_hgXsJ4xBTUVDI05oLFtZGwCOg_NgpNBIBjUQiopVgD2nRWALa9ibgYNN9cQZw_d0mR4pzHe2MwAdLpDPHT4BHSsiDnouluilQIAZj8pTQ'>Secrets & Lies</a> Chapters 11 & 12
-6:
     -
+        date: 28-09-2017
         class_num: 10
-        date: 02-10-2017
         title: Introduction to Linux (in-class lab)
         activities:
             - Using your Kali VM, go through <a href='http://www.tldp.org/LDP/intro-linux/intro-linux.pdf'>this Linux tutorial,</a> chapters 1–7,10.
@@ -122,47 +120,47 @@
                 </ul>
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Physical Security'
+6:
     -
+        date: 03-10-2017
         class_num: 11
-        date: 04-10-2017
         title: Vulnerability Scanning
         assigned_today:
             -
                 name: "Lab &ndash; Vulnerability Scanning"
-        
-7:
     -
+        date: 05-10-2017
         class_num: 12
         title: Vulnerability Exploitation
-        date: 09-10-2017
         assigned_today:
             -
                 name: "Lab &ndash; Exploitation"
+        
+7:
     -
+        date: 10-10-2017
         class_num: 13
         title: System Hardening
-        date: 11-10-2017
 
         assigned_today:
             -
                 name: "Lab &ndash; Hardening"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Vulnerability Scanning'
-8:
     -
+        date: 12-10-2017
         class_num: 14
         title: Authentication and Passwords
-        date: 16-10-2017
         readings:
             - <a href='http://www.cl.cam.ac.uk/~rja14/Papers/SEv2-c02.pdf'>Anderson, Chapter 2,</a> pp. 31-39, 56-58
         due_before:
             -
                 name: '<span class="label label-danger">Quiz:</span> Anderson Ch. 2, pp. 31-39, 56-58'
-
+8:
     -
+        date: 17-10-2017
         class_num: 15
         title: Password Cracking
-        date: 18-10-2017
         readings:
             - Goodin, <a href='https://arstechnica.com/security/2012/08/passwords-under-assault/'>"Why passwords have never been weaker"</a>
             - 'Gosney, <a href="http://arstechnica.com/security/2016/06/how-linkedins-password-sloppiness-hurts-us-all/">How LinkedIn’s password sloppiness hurts us all</a>'
@@ -175,31 +173,34 @@
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Exploitation'
             - name: '<span class="label label-success">Lab:</span> Hardening'
-9:
+
     -
+        date: 19-10-2017
         class_num: 16
         title: Midterm Prep
-        custom_css: ''
-        date: 23-10-2017
+9:
+    -
+        date: 24-10-2017
+        title: Midterm &ndash; yes class
         assigned_today:
             -
                 name: "<span class='label label-danger'>Midterm</span>"
+        due_tonight:
+            - name: '<span class="label label-success">Lab:</span> Password Cracking'
             
     -
         class_num: 17
         title: Midterm &ndash; no class
         custom_css: ''
-        date: 25-10-2017
+        date: 26-10-2017
         activities:
             - "no class today; work on midterm"
-        due_tonight:
-            - name: '<span class="label label-success">Lab:</span> Password Cracking'
 
 10:
     -
         class_num: 18
         title: Web application security &ndash; SQL Injection
-        date: 30-10-2017
+        date: 31-10-2017
         readings:
             - <a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbQRuBDUFtVUtLYBJihhytBOGbgXtEgY7mZnqWeo7gW1EtQKdGAduuxhyw0RED0JkthhacDIrBgT4KmXlZ4HVJeQqJoAvvs4sVgL1shZTUNGBPD1iIqri5hjh76JYmw3uY8dCxj_gkC2AFa2FsCLq9QBOiLLE4G1h8AIuWkuL4shzwlGRxPMJ55sagE0GVIWphpXM8WBl0uWS8JTDdWlggVAHrmKLE3JTMdPA1HwWQUyLigf0IE_DpokoQVZB5YLh0SUVJPOiOXQtTE5Dj5LAqQlIANwWxNwphFZqDIBOuCGk0zxEVXgAYH4Xm'>Clarke, SQL Injection</a>, Chapter 1
             - <a href='www.whitehatsec.com/blog/saving-systems-from-sqli/'>Jeremiah Grossman, Saving Systems from SQLi</a>
@@ -213,7 +214,7 @@
     -
         class_num: 19
         title: Web application security &ndash; XSS
-        date: 01-11-2017
+        date: 02-11-2017
         readings:
             - "<a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbQRuBDUF7Gs1NjUzMmSFHK4FPG4McV84FqncsjU2A9SMHbEQE1BQ2N7fgZFAFhpACsBBRQJrDVchIBC0zUC9WAA0ogxqg3Awabq4hzh66pcnwnmW8sZkB6AiIeBQTjbkZVCBKYaVtPHgmErr8Md7EwBiYcEH7dpQhyoCVRlFibkpmOvjejgLIsQ_xQEUWRqBrEOQgqiATu3BpoPfMgc0lkG1KWBWUVJQQqQh0ZouZsRFuqxAK4KYgtkzBlYEqewMLhLewKkJ4nujgBADKlY-Z'>Stuttard and Pinto, The Web Application Hacker's Handbook</a>, Chapter 12, sections 'Varieties of XSS' and 'XSS Attacks in Action'"
         due_before:
@@ -229,14 +230,11 @@
         
     
 11:
-
-    
-        
                 
     -
         class_num: 21
         title: Network Security Monitoring
-        date: 06-11-2017
+        date: 07-11-2017
         readings:
             - <a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbUxkhpymZApsHwAYxaGc5Et8A1ATmMgJNmgHTg5kZB2xQBFjfg4604mQArTdQgO0TUshPU8iDLIpWKIbe6qaQC07yoLEvbgYNN9cQZw_d0mR4FzPe2MwAdBZEPIq5xtwMahClxdmZOTnFwIIuHtSWLTYyqTCPT8ouBt-yZ2wCOkNQBaIQVj7Hg-cuoQsm4w1NzY0swEeHykGUQSZ54wsgJ0TEG4IqXmBTCahACauCkooSZEXKMEWIjU8Is-B2Ee1NAGX0cjY'>Bejtlich, The Practice of Network Security Monitoring,</a> Chapter 1
         due_before:
@@ -249,14 +247,14 @@
     -
         class_num: 22
         title: Network Security Monitoring (in-class lab)
-        date: 08-11-2017
+        date: 09-11-2017
     
     
 12:
     -
         class_num: 20
         title: Human Element
-        date: 13-11-2017 
+        date: 14-11-2017 
         readings:
             - <a href='https://www.ted.com/talks/bruce_schneier'>Schneier, "The Security Mirage"</a>
             -  <a href='http://www.cl.cam.ac.uk/~rja14/Papers/SEv2-c02.pdf'>Anderson, Chapter 2,</a> pp. 17-30, 40-42
@@ -270,7 +268,7 @@
     -
         class_num: 23
         title: Information Privacy
-        date: 15-11-2017
+        date: 16-11-2017
         readings:
             - 'Brad Smith, <a href="https://blogs.microsoft.com/on-the-issues/2015/10/20/the-collapse-of-the-us-eu-safe-harbor-solving-the-new-privacy-rubiks-cube/">"The collapse of the US-EU Safe Harbor: Solving the new privacy Rubik''s Cube"</a>'
         due_before:
@@ -284,12 +282,12 @@
 13:
     -
         title: Fall Break
-        date: 20-11-2017
+        date: 21-11-2017
         custom_css: success
 
     -
         title: Fall Break
-        date: 22-11-2017
+        date: 23-11-2017
         custom_css: success
 
 14:
@@ -297,12 +295,12 @@
     -
         class_num: 24
         title: Information Security in Organizations
-        date: 27-11-2017
+        date: 28-11-2017
         
     -
         class_num: 25
         title: Security and Society
-        date: 29-11-2017
+        date: 30-11-2017
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Privacy and Anonymity'
         
@@ -311,28 +309,28 @@
     -
         class_num: 27
         title: Presentations
-        date: 04-12-2017
+        date: 05-12-2017
 
     -
         class_num: 28
         title: Presentations
-        date: 06-12-2017
+        date: 07-12-2017
 
     -
         title: Film "Citizenfour" screening
-        date: 08-12-2017
+        date: 09-12-2017
         
 16:
 
     -
         class_num: 26
         title: USENIX Enigma talks
-        date: 11-12-2017
+        date: 12-12-2017
     
     -
         class_num: 29
         title: Course wrap-up
-        date: 13-12-2017
+        date: 14-12-2017
         
         due_tonight:
             -

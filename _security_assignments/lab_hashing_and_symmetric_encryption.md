@@ -34,9 +34,9 @@ number: 2
 
 ## Frequency analysis
 
-Open CrypTool 2.0. Under Templates, select Cryptanalysis, then Classical, and double-click on Frequency Analysis. Paste the cipher text below into the Text Input box and hit the Play button.  The results of the analysis will show up in the box on the right.
+[Download](https://www.cryptool.org/modules/mod_ctdownloads/assets/curversion.php) and install CrypTool 2 (Windows only).
 
-Use CrypTool’s cryptanalysis function, “Frequency Test,” to analyze the following message:
+Open CrypTool 2.0. Under Templates, select Cryptanalysis, then Classical, and double-click on Frequency Analysis. Paste the cipher text below into the Text Input box and hit the Play button. This will use CrypTool’s cryptanalysis function, “Frequency Test,” to analyze the following message. The results of the analysis will show up in the box on the right.
 
     Hvs Qosgof qwdvsf wg boasr othsf Xizwig Qosgof, kvc, oqqcfrwbu hc Gishcbwig, igsr wh kwhv o gvwth ct hvfss hc dfchsqh asggousg ct awzwhofm gwubwtwqobqs. Kvwzs Qosgof'g kog hvs twfgh fsqcfrsr igs ct hvwg gqvsas, chvsf gipghwhihwcb qwdvsfg ofs ybckb hc vojs pssb igsr sofzwsf.
 
@@ -57,28 +57,33 @@ Use CrypTool’s cryptanalysis function, “Frequency Test,” to analyze the fo
 
 **Questions:**
 
-1. Examine the frequency table in the Frequency Test component (drag the component until the frequency chart is visible. What are the four most frequent characters, in descending order? Examine the frequency table chart at http://en.wikipedia.org/wiki/Frequency_analysis. What does this suggest the four letters identified correspond to?
+1. Examine the frequency table in the Frequency Test component. What are the four most frequent characters, in descending order? Examine the frequency table chart at [http://en.wikipedia.org/wiki/Frequency_analysis](http://en.wikipedia.org/wiki/Frequency_analysis). What does this suggest the four letters identified correspond to?
 
 	**Answer:**
 
-2. Do the same analysis, but for character pairs (bigrams) or trigrams. You can either open up a new Frequency Test or hit the Stop button and modify the test you’re currently running.  Under the settings tab of the Frequency Test box, you can change the length of n-grams.  Hit Play and then view the Presentation tab for a graphical view of your results.  What are the three most frequent N-grams in your analysis? Examine the frequency table chart at http://en.wikipedia.org/wiki/Bigram or http://en.wikipedia.org/wiki/Trigram. What does this suggest the three N-grams identified correspond to?
+2. Do the same analysis, but for character pairs (bigrams) or trigrams. You can either open up a new Frequency Test or hit the Stop button and modify the test you’re currently running.  Under the settings tab of the Frequency Test box, you can change the length of n-grams.  Hit Play and then view the Presentation tab for a graphical view of your results.  What are the three most frequent N-grams of length 2 in your analysis? Examine the frequency table chart at [http://en.wikipedia.org/wiki/Bigram](http://en.wikipedia.org/wiki/Bigram). What does this suggest the three 2-length N-grams identified correspond to? Also examine N-grams of length 3, and report the likely plaintext identities of the four 3-length N-grams reported (use [http://en.wikipedia.org/wiki/Trigram](http://en.wikipedia.org/wiki/Trigram)).
 
     ![image_1](../images/lab_2/lab_2_1.png)
     
-    **Answer:**
+    **Answer: (for both 2-length and 3-length N-grams)**
     
-3. Given the above information, what is the key (the number of characters shifted)?  Don’t be proud; you can use your fingers to count.   
+3. Assume that a simple cipher that shifts all characters by a fixed number was used to create the cipertext. Given the above information, what is the key (the number of characters shifted)?  Don’t be proud; you can use your fingers to count.   
 
     **Answer:**
 
-4. What is the plaintext?  (Hint: Which cipher shifts all the characters by a fixed number?  It’s listed as one of the Classic Ciphers in this tool.)
+4. What is the plaintext?  (Hint: Which cipher shifts all the characters by a fixed number?  It’s listed as one of the Classic Ciphers in this tool, so you can use this tool to perform the decryption.)
 
 	**Answer:**
     
 ## One-time Pad
 
 Using Cryptool2, decrypt the following ciphertext using the following one-time pads. 
-**Note:** You’ll need to use the XOR function under “Classic Ciphers” to do the encryption. You’ll also need to use the “String Decoder” to decode the string as hexadecimal before passing the stream to the XOR function (see screenshot below).  I like to use the Tools tab to drag components into my project.
+**Note:** Click "New" > "Workspace" to get started. You’ll need to use the XOR function under “Classic Ciphers” to do the encryption. You’ll also need to use the “String Decoder” to decode the string as hexadecimal before passing the stream to the XOR function (see screenshot below).
+I like to use the Tools tab on the bottom-left and its search bar to drag components such as XOR and "String Decoder" into my project.
+
+Use the screenshot below to see how to connect the components. Put the ciphertext into one text input box and the one-time pads in the other text input box, one at a time. 
+Click-and-drag the component arrow connectors over to an appropriate connector arrow on the next component 
+(it may not be the same one as shown in the screenshot -- the CrypTool tooltip guides will help you).
 
 ![image_1](../images/lab_2/lab_2_2.png)
 
@@ -108,20 +113,28 @@ Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 
 ## Hashing
 
-Find a large ISO file and hash it with multiple hashing algorithms (e.g., using md5deep64.exe, sha1deep64.exe, and sha256deep.exe, command-line tools installed on the lab workstations).  
+
+
+Find a file and hash it with multiple hashing algorithms (e.g., using md5deep.exe, sha1deep.exe, and sha256deep.exe, command-line tools installed on the windows vm).
+
+* You can use "hash-me.txt" on the Windows vm desktop
+* Shft+Right-click on the desktop and choose "Open PowerShell window here"
+* The command-line tools are available on the "path", which means you can type their name followed by the filename to get a hash. E.g., "md5deep hash-me.txt"
 
 **Questions:**
 
-1.	What is the length of each algorithm hash in characters? How many bits does each hash represent? 
+1.	What is the length of each algorithm hash in characters? How many bits does each hash represent? (hint: how many bits are in one hex digit -- also called a 'nibble'? How many nibbles in the key? Or, How many bits in a byte, and how many bytes in a two-digit hex number like 'FA'? Review [this](https://simple.wikipedia.org/wiki/Hexadecimal_numeral_system) if you're still stuck)
 
-**Answer:** 
+	**Answer:** 
 
-Make a copy of the ISO file and open the copy in HxD. (HxD can be found at S:\Source\IS560.) Use the hexeditor to change just a single bit (e.g, change an “A” — 1010 to a B — 1011. Use Windows Calculator in the “Programmer” to be sure that your hexcode change represents a change of only one bit. Save the modified file and hash it again. Since you only changed a single bit in a file of billions of bits, you might reason that the hashes would be nearly the same.  Are they? Explain why.
+Make a copy of your file and open the copy in HxD. (HxD is available on the desktop.) Use the hexeditor to change just a single bit (e.g, change an “A” — 1010 to a B — 1011. Use Windows Calculator in the “Programmer” mode to be sure that your hexcode change represents a change of only one bit.) 
+Save the modified file and hash it again. Since you only changed a single bit in a file of billions of bits, you might reason that the hashes would be nearly the same.  Are they? Explain why.
 
 **Answer:**
 
 **Optional:** Use the MD5 function in CrypTool to hash a file. Look at the graphical depiction for how it works.
 
+![image_4](../images/lab_2/lab_2_4.png){: width="300px" }
 
 ## Symmetric encryption with AES
 
@@ -135,8 +148,8 @@ Message (base64):
 - Padding mode: Zeros
 - IV (hexadecimal): `15 7F 14 FF DF D1 D4 25 D9 CB BD 12 ED 98 49 2F`
 - Key (hexadecimal): `FA 71 7D 51 3F D7 32 7D D9 C7 13 84 43 47 C2 5B 2F 9C 1E 48 67 C6 81 32 85 5A 13 92 60 A8 79 44`
-- Keysize: `?` (hint: how many bits are in one hex digit -- also called a 'nibble'?)
-- Blocksize (IV block length): `?` (hint: count the IV above)
+- Keysize (in bits): `?` (You have to count; see the hint in the hashing section above.)
+- Blocksize (in bits; IV block length): `?` (hint: count the IV above, just like you did the key)
 
 ![image_1](../images/lab_2/lab_2_3.png)
 
@@ -146,7 +159,11 @@ Message (base64):
 
 ## Message Sharing
 
-Use AES or another symmetric block cipher to encrypt/decrypt messages exchanged between you and another class member.
+Use AES or another symmetric block cipher to encrypt/decrypt messages exchanged between you and another class member. (You could email encrypted messages to one another, and decrypt using CryptTool. You can copy-paste from the host into your VM if you enable the bidirectional clipboard)
+
+![image_1](../images/lab_2/lab_2_5.png){: style="border: 1px solid black;" }
+
+
 Questions:
 
 1.	How did you ensure that the key exchange was safe? How would you exchange keys if you weren’t in the same location?
