@@ -80,11 +80,11 @@ S/MIME, which stands for Secure/Multipurpose Internet Mail Extensions, is a secu
 
     **Answer:** 
 
-    Which one do you think is more user-friendly?
+2.  Which one do you think is more user-friendly?
 
     **Answer:**  
 
-2.	Which system do you prefer, S/MIME or PGP?
+3.	Which system do you prefer, S/MIME or PGP?
 
     **Answer:** 
 
@@ -99,6 +99,8 @@ S/MIME, which stands for Secure/Multipurpose Internet Mail Extensions, is a secu
 3.	Using Signal, call or send a text message to your partner.
 
 4.	How does your experience using Signal compare to using encrypted email with PGP and S/MIME?
+	
+	**Answer:** 
 
 
 # Resources
