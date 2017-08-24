@@ -10,7 +10,7 @@ $syllabus-font-size-h5:            $syllabus-font-size-base !default;
 $syllabus-font-size-h6:            ceil(($syllabus-font-size-base * 0.85)) !default; // ~12px
 
 .syllabus, .tony-assignment, .assignment {
-    h1, .h1 { font-size: $syllabus-font-size-h1; }
+    h1, .h1 { font-size: $syllabus-font-size-h1; border-bottom: 1px solid #ccc; }
     h2, .h2 { font-size: $syllabus-font-size-h2; }
     h3, .h3 { font-size: $syllabus-font-size-h3; }
     h4, .h4 { font-size: $syllabus-font-size-h4; }

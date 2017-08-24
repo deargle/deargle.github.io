@@ -126,7 +126,8 @@ body { padding-top: 20px; font-weight: 200; }
         @extend .table;
     }
     h1.title {
-        font-size: ($syllabus-font-size-h1 * 1.25)
+        font-size: ($syllabus-font-size-h1 * 1.25);
+		border-bottom: none;
     }
     
     
