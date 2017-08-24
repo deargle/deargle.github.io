@@ -9,17 +9,17 @@ _Fall 2017_
 <div id='nav-bar'></div>
 
 Instructor
-: Dave Eargle ([contact]({% link contact.md %})) 
+: Dave Eargle  ([contact](<mailto:David.Eargle@colorado.edu>)) 
 
 Class
-: Mon/Wed 12:30PM - 1:45PM 
+: Tue/Thu 12:30PM - 1:45PM 
 : KOBL 375
 
 Office Hours
-: By appointment (Skype or Hangouts preferred)
- 
+: Location: S450J 	\| 	Hours: TBA
+: Or, by appointment (Skype or Hangouts preferred)
 
-{{ site.security_assignments | inspect }}
+ 
 
 # Course Information
 
@@ -50,6 +50,10 @@ Appreciate the broad disiciplines required for IS security
 : This class will help you appreciate the broad disiciplines required for information security to work. We'll cover subjects as diverse as cryptology, physical security, psychology, and management.
 
 
+## Technology Requirements
+
+* You will need access to a computer with at least 8GB of RAM.
+
 ## Materials
 
 * Security Engineering 2e by Ross Anderson (available online [here](http://www.cl.cam.ac.uk/~rja14/book.html))
@@ -74,7 +78,8 @@ To receive credit for the certification, a student must show evidence of having 
 | Quizzes  | 125 |
 | Labs | 200 |
 | Midterm project |  200 |
-| Threat assessment project | 175 |
+| Threat assessment project | 125 |
+| Participation | 50 |
 | Security Films | 50 | 
 | Final Exam | 250 | 
 |=|=|
@@ -270,3 +275,20 @@ Similarly, you can **replace your lowest lab score** by reading a _security book
 <br>
  
 _This syllabus is a fork of one created by [Dr. Anthony Vance](http://anthonyvance.com/). Many thanks to Tony._
+
+
+# Relevant University Offices, Policies, and Procedures
+
+[Student Classroom and Course-Related Behavior](http://www.colorado.edu/policies/student-classroom-and-course-related-behavior)
+
+[Disability Services](http://www.colorado.edu/disabilityservices/). Please note that English as a second language is not a recognized disability and no extra exam time, nor any special conditions (e.g., use of a dictionary) can be provided to any student. This is a School policy, not left to the discretion of the professor.
+
+[Honor Code](http://www.colorado.edu/policies/academic-integrity-policy)
+
+[Religious Holidays](http://www.colorado.edu/policies/observance-religious-holidays-and-absences-classes-andor-exams)
+
+[Discrimination and Harassment](http://www.colorado.edu/policies/discrimination-and-harassment-policy-and-procedures)
+
+[Final Examination Policy](http://www.colorado.edu/policies/final-examination-policy) (should you have 3 exams on the date of our final exam)
+
+
