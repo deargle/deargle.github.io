@@ -6,6 +6,8 @@
     -
         class_num: 1
         title: Introduction
+        activities:
+            - "<a href='https://goo.gl/forms/gVSkF51VLWYxNj9d2'>In-class survey</a>"
         date: 29-08-2017
     -  
         class_num: 2
