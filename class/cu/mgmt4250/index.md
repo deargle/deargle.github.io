@@ -13,7 +13,7 @@ Instructor
 
 Class
 : Tue/Thu 12:30PM - 1:45PM 
-: KOBL 375
+: KOBL 302
 
 Office Hours
 : Location: S450J 	\| 	Hours: TBA
