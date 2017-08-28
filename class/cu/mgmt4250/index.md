@@ -274,7 +274,6 @@ Similarly, you can **replace your lowest lab score** by reading a _security book
 <br>
 <br>
  
-_This syllabus is a fork of one created by [Dr. Anthony Vance](http://anthonyvance.com/). Many thanks to Tony._
 
 
 # Relevant University Offices, Policies, and Procedures
