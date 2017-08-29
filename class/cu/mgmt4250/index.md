@@ -152,9 +152,9 @@ This is a group project. Teams will choose a recent security breach incident and
 
 ## Readings Quizzes
 
-Most readings and videos on the schedule have associated quizzes. Quizzes are open book, open Internet and must be completed within 20 minutes.
+Most readings and videos on the schedule have associated quizzes. Quizzes are open book, open Internet and must be completed within 20 minutes. Quizzes are administered on D2L.
 
-Quizzes are due before class on the date due.
+Quizzes are due before class at noon on the date due.
 
 
 
