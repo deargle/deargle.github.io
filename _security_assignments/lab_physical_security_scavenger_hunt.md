@@ -10,7 +10,8 @@ To earn full credit for this lab, complete 5 of the 11 items below.
 
 # Item 1: Obtain the Password Hashes from an Unattended Public Computer
 
-<div class='alert alert-warning'><strong>Note:</strong> This Item uses Cain, which can be downloaded from <a href='http://www.oxid.it/downloads/ca_setup.exe'>www.oxid.it</a>. However, this file will set off all sorts of virus detection alarms and warnings, both in the browser and on your computer. Cain is <em>not</em> a virus, and www.oxid.it is the official site to obtain the file from. But you can use Cain to do *virusy* things, so it gets flagged.</div>
+<div class='alert alert-warning'><strong>Note:</strong> This Item uses Cain, which is installed on the lab VM. It can be downloaded from <a href='http://www.oxid.it/downloads/ca_setup.exe'>www.oxid.it</a>. However, this file will set off all sorts of virus detection alarms and warnings, both in the browser and on your computer. Cain is <em>not</em> a virus, and www.oxid.it is the official site to obtain the file from. But you can use Cain to do *virusy* things, so it gets flagged.</div>
+
 
 <div markdown='1' style='width:30%'>
 <img src="../images/lab_5_1.jpg" width='100%' alt="lab 5 1">
@@ -30,7 +31,7 @@ Run Cain (ignore any messages about the Windows firewall). Click the “Cracker�
 
 Include a screen shot of the hashes below to prove that you’ve done it. 
 
-Note: Include a photo of the hashes, but don’t actually crack the hashes.
+Note: Include a photo of the hashes, **but don’t actually crack the hashes.**
 
 Example:
 
@@ -61,6 +62,9 @@ Example:
 
 **Note:** Please specify the information, but redact the information in the attached photo.
 
+<div class='alert alert-warning'>While it is not illegal to dumpster dive in CO, you can still get in trouble for tresspassing, so be mindful and don't tresspass. See Colorado : State v. Hillman, 834 P.2d. 1271 (1992), which says that trash
+curbside / in front of house / outside fenced area of property is public.</div>
+
 Example:
 
 <div class='row' >
@@ -75,7 +79,7 @@ Example:
 
 # Item 5: Gain Access to a Pre-approved Restricted Area
 
-Take a picture of yourself in the restricted area and document how you did it (e.g., tailgaiting).
+Take a picture of yourself in the restricted area and document how you did it (e.g., tailgaiting). Get permission from a manager, etc. before entering the restricted area. For example, you might explain to a manager that you are doing a class assignment and you would like to test whether their employees will prohibit you from entering the restricted area. Only proceed with the test with the manager's approval.
 
 **Note:** You have my permission to attempt to gain access to my office without picking the lock (please lock the door on your way out).
 
@@ -107,6 +111,7 @@ Example:
     </div>
 </div>
 
+
 # Item 7: Access Saved Passwords in a Web Browser on an Unattended Computer
 
 This website has a list of helpful tools to recover passwords from web browsers:
@@ -131,4 +136,4 @@ Pretend that a USB drive is a keylogger. Plug it into the back of a public compu
 
 # Item 11: Enter a Pre-approved Restricted Area by Disguise
 
-For example, use a clipboard or fake ID.
+For example, use a clipboard or fake ID. You can combine this one with #5.

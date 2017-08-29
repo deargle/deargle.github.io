@@ -94,7 +94,7 @@
                 name: '<span class="label label-danger">Quiz:</span> Anderson, Chapter 11'
         assigned_today:
             -
-                name: "Lab &ndash; Physical Security"
+                name: "<a href='/security-assignments/lab_physical_security_scavenger_hunt/'>Lab &ndash; Physical Security</a>"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Digital Certificates'
 5:
