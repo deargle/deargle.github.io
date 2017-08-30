@@ -129,7 +129,7 @@
         title: Vulnerability Scanning
         assigned_today:
             -
-                name: "Lab &ndash; Vulnerability Scanning"
+                name: "<a href='/security-assignments/lab_vulnerability_scanning/'>Lab &ndash; Vulnerability Scanning</a>"
     -
         date: 05-10-2017
         class_num: 12
