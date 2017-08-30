@@ -14,4 +14,5 @@ Note: You can use Microsoft Word’s SmartArt function and the "hierarchy" templ
 3. Create an attack tree for reading someone else’s email. Assign a difficulty level to each attack node, per Schneier Chapter 21. Which attack requires the least sophistication on the part of the attacker? Which attack requires the greatest expertise? What types of attackers do you think would use either attack?
 4. Create an attack tree for learning someone’s online banking account name and password. Assign dollar values to each attack node, per Schneier Chapter 21. Which attack is cheapest for the attacker? Which attack is most expensive?
 
-Submit your assignment online. If working in a group, include all group member names in the document, but each group member should still submit the document.
+Submit your assignment online. If working in a group, include all group member names in the document, but only have one group 
+member submit the document.
