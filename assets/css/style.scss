@@ -128,14 +128,20 @@ body { padding-top: 20px; font-weight: 200; }
     h1.title {
         font-size: ($syllabus-font-size-h1 * 1.25);
 		border-bottom: none;
-    }
-    
+    }    
     
     tbody > tr.border-bottom > td {
         border-bottom: 1px solid black !important;
     }
 }
 
+.assignment, .tony-assignment {
+	h1.title {
+		font-size: ($syllabus-font-size-h1 * 1.25);
+		border-bottom: none;
+	}
+}
+	
 dt {
     margin-top: 5px;
 }
