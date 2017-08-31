@@ -16,3 +16,9 @@ Note: You can use Microsoft Word’s SmartArt function and the "hierarchy" templ
 
 Submit your assignment online. If working in a group, include all group member names in the document, but only have one group 
 member submit the document.
+
+## Q&A
+
+Q: Do we have to put in numbers in the boxes for probability, cost, etc, just like in the reading?
+: A: You don't have to do exactly what the examples in the reading example had, but you should come up with some kind of metric and value for each box to justify your answer to the questions. For example,
+	for the first question, you should have metrics representing 'ease' and 'risk' so that you can answer the question. Defend your ranking and answers. e.g., "We think that \_\_\_\_ would be the easiest because \_\_\_\_\_, whereas \_\_\_\_\_ would not be as easy because \_\_\_\_\_." 
