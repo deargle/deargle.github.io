@@ -197,6 +197,8 @@ hashes. Ask me for a copy.
 		
 <div class='alert alert-info'>Want even more practice? You can download the massive Troy Hunt haveibeenpwned SHA1 password hash list 
 on the bottom of <a href='https://haveibeenpwned.com/Passwords'>this page</a>.</div>
+
+<div class='alert alert-info'>See <a href='https://github.com/danielmiessler/SecLists/tree/master/Passwords'>Daniel Miessler's wordlist collection</a> for more wordlists besides rockyou to try.</div>
     
 # Part 5. Secure Password Hashing
 
