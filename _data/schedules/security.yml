@@ -136,7 +136,7 @@
         title: Vulnerability Exploitation
         assigned_today:
             -
-                name: "Lab &ndash; Exploitation"
+                name: "<a href='/security-assignments/lab_exploitation/'>Lab &ndash; Exploitation</a>"
         
 7:
     -
@@ -146,7 +146,7 @@
 
         assigned_today:
             -
-                name: "Lab &ndash; Hardening"
+                name: "<a href='/security-assignments/lab_system_hardening/'>Lab &ndash; Hardening</a>"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Vulnerability Scanning'
     -
@@ -171,7 +171,7 @@
                 name: '<span class="label label-danger">Quiz:</span> Goodin, "Why passwords have never been weaker"'
         assigned_today:
             -
-                name: "Lab &ndash; Password Cracking"
+                name: "<a href='/security-assignments/lab_password_cracking/'>Lab &ndash; Password Cracking</a>"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Exploitation'
             - name: '<span class="label label-success">Lab:</span> Hardening'
