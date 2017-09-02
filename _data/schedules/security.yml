@@ -191,10 +191,10 @@
             - name: '<span class="label label-success">Lab:</span> Password Cracking'
             
     -
+        date: 26-10-2017
         class_num: 17
         title: Midterm &ndash; no class
         custom_css: ''
-        date: 26-10-2017
         activities:
             - "no class today; work on midterm"
 
@@ -244,7 +244,7 @@
                 name: '<span class="label label-danger">Quiz:</span> Bejtlich, Chapter 1'
         assigned_today:
             -
-                name: "Lab &ndash; Network Security Monitoring (extra credit)"
+                name: "<a href='/security-assignments/lab_security_onion/'>Lab &ndash; Network Security Monitoring</a>"
     
     -
         class_num: 22
@@ -266,6 +266,8 @@
                 name: '<span class="label label-danger">Quiz:</span> Schneier, "The Security Mirage"; Anderson, Chapter 2, pp. 17-30, 40-42; Honan, "Cosmo"'
         activities:
             - "Lab &ndash; Social Engineering (In-class only)"
+        due_tonight:
+            - name: '<span class="label label-success">Lab:</span> Network Security Monitoring'
     
     -
         class_num: 23
