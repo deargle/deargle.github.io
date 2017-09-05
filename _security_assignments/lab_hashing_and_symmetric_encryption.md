@@ -4,6 +4,25 @@ title: Lab &ndash; Symmetric Encryption and Hashing
 number: 2
 ---
 
+# VM Setup
+
+<div class='alert alert-info'>If you'd like, I have Cryptool and a few other things installed on a ready-to-go virtual machinne for students in my class to use. Simply do this:</div>
+
+1. Install one of the VirtualBox platform packages from [here](https://www.virtualbox.org/wiki/Downloads).
+2. If you're on Windows you can skip this step, but if you're on a Mac:
+	* 	Open VirtualBox, then from the menu, select "Virtual Box" -> "Preferences" -> "Network." 
+	* 	Select "Host-only" tab, then click the plus button on the right to add a new host-only interface. Accept the default name. You just created a host-only virtual interface for VirtualBox guests. 
+		This will let your virtual machine guests talk with each other and with your host, but not with anyone else.
+3. Get a copy of my Windows `.ova` file onto your computer.
+4. "File" > "Import Appliance", then browse to the file obtained in step 3.
+5. Try to start the imported appliance. If it complains about network settings needing to be changed:
+	* click the "Update network settings" button or whatever it is (I forget).
+	* For Adapter 1, select the virtual interface you created in step 2.
+	* You should be good-to-go now. (If this is still giving you grief, select "Internal Network" for Adapater 1 instead of "Host-Only" -- that will be fine for this lab.)
+6. The password is `Password1`.
+7. You can now delete the `.ova` file if you're disk space-starved.
+
+	
 # Part 1
 
 ## Polyalphabetic substitution and Transposition Ciphers
