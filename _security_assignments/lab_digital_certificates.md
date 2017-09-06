@@ -33,11 +33,20 @@ For this part, you'll communicate with Adele, the friendly PGP robot. You can us
 
 1.  Send a plaintext message to Adele the robot (adele-en@gnupp.de) with your certificate included either via pasting your .asc keyfile contents into the message, or by including your .asc public key as an attachment. [See this link for help.](https://www.gpg4win.org/doc/en/gpg4win-compendium_13.html#sec_publishPerEmail)
 	* If you've done it correctly, Adele will reply in a moment acknowledging receipt of your public key. She will now be able to send you encrypted responses. In fact, her response to you should have been encrypted with your public key.
-	* Adele will also respond with her public key. Import it into your keyring: you could copy its contents into a txt document, give it an .asc extension, and import it that way, or some keyring tools let you import keys from the clipboard. (Remember, keyring managers include Kleopatra and Enigmail. They all pull information from the same place.)
+	* 	Adele will also respond with her public key. Import it into your keyring: you could copy its contents into a txt document, 
+		give it an .asc extension, and import it that way, or some keyring tools let you import keys from the clipboard. (Remember, keyring managers include Kleopatra and Enigmail. They all pull information from the same place.)
 
-1.	Make up a message to send to Adele. Send it to her, encrypting it using her public key. Adele should respond with a message encrypted with your PGP key. If she complains about not having your public key, then she has amnesia and try sending your message again, this time including your public key with the message. Once you've figured it out, decrypt the message she sends back to you, and paste the plaintext of the message you receive below.
-
-    **Plaintext 1:** 
+1.	Make up a message to send to Adele. Send it to her, encrypting it using her public key. Adele should respond with a message encrypted with your PGP key. Once you've figured it out, decrypt the message she sends back to you, and paste the plaintext of the message you receive below.
+    
+	**Plaintext 1:** 
+	
+	* 	Gotcha -- I don't know why but when I send messages to Adele from my @colorado.edu faculty account, it takes up to a day to get a response. But when I send from a Google account, I get a response within 60 seconds or less. 
+		If you're not getting a response form Adele, I'll fill in -- do the steps substituting me instead (but give Adele a shot, she's helpful for testing keys and whatnot.)
+	* 	Gotcha #2 -- in Enigmail for Thunderbird, Adele will complain that encrypted messages to her are "truncated" unless you click "Enigmail" and change to "Use Inline PGP." This isn't a problem for normal humans, just for Adele the robot.
+	
+	
+	![](../images/lab_cert_1.png){: width='30%'}	
+	
     
 # Part 2. Install an S/MIME Certificate
 
