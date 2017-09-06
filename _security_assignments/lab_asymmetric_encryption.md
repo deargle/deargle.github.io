@@ -27,6 +27,8 @@ A setup guide for Gpg4Win (Windows users) is available at:
 
 Save/export your generated key in a text file with the extension “.asc” and email this file to Dr. Eargle. With gpg4win's Kleopatra, do this by clicking “Create a backup of your key pair,” and make sure to select the ASCII armor option.
 
+**Important:** [To better future-proof your key](https://www.yubico.com/2015/02/big-debate-2048-4096-yubicos-stand/), Generate a 4096-bit key, not the default 2048-bit one. 
+
 Make sure that your public key includes all of the email addresses you want to send and receive encrypted messages with. Finally, make sure that you include your first and last name so that people can look up your public key on a key server like pgp.mit.edu.
 
 Important: You should end up with a .asc file that contains the following string at the top of the file: 
