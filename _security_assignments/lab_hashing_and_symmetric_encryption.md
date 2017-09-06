@@ -25,7 +25,7 @@ number: 2
 	
 # Part 1
 
-## Polyalphabetic substitution and Transposition Ciphers
+## Polyalphabetic substitution and Transposition Ciphers 
 
 1.  Using polyalphabetic substitution, with alphabet a–z (no caps) and a space (as the last character of the alphabet), use the private key security to encrypt the plaintext message:
      
@@ -128,6 +128,8 @@ Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 
 **Answer:**
 
+
+
 # Part 2
 
 ## Hashing
@@ -139,6 +141,12 @@ Find a file and hash it with multiple hashing algorithms (e.g., using md5deep.ex
 * You can use "hash-me.txt" on the Windows vm desktop
 * Shft+Right-click on the desktop and choose "Open PowerShell window here"
 * The command-line tools are available on the "path", which means you can type their name followed by the filename to get a hash. E.g., "md5deep hash-me.txt"
+
+<div class='alert alert-info'>
+<p>If you're not using the lab VM, you can download the command-line tools yourself from <a href='https://github.com/jessek/hashdeep/releases/download/v4.4/md5deep-4.4.zip'>here</a>.
+You'll unzip them and then open an command prompt (sorry, I have no idea how to open a command prompt from parallels, let me know if you know how.). Then you can either call the full path to the tools (e.g., c:\path\to\md5deep.exe), or you can
+Windows key > "Edit the System environment variables" > "Environment Variables" > select "Path" > "Edit" > "New" > "Browse" > (Browse to the path where you unzipped your md5deep stuff, the folder where the .exe's are). Hit Ok > Ok > Ok (you have to do all three before it applies)
+then open a new command prompt / PowerShell window. Voila, you should have the tools avaialble on your path now.</p></div>
 
 **Questions:**
 
