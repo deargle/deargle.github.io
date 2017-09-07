@@ -27,7 +27,7 @@ number: 2
 
 ## Polyalphabetic substitution and Transposition Ciphers 
 
-1.  Using polyalphabetic substitution, with alphabet a–z (no caps) and a space (as the last character of the alphabet), use the private key security to encrypt the plaintext message:
+1.  Using polyalphabetic substitution, with alphabet a–z (no caps) and a space (as the last character of the alphabet), use the private key `security` to encrypt the plaintext message:
      
          send money
 	
