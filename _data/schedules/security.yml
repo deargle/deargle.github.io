@@ -113,6 +113,7 @@
         title: Introduction to Linux (in-class lab)
         activities:
             - Using your Kali VM, go through <a href='http://www.tldp.org/LDP/intro-linux/intro-linux.pdf'>this Linux tutorial,</a> chapters 1–7,10.
+            - Before reading Chapter 6, read <a href='/security-assignments/note-on-editors'>this note on choosing which text editor to learn</a>.
             - Also learn about <ul>
                     <li><a href='https://www.linux.com/learn/linux-101-introduction-sudo'>sudo</a></li>
                     <li>man id</li>
