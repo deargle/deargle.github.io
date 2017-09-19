@@ -51,7 +51,7 @@ Finally, record your PGP fingerprint below. For example, Dr. Eargle’s PGP fing
 
 Note: To help you answer the questions in this section, view this “RSA Algorithm” video:
 
-[https://youtu.be/Z8M2BTscoD4.](https://youtu.be/Z8M2BTscoD4.)
+[https://youtu.be/Z8M2BTscoD4](https://youtu.be/Z8M2BTscoD4).
 
 ### Key Exchange Problem
 
