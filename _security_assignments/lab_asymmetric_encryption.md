@@ -62,6 +62,8 @@ Note: To help you answer the questions in this section, view this “RSA Algorit
 2. Does a 256-bit RSA key (a key with a 256-bit modulus) provide strength similar to that of a 256-bit AES key? Explain. Note: This site gives estimates for good key lengths: 
 
     [http://www.keylength.com](http://www.keylength.com)
+	
+	Help interpreting this site: If you were to select "Compare all methods", and then enter the year "2030", the “Method” column means “group that makes recommendations using their method” (recall that NIST held the competition that resulted in the AES winner being selected). “Date” means how long you’ll be secure until. “Symmetric” means the minimum keysize you would need to be secure for that long using a symmetric method such as AES. “Factoring Modulus” means the minimum keysize you would need to be secure for that long using an asymmetric method such as RSA. 
 
 	**Answer:** 
 
