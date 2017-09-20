@@ -64,7 +64,8 @@ S/MIME, which stands for Secure/Multipurpose Internet Mail Extensions, is a secu
 	2. I recently used InstantSSL / Comodo. Some pointers:
 		* The generation request can take a few minutes before instructions are emailed to you.
 		* [Here's a link](https://posteo.de/en/help/exporting-an-smime-certificate-firefox) with instructions for exporting your S/MIME certificate from Firefox
-		* See the links on the bottom for getting your newly-exported certificate imported into Outlook or Thunderbird for S/MIME.
+		* See the links on the bottom for getting your newly-exported certificate imported into Outlook or Thunderbird for S/MIME. Mac users using Apple Mail for this step, see [here](https://kb.iu.edu/d/bcsn).
+		* Mac users, to install your certificate, just click the certificate once it has downloaded. You may get "Error 26276" when importing your certificate. Ignore this message, it imported successfully.
 
 3.	I will respond with a second encrypted message using your S/MIME certificate. Paste the plaintext of the message you receive below.
 
@@ -76,6 +77,7 @@ S/MIME, which stands for Secure/Multipurpose Internet Mail Extensions, is a secu
 	* (In Windows...)
 		* Another way to view it in Windows is to use Microsoft Management Console, [like this](https://support.microsoft.com/en-us/help/823503/how-to-import-and-export-certificates-so-that-you-can-use-s-mime-in-ou). Try the 'details' tab after double-clicking your certificate (you don't have to export it like in that link). 
 		* Or, from within Outlook, File > Options > Trust Center > Trust Center Settings > Email Security > Settings... > Choose > "Click here to view certificate properties"
+	* Mac users: To examine your key, open "Keychain Access", sort the keys by date, and look for the one you just imported. Its name should be the email address you used to set this up.
 
     **Answer:**
 
