@@ -2,6 +2,7 @@
 title: Portfolio
 layout: page
 permalink: /portfolio/
+published: false
 ---
 
 ### Course assignments
