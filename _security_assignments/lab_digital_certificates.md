@@ -53,7 +53,7 @@ For this part, you'll communicate with Adele, the friendly PGP robot. You can us
 S/MIME, which stands for Secure/Multipurpose Internet Mail Extensions, is a secure email standard invented by RSA Data Security Inc. It is an alternative to the PGP “web of trust” model that uses standard X.509 certificates used for SSL.
 
 1.	Create an S/MIME certificate using one of the following free S/MIME services:
-    * 	StartCom
+    * 	<del>StartCom</del> [Their certificate was revoked September 2017!](https://arstechnica.com/information-technology/2017/07/google-drops-the-boom-on-wosign-startcom-certs-for-good/)
     * 	Secorio
     * 	InstantSSL / Comodo
     * 	TC TrustCenter
