@@ -143,21 +143,19 @@ However, in interest of your time, this section will require you to crack only 5
 hashes. Ask me for a copy.
 
 1.	Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/class/cu/mgmt4250/LinkedIn_HalfMillionHashes.txt)).
-2.	Open a Windows Bash shell by opening a command prompt and typing bash. If you’re prompted to install Bash, type “yes” to continue. For the UNIX username, input “labuser,” and for the password, enter “ISRocks!”. Once this command completes, navigate to your d:\scratch\[netID] directory.
-3.	Open a second command prompt and navigate to your d:\scratch\[netID] directory. 
-4.	To get your feet wet, perform a straight dictionary attack using the rockyou.txt wordlist again, as follows (one line):
+2.	Open a terminal. To get your feet wet, perform a straight dictionary attack using the rockyou.txt wordlist again, as follows (one line):
 
-		hashcat -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
+		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
 
 	Note: This command may take 5–10 minutes to run. To see the status of a running job in Hashcat, press the “s” key (it might take up to 15 seconds for Hashcat to report its status).
 
-5.	To see hashes cracked in real time, in your terminal shell, type the command: `tail -f LinkedIn_cracked.txt`. Type `control+c` to exit the tail command.
+5.	To see hashes cracked in real time, in another terminal shell, type the command: `tail -f LinkedIn_cracked.txt`. Type `control+c` to exit the tail command.
 
 	**Question:** How many passwords were you able to recover using this command?
 
 6.	Run another attack that uses a rules-based method (one line):
 
-		hashcat -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/best64.rule /usr/share/wordlists/rockyou.txt
+		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best64.rule /usr/share/wordlists/rockyou.txt
 
 	Rules apply common patterns to password dictionaries to crack even more hashes. You can read about rules in Hashcat here: [https://hashcat.net/wiki/doku.php?id=rule_based_attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack). 
 
@@ -176,7 +174,7 @@ hashes. Ask me for a copy.
 	
 7. Run another attack that uses a hybrid method that uses a dictionary attack combined with a “mask,” which is a pattern that is appended to each password in the password dictionary:
 
-		hashcat -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 6 /usr/share/wordlists/rockyou.txt ?d?d
+		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 6 /usr/share/wordlists/rockyou.txt ?d?d
 
 	The “?d?d” at the end means to append two digits between 0–9 each at the end of each password in the rockyou.txt password dictionary.
 
@@ -193,7 +191,7 @@ hashes. Ask me for a copy.
 
 	**Optional:** Another common password pattern is to prepend digits at the beginning of passwords. If you would like try this mask, run the following command:
 
-		hashcat -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
+		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
 		
 <div class='alert alert-info'>Want even more practice? You can download the massive Troy Hunt haveibeenpwned SHA1 password hash list 
 on the bottom of <a href='https://haveibeenpwned.com/Passwords'>this page</a>.</div>
