@@ -1,0 +1,121 @@
+-
+    date: 
+    class_num: 1
+    title: Introduction to Business Analytics
+    due_today: >
+        * Start recruiting for your first team
+            * If you have especially great teammates from the past, consider saving them for the second project as it is weighted x2.
+
+-
+    date:
+    class_num: 2
+    title: "<b>White belt:</b> Extract, Transform, Load (ETL)"
+    due_today: >
+        + Read
+            * Larsen: Preface 
+                * (no mindmap required)
+            * Larsen: Chapter 1. "What is Machine Learning?"
+                * Turn in mind-map 
+        + Download/setup Slack app for laptop **and** phone
+            * LeedsBA.slack.com
+            * Use your @colorado.edu email account for automatic access
+            * Having your full name and picture will ensure that people reward your efforts when you help them.
+            * Create slack bio under #pickme_pickme if you need teammates
+-
+    date:
+    class_num: 3
+    title: "<b>Yellow belt I:</b> Transformations and Column Additions (Formula and RecordId)"
+    due_today: >
+        + Read
+            * Larsen: Section III Introduction
+                * Turn in mind-map
+            * Larsen Chapter 8. "Accessing and Storing Data
+                * Turn in mind-map
+        + Do
+            * Alteryx Book
+                * Chapter 1
+                * Appendix A, File Types
+                * Appendix D, Field Types
+            * In Alteryx, _Help_ > _Sample Workflows_ >
+                + _Learn one tool at a time_ > 
+                    * (In Out)
+                        - Browse
+                        - Directory
+                        - Input Data
+                        - Text Input
+                        - Output Data
+                    * (Preparation)
+                        - Select
+                        - Auto Field
+                        - Imputation
+                    * (Documentation)
+                        - Comment
+                + Tutorials >
+                    * Viewing Data
+                    
+-
+    date:
+    class_num: 4
+    title: "<b>Yellow belt II:</b> Advanced Transformations (Multi-Field Formula and Tile)"
+    due_today: >
+        Due today: _Teams for Project 1 formed_ (these are helpful for homeworks)
+        
+-
+    date:
+    class_num: 5
+    title: "<b>Orange belt:</b> Data Matching and Manipulation (Text-to-Columns and Regular Expressions)"
+    due_today: >
+        + Read: Parts of Larsen: Chapter 10. Data Transformations
+            * Read section 10.1.1 and section 10.2, _not_ 10.1.2.
+            * As usual, turn in mind-map
+        + In Alteryx, under _Help_ > _Sample Workflows_:
+            - Tutorials > Analyzing Data
+            - Learn one tool at a time > Preparation >
+                * Formula
+                * Record ID
+            - Clean and Prepare Data >
+                * Append a leading character
+                * Data Transformations
+                
+-
+    date:
+    class_num: 6
+    title: Guest Lecturer?
+    due_today: >
+        + Read: Larsen Chapter 10.1.2 RegEx
+            * Turn in mindmap
+        - Go through all _Lessons_ at [http://regexone.com](http://regexone.com)
+            * Nothing to turn in for this, but...
+        - Solve all **practice problems** (not lessons!) at [http://regexone.com](http://regexone.com)
+            * Turn in screenshots showing that you solved everything. Make the last screenshot a selfie of yourself in front of the laste screen solution (individual homework). Combine all screen shots + the selfie one into a word document and convert to one pdf file and upload to D2L. 
+            
+-
+    date:
+    title: "<b>Green belt:</b> Data Reduction (Sort, Unique, Filter, Sample)"
+    due_today: >
+        + Read
+            - Larsen Chapter 12. "Data Reduction and Splitting"
+                * Turn in mind-map
+            
+-
+    date:
+    title: "<b>Purple belt:</b> Data Integration (Join, Union)"
+    due_today: >
+        - Read: Larsen Chapter 9. "Data Integration"
+            * Turn in mind-map
+        + Alteryx Book:
+            - Appendix F: Boolean Expressions
+        + Alteryx > _Help_ > _Sample Workflows_
+            - Tutorials: Filtering Data
+            - Learn one tool at a time > Preparation >
+                * Filter
+                * Sample
+                
+-
+    date:
+    title: "<b>Purple belt II:</b> Advanced Data Integration (Join, Union, Append)"
+    due_today: >
+        - Alteryx Book: Chapter 3: Unisex Names
+            * Turn in workflow (individual homework)
+    
+        

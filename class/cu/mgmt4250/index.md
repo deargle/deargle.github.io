@@ -18,7 +18,7 @@ Class
 Office Hours
 : Location: S450J 	
 : Hours: Tuesday 2-3pm, Thursday 3-4pm
-: Or, by appointment (Skype or Hangouts preferred)
+: Or, by appointment 
 
  
 
