@@ -105,6 +105,8 @@
         title: Introduction to Computer Networking
         activities:
             - "Goal for today: setup your vms and ping them"
+            - "<a href='https://docs.kali.org/general-use/kali-linux-virtual-box-guest'>Setting up a shared folder between your host and Kali</a>"
+            - "<a href='https://goo.gl/forms/NAz6q5nKHNPh3i3E2'>In-class survey</a>"
         readings:
             - <a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbU5lBl_IAKxtg8x50_hgXsJ4xBTUVDI05oLFtZGwCOg_NgpNBIBjUQiopVgD2nRWALa9ibgYNN9cQZw_d0mR4pzHe2MwAdLpDPHT4BHSsiDnouluilQIAZj8pTQ'>Secrets & Lies</a> Chapters 11 & 12
     -
