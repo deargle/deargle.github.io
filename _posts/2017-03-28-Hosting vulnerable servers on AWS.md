@@ -25,7 +25,7 @@ The important thing to note here is that only certain OSes are compatible with A
 
 I started at this step, with an unedited copy of [Violator](https://www.vulnhub.com/entry/violator-1,153/), pulled from VulnHub. 
 
-You'll need the [AWS CLI](https://aws.amazon.com/cli/).
+You'll need the [AWS CLI](https://aws.amazon.com/cli/). Dowload it, and then give it your root credentials by running `aws configure` so that you can follow the next steps.
 
 The process for creating an AMI involves: 
 
@@ -33,7 +33,14 @@ The process for creating an AMI involves:
 * creating an IAM `VM Import Service Role`, 
 * invoking the magic spells in the aws console to import the image from S3 into an AMI.
 
-Docs [here](http://docs.aws.amazon.com/vm-import/latest/userguide/import-vm-image.html). Went smoothly for me, although the actual import took 10+ minutes. When you create your own AMI, AWS launches a copy of your instance appliance and then takes a snapshot of it. That snapshot will be associated with your new AMI, and is not deletable unless you first unregister your AMI. So be aware, you'll be paying for the storage of that snapshot as long as you have the AMI.
+Docs [here](http://docs.aws.amazon.com/vm-import/latest/userguide/import-vm-image.html). First follow [these steps for creating a VM Import Service Role](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#import-vm-image). Then, upload the VM image file to S3 (I used the browser interface to upload). Then follow the last step to initiate the import transfer.
+
+Went smoothly for me, although the actual import (the last step) took 10+ minutes. When you create your own AMI, AWS launches a copy of your instance appliance and then takes a snapshot of it. That snapshot will be associated with your new AMI, and is not deletable unless you first unregister your AMI. So be aware, you'll be paying for the storage of that snapshot as long as you have the AMI. Note that your AMI will
+only show up in the view for the region where you deployed it.
+
+Note 9/26/2017: When I used the aws cli on Linux, I had to run `sudo ntpdate time.nist.gov` before the s3 commands would work.
+
+
 
 
 ### Create a VPC
@@ -44,11 +51,15 @@ In my config:
 
 * vpc with subnet `172.32.0.0/16`. Your CIDR just has to be different from whatever VPCs you already have.
 * created a new internet gateway, attached it to the new VPC
-* Two subnets, named one 'public' and the other 'private', CIDR's `172.32.0.0/20` and `172.32.16.0/20`
-* edited the route table for the two subnets to include the new internet gateway: Destination `0.0.0.0/0` Target `<the gateway>`. Although you may not want your vulnerable servers to have internet access? Up to you. OpenVPN definitely needs it.
-* While in the VPC Dashboard, check your Network ACLs, and make sure that you're wide open on inbound rules. Also check your default security group for your new VPC, and change the source to `0.0.0.0/0`. (I don't use the default for the openvpn server, just for the instances launched into the private-only subnet).
+* Two subnets, named one 'vulnerable-public' and the other 'vulnerable-private', CIDR's `172.32.0.0/20` and `172.32.16.0/20`
+* Edited the route table for the public subnet to include the new internet gateway: Destination `0.0.0.0/0` Target `<the gateway>`. This will allow OpenVPN to access the interwebs.
+* While in the VPC Dashboard, check your Network ACLs, and make sure that your inbound rules allow all traffic. Also check your default security group for your new VPC, and change the source to `0.0.0.0/0`. (I don't use the default for the openvpn server, just for the instances launched into the private-only subnet).
 
 Now I'll admit something: that last step took me late into the night. I must have kept looking over the Source error in the security rule, I could not figure out why I couldn't ssh into my openvpn server. I'm pretty certain the security group stuff here is the same as it is on the ec2 dashboard page. Note to self though, if no connectivity, it's almost certaintly security group stuff somewhere.
+
+Note 9/26/2017: Looks like the default nowadays is for the ACLs to allow all inbound/outbound traffic by default.
+
+It's important to note that your vulnerable VMs will not have access to the internet. For that, you would need a NAT Gateway. VPC has a handy wizard which will set that up for you, but I don't need my vulnerable VMs to have internet access.
 
 
 
@@ -65,12 +76,15 @@ During the launch config:
     * `Custom TCP | 943 | 0.0.0.0/0`
     * `HTTPS | 0.0.0.0` (not necessary for the community version though)
     * `SSH | 0.0.0.0/0`
+* Create a new keypair, download the pem, and if on Windows, use puttygen to load it and save the private .ppk file.
 
 Aaaand launch and then ssh in, following the `connect` instructions.
 
 For configuring OpenVPN server, I leaned mostly on [this blog post](https://rbgeek.wordpress.com/2012/12/13/openvpn-server-on-ubuntu-12-04-behind-nat/), and partly on [this blog post](http://agiletesting.blogspot.com/2015/01/setting-up-openvpn-server-inside-aws-vpc.html). Command history for posterity:
 
 Assume `sudo` when not root.
+
+Note: if you get an error about 'unable to resolve host' when you try sudo, then add `hostname` to `/etc/hosts` localhost entry.
 
 ```
 apt-get update -y && apt-get upgrade -y
@@ -88,16 +102,17 @@ cd /etc/openvpn/easy-rsa
 ./build-key client # I didn't set a password. I'm going to couple with user auth
 ./build-dh
 cd keys
-cp ca.crt server.crt server.key dh2048.pem /etc/openvpn
+cp ca.crt server.crt server.key client.key client.crt dh2048.pem /etc/openvpn
 exit
 openvpn --genkey --secret secret.key
 cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/
 gzip -d /etc/openvpn/server.conf.gz
 
 vim server.conf  
-# Notable changes:
+# Changes:
 # * push the CIDR for your entire VPC. In my case, `push "route 172.32.0.0 255.255.0.0"`
-# * add your secret.key contents inside tls-auth, and also add `key-direction 0` after.
+# * change tls-auth line to be `tls-auth secret.key 1`
+# * uncomment `duplicate-cn` (Important!)
 
 vim /etc/sysctl.conf 
 # uncomment net.ipv4.ip_forward=1
@@ -108,18 +123,28 @@ iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
 # also put that in /etc/rc.local
                         
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn
+
 vim client.conf   
-# Notable changes:
-# * set your open vpn public server in `remote ... 1194`. Add elastic ip to your openvpn instance when ready.
+# Changes:
+# * set your open vpn public server in `remote ... 1194`. Add elastic ip to your openvpn aws instance when ready so that you don't have to keep changing this every time you start/stop your vpn instance.
+#
+# * add your secret.key contents inside a <tls-auth> block, and also add `key-direction 1` after. See my redacted client.conf below.
                          
 openvpn --config /etc/openvpn/server.conf # to test that everything is working
 
 openvpn --daemon --config /etc/openvpn/server.conf # when ready     
+
+
+# --duplicate-cn allows multiple clients to connect using the same certificate, which is our situation
+# note that if you restart your isntance, openvpn will launch as a service, so you won't be able to run the last two commands unless you shut it down via `service openvpn stop`
                          
 ```
 
-`scp` or whatever your client.conf down, and try connecting while your openvpn is running on the server.
+`scp` or whatever your client.conf down, and try connecting while your openvpn server is running.
 
+On Kali, just run `openvpn client.conf`. Then to test that it's all working, run `ifconfig` and look for a `tun` interface. Try pinging the openvpn host, in my case, 10.8.0.1.
+
+On Windows, with the OpenVPN community GUI, you can just rename your `client.conf` to `client.ovpn` and import that into the tool, then connect.
 
 See [here](http://serverfault.com/questions/483941/generate-an-openvpn-profile-for-client-user-to-import) for a discussion of inline certs.
 
@@ -129,7 +154,14 @@ See [here](http://serverfault.com/questions/483941/generate-an-openvpn-profile-f
 
 ### Launch a gazillion Violators
 
-Or whatever. Launch them into the private subnet. Try pinging their ips from a client that's connected to the VPN. Fist-pump three times if great success.
+Or whatever. 
+* Launch them into the private subnet. 
+* "Proceed without a keypair"
+* Change to a security group setting that allows "All Traffic" inbound.
+
+
+Try pinging their ips from a client that's connected to the VPN. Fist-pump three times if great success.
+
 
 
 ### Todo
