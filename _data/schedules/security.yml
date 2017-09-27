@@ -103,28 +103,24 @@
         class_num: 9
 
         title: Introduction to Computer Networking
-        activities:
-            - "Goal for today: setup your vms and ping them"
-            - "<a href='https://docs.kali.org/general-use/kali-linux-virtual-box-guest'>Setting up a shared folder between your host and Kali</a>"
-            - "<a href='https://goo.gl/forms/NAz6q5nKHNPh3i3E2'>In-class survey</a>"
+        activities: >
+            - Goal for today: setup your vms and ping them
+            
+            - <a href='https://docs.kali.org/general-use/kali-linux-virtual-box-guest'>Setting up a shared folder between your host and Kali</a>
+            
+            - <a href='https://goo.gl/forms/NAz6q5nKHNPh3i3E2'>In-class survey</a>
         readings:
             - <a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbU5lBl_IAKxtg8x50_hgXsJ4xBTUVDI05oLFtZGwCOg_NgpNBIBjUQiopVgD2nRWALa9ibgYNN9cQZw_d0mR4pzHe2MwAdLpDPHT4BHSsiDnouluilQIAZj8pTQ'>Secrets & Lies</a> Chapters 11 & 12
+  
     -
         date: 28-09-2017
         class_num: 10
         title: Introduction to Linux (in-class lab)
-        activities:
-            - Using your Kali VM, go through <a href='http://www.tldp.org/LDP/intro-linux/intro-linux.pdf'>this Linux tutorial,</a> chapters 1–7,10.
-            - Before reading Chapter 6, read <a href='/security-assignments/note-on-editors'>this note on choosing which text editor to learn</a>.
-            - Also learn about <ul>
-                    <li><a href='https://www.linux.com/learn/linux-101-introduction-sudo'>sudo</a></li>
-                    <li>man id</li>
-                    <li>man 5 passwd</li>
-                    <li>man 5 group</li>
-                    <li>ssh & scp</li>
-                </ul>
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Physical Security'
+        activities: >
+            See [this page](/class/security/intro-to-linux) for the material
+                
 6:
     -
         date: 03-10-2017
@@ -198,7 +194,7 @@
         class_num: 17
         title: Midterm &ndash; no class
         custom_css: ''
-        activities:
+        activities: >
             - "no class today; work on midterm"
 
 10:
@@ -213,7 +209,7 @@
         due_before:
             - name: '<span class="label label-danger">Quiz:</span> Clarke, Chapter 1'
             
-        activities:
+        activities: >
             - "Lab &ndash; SQL Injection (in-class only)"
         
     -
@@ -224,7 +220,7 @@
             - "<a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbQRuBDUF7Gs1NjUzMmSFHK4FPG4McV84FqncsjU2A9SMHbEQE1BQ2N7fgZFAFhpACsBBRQJrDVchIBC0zUC9WAA0ogxqg3Awabq4hzh66pcnwnmW8sZkB6AiIeBQTjbkZVCBKYaVtPHgmErr8Md7EwBiYcEH7dpQhyoCVRlFibkpmOvjejgLIsQ_xQEUWRqBrEOQgqiATu3BpoPfMgc0lkG1KWBWUVJQQqQh0ZouZsRFuqxAK4KYgtkzBlYEqewMLhLewKkJ4nujgBADKlY-Z'>Stuttard and Pinto, The Web Application Hacker's Handbook</a>, Chapter 12, sections 'Varieties of XSS' and 'XSS Attacks in Action'"
         due_before:
             - name: '<span class="label label-danger">Quiz:</span> Stuttard and Pinto, Attacking Users: Cross-site Scripting, pages 431–451'
-        activities:
+        activities: >
             - "Lab &ndash; XSS (In-class only)"
         due_tonight:
             - name: '<span class="label label-danger">Midterm due</span>'
@@ -267,7 +263,7 @@
         due_before:
             -
                 name: '<span class="label label-danger">Quiz:</span> Schneier, "The Security Mirage"; Anderson, Chapter 2, pp. 17-30, 40-42; Honan, "Cosmo"'
-        activities:
+        activities: >
             - "Lab &ndash; Social Engineering (In-class only)"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Network Security Monitoring'

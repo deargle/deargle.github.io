@@ -240,11 +240,7 @@ Similarly, you can **replace your lowest lab score** by reading a _security book
             </td>
             <td>
                 {% if day.activities %}
-                    <ul> 
-                    {% for activity in day.activities %}
-                        <li>{{ activity }}</li>
-                    {% endfor %}
-                    </ul>
+                    {{ day.activities | markdownify }}
                 {% endif %}
                 {% if day.assigned_today %}
                     <b>Assigned Today</b> 
