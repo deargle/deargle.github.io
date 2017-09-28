@@ -4,7 +4,7 @@ title: Lab &ndash; Physcial Security Scavenger Hunt
 number: 5
 ---
 
-**Note:** This lab can be completed in a group of up to four members. Turn in one document to Learning Suite with all group members’ names listed.
+**Note:** This lab can be completed in a group of up to four members. Turn in one document to D2L with all group members’ names listed.
 
 To earn full credit for this lab, complete 5 of the 11 items below. 
 
