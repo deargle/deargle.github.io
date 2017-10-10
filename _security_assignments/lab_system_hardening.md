@@ -9,7 +9,8 @@ In this lab, you will use Nmap and Nessus to identify and close security vulnera
 
 # Setup
 
-If you’ve finished Lab 7: Exploitation, you can use the Metasploitable VM you created to complete this lab. Alternatively, you can create a new Metasploitable VM.
+If you’ve finished "Lab: Exploitation", you can use the Metasploitable VM from that lab to complete this lab. Alternatively, you can create a new Metasploitable VM by importing the `.ova` a second time.
+But if you haven't finished the exploitation lab, don't perform the steps in this lab on your only Metaspolitable copy.
 
 
 # Snapshot the Metasploitable VM
@@ -22,6 +23,8 @@ If you’ve finished Lab 7: Exploitation, you can use the Metasploitable VM you 
 # Closing Ports on Metasploitable 2
 
 For this part of the lab, use the command `nmap -p 0-65535 -sV [IP address of Metasploitable VM]` to get a list of services. It’s your job to close all ports except for ports 80 (HTTP) and 22 (SSH).
+
+Recall that shutting down services is only one way to harden a system. For services deemed essential to business function, you could also harden by applying security patches (i.e., upgrading the software). But for this lab, you will focus on just shutting down unnecessary services. 
 
 1.	Log in to metasploitable. The password is “msfadmin.” 
 2.	On Metasploitable 2, become root by typing: sudo su –
@@ -36,13 +39,13 @@ For this part of the lab, use the command `nmap -p 0-65535 -sV [IP address of Me
     
         service [name of script] stop
 
-You can permanently prevent a script from starting by using this command:
+	You can permanently prevent a script from starting by using this command:
 
         update-rc.d -f [name of script] remove
         
 Some gotchas:
 
-*	Vsftpd is started by Xinetd. Turn this service off by editing /etc/xinetd.d/vsftpd to change the "disable" variable to "yes". Tell Xinetd to pick up the changes with this command:
+*	`vsftpd` is started by `xinetd`. Turn this service off by editing /etc/xinetd.d/vsftpd to change the "disable" variable to "yes". Tell Xinetd to pick up the changes with this command:
 
         kill -USR2 [process number of vsftpd]
         
@@ -60,9 +63,9 @@ Some gotchas:
 
         inet_interfaces = loopback-only
 
-*	The named DNS service is run by bind9.
+*	The named DNS service is run by `bind9`.
 
-*	smdb is run by the samba process.
+*	`smdb` is run by the `samba` process.
 
 *	You can also simply remove programs with this command: 
 
