@@ -233,9 +233,13 @@
 11:
                 
     -
+        class_num: 22
+        title: Guest Speaker -- WebRoot, Dave Dufour, VP of Engineering
+        date: 07-11-2017
+    -
         class_num: 21
         title: Network Security Monitoring
-        date: 07-11-2017
+        date: 09-11-2017
         readings:
             - <a href='http://ucblibraries.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbUxkhpymZApsHwAYxaGc5Et8A1ATmMgJNmgHTg5kZB2xQBFjfg4604mQArTdQgO0TUshPU8iDLIpWKIbe6qaQC07yoLEvbgYNN9cQZw_d0mR4FzPe2MwAdBZEPIq5xtwMahClxdmZOTnFwIIuHtSWLTYyqTCPT8ouBt-yZ2wCOkNQBaIQVj7Hg-cuoQsm4w1NzY0swEeHykGUQSZ54wsgJ0TEG4IqXmBTCahACauCkooSZEXKMEWIjU8Is-B2Ee1NAGX0cjY'>Bejtlich, The Practice of Network Security Monitoring,</a> Chapter 1
         due_before:
@@ -245,10 +249,6 @@
             -
                 name: "<a href='/security-assignments/lab_security_onion/'>Lab &ndash; Network Security Monitoring</a>"
     
-    -
-        class_num: 22
-        title: Network Security Monitoring (in-class lab)
-        date: 09-11-2017
     
     
 12:
@@ -265,8 +265,7 @@
                 name: '<span class="label label-danger">Quiz:</span> Schneier, "The Security Mirage"; Anderson, Chapter 2, pp. 17-30, 40-42; Honan, "Cosmo"'
         activities: >
             - "Lab &ndash; Social Engineering (In-class only)"
-        due_tonight:
-            - name: '<span class="label label-success">Lab:</span> Network Security Monitoring'
+        
     
     -
         class_num: 23
@@ -278,8 +277,9 @@
             -
                 name: '<span class="label label-danger">Quiz:</span> "The collapse of the US-EU Safe Harbor: Solving the new privacy Rubik''s Cube"'
         assigned_today:
-            -
-                name: "Lab &ndash; Privacy"
+            - name: "Lab &ndash; Privacy"
+        due_tonight:
+            - name: '<span class="label label-success">Lab:</span> Network Security Monitoring'
     
 
 13:
