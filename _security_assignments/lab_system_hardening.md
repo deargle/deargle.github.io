@@ -47,7 +47,7 @@ Some gotchas:
 
 *	`vsftpd` is started by `xinetd`. Turn this service off by editing /etc/xinetd.d/vsftpd to change the "disable" variable to "yes". Tell Xinetd to pick up the changes with this command:
 
-        kill -USR2 [process number of vsftpd]
+        kill -USR2 [process number of xinetd]
         
 *	Edit /etc/inetd.conf, and comment out all the processes (telnet, tftp, rlogin, rexec, etc.) 
 
