@@ -29,7 +29,7 @@ Recall that shutting down services is only one way to harden a system. For servi
 1.	Log in to metasploitable. The password is “msfadmin.” 
 2.	On Metasploitable 2, become root by typing: sudo su –
 3.	Use the command `netstat -p -l -n | grep [port number]` (as root) to find process related to the port you want to close.
-4.	Use the command `ps aux | grep [process number]` to find the process that is listening on the port you want to close.
+4.	Use the command `ps aux | grep [name of process]` to find the process that is listening on the port you want to close.
 5.	You can use the `kill` command to kill running processes. However, these may be restarted by the system. You need to change the configuration so that the services don't restart.
 6.	Most processes are started by the init (or initialization) daemon. The directory /etc/init.d/ has scripts that init uses to start programs when started. You can stop a service by running this command:
 
