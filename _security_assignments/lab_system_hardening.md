@@ -62,6 +62,10 @@ Some gotchas:
     To:
 
         inet_interfaces = loopback-only
+		
+	Then restart postfix:
+		
+		/etc/init.d/postfix restart
 
 *	The named DNS service is run by `bind9`.
 
