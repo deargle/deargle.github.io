@@ -8,38 +8,11 @@ I'll be starting a new job at CU Boulder soon. One of my responsibilities will b
 
 Went like this:
 
-* make a vulnerable virtual image
-* Export the appliance and convert it to an AMI 
 * create a VPC on AWS
 * configure OpenVPN community on an Ubuntu AMI
+* make a vulnerable virtual image
+* Export the appliance and convert it to an AMI 
 * launch 1-to-many instances of your vulnerable AMIs into the VPN
-
-### Make a vulnerable virtual image, then export it
-
-I skipped this step, but here you'd create a VM however you like, making it nice and vulnerable. Then you export your image into a format that AWS likes. There are [several acceptable formats for AWS mentioned in the docs](http://docs.aws.amazon.com/vm-import/latest/userguide/export-vm-image.html), OVA included. In VirtualBox, you can export a VM as an OVA using `File > Export Appliance...`. 
-
-The important thing to note here is that only certain OSes are compatible with AWS's AMI format. [Thankfully, the list is long.](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html)
-
-
-### Convert your image to an AMI 
-
-I started at this step, with an unedited copy of [Violator](https://www.vulnhub.com/entry/violator-1,153/), pulled from VulnHub. 
-
-You'll need the [AWS CLI](https://aws.amazon.com/cli/). Dowload it, and then give it your root credentials by running `aws configure` so that you can follow the next steps.
-
-The process for creating an AMI involves: 
-
-* uploading your image to an S3 bucket, 
-* creating an IAM `VM Import Service Role`, 
-* invoking the magic spells in the aws console to import the image from S3 into an AMI.
-
-Docs [here](http://docs.aws.amazon.com/vm-import/latest/userguide/import-vm-image.html). First follow [these steps for creating a VM Import Service Role](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#import-vm-image). Then, upload the VM image file to S3 (I used the browser interface to upload). Then follow the last step to initiate the import transfer.
-
-Went smoothly for me, although the actual import (the last step) took 10+ minutes. When you create your own AMI, AWS launches a copy of your instance appliance and then takes a snapshot of it. That snapshot will be associated with your new AMI, and is not deletable unless you first unregister your AMI. So be aware, you'll be paying for the storage of that snapshot as long as you have the AMI. Note that your AMI will
-only show up in the view for the region where you deployed it.
-
-Note 9/26/2017: When I used the aws cli on Linux, I had to run `sudo ntpdate time.nist.gov` before the s3 commands would work.
-
 
 
 
@@ -113,6 +86,7 @@ vim server.conf
 # * push the CIDR for your entire VPC. In my case, `push "route 172.32.0.0 255.255.0.0"`
 # * change tls-auth line to be `tls-auth secret.key 1`
 # * uncomment `duplicate-cn` (Important!)
+# * uncomment `client-to-client` to let metasploit exploits connect back to listeners on kali
 
 vim /etc/sysctl.conf 
 # uncomment net.ipv4.ip_forward=1
@@ -151,6 +125,52 @@ See [here](http://serverfault.com/questions/483941/generate-an-openvpn-profile-f
 [Here's my redacted server.conf and client.conf](https://gist.github.com/deargle/ce70b597645dc7c7c9eaec40875faaf5)
 
 
+### Make a vulnerable virtual image, then export it
+
+I skipped this step, but here you'd create a VM however you like, making it nice and vulnerable. Then you export your image into a format that AWS likes. There are [several acceptable formats for AWS mentioned in the docs](http://docs.aws.amazon.com/vm-import/latest/userguide/export-vm-image.html), OVA included. In VirtualBox, you can export a VM as an OVA using `File > Export Appliance...`. 
+
+The important thing to note here is that only certain OSes are compatible with AWS's AMI format. [Thankfully, the list is long.](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html)
+
+#### Letting the vulnerable VMs talk back to connected VPN clients
+
+If you want to be able to run metasploit shell exploits, the vulnerable VMs need to have a route to the connected VPN clients (to the attack machines). This is because metasploit launches
+listeners, then executes payloads on victim machines that reach out to the listener. The solution I came up with for doing this is to put each of the vulnerable VMs on the VPN, too, but to
+change their client.conf a bit. 
+
+
+* Install openvpn to your image.
+* Change client.conf `remote` directive to point to the _private ip address_ of your openvpn instance, not the public one (remember, the instances in the private network don't have internet connectivity)
+* Add two more lines to client.conf: 
+	* `route-nopull` (this blocks the vpn connection from clobbering the private network route that already exists for your VPC via the 'push route' statements, in my case, 172.32.0.0/16. 
+	* and `route 10.8.0.0 255.255.255.0` (Set your vpn server's `server` directive CIDR network here. This lets the vulnerable servers talk to clients on the VPN network, when combined with the `client-to-client` directive in server.conf)
+	
+Edit `/etc/defaults/openvpn` and add a line for `AUTOSTART="client"`, then put your edited client.conf in /etc/openvpn. With it there, it should be automatically started on boot.
+
+If you forgot to do this step before you imported your VM image into AWS, you can edit one of your launched images, then make a new AMI image based on that running instance. Faster than reuploading the whole thing to S3.
+
+
+
+### Convert your image to an AMI 
+
+I started at this step, with an unedited copy of [Violator](https://www.vulnhub.com/entry/violator-1,153/), pulled from VulnHub. 
+
+You'll need the [AWS CLI](https://aws.amazon.com/cli/). Dowload it, and then give it your root credentials by running `aws configure` so that you can follow the next steps.
+
+The process for creating an AMI involves: 
+
+* uploading your image to an S3 bucket, 
+* creating an IAM `VM Import Service Role`, 
+* invoking the magic spells in the aws console to import the image from S3 into an AMI.
+
+Docs [here](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html). First follow [these steps for creating a VM Import Service Role](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#import-vm-image). Then, upload the VM image file to S3 (I used the browser interface to upload). Then follow the last step to initiate the import transfer.
+
+Went smoothly for me, although the actual import (the last step) took 10+ minutes. When you create your own AMI, AWS launches a copy of your instance appliance and then takes a snapshot of it. That snapshot will be associated with your new AMI, and is not deletable unless you first unregister your AMI. So be aware, you'll be paying for the storage of that snapshot as long as you have the AMI. Note that your AMI will
+only show up in the view for the region where you deployed it.
+
+Note 9/26/2017: When I used the aws cli on Linux, I had to run `sudo ntpdate time.nist.gov` before the s3 commands would work.
+
+
+
 
 ### Launch a gazillion Violators
 
@@ -160,7 +180,7 @@ Or whatever.
 * Change to a security group setting that allows "All Traffic" inbound.
 
 
-Try pinging their ips from a client that's connected to the VPN. Fist-pump three times if great success.
+Try pinging their ips from a client that's connected to the VPN. Then try exploiting them. For LHOST, use kali's vpn ip address for tun0, but you can target the private-ip address of the vulnerable vms (you don't need to target or know the vulnerable vm's vpn tun0 ip address). Fist-pump ~~three~~ six times if great success.
 
 
 
