@@ -67,7 +67,7 @@ Some gotchas:
 		
 		/etc/init.d/postfix restart
 
-*	The named DNS service is run by `bind9`.
+*	The `named` DNS service is run by `bind9`.
 
 *	`smdb` is run by the `samba` process.
 
