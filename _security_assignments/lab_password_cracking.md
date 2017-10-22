@@ -8,7 +8,7 @@ number: 9
 
 1.	Visit the following URL:
 
-    [https://dl.dropboxusercontent.com/u/209/zxcvbn/test/index.html](https://dl.dropboxusercontent.com/u/209/zxcvbn/test/index.html)
+    [https://lowe.github.io/tryzxcvbn/](https://lowe.github.io/tryzxcvbn/)
 
 2.	Try out different passwords to see how strong they are.
 
