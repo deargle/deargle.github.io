@@ -80,7 +80,7 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 		python office2john.py hashcat.doc
 		
 	Note: 
-	* office2john.py can be obtained [here](https://raw.githubusercontent.com/magnumripper/JohnTheRipper/unstable-jumbo/run/office2john.py), but I already put it in your home dir.
+	* office2john.py can be obtained [here](https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py), but I already put it in your home dir.
 	* hashcat.doc is available [here](https://github.com/deargle/deargle.github.io/raw/master/class/cu/mgmt4250/hashcat.doc). I already put that in your home dir too, but if you need it, you can run 
 		
 			wget https://github.com/deargle/deargle.github.io/raw/master/class/cu/mgmt4250/hashcat.doc
