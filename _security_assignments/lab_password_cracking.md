@@ -121,14 +121,16 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 	**Question:** Roughly how many passwords per second can Hashcat try on a .doc file? See [here](https://hashcat.net/forum/thread-2906.html) for interpreting cracking speeds.
 	(Note: this would be orders of magnitude faster if you weren't running hashcat in a VM.)
 
-7. 	Run the following command to see how many hashes a second Hashcat can guess a second for various hashing algorithms:
+7. 	~~Run the following command to see how many hashes a second Hashcat can guess a second for various hashing algorithms:~~
 
 		hashcat -b --force
 
-	Note: This command may take 10 minutes or so to run. Keep this window open, continue with the next section of this lab, and come back to this question when the above command finishes.
+	~~Note: This command may take 10 minutes or so to run. Keep this window open, continue with the next section of this lab, and come back to this question when the above command finishes.~~
 
-	Note: Keep this terminal window open so you can reference this output for another question later in this lab.
+	~~Note: Keep this terminal window open so you can reference this output for another question later in this lab.~~
 
+    Refer to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40). (Running benchmark on your own machines is breaking on `scrypt` for some reason.)
+    
 	**Question:** How much slower is Hashcat in cracking .doc MS Office documents (option 9700, “<= 2003 $0\|$1, MD5 + RC4”) compared to Office 2013 documents (option 9600)?
 
 	**Question:** How does an offline password attack compare with the online hydra attack you attempted earlier? 
