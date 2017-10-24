@@ -123,7 +123,7 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 
 7. 	Run the following command to see how many hashes a second Hashcat can guess a second for various hashing algorithms:
 
-		hashcat -b
+		hashcat -b --force
 
 	Note: This command may take 10 minutes or so to run. Keep this window open, continue with the next section of this lab, and come back to this question when the above command finishes.
 
