@@ -200,7 +200,9 @@ on the bottom of <a href='https://haveibeenpwned.com/Passwords'>this page</a>.</
     
 # Part 5. Secure Password Hashing
 
-Refer back to the benchmark command that you ran in a separate window for Part 3 step 7 (`hashcast -b`). 
+~~Refer back to the benchmark command that you ran in a separate window for Part 3 step 7 (`hashcast -b`).~~
+
+Refer to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40). (Running benchmark on your own machines is breaking on `scrypt` for some reason.)
 
 **Question:** How much slower is Hashcat in cracking bcrypt hashes compared to SHA1 hashes?
 
