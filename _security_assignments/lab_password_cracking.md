@@ -95,13 +95,14 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 	Note: make sure the entire hash is on one line within the text file. **Don't add extra spaces at the end.** 
 	If you get a "line-length exception" in the next step, make sure there's not a typo in the beginning of the hash.
 
-6.	While still in your home dir, run the following command (all on one line):
+6.	While still in your home dir, run the following command (all on one line). Reference the hash file you just created, and choose an arbitrary name for an output file. Once the password is cracked,
+    you will read your output file to see the cracked password. It will be appended to the end of the hash following a `:` symbol.
 
 		hashcat --force -a 0 -m 9700 --potfile-disable -o <<outputFileName.txt>> <<HashInputFileName.txt>> /usr/share/wordlists/rockyou.txt
 
-	Or alternatively, if you prefer to do it without making an input file:  
+	Or alternatively, if you prefer to do it without making an input file, put the hash string right in the terminal, surrounded by single quotes:  
 
-		hashcat --force -a 0 -m 9700 --potfile-disable -o <<outputFileName.txt>> [hash string] /usr/share/wordlists/rockyou.txt
+		hashcat --force -a 0 -m 9700 --potfile-disable -o <<outputFileName.txt>> '[hash string]' /usr/share/wordlists/rockyou.txt
 	
 	Where the switches correspond to:
 
@@ -129,7 +130,8 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 
 	~~Note: Keep this terminal window open so you can reference this output for another question later in this lab.~~
 
-    Refer to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40). (Running benchmark on your own machines is breaking on `scrypt` for some reason.)
+    Refer to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40). (Running benchmark on your own machines is breaking on `scrypt` for some reason.).
+    Units are expressed as (unit)H/s, or hashes per second, [thusly](https://hashcat.net/forum/thread-4908.html).
     
 	**Question:** How much slower is Hashcat in cracking .doc MS Office documents (option 9700, “<= 2003 $0\|$1, MD5 + RC4”) compared to Office 2013 documents (option 9600)?
 
@@ -145,13 +147,24 @@ However, in interest of your time, this section will require you to crack only 5
 hashes. Ask me for a copy.
 
 1.	Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/class/cu/mgmt4250/LinkedIn_HalfMillionHashes.txt)).
+
 2.	Open a terminal. To get your feet wet, perform a straight dictionary attack using the rockyou.txt wordlist again, as follows (one line):
 
 		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
 
 	Note: This command may take 5–10 minutes to run. To see the status of a running job in Hashcat, press the “s” key (it might take up to 15 seconds for Hashcat to report its status).
+    
+    <div class='alert alert-warning'>These commands use the <code>--remove</code> flag. This will remove cracked hashes from the input file. So, if you run these commands more than once without changing anything, it won't crack anything after the first time.</div>
+    
+    Hashcat will report how many passwords it "recovered" when it finishes. You can always count the number of lines in your outfile (`LinkedIn_cracked.txt`) to see how many you've cracked so far, total:
+           
+        wc -l LinkedIn_cracked.txt
+    
+    Or count the number of passwords left (it started with half a million):
+        
+        wc -l LinkedIn_HalfMillionHashes.txt
 
-5.	To see hashes cracked in real time, in another terminal shell, type the command: `tail -f LinkedIn_cracked.txt`. Type `control+c` to exit the tail command.
+    To see hashes cracked in real time, in another terminal shell, type the command: `tail -f LinkedIn_cracked.txt`. Type `control+c` to exit the tail command.
 
 	**Question:** How many passwords were you able to recover using this command?
 
@@ -204,7 +217,7 @@ on the bottom of <a href='https://haveibeenpwned.com/Passwords'>this page</a>.</
 
 ~~Refer back to the benchmark command that you ran in a separate window for Part 3 step 7 (`hashcast -b`).~~
 
-Refer to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40). (Running benchmark on your own machines is breaking on `scrypt` for some reason.)
+Refer to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40). (Running benchmark on your own machines is breaking on `scrypt` for some reason.) Units are expressed as (unit)H/s, or hashes per second, [thusly](https://hashcat.net/forum/thread-4908.html).
 
 **Question:** How much slower is Hashcat in cracking bcrypt hashes compared to SHA1 hashes?
 
