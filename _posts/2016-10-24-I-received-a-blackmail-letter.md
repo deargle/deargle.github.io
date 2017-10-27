@@ -31,6 +31,10 @@ As for whether I match an AM profile, I'd suspect that if I did, I would have go
 
 <br>
 
+**Update 10/27/2017:** I got three emails today from other victims. I have only received one other email in the 12-ish months that this post has been up. Seems like another wave has gone out.
+
+<br>
+
 My scans (nothing received at the bitcoin address yet, I already checked. Probably unique anyways.): 
 
 ![blackmail page 1](/assets/img/blackmail/page-1.jpg){: width="50%"} 
