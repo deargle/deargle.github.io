@@ -50,9 +50,12 @@ All postmarked October 24, 2017.
 
 By the way, nothing ever came from me ignoring the original letter I received.
 
-If you're a victim too, if you'd be so kind, please shoot me an email with your general location, and whether the post office stamp was also Nashville, Tennessee 370. I'm also still looking for a full scan of the new letter -- apparently there are some changes, further supporting the idea that there's a Word document floating around. I'll post the new one here.
+If you're a victim too, if you'd be so kind, please shoot me an email with your general location, and whether the post office stamp was also Nashville, Tennessee 370. ~~I'm also still looking for a full scan of the new letter -- apparently there are some changes, further supporting the idea that there's a Word document floating around.~~ Scan received, see link at bottom of this post. Mostly identical, with two differences:
 
-I know my name (all our names) are on a lot of lists for sale out there, but I still wonder, which list did the scammer use for this? Knowing that would answer the question -- "why me?". Probably just a mundane "people who are married" list of some kind, with random selection from the list. It's not even a "people who are married and who probably have $2,000 to spare" list, because I got targeted when I was a doctoral student ¯\\\_ツ\_/¯. 
+* First sentence is "I know about the secret you are keeping from your wife" instead of "I know you cheated on your wife."
+* There's a reference to "I stumbled across your misadventures while working a job around [location close to victim's address]", whereas before the location was not specified.
+
+I know my name (all our names) are on a lot of lists for sale out there (the same lists that junk mailers use), but I still wonder, which list did the scammer use for this? Knowing that would answer the question -- "why me?". Probably just a mundane "people who are married" list of some kind, with random selection from the list. It's not even a "people who are married and who probably have $2,000 to spare" list, because I got targeted when I was a doctoral student ¯\\\_ツ\_/¯. 
 
 The other thing is that before, I got a letter postmarked from my local city (which was unnerving). So did another victim who contacted me last year. I wonder how the attacker pulled that off. Are there such things as local letter-sending mules? But this time, it's all from Nashville?
 
@@ -70,3 +73,6 @@ My scans of the letter I got in October 2016 (nothing received at the bitcoin ad
 
 ![envelope](/assets/img/blackmail/envelope.jpg){: width="50%"} 
 
+<hr>
+
+And [here's a PDF scan of one of the October 24, 2017](/assets/bitcoin_blackmail_2017.pdf) that a reader sent in.
