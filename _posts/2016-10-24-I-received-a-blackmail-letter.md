@@ -33,13 +33,20 @@ As for whether I match an AM profile, I'd suspect that if I did, I would have go
 **Update 10/27/2017:** I got three emails today from other victims. I have only received one other email in the 12-ish months that this post has been up. Seems like another wave has gone out.
 
 
-**Update 10/28/2017:** I have now received 8 emails from victims since yesterday. There's definitely been another wave. At least three were postmarked "Nashville, Tennessee 370." Several didn't have the stamp cancelled out. Recipients are all over the US:
+**Update 10/28/2017:** I have now received 8 emails from victims since yesterday. There's definitely been another wave. At least five were postmarked "Nashville, Tennessee 370." Several didn't have the stamp cancelled out. Recipients are all over the US:
 
 * Portland, Oregon
 * Alabama
-* California
+* California (Unknown + Southern)
 * Fort Myers, Florida
 * Houston, Texas
+* Austin, Texas
+* Chandler, Arizona
+* Cincinnati, Ohio
+* Annandale, Virginia
+* Wilmington, Delaware
+
+All postmarked October 24, 2017.
 
 By the way, nothing ever came from me ignoring the original letter I received.
 
@@ -47,7 +54,7 @@ If you're a victim too, if you'd be so kind, please shoot me an email with your 
 
 I know my name (all our names) are on a lot of lists for sale out there, but I still wonder, which list did the scammer use for this? Knowing that would answer the question -- "why me?". Probably just a mundane "people who are married" list of some kind, with random selection from the list. It's not even a "people who are married and who probably have $2,000 to spare" list, because I got targeted when I was a doctoral student ¯\\\_ツ\_/¯. 
 
-The other thing is that before, I got a letter postmarked from my local city (which was unnerving). So did another victim who contacted me last year. I wonder how the attacker pulled that off. Is there such a thing as local letter-sending mules? But this time, it's all from Nashville?
+The other thing is that before, I got a letter postmarked from my local city (which was unnerving). So did another victim who contacted me last year. I wonder how the attacker pulled that off. Are there such things as local letter-sending mules? But this time, it's all from Nashville?
 
 <hr>
 
