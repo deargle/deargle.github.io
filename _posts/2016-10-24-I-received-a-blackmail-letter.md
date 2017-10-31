@@ -37,7 +37,7 @@ As for whether I match an AM profile, I'd suspect that if I did, I would have go
 
 * Portland, Oregon
 * Alabama
-* California (Unknown + Southern)
+* California (Unknown + Southern + San Francisco)
 * Fort Myers, Florida
 * Houston, Texas
 * Austin, Texas
@@ -45,8 +45,13 @@ As for whether I match an AM profile, I'd suspect that if I did, I would have go
 * Cincinnati, Ohio
 * Annandale, Virginia
 * Wilmington, Delaware
+* Seattle, Washington
+* Nashville, Tennessee (!)
+* York, Maine (a detective from the York police department reached out to me for that one)
 
 All postmarked October 24, 2017.
+
+Bitcoin addresses are unique.
 
 By the way, nothing ever came from me ignoring the original letter I received.
 
