@@ -102,7 +102,7 @@ You can crack passwords with either John the Ripper (JtR) or with hashcat.
         That will open an `ssh` connection to the midterm server as the specified user, and copy a file (that the user must have permission to read!) from the specified path down to the current directory 
         (`.` means 'current directory that I'm in on Kali').
         
-        Note that this must be run on Kali. You cannot scp a file _from_ the midterm server _to_ Kali, because you cannot open an ssh session from the midterm server to kali, because there is no 
+        Note that this must be run on Kali. Meaning it cannot be run from within an exploited shell on the midterm server or from within an ssh connection to the midterm server. You cannot scp a file _from_ the midterm server _to_ Kali, because you cannot open an ssh session from the midterm server to kali, because there is no 
         ssh server listening on Kali. (If there were, you all could ssh into each others' Kali VMs while connected to the VPN, and we can't have that!).
         
 	*   `ssh` - for logging into remote servers
