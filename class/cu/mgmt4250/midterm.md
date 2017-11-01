@@ -93,11 +93,22 @@ You can crack passwords with either John the Ripper (JtR) or with hashcat.
 	* If you want to crack the unshadowed file using hashcat, you will need to edit the unshadowed file a bit. You have to manually edit the unshadowed file and remove everything except for the username and the hash. See [here](https://samsclass.info/123/proj10/p12-hashcat.htm) (except, you can leave in the usernames, if you pass the `--username` flag)
 
 * You will want to read up on using the following tools (Google is your friend):
-	* `scp` - one way to copy files from one computer to another, including from your server to kali. You could also use a meterpreter shell to download files if you have one.
-	* `ssh` - for logging into remote servers
-	* `sudo` (including `sudo -l`)
-	* `id`
-	* `hydra` to crack ssh logins
+	*   `scp` - one way to copy files from one computer to another, including from your server to kali. You could also use a meterpreter shell to download files if you have one.
+        
+        Example `scp` code (from Kali):
+            
+            scp midterm-server-username@midterm-server-ip-address:/full/path/to/file/on/midterm/server .
+            
+        That will open an `ssh` connection to the midterm server as the specified user, and copy a file (that the user must have permission to read!) from the specified path down to the current directory 
+        (`.` means 'current directory that I'm in on Kali').
+        
+        Note that this must be run on Kali. You cannot scp a file _from_ the midterm server _to_ Kali, because you cannot open an ssh session from the midterm server to kali, because there is no 
+        ssh server listening on Kali. (If there were, you all could ssh into each others' Kali VMs while connected to the VPN, and we can't have that!).
+        
+	*   `ssh` - for logging into remote servers
+	*   `sudo` (including `sudo -l`)
+	*   `id`
+	*   `hydra` to crack ssh logins
 
 * Trying to crack a password? Remember to try dictionary attacks + rule lists (such as hashcat's best64 rulelist, see the password cracking lab). Also remember that some users might use some combination of their username as their password. Read the documentation for hydra's `-e` flag. For example, to try the reverse of a username of a password, you would pass `-e r`. You can pass multiple values for `-e`, like it shows in the documentation.
 
