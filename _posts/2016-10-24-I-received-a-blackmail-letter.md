@@ -64,6 +64,10 @@ I know my name (all our names) are on a lot of lists for sale out there (the sam
 
 The other thing is that before, I got a letter postmarked from my local city (which was unnerving). So did another victim who contacted me last year. I wonder how the attacker pulled that off. Are there such things as local letter-sending mules? But this time, it's all from Nashville?
 
+**Update 11/2/2017**: By now, over two dozen people have contacted me. Thought it would be interesting to share the Google Analytics traffic to this blog post. I typically get ~3-5 visits a day, but since Oct 25th I've had an explosion. I've had 1,300 visits to the page in the past week, 960 of those being unique visits. If that's any indication of the number of victims, that's huge.
+
+![google-analytics-traffic](/assets/img/blackmail/2017-blackmail-traffic.png){: width="100%"}
+
 <hr>
 
 My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyways.): 
