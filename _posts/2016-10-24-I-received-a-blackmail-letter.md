@@ -80,4 +80,12 @@ My scans of the letter I got in October 2016 (nothing received at the bitcoin ad
 
 <hr>
 
+A friend recommended I post some of the text of the letter for SEO purposes (to help victims find this post), so here goes with the first two paragraphs:
+
+> I'm going to cut to the chase. I know about the secret you are keeping from your wife. More importantly, I have _evidence_ of what you have been hidnig. I won't go into the specifics here in case your wife intercepts this, but you know what I am talking about.
+
+> You don't know me personally and nobody hired me to look into you. Nor did I go out looking to burn you. It is just your bad luck that I stumbled across your misadventures while working a job around [redacted]. I then put in more time than I probably should have looking into your life. Frankly, I am ready to forget all about you and let you get on with your life. And I am going to give you two options that will accomplish that very thing. Those two options are either to ignore this letter, or simply pay me $2,000. Let's examine those two options in more details.
+
+And so on.
+
 And [here's a PDF scan of one of the October 24, 2017](/assets/bitcoin_blackmail_2017.pdf) that a reader sent in.
