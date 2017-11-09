@@ -7,7 +7,7 @@ number: 12
 
 # Setup
 
-<div class='alert alert-info'>As usual, I have a ready-to-go VM that I can share with you. Or you can follow the instructions below and set up your own.</div>
+<div class='alert alert-info'>As usual, I have a ready-to-go VM that I can share with you. Or you can follow the instructions below and set up your own. The `username:password` for the image I provide is `securityonion:Password1`.</div>
 
 Download and install Security Onion following [these instructions](https://github.com/Security-Onion-Solutions/security-onion/wiki/QuickISOImage) and [these instructions](https://askubuntu.com/questions/64915/how-do-i-install-ubuntu-on-a-virtualbox-client-from-an-iso-image). [Make note](https://github.com/Security-Onion-Solutions/security-onion/wiki/Hardware): 
 
@@ -16,7 +16,7 @@ Download and install Security Onion following [these instructions](https://githu
 	
 * I gave mine a 15 GB hard disk.
 * Give it two network cards. 
-	* **Important:** Set Adapter 1 to "Host-only," click the "Advanced" triangle, and change "Promiscuous Mode" to "Allow All".
+	* **Important:** Set Adapter 1 to "Host-only" or to "Internal Network", click the "Advanced" triangle, and (this is the important part) change "Promiscuous Mode" to "Allow All".
 	* On the Adapter 2 tab, select "Enable Network Adapter," and select "NAT."
 * I installed with username:password `securityonion:Password1`
 * If you value your eyesight, [install VBox Guest Additions](http://www.binarytides.com/vbox-guest-additions-ubuntu-14-04/) to get fullscreen resolution (I had to run it twice).
@@ -114,12 +114,14 @@ There are many other filters that we can use to analyze the network traffic in m
 
 In this section, you’ll examine the network traffic for a Windows VM that browsed to a compromised website that in turn referred the Windows VM to a server that delivered malware to the Windows VM. You’ll use Squert and Wireshark to investigate these events.
 
-1.	Navigate to the /data/cases/case.pcap file and run the following command (available [here](https://daveeargle.com/class/cu/mgmt4250/case.pcap) if you don't already have it).
+1.	Navigate to the `/data/cases/` directory, where `case.pcap` is found (available [here](https://daveeargle.com/class/cu/mgmt4250/case.pcap) if you don't already have it). Run the following command.
 
         sudo tcpreplay -i eth0 -M 10.0 case.pcap
 
     Note the lowercase “i" in “-i" and uppercase “M” in “-M”.
 
+    This command replays network traffic stored in the `case.pcap` file onto security onion's network card, as if the network activity were happening again, live.
+    
     You should see the following result (never mind the error messages for the 20 failed packets):
 
         Statistics for network device: 	eth0
@@ -151,7 +153,13 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     ![](../images/lab_12_2.png){: .img-responsive width='30%'}
 	
 	
-	<div class='alert alert-info' markdown='1'>If you don't have any country information showing, first make sure that you have an internet connection (try `ping google.com`), then try this:
+	<div class='alert alert-info' markdown='1'>If you don't have any country information showing, first make sure that you have an internet connection (try `ping google.com`), 
+    
+    If you can't ping google.com, run this:
+        
+        sudo ifdown eth1 && sudo ifup eth1
+    
+    Once you can ping google.com, run this:
 			
 		
 		cd /var/www/so/squert/.scripts
