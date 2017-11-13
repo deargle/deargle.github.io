@@ -261,7 +261,7 @@
         readings:
             - <a href='https://www.ted.com/talks/bruce_schneier'>Schneier, "The Security Mirage"</a>
             -  <a href='http://www.cl.cam.ac.uk/~rja14/Papers/SEv2-c02.pdf'>Anderson, Chapter 2,</a> pp. 17-30, 40-42
-            - <a href='http://www.wired.com/2012/09/cosmo-the-god-who-fell-to-earth/all/'>"Cosmo, the Hacker ‘God’ Who Fell to Earth," by Mat Honan</a>
+            - <a href='http://www.wired.com/2012/09/cosmo-the-god-who-fell-to-earth/'>"Cosmo, the Hacker ‘God’ Who Fell to Earth," by Mat Honan</a>
         due_before:
             -
                 name: '<span class="label label-danger">Quiz:</span> Schneier, "The Security Mirage"; Anderson, Chapter 2, pp. 17-30, 40-42; Honan, "Cosmo"'
