@@ -265,8 +265,9 @@
         due_before:
             -
                 name: '<span class="label label-danger">Quiz:</span> Schneier, "The Security Mirage"; Anderson, Chapter 2, pp. 17-30, 40-42; Honan, "Cosmo"'
-        activities: >
-            - "Lab &ndash; Social Engineering (In-class only)"
+        activities:
+        assigned_today:
+            - name: "<a href='/security-assignments/lab_social_engineering/'>Lab &ndash; Social Engineering (Extra credit)</a>"
         
     
     -
@@ -280,9 +281,16 @@
                 name: '<span class="label label-danger">Quiz:</span> "The collapse of the US-EU Safe Harbor: Solving the new privacy Rubik''s Cube"'
         assigned_today:
             - name: "Lab &ndash; Privacy"
+            - name: "<a href='/class/security/security-review/'>Threat assessment project, a.k.a 'Security Review'</a>"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Network Security Monitoring'
-    
+        activities: >
+            - Form 2-3 person teams (or you can work on your own) for the threat assessment project. Mark your teams and claim your topics [here](https://docs.google.com/spreadsheets/d/1IdYZfwJqgMWs-_gJqP-VJSB24fxVNGjHrA61ILs5x_k/edit?usp=sharing) (even if you're working on your own)
+            
+    -
+        date: 17-11-2017
+        due_tonight:
+            - name: choose your teams and your topics for the threat assessment project (use the spreadsheet linked on 16 November 2017)
 
 13:
     -
@@ -301,51 +309,51 @@
         class_num: 24
         title: Information Security in Organizations
         date: 28-11-2017
+        due_tonight:
+            - name: '<span class="label label-success">Lab:</span> Privacy and Anonymity'
         
     -
         class_num: 25
         title: Security and Society
         date: 30-11-2017
-        due_tonight:
-            - name: '<span class="label label-success">Lab:</span> Privacy and Anonymity'
         
 
 15:
     -
         class_num: 27
-        title: Presentations
+        title: Presentations; USENIX Enigma talks
+        due_before:
+            - name: Threat assessment deliverables (document and presentation submitted to D2L)
         date: 05-12-2017
 
     -
         class_num: 28
-        title: Presentations
+        title: No class (Dr. Eargle in Korea)
+        custom_css: info
         date: 07-12-2017
-
-    -
-        title: Film "Citizenfour" screening
-        date: 09-12-2017
         
 16:
 
     -
         class_num: 26
-        title: USENIX Enigma talks
+        title: No class (Dr. Eargle in Korea)
+        custom_css: info
         date: 12-12-2017
     
     -
         class_num: 29
-        title: Course wrap-up
+        title: Course wrap-up; FCQ administration
         date: 14-12-2017
-        
+        due_before:
+            - name: By 9am today, submit topics from the semester you would like to discuss in preparation for the exam <a href='https://goo.gl/forms/eHkcAt2TCf2MnDIh1'>here</a>
+        activities: >
+            - <a href='colorado.campuslabs.com/courseeval'>FCQ link</a>
         due_tonight:
-            -
-                name: '"Citizenfour" report'
-            -
-                name: '"Zero Days" report'
-            -
-                name: Book extra credit report
-            -
-                name: Movie extra credit report
+            - name: <span class="label label-success">Lab:</span> Social Engineering (Extra credit)
+            - name: '"Citizenfour" report'
+            - name: '"Zero Days" report'
+            - name: Book extra credit report
+            - name: Movie extra credit report
         
 17:
     -

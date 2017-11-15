@@ -29,3 +29,30 @@ Your security review should contain:
 
 Some examples of past security reviews are online at [https://cubist.cs.washington.edu/Security/category/security-reviews/](https://cubist.cs.washington.edu/Security/category/security-reviews/)
 
+
+## Having a hard time thinking of a topic?
+
+Browse the past security reviews linked above for an idea of things in-scope (but don't copy them!).
+
+Read the news for articles about newfangled technoligies for inspiration. I like to read [Ars Technica](https://arstechnica.com/) and [Wired](https://www.wired.com/), among others.
+
+Some examples to get you thinking:
+
+- all things Internet of Things related (you could choose something from one of these sets):
+    * smart cameras
+    * smart home products (thermostats, lights)
+    * the smart home as a whole
+- self-driving cars and/or trucks
+- smart embeddable implants (health devices)
+- drones
+- bitcoin / cryptocurrencies
+- online banking
+
+And many more (come up with something interesting!).
+
+
+## Deliverables
+
+1. Your written security review (Submit to the D2L dropbox)
+2. A brief powerpoint slide presentation, following the general outline of the security review (also submit to D2L dropbox). Be prepared to present (probably ~5 minutes, up to 10 minutes allowed) -- a few lucky submissions will be selected to be presented to the class.
+
