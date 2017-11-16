@@ -280,7 +280,7 @@
             -
                 name: '<span class="label label-danger">Quiz:</span> "The collapse of the US-EU Safe Harbor: Solving the new privacy Rubik''s Cube"'
         assigned_today:
-            - name: "Lab &ndash; Privacy"
+            - name: "<a href='/security-assignments/lab_web_privacy_and_anonymity/'>Lab &ndash; Privacy</a>"
             - name: "<a href='/class/security/security-review/'>Threat assessment project, a.k.a 'Security Review'</a>"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Network Security Monitoring'
