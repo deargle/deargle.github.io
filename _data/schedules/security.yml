@@ -325,6 +325,8 @@
         due_before:
             - name: Threat assessment deliverables (document and presentation submitted to D2L)
         date: 05-12-2017
+        activities: >
+            - **Room change for today only:** KOBL S125
 
     -
         class_num: 28
