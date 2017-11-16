@@ -79,7 +79,7 @@ We will analyze sample data hosted [here](https://tools.netsa.cert.org/silk/refe
 8.	Query top talkers by the number of records they generated: 
 
 		sudo rwfilter --data-rootdir=/data/SiLK-LBNL-05 \
-		--proto=0- --type=all $sd \ 
+		--proto=0- --type=all $sd \
 		--pass=stdout | rwstats --count=25 \
 		--fields=sip,dip
 
@@ -88,7 +88,7 @@ We will analyze sample data hosted [here](https://tools.netsa.cert.org/silk/refe
 9.	Query top SSH flows. This is typically done using a destination port (“dport”) filter for port 22, as follows:
 
 		sudo rwfilter --data-rootdir=/data/SiLK-LBNL-05 \
-		--proto=0- --type=all $sd \ 
+		--proto=0- --type=all $sd \
 		--dport=22 --pass=stdout | rwstats --count=10 \
 		--fields=sip,dip
 
@@ -99,8 +99,8 @@ We will analyze sample data hosted [here](https://tools.netsa.cert.org/silk/refe
 11.	Query for long standing SSH traffic:
 
 		sudo rwfilter --data-rootdir=/data/SiLK-LBNL-05 \
-		--proto=0- --type=all \ 
-		--dport=22 --dur=1700- \ 
+		--proto=0- --type=all \
+		--dport=22 --dur=1700- \
 		$sd --pass=stdout | rwcut
 
 	**Question:** Why should we look for long standing SSH connections?
