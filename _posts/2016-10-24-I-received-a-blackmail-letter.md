@@ -68,6 +68,14 @@ The other thing is that before, I got a letter postmarked from my local city (wh
 
 ![google-analytics-traffic](/assets/img/blackmail/2017-blackmail-traffic.png){: width="100%"}
 
+<br/>
+
+**Update 11/22/2017**: Another wave has been released! I've had another dozen people contact me so far. Dates for this wave are Nov 17th and 18th. A disproportionate number of people who have contacted me have been lawyers -- seems the targeting is getting more sophisticated. One person reported that multiple people in their neighborhood received copies of the letter. Letter contents are exactly the same, except that the extortion amount has increased to either $2,500 or $3,500 (interesting, isn't it?).
+
+Again, victims are all over the U.S. 
+
+<div class='alert alert-info'><strong>What should I do?</strong> There is now a federal investigation underway, naturally under the jurisdiction of the U.S. Postal Inspector. Preserve your envelopes and letters. Contact me for how to get in touch with the investigator working the case.</div>
+
 <hr>
 
 My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyways.): 
