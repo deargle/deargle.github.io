@@ -74,8 +74,6 @@ The other thing is that before, I got a letter postmarked from my local city (wh
 
 Again, victims are all over the U.S. 
 
-<div class='alert alert-info'><strong>What should I do?</strong> There is now a federal investigation underway, naturally under the jurisdiction of the U.S. Postal Inspector. Preserve your envelopes and letters. Contact me for how to get in touch with the investigator working the case.</div>
-
 <hr>
 
 My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyways.): 
