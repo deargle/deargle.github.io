@@ -323,7 +323,7 @@
         class_num: 27
         title: Presentations; USENIX Enigma talks
         due_before:
-            - name: Threat assessment deliverables (document and presentation submitted to D2L)
+            - name: Threat assessment deliverables (document and presentation submitted to D2L) due by <b>9:00 am</b>
         date: 05-12-2017
         activities: >
             - **Room change for today only:** KOBL S125
@@ -362,6 +362,9 @@
         date: 18-12-2017
         title: Final exam
         custom_css: danger
-        activities: '4:30PM &ndash; 7:00PM, KOBL 302'
+        activities: > 
+            - 4:30PM &ndash; 7:00PM, KOBL 302
+            
+            - [Final exam study guide](/class/security/final-exam-review/)
 
        
