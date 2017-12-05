@@ -5,7 +5,7 @@ title: Final Exam Review
 
 These are questions that may appear on the final exam, in one form or another. This is a living document. You can view diffs between the most up-to-date version and older versions on github -- I'll show you how later.
 
-Diff between the original version and one posted 12/5/2017
+[Diff between the original version and one posted 12/5/2017](https://github.com/deargle/deargle.github.io/commit/43f3bca749a5843ea22ba612f5eab6d3ecf97a8a#diff-a8b3162e09b806d64c21f18902057e39)
 
 P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupgwz/AAC4I9X-I79kAYtzv8ZemwQ0a?dl=0)
 
