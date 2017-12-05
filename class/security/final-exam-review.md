@@ -5,6 +5,8 @@ title: Final Exam Review
 
 These are questions that may appear on the final exam, in one form or another. This is a living document. You can view diffs between the most up-to-date version and older versions on github -- I'll show you how later.
 
+Diff between the original version and one posted 12/5/2017
+
 P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupgwz/AAC4I9X-I79kAYtzv8ZemwQ0a?dl=0)
 
 
@@ -15,11 +17,15 @@ P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupg
 
 ## Symmetric encryption and hashing
 
+* Name each of the four things that cryptography provides, and define each one.
+
 * What is the difference between symmetric and asymmetric cryptography? Give at least two examples of each.
 
 * When you exchanged a symmetric message with another class member, was it important that the other parameters of the block cipher besides the key (i.e., algorithm name, mode of operation, IV (if any), key length, etc.) were kept secret? If so, why, or if not, why not? Name the principle.
 
-* What is Shannon's Maxim?
+    * What is Shannon's Maxim, also known as Kerckhoff's principle? Give an example of the maxim/principle in practice. 
+
+* Fundamentally, how do secure block ciphers such as AES work? "Claude Shannon, pioneer of digital computing and modern cryptography, demonstrated that \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_, sufficiently combined, yield encrypted data that is indistinguishable from random data."
 
 * Imagine 200 people wish to communicate securely using symmetric keys, one symmetric key for each pair of people. How many symmetric keys would this system use in total?
 
@@ -71,7 +77,7 @@ P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupg
 
 * What are two key performance metrics that you could use measure the performance and effectiveness of your organization's network security monitoring efforts.
 
-* What is the kill-chain concept and why is it important?
+* List each of the steps an attacker performs when attempting to achieve a goal. How do these steps relate to the kill-chain concept? Why is the kill-chain concept important?
 
 
 ## Privacy
