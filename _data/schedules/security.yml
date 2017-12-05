@@ -327,6 +327,8 @@
         date: 05-12-2017
         activities: >
             - **Room change for today only:** KOBL S125
+            
+            - [USENIX Enigma 2016 - NSA TAO Chief on Disrupting Nation State Hackers](https://www.youtube.com/watch?v=bDJb8WOJYdA)
 
     -
         class_num: 28
@@ -363,7 +365,7 @@
         title: Final exam
         custom_css: danger
         due_before:
-            - name: Submit <a href='/{{ site.baseurl }}class/general/Peereval-security.docx'>this peer evaluation form</a> to D2L dropbox
+            - name: Submit <a href='/class/general/Peereval-security.docx'>this peer evaluation form</a> to D2L dropbox
         activities: > 
             - 4:30PM &ndash; 7:00PM, KOBL 302
             
