@@ -362,6 +362,8 @@
         date: 18-12-2017
         title: Final exam
         custom_css: danger
+        due_before:
+            - name: Submit <a href='/{{ site.baseurl }}class/general/Peereval-security.docx'>this peer evaluation form</a> to D2L dropbox
         activities: > 
             - 4:30PM &ndash; 7:00PM, KOBL 302
             
