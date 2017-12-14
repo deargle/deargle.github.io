@@ -3,9 +3,14 @@ layout: assignment
 title: Final Exam Review
 ---
 
-These are questions that may appear on the final exam, in one form or another. This is a living document. You can view diffs between the most up-to-date version and older versions on github -- I'll show you how later.
+These are questions that may appear on the final exam, in one form or another. I reserve the right to ask you questions not explicitly on this review document. 
 
-[Diff between the original version and one posted 12/5/2017](https://github.com/deargle/deargle.github.io/commit/43f3bca749a5843ea22ba612f5eab6d3ecf97a8a#diff-a8b3162e09b806d64c21f18902057e39)
+This is a living document. You can view diffs between the most up-to-date version and older versions on github.
+
+12/5/2017: [Diff between the original version and this one](https://github.com/deargle/deargle.github.io/commit/43f3bca749a5843ea22ba612f5eab6d3ecf97a8a#diff-a8b3162e09b806d64c21f18902057e39)
+
+12/14/2017: [Diff between last version version and this one](https://github.com/deargle/deargle.github.io/commit/f56149499458cb1d1005dc34ba84ebdb7c97a602#diff-a8b3162e09b806d64c21f18902057e39)
+
 
 P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupgwz/AAC4I9X-I79kAYtzv8ZemwQ0a?dl=0)
 
