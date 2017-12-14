@@ -351,7 +351,7 @@
         due_before:
             - name: By 9am today, submit topics from the semester you would like to discuss in preparation for the exam <a href='https://goo.gl/forms/eHkcAt2TCf2MnDIh1'>here</a>
         activities: >
-            - <a href='colorado.campuslabs.com/courseeval'>FCQ link</a>
+            - <a href='https://colorado.campuslabs.com/courseeval'>FCQ link</a>
         due_tonight:
             - name: <span class="label label-success">Lab:</span> Social Engineering (Extra credit)
             - name: '"Citizenfour" report'
