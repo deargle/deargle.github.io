@@ -74,6 +74,8 @@ The other thing is that before, I got a letter postmarked from my local city (wh
 
 Again, victims are all over the U.S. 
 
+**Update 12/14/2017**: Two more waves have come out. One on December 1st, postmarked from Chattanooga TN 374, asking $2500. Another on December 2nd, again from Nashville, TN 370. Unsure about the dates of several sent in, but overall less people contacted me this time. Another received on December 11th, postmarked Birmingham AL 350. I wonder if the attacker is getting nervous about only using Nashville, so he's using nearby post offices.
+
 <hr>
 
 My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyways.): 
