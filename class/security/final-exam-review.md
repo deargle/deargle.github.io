@@ -17,7 +17,7 @@ P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupg
 
 ## Symmetric encryption and hashing
 
-* Name each of the four things that cryptography provides, and define each one.
+* Name each of the four properties that cryptography provides for secure communications, and define each one. Give an example of what cryptographic primitive you could use to achieve each property. (See [here](https://en.wikipedia.org/wiki/Cryptographic_primitive#Commonly_used_primitives))
 
 * What is the difference between symmetric and asymmetric cryptography? Give at least two examples of each.
 
@@ -34,6 +34,8 @@ P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupg
 * What is the difference between hashing and encrypting?
 
 * If you change only a single bit in a file of billions of bits, you might reason that the hashes would be nearly the same. Are they? Explain why or why not, and name the effect at play.
+
+* Be able to perform simple substitution and transposition encryption, like you did in the lab.
 
 
 ## Digital Certificates
@@ -57,13 +59,32 @@ P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupg
 * What is the best security practices discussed in class that individuals and organizations can do to harden themselves against weaponized exploits of known vulnerabilities? Name at least one reason why organizations may find it difficult to perform this best practice.
 
 
+## Authentication and Passwords
+
+* Gaining access involves what three things? Define each. Use an example to illustrate each of the three things.
+
+* Name three primary means of authentication, and give at least two examples of each.
+
+* Why do passwords persist as such a common means of authenitcation if they are often the weakest link in the security chain?
+
+* Your organization only uses passwords for authentication, and there is a concern that the passwords might be cracked by an attacker. What could you recommend to bolster the overall security of the system?
+
+
 ## Password Cracking
+
+* How much entropy does a nine-sided die have? Express your answer in bits. (Also be able to calculate entropy of a passphrase, as we did in class.)
+
+* What is the maximum entropy that a 128-bit key can have? Express your answer in bits. What if you use a random-number generator that only ever produces one of two 128-bit keys. How much entropy exists in this this system?
 
 * Discuss the importance of salting passwords.
 
 * What software tools can be used to crack password hashes? Name at least two used in class. What hardware is often used for the fastest cracking speeds (hint: think of the Brutalis)?
 
 * Password cracking is a function of what two input discussed in class? Explain the two factors.
+
+* What password tips might you share to improve password security? (We discussed two in class, be familiar with those.)
+
+
 
 
 ## SQLi and XSS
@@ -75,7 +96,7 @@ P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupg
 
 ## Network Security Monitoring
 
-* What are two key performance metrics that you could use measure the performance and effectiveness of your organization's network security monitoring efforts.
+* What are two key performance metrics that you could use measure the performance and effectiveness of your organization's network security monitoring efforts. Why is a comparison of total security expenditures betweeen organizations not great benchmark for measuring security performance?
 
 * List each of the steps an attacker performs when attempting to achieve a goal. How do these steps relate to the kill-chain concept? Why is the kill-chain concept important?
 
@@ -83,6 +104,10 @@ P.S. -- all slides are available [here](https://www.dropbox.com/sh/yoq1cqn1tbupg
 ## Privacy
 
 * How does web privacy relate to information security management (why are we studying it in this class)? Name at least two ways.
+
+* How do advertisers track users across websites?
+
+* The most common retort to privacy advocates is "I've got nothing to hide." How might you respond?
 
 
 ## Social Engineering
