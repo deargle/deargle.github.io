@@ -76,6 +76,8 @@ Again, victims are all over the U.S.
 
 **Update 12/14/2017**: Two more waves have come out. One on December 1st, postmarked from Chattanooga TN 374, asking $2500. Another on December 2nd, again from Nashville, TN 370. Unsure about the dates of several sent in, but overall less people contacted me this time. Another received on December 11th, postmarked Birmingham AL 350. I wonder if the attacker is getting nervous about only using Nashville, so he's using nearby post offices.
 
+**Update 1/8/2018**: Birmingham from December 11th was a huge wave. Another wave started on Jan 2nd, 2018, this time out of Evanston, Illinois. Evanston is noteworthy because it's almost 8 hours away from Nashville. At least Birmingham was close to Nashville. Extortion amount for the Evanston wave is $3,500 (with one interesting case at $3,450). The Birmingham wave demand got as high as $8,000! 
+
 <hr>
 
 My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyways.): 
