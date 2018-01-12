@@ -104,4 +104,4 @@ A friend recommended I post some of the text of the letter for SEO purposes (to 
 
 And so on.
 
-And [here's a PDF scan of one of the October 24, 2017](/assets/bitcoin_blackmail_2017.pdf) that a reader sent in.
+And ~~here's a PDF scan of one of the October 24, 2017 that a reader sent in.~~ Removed because of the [double-sided photoshop address recovery threat](https://krebsonsecurity.com/2018/01/bitcoin-blackmail-by-snail-mail-preys-on-those-with-guilty-conscience/comment-page-1/#comment-457223).
