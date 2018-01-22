@@ -22,7 +22,7 @@ Got the below letter in the mail Saturday night. It claims to be from the credit
 
 > * [uninteresting ways]
 
-> In the event we do not receive evidence of your insurance coverage, we may purchase insurance on your belaf. You may want to avoid this action by providing proof of coverage.
+> In the event we do not receive evidence of your insurance coverage, we may purchase insurance on your behalf. You may want to avoid this action by providing proof of coverage.
 
 > If you have any questions about this notice, please call our Insurance Service Center at 1(800)998-0763. Thank you for allowing us to serve you.
 
