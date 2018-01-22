@@ -46,5 +46,7 @@ The site ([gosafco.com](gosafco.com)) is pretty thorough for a scam site, and fr
 
 Be careful out there, it's a scammy world. (But most people are good.)
 
+Edit: I might be wrong about this, but if I am, shame on my credit union partner for the terribly scammy-feeling letter.
+
 ![scam letter page 1](/assets/img/myinsuranceinfo-scam-letter.png){: width="50%"}
 
