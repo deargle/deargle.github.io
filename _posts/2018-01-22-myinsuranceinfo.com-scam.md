@@ -1,5 +1,5 @@
 ---
-title: myinsuranceinfo.com Insurance Scam
+title: myinsuranceinfo.com Legit-yet-scammy Letter
 description:
 ---
 
@@ -46,7 +46,15 @@ The site ([gosafco.com](gosafco.com)) is pretty thorough for a scam site, and fr
 
 Be careful out there, it's a scammy world. (But most people are good.)
 
-Edit: I might be wrong about this, but if I am, shame on my credit union partner for the terribly scammy-feeling letter.
+Edit: I might be wrong about this, but if I am, shame on my credit union partner for the terribly scammy-feeling letter. I found several other sites that have been around for almost two decades that link that website and phone number: 
+
+* [Nicholas Financial Inc](https://nicholasfinancial.com/?page_id=6809%3E) -- which has a [glassdoor](https://www.glassdoor.com/Salary/Nicholas-Financial-Salaries-E7603.htm) profile with 29 reviews, which links back to that website. But the reviews themselves follow a pattern, as if the same person wrote many of them. But why would scammers need to establish the legitimacy of a company that the victims already believe exists, because they are legitimate customers of the company? That's what I don't get.
+* [Gosafco](http://www.gosafco.com/customers/automobile-insurance/) -- feels phishy, and there's an entirely separate company by the name Safco that sells home office products.
+* [CSF Servicing](https://csfservicing.com/) -- but I mean, who includes an "update your insurance info" on their homepage?
+* [Amplify CU](https://www.goamplify.com/tools-and-maintenance/loan-info.aspx) -- different phone number, but also links www.myinsuranceinfo.com
+
+Edit 2: My credit union says they contacted their Allied rep, who confirms that they manage www.myinsuranceinfo.com, and who runs that phone number. However, they have not yet explained why they sent a letter with an incorrect loan number. I'm not embarrassed that I mistook this for a scam -- it's remarkably tacky for Allied to send a letter as if they were my CU (with CU letterhead!), and to identify themselves simply as "Insurance Service Center." Shame on you, Allied.
+
+I have shared my experience on that reddit post, which, interestingly, contradicts the experience of that OP with his bank.
 
 ![scam letter page 1](/assets/img/myinsuranceinfo-scam-letter.png){: width="50%"}
-
