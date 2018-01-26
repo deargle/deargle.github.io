@@ -57,4 +57,8 @@ Edit 2: My credit union says they contacted their Allied rep, who confirms that 
 
 I have shared my experience on that reddit post, which, interestingly, contradicts the experience of that OP with his bank.
 
+And here's what I sent to my credit union:
+
+> Please also pass this along: It's really tacky of Allied to use your letterhead (which looks like a poor imitation at that) and to claim to be you, and then to link to a non-Alliant site, and to only call themselves "Insurance Service Center." Insurance fraud is a big concern, and letters like this would be a great way to harvest information. VIN information is easy to get (I think). There's no indicator of legitimacy in their letter -- the post office box isn't even linked to [the credit union] on your website from what I can tell. Perhaps [the credit union] could leave a note on your site explaining that Allied is your external partner who manages these kinds of things?
+
 ![scam letter page 1](/assets/img/myinsuranceinfo-scam-letter.png){: width="50%"}
