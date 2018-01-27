@@ -113,7 +113,7 @@ Posted: 1/26/2018
 
 ## Original Letter I received in October 2016
 
-My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyways.): 
+My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyway.): 
 
 ![blackmail page 1](/assets/img/blackmail/page-1.jpg){: width="50%"} 
 
