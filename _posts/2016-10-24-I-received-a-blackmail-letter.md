@@ -141,6 +141,7 @@ And so on.
 
 And ~~here's a PDF scan of one of the October 24, 2017 that a reader sent in.~~ Removed because of the [double-sided photoshop address recovery threat](https://krebsonsecurity.com/2018/01/bitcoin-blackmail-by-snail-mail-preys-on-those-with-guilty-conscience/comment-page-1/#comment-457223).
 
+
 ## Text excerpt of letters beginning January 23 2018-ish that include wife name, with commentary.
 
 I haven't looked too closely at other letters that have been sent in to me to note more differences.
@@ -155,11 +156,11 @@ I haven't looked too closely at other letters that have been sent in to me to no
 
 > Option 2 is to pay me [amount]. We'll call this my "confidentiality fee". Now let me tell you what happens if you choose this path. Your secret remains your secret. You go on with your life as though none of this ever happened. Though you may want to do a better job at keeping your misdeeds [used to say indiscretion] secret in the future.
 
-> At this point you may be thinking, "[Used to say "This is blackmail!] I'll just go to the cops." [Used to say: "Yes, this is blackmail. And yes, blackmail is illegal and I would likely do some jail time if caught."] Which is why I have taken steps to ensure this letter cannot be traced back to me. So that won't help, and it won't stop the evidence from ruining your life. [Used to say: "So going to the copys won't stop the evidence from being sent out and would destroy your life the same as Option 1."] I'm not looking to break your bank. I just want to be compensated for the time I put into investigating you. [Used to say here: "[amount] will close the books on that"]
+> At this point you may be thinking, "[Used to say "This is blackmail!] I'll just go to the cops." [Used to say: "Yes, this is blackmail. And yes, blackmail is illegal and I would likely do some jail time if caught."] Which is why I have taken steps to ensure this letter cannot be traced back to me. So that won't help, and it won't stop the evidence from ruining your life. [Used to say: "So going to the cops won't stop the evidence from being sent out and would destroy your life the same as Option 1."] I'm not looking to break your bank. I just want to be compensated for the time I put into investigating you. [Used to say here: "[amount] will close the books on that"]
 
 > [snipped...]
 
-> ... **payment must be received within 9 days of this letter's post marked date.** [Used to be "within 10 days"!] [Used to say: "There will be no further communication between us." If I don't receive the bitcoin by the deadline, I will go ahead... the least you could do is tell [wife] so she can come up with an excuse to prepare her friends and family before they find out. The clock is ticking.
+> ... **payment must be received within 9 days of this letter's post marked date.** [Used to be "within 10 days"!] [Used to say: "There will be no further communication between us."] If I don't receive the bitcoin by the deadline, I will go ahead[...] the least you could do is tell [wife] so she can come up with an excuse to prepare her friends and family before they find out. The clock is ticking.
 
 10 days is too long I guess, had to make it 9? I notice that in [Brian Kreb's transcription of the letter his reader sent him](https://krebsonsecurity.com/wp-content/uploads/2018/01/extortionletter.pdf), the deadline was **12** days. 
 
