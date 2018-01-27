@@ -80,7 +80,38 @@ Again, victims are all over the U.S.
 
 (An earlier version of this update incorrectly stated that the new wave was out of *Evanston Illinois*. I got mixed up because someone in Evanston IL got a letter from Evansville IN.)
 
+**Update 1/26/2018**: Another few weeks pass, another wave has begun. Postmarks 23 January, Chattanooga TN again. If you get a letter from this wave, please tell me with the first sentence of your letter. I'll say why soon.
+
+<hr/>
+
+## Waves so far (precise dates are postmark dates)
+
+* **October 2016** -- I posted this article and only heard from one other person. If the letter has been posted back in time, I probably would have gotten more emails. Mine was postmarked Pittsburgh.
+* **October 24, 2017** -- Wave of letters, postmarked Nashville, Tennessee 370
+* **Nov 17th and Nov 18th, 2017** -- Nashville, TN again. Asking price $2,500 or $3,500
+* **December 1st, 2017** -- Chatttanooga TN 374
+* **December 2nd, 2017** -- Nashville, TN 370
+* **December 11th, 2017** -- Birmingham AL 350 -- asking price as high as $8,000
+* **January 2nd, 2018** -- Evansville, IN -- asking price $3,450 to $3,600
+* **January 23, 2018** -- Chattanooga TN -- asking price $3,800 in the one I've seen so far (what is up with this pricing?)
+
+## Locations
+
+Literally no rhyme or reason as far as I can tell. All over the United States. High variance within waves.
+
+## Google analytics
+
+Interesting because you can clearly see the waves of letters in my traffic spikes. The flat line before October 2017 was my traffic to that page for the entire year before that.
+
+Posted: 1/26/2018
+
+![google-analytics-traffic](/assets/img/blackmail/2018-jan-26-blackmail-traffic.png){: width="100%"}
+
+
+
 <hr>
+
+## Original Letter I received in October 2016
 
 My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyways.): 
 
@@ -96,6 +127,8 @@ My scans of the letter I got in October 2016 (nothing received at the bitcoin ad
 
 <hr>
 
+## Text excerpt of letters beginning October 2017
+
 A friend recommended I post some of the text of the letter for SEO purposes (to help victims find this post), so here goes with the first two paragraphs:
 
 > I'm going to cut to the chase. I know about the secret you are keeping from your wife. More importantly, I have _evidence_ of what you have been hidnig. I won't go into the specifics here in case your wife intercepts this, but you know what I am talking about.
@@ -105,3 +138,11 @@ A friend recommended I post some of the text of the letter for SEO purposes (to 
 And so on.
 
 And ~~here's a PDF scan of one of the October 24, 2017 that a reader sent in.~~ Removed because of the [double-sided photoshop address recovery threat](https://krebsonsecurity.com/2018/01/bitcoin-blackmail-by-snail-mail-preys-on-those-with-guilty-conscience/comment-page-1/#comment-457223).
+
+
+## Miscellaneous
+
+(mostly just for my records)
+
+* [KrebsOnSecurity](https://krebsonsecurity.com/2018/01/bitcoin-blackmail-by-snail-mail-preys-on-those-with-guilty-conscience/) -- comment area has some interesting discussion
+* [CNBC interview](https://www.cnbc.com/2018/01/22/growing-blackmail-scam-demands-payment-in-bitcoin.html) -- they scoped my lock picking stand out of the office shot :-(
