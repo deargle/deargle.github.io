@@ -82,6 +82,8 @@ Again, victims are all over the U.S.
 
 **Update 1/26/2018**: Another few weeks pass, another wave has begun. Postmarks 23 January, Chattanooga TN again. If you get a letter from this wave, please tell me with the first sentence of your letter. I'll say why soon.
 
+A reader sent in the letter he got from this wave, and there's a few different new things that stand out to me about this letter. Biggest change besides some new line breaks is that it includes the wive's name peppered throughout. See lower for a transcribed exceprt from this letter.
+
 <hr/>
 
 ## Waves so far (precise dates are postmark dates)
@@ -131,7 +133,7 @@ My scans of the letter I got in October 2016 (nothing received at the bitcoin ad
 
 A friend recommended I post some of the text of the letter for SEO purposes (to help victims find this post), so here goes with the first two paragraphs:
 
-> I'm going to cut to the chase. I know about the secret you are keeping from your wife. More importantly, I have _evidence_ of what you have been hidnig. I won't go into the specifics here in case your wife intercepts this, but you know what I am talking about.
+> I'm going to cut to the chase. I know about the secret you are keeping from your wife. More importantly, I have _evidence_ of what you have been hiding. I won't go into the specifics here in case your wife intercepts this, but you know what I am talking about.
 
 > You don't know me personally and nobody hired me to look into you. Nor did I go out looking to burn you. It is just your bad luck that I stumbled across your misadventures while working a job around [redacted]. I then put in more time than I probably should have looking into your life. Frankly, I am ready to forget all about you and let you get on with your life. And I am going to give you two options that will accomplish that very thing. Those two options are either to ignore this letter, or simply pay me $2,000. Let's examine those two options in more details.
 
@@ -139,6 +141,29 @@ And so on.
 
 And ~~here's a PDF scan of one of the October 24, 2017 that a reader sent in.~~ Removed because of the [double-sided photoshop address recovery threat](https://krebsonsecurity.com/2018/01/bitcoin-blackmail-by-snail-mail-preys-on-those-with-guilty-conscience/comment-page-1/#comment-457223).
 
+## Text excerpt of letters beginning January 23 2018-ish that include wife name, with commentary.
+
+I haven't looked too closely at other letters that have been sent in to me to note more differences.
+
+> My name is SwiftDog~15 and I know about the secret you are keeping from your wife and from everyone else. More importantly, I have _evidence_ of what you have been hiding. I won't go into the specifics here in case your wife intercepts this, but you know what I am talking about.
+
+> You don't know me personally and nobody hired me to look into you. Nor did I go out looking to burn you. It is just your bad luck that I stumbled across your misadventures while working a job around [nearby place]. I then put in more time than I probably should have [note: "looking into your life" has been removed.]. Frankly, I am ready to forget all about you and [wife name!] and let you get on with your life. So I am going to give you two options that will accomplish that very thing. Those two options are either [note: "to" has been dropped here] ignore this letter, or simply pay me $3,800 [or whatever other varying amount.]
+
+> [new line break here] Let's examine those two options in more detail.
+
+> Option 1 is to ignore this letter. Let me tell you what will happen if you choose this path. I will take this evidence and send it to everyone in your life, [this part is new:] especially [wife name]. And as insurance against you intercepting it before she gets it, I will also send copies to her friends, family, associates, and all your neighbors on and around [street name of address letter sent to]. So even if you decide to come clean with your wife, it won't protet her from the humiliation she will feel when everyone she knows finds out your sordid details from me.
+
+> Option 2 is to pay me [amount]. We'll call this my "confidentiality fee". Now let me tell you what happens if you choose this path. Your secret remains your secret. You go on with your life as though none of this ever happened. Though you may want to do a better job at keeping your misdeeds [used to say indiscretion] secret in the future.
+
+> At this point you may be thinking, "[Used to say "This is blackmail!] I'll just go to the cops." [Used to say: "Yes, this is blackmail. And yes, blackmail is illegal and I would likely do some jail time if caught."] Which is why I have taken steps to ensure this letter cannot be traced back to me. So that won't help, and it won't stop the evidence from ruining your life. [Used to say: "So going to the copys won't stop the evidence from being sent out and would destroy your life the same as Option 1."] I'm not looking to break your bank. I just want to be compensated for the time I put into investigating you. [Used to say here: "[amount] will close the books on that"]
+
+> [snipped...]
+
+> ... **payment must be received within 9 days of this letter's post marked date.** [Used to be "within 10 days"!] [Used to say: "There will be no further communication between us." If I don't receive the bitcoin by the deadline, I will go ahead... the least you could do is tell [wife] so she can come up with an excuse to prepare her friends and family before they find out. The clock is ticking.
+
+10 days is too long I guess, had to make it 9? I notice that in [Brian Kreb's transcription of the letter his reader sent him](https://krebsonsecurity.com/wp-content/uploads/2018/01/extortionletter.pdf), the deadline was **12** days. 
+
+Wife's name peppered throughout? Supposedly as an indicator that he actually knows something, I guess.
 
 ## Miscellaneous
 
