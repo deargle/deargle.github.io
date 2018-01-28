@@ -80,9 +80,15 @@ Again, victims are all over the U.S.
 
 (An earlier version of this update incorrectly stated that the new wave was out of *Evanston Illinois*. I got mixed up because someone in Evanston IL got a letter from Evansville IN.)
 
-**Update 1/26/2018**: Another few weeks pass, another wave has begun. Postmarks 23 January, Chattanooga TN again. If you get a letter from this wave, please tell me with the first sentence of your letter. I'll say why soon.
+**Update 1/26/2018**: Another few weeks pass, another wave has begun. Postmarks 23 January, Chattanooga TN again. If you get a letter from this wave, please tell me the first sentence of your letter. the attacker has started saying "My name is ________", but he uses a different name each time. I can't decide if the attacker is just messing with me because he's realized I'm collecting letters and is giving me a wild goose chase or a "fun" thing to collect, or if the attacker is just trying to throw off the google-abilty of blog articles like mine. Either way, I'll post some of the names I've seen the attacker use so far (below).
 
-A reader sent in the letter he got from this wave, and there's a few different new things that stand out to me about this letter. Biggest change besides some new line breaks is that it includes the wive's name peppered throughout. See lower for a transcribed exceprt from this letter.
+There's a few other different things that stand out to me about this letter, from what I've seen from readers sending theirs in. Biggest change besides some new line breaks is that it includes the wive's name peppered throughout. See lower for a transcribed exceprt from this letter.
+
+Something else I noticed is that not everyone is getting the same kind of window mailer envelope. Some have the address on the top-right of the letter, and some on the top-left. Don't know what to make of that.
+
+A reader suggested that demand amount may be correlated with home value / property tax. Interesting idea. Doing so would be a "smart" way to extract the maximum amount from victims without being more than victims can pay.
+
+
 
 <hr/>
 
@@ -95,7 +101,7 @@ A reader sent in the letter he got from this wave, and there's a few different n
 * **December 2nd, 2017** -- Nashville, TN 370
 * **December 11th, 2017** -- Birmingham AL 350 -- asking price as high as $8,000
 * **January 2nd, 2018** -- Evansville, IN -- asking price $3,450 to $3,600
-* **January 23, 2018** -- Chattanooga TN -- asking price $3,800 in the one I've seen so far (what is up with this pricing?)
+* **January 23rd and 24th, 2018** -- Chattanooga TN -- asking price $3,650, $3,800, $8,250, $8,350, $8,500, $8,700.
 
 ## Locations
 
@@ -165,6 +171,18 @@ I haven't looked too closely at other letters that have been sent in to me to no
 10 days is too long I guess, had to make it 9? I notice that in [Brian Kreb's transcription of the letter his reader sent him](https://krebsonsecurity.com/wp-content/uploads/2018/01/extortionletter.pdf), the deadline was **12** days. 
 
 Wife's name peppered throughout? Supposedly as an indicator that he actually knows something, I guess.
+
+## Sample of ridiculous usernames I've seen the attacker use so far
+
+In the 23 January 2018 wave, the attacker started beginning his letters with "My name is \_\_\_\_\_\_\_". No two letters sent in to me have used the same name here so far. Here's some I've seen.
+
+* GreenWolf~58
+* BadOwl~2
+* WhiteBat-85
+* BigShark~9
+* GreyBear~89
+* SwiftDog~15
+* BadStag~94
 
 ## Miscellaneous
 
