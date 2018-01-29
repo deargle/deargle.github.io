@@ -177,12 +177,19 @@ Wife's name peppered throughout? Supposedly as an indicator that he actually kno
 In the 23 January 2018 wave, the attacker started beginning his letters with "My name is \_\_\_\_\_\_\_". No two letters sent in to me have used the same name here so far. Here's some I've seen.
 
 * GreenWolf~58
+* BlueWolf~51
 * BadOwl~2
-* WhiteBat-85
+* BadOwl~93
+* SwiftOwl~94
+* WhiteBat~85
+* NightBat~71
 * BigShark~9
 * GreyBear~89
 * SwiftDog~15
+* BlackDog~25
 * BadStag~94
+* RedBear~40
+
 
 ## Miscellaneous
 
