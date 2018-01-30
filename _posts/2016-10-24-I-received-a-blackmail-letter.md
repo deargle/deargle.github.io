@@ -152,7 +152,7 @@ And ~~here's a PDF scan of one of the October 24, 2017 that a reader sent in.~~ 
 
 I haven't looked too closely at other letters that have been sent in to me to note more differences.
 
-> My name is SwiftDog~15 and I know about the secret you are keeping from your wife and from everyone else. More importantly, I have _evidence_ of what you have been hiding. I won't go into the specifics here in case your wife intercepts this, but you know what I am talking about.
+> My name is SwiftDog~[redacted] and I know about the secret you are keeping from your wife and from everyone else. More importantly, I have _evidence_ of what you have been hiding. I won't go into the specifics here in case your wife intercepts this, but you know what I am talking about.
 
 > You don't know me personally and nobody hired me to look into you. Nor did I go out looking to burn you. It is just your bad luck that I stumbled across your misadventures while working a job around [nearby place]. I then put in more time than I probably should have [note: "looking into your life" has been removed.]. Frankly, I am ready to forget all about you and [wife name!] and let you get on with your life. So I am going to give you two options that will accomplish that very thing. Those two options are either [note: "to" has been dropped here] ignore this letter, or simply pay me $3,800 [or whatever other varying amount.]
 
@@ -174,21 +174,20 @@ Wife's name peppered throughout? Supposedly as an indicator that he actually kno
 
 ## Sample of ridiculous usernames I've seen the attacker use so far
 
-In the 23 January 2018 wave, the attacker started beginning his letters with "My name is \_\_\_\_\_\_\_". No two letters sent in to me have used the same name here so far. Here's some I've seen.
+In the 23 January 2018 wave, the attacker started beginning his letters with "My name is \_\_\_\_\_\_\_". No two letters sent in to me have used the same name here so far. Here's some I've seen, with numbers redacted.
 
-* GreenWolf~58
-* BlueWolf~51
-* BadOwl~2
-* BadOwl~93
-* SwiftOwl~94
-* WhiteBat~85
-* NightBat~71
-* BigShark~9
-* GreyBear~89
-* SwiftDog~15
-* BlackDog~25
-* BadStag~94
-* RedBear~40
+* GreenWolf
+* BlueWolf
+* BadOwl
+* SwiftOwl
+* WhiteBat
+* NightBat
+* BigShark
+* GreyBear
+* SwiftDog
+* BlackDog
+* BadStag
+* RedBear
 
 
 ## Miscellaneous
