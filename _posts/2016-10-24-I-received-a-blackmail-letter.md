@@ -101,7 +101,7 @@ A reader suggested that demand amount may be correlated with home value / proper
 * **December 2nd, 2017** -- Nashville, TN 370
 * **December 11th, 2017** -- Birmingham AL 350 -- asking price as high as $8,000
 * **January 2nd, 2018** -- Evansville, IN -- asking price $3,450 to $3,600
-* **January 23rd and 24th, 2018** -- Chattanooga TN -- asking price $3,650, $3,800, $8,250, $8,350, $8,500, $8,700.
+* **January 23rd and 24th, 2018** -- Chattanooga TN -- asking price either ~$3,800, or low-to-high $8,000's. Nothing in between.
 
 ## Locations
 
