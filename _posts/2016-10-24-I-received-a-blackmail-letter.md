@@ -88,7 +88,10 @@ Something else I noticed is that not everyone is getting the same kind of window
 
 A reader suggested that demand amount may be correlated with home value / property tax. Interesting idea. Doing so would be a "smart" way to extract the maximum amount from victims without being more than victims can pay.
 
+**Update 2/17/2018**: Like clockwork, another wave, all postmark dates Feb 12 2018. What a nice letter to receive on Valentine's Day... asking price seems to be north of $8k for all I've seen. Blackmailer is still using ridiculous handles. Shocker this time is that
+multiple post offices were used: so far, I've seen Wichita KS, Richmond VA, Raleigh NC, and Denver CO. Which begs the question, who else has the blackmailer recruited to help, and who is sending what where? Well...
 
+<iframe src="https://www.google.com/maps/d/embed?mid=12Mh9ehgSjL6-HvBH77f8mscu2upmdJKU&hl=en" width="640" height="480"></iframe>
 
 <hr/>
 
@@ -102,6 +105,7 @@ A reader suggested that demand amount may be correlated with home value / proper
 * **December 11th, 2017** -- Birmingham AL 350 -- asking price as high as $8,000
 * **January 2nd, 2018** -- Evansville, IN -- asking price $3,450 to $3,600
 * **January 23rd and 24th, 2018** -- Chattanooga TN -- asking price either ~$3,800, or low-to-high $8,000's. Nothing in between.
+* **February 12th, 2018** -- Wichita KS, Denver CO, Richmond VA, Raleigh NC -- asking price north of $8.
 
 ## Locations
 
