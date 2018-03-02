@@ -102,9 +102,11 @@ iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
 
 Now test that you can launch the server.
 
-`openvpn --config /etc/openvpn/server.conf # to test that everything is working`
+```
+openvpn --config /etc/openvpn/server.conf # to test that everything is working
 
-`openvpn --daemon --config /etc/openvpn/server.conf # when ready`
+openvpn --daemon --config /etc/openvpn/server.conf # when ready
+```
 
 * note that if you restart your instance, openvpn will launch as a service (e.g., `service openvpn start`, so you won't be able to run the last two commands unless you shut it down via `service openvpn stop`
 
