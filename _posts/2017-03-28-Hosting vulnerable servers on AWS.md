@@ -72,55 +72,69 @@ cd /etc/openvpn/easy-rsa
 ./clean-all
 ./build-ca
 ./build-key-server server # I didn't set a password
-./build-key client # I didn't set a password. I'm going to couple with user auth
+./build-key client # I didn't set a password.
 ./build-dh
 cd keys
 cp ca.crt server.crt server.key client.key client.crt dh2048.pem /etc/openvpn
-exit
+exit # to leave root
 openvpn --genkey --secret secret.key
 cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/
 gzip -d /etc/openvpn/server.conf.gz
 
 vim server.conf  
-# Changes:
-# * push the CIDR for your entire VPC. In my case, `push "route 172.32.0.0 255.255.0.0"`
-# * change tls-auth line to be `tls-auth secret.key 1`
-# * uncomment `duplicate-cn` (Important!)
-# * uncomment `client-to-client` to let metasploit exploits connect back to listeners on kali
+```
+Changes:
+* push the CIDR for your entire VPC. In my case, `push "route 172.32.0.0 255.255.0.0"`
+* change tls-auth line to be `tls-auth secret.key 0`
+* uncomment `duplicate-cn` (Important!). This allows multiple clients to connect using the same certificate, which is our situation
+* uncomment `client-to-client` to let metasploit exploits connect back to listeners on kali
 
-vim /etc/sysctl.conf 
-# uncomment net.ipv4.ip_forward=1
+`vim /etc/sysctl.conf`, uncomment `net.ipv4.ip_forward=1`
+
+```
 sysctl -p
 
 iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE 
-# `-s` here should be the CIDR that you set in the `server` directive in server.conf, _not_ your VPC CIDR. 
-# also put that in /etc/rc.local
-                        
-cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn
-
-vim client.conf   
-# Changes:
-# * set your open vpn public server in `remote ... 1194`. Add elastic ip to your openvpn aws instance when ready so that you don't have to keep changing this every time you start/stop your vpn instance.
-#
-# * add your secret.key contents inside a <tls-auth> block, and also add `key-direction 1` after. See my redacted client.conf below.
-                         
-openvpn --config /etc/openvpn/server.conf # to test that everything is working
-
-openvpn --daemon --config /etc/openvpn/server.conf # when ready     
-
-
-# --duplicate-cn allows multiple clients to connect using the same certificate, which is our situation
-# note that if you restart your isntance, openvpn will launch as a service, so you won't be able to run the last two commands unless you shut it down via `service openvpn stop`
-                         
 ```
 
-`scp` or whatever your client.conf down, and try connecting while your openvpn server is running.
+* `-s` here should be the CIDR that you set in the `server` directive in server.conf, _not_ your VPC CIDR. 
+* also put that `iptables` line into in `/etc/rc.local`
 
-On Kali, just run `openvpn client.conf`. Then to test that it's all working, run `ifconfig` and look for a `tun` interface. Try pinging the openvpn host, in my case, 10.8.0.1.
+Now test that you can launch the server.
+
+`openvpn --config /etc/openvpn/server.conf # to test that everything is working`
+
+`openvpn --daemon --config /etc/openvpn/server.conf # when ready`
+
+* note that if you restart your instance, openvpn will launch as a service (e.g., `service openvpn start`, so you won't be able to run the last two commands unless you shut it down via `service openvpn stop`
+
+<hr/>
+
+Now, get your `client.conf` prepared for distribution to the kali boxes.
+
+Whatever you name your client conf, don't put it in `/etc/openvpn` with a `*.conf` extension. If you do, `service openvpn start` will run it, as well as your
+`server.conf` in that directory. That will make your box both a server and a client to itself, which leads to bad times and headaches.
+
+`cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/client.conf.for-kali`
+
+Then, `vim client.conf.for-kali`
+
+Changes:
+
+* Set your open vpn public server ip in `remote ... 1194`. Add elastic ip to your openvpn aws instance when ready so that you don't have to keep changing this every time you start/stop your vpn instance.
+* Add your secret.key contents inside a `<tls-auth>` block, and also add `key-direction 1` after. See my redacted client.conf below. 
+    See [here](http://serverfault.com/questions/483941/generate-an-openvpn-profile-for-client-user-to-import) for a discussion of inline certs.
+                         
+Do _not_ put any `route` statements in `client.conf`. Let the server do the pushing. 
+
+`scp` or whatever your client.conf down off the server, and try connecting while your openvpn server is running. On Kali, just run `openvpn client.conf`. Then to test that it's all working, run `ifconfig` and look for a `tun` interface. Try pinging the openvpn host, in my case, 10.8.0.1.
+
+Also run `route` on Kali, and confirm that you have a `destination` entry for your vpn CIDR -- in my case, `10.8.0.0 10.8.0.x 255.255.255.0`, where `x` is the ip of the destination gateway for your `tun` interface (viewable in `ifconfig`).
 
 On Windows, with the OpenVPN community GUI, you can just rename your `client.conf` to `client.ovpn` and import that into the tool, then connect.
 
-See [here](http://serverfault.com/questions/483941/generate-an-openvpn-profile-for-client-user-to-import) for a discussion of inline certs.
+
+#### Full conf files
 
 [Here's my redacted server.conf and client.conf](https://gist.github.com/deargle/ce70b597645dc7c7c9eaec40875faaf5)
 
@@ -131,6 +145,7 @@ I skipped this step, but here you'd create a VM however you like, making it nice
 
 The important thing to note here is that only certain OSes are compatible with AWS's AMI format. [Thankfully, the list is long.](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html)
 
+
 #### Letting the vulnerable VMs talk back to connected VPN clients
 
 If you want to be able to run metasploit shell exploits, the vulnerable VMs need to have a route to the connected VPN clients (to the attack machines). This is because metasploit launches
@@ -140,11 +155,12 @@ change their client.conf a bit.
 
 * Install openvpn to your image.
 * Change client.conf `remote` directive to point to the _private ip address_ of your openvpn instance, not the public one (remember, the instances in the private network don't have internet connectivity)
-* Add two more lines to client.conf: 
+* Add two more lines to `client.conf` that goes on the vulnerable vms (do _not_ put these in the client.conf that Kali uses!): 
 	* `route-nopull` (this blocks the vpn connection from clobbering the private network route that already exists for your VPC via the 'push route' statements, in my case, 172.32.0.0/16. 
-	* and `route 10.8.0.0 255.255.255.0` (Set your vpn server's `server` directive CIDR network here. This lets the vulnerable servers talk to clients on the VPN network, when combined with the `client-to-client` directive in server.conf)
+	* `route 10.8.0.0 255.255.255.0` (Set your vpn server's `server` directive CIDR network here. This lets the vulnerable servers talk to clients on the VPN network, when combined with the `client-to-client` directive in server.conf)
+        * This route statement is necessary because we said `route-nopull`, which otherwise would have set the `10.8.0.0` for us.
 	
-Edit `/etc/defaults/openvpn` and add a line for `AUTOSTART="client"`, then put your edited client.conf in /etc/openvpn. With it there, it should be automatically started on boot.
+Edit `/etc/defaults/openvpn` on the vulnerable vms and add a line for `AUTOSTART="client"`, then put your edited client.conf in /etc/openvpn. With it there, it should be automatically started on boot.
 
 If you forgot to do this step before you imported your VM image into AWS, you can edit one of your launched images, then make a new AMI image based on that running instance. Faster than reuploading the whole thing to S3.
 
@@ -152,20 +168,24 @@ If you forgot to do this step before you imported your VM image into AWS, you ca
 
 ### Convert your image to an AMI 
 
-I started at this step, with an unedited copy of [Violator](https://www.vulnhub.com/entry/violator-1,153/), pulled from VulnHub. 
-
-You'll need the [AWS CLI](https://aws.amazon.com/cli/). Dowload it, and then give it your root credentials by running `aws configure` so that you can follow the next steps.
+You'll need the [AWS CLI](https://aws.amazon.com/cli/). Download it, and then give it your root credentials by running `aws configure` so that you can follow the next steps.
 
 The process for creating an AMI involves: 
 
-* uploading your image to an S3 bucket, 
+* uploading your `.ova` to an S3 bucket,
 * creating an IAM `VM Import Service Role`, 
 * invoking the magic spells in the aws console to import the image from S3 into an AMI.
+
+Note: upload your `.ova` into the S3 bucket in the region where you want your `openvpn` server to run. When you run the commands to convert the `.ova` into an AMI, the bucket region will determine in which region the AMI ends up.
+If you import it into the wrong region, you can copy your AMI to a different region [thusly](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html#copying-an-ami)
 
 Docs [here](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html). First follow [these steps for creating a VM Import Service Role](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#import-vm-image). Then, upload the VM image file to S3 (I used the browser interface to upload). Then follow the last step to initiate the import transfer.
 
 Went smoothly for me, although the actual import (the last step) took 10+ minutes. When you create your own AMI, AWS launches a copy of your instance appliance and then takes a snapshot of it. That snapshot will be associated with your new AMI, and is not deletable unless you first unregister your AMI. So be aware, you'll be paying for the storage of that snapshot as long as you have the AMI. Note that your AMI will
 only show up in the view for the region where you deployed it.
+
+Note: When you convert your `.ova` into an AMI, any network interface that it used to have are replaced with one that will work with EC2. The new network interface should
+automatically obtain a private ip in the subnet that it's launched in when it starts up.
 
 Note 9/26/2017: When I used the aws cli on Linux, I had to run `sudo ntpdate time.nist.gov` before the s3 commands would work.
 
@@ -175,19 +195,19 @@ Note 9/26/2017: When I used the aws cli on Linux, I had to run `sudo ntpdate tim
 ### Launch a gazillion Violators
 
 Or whatever. 
-* Launch them into the private subnet. 
+* Launch them into the correct `Network`, and for the `Subnet`, into the _private_ subnet so that they don't get a public ip. 
 * "Proceed without a keypair"
 * Change to a security group setting that allows "All Traffic" inbound.
+* You can launch multiple at once at "Step 3: Configure Instance Details" > "Number of instances"
 
+Try pinging their ips from a client that's connected to the VPN. Then try exploiting them. **Important:** In `msf`, for `LHOST`, use kali's _vpn ip address_ from `tun0`, 
+but you can target the private-ip address of the vulnerable vms (the `172.` addresses for me -- you don't need to target or know the vulnerable vm's vpn tun0 
+ip address). 
 
-Try pinging their ips from a client that's connected to the VPN. Then try exploiting them. For LHOST, use kali's vpn ip address for tun0, but you can target the private-ip address of the vulnerable vms (you don't need to target or know the vulnerable vm's vpn tun0 ip address). Fist-pump ~~three~~ six times if great success.
+Fist-pump ~~three~~ six times if great success.
 
+<hr/>
 
-
-### Todo
-
-
-`auth-user-pass` ([how-to page](https://openvpn.net/index.php/open-source/documentation/howto.html#auth))
-
-`auth-nocache` and `auth-retry interact` because I saw them in a client.conf that I use for something else.
-
+Note: Because `client-to-client` is enabled, students can theoretically attack other students' kali instances if they're both connected to the vpn at the same time. 
+Kali doesn't have a listening ssh server by default, so known-password isn't a vector. (They'll likely not have changed the password from what it
+was when you distributed VM instances to them...)
