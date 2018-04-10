@@ -1,6 +1,5 @@
 ---
 title: "Interpreting dummy-coded parameter estimates with and without a model intercept"
-draft: yes
 description: null
 tags: R logistic-regression
 ---
@@ -192,7 +191,7 @@ summary(m)
 {% endhighlight %}
 
 Take note that the estimate for grade A is equivalent to the previously-estimated intercept. However,
-the estimates for all other grade levels is no longer interpreted as being relative to anything besides 0. So, while the estimates in isolation are much different from what they were previously, they are exactly equal to the previous relative estimates added to the previous intercept. The two models will lead
+the estimates for all other grade levels are no longer interpreted as being relative to any other level -- but rather they are _each_ interpreted as testing whether the weight is different from 0. So, while the estimates in isolation are much different from what they were previously, they are exactly equal to the previous relative estimates added to the previous intercept. The two models will lead
 to exactly the same predictions.
 
 Least-square means in this case are equivalent to what they were previously.
