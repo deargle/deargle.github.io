@@ -91,6 +91,7 @@ exclude:
   - vendor
   - node_modules
   - Rakefile
+  - "*.Rmd"
   
 #number of items in RSS feed
 rss_limit: 10
