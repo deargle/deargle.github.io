@@ -23,9 +23,16 @@ On the cost issue from the perspective of the attacker: I'd be curious to know t
 
 Other considerations are that, for the letter I received, the attacker had to know that I am currently married, to a woman. They did not need to know my gender. My next curiosity is to see what's available in the way of address list specificity. Maybe there is a specific list of "addresses of people married to a woman." That'd be interesting. I'd also be interested to see what the street value is of each bit of information, e.g. the price of an address, birthday, home ownership status, credit cards owned, web searching behavior, etc. But I need to prepare a bit more before I delve into the darkwebs. vpn, tor, etc.
 
-As for whether I match an AM profile, I'd suspect that if I did, I would have gotten the AM-specific letter, but who knows.
+## What should you do if you also got a letter?
 
-<br>
+You should contact the U.S. Postal Inspection Service (USPIS). The agent handling the case is Kyle Parker (<KWParker@uspis.gov>). Shoot him an email, and cc me if you wouldn't mind. You may also file a formal complaint on [the agency website](https://ehome.uspis.gov/fcsexternal/default.aspx). The Postal Inspection Service is the lead agency and is working with FBI and other federal and local agency regarding this scheme. Due to the time sensitivity of this fraud, Inspector Parker requests you scan a copy of the letter and envelope as soon as possible to him directly.
+
+## There is a somewhat-copycat blackmail email floating around
+
+See [here](https://krebsonsecurity.com/2018/07/sextortion-scam-uses-recipients-hacked-passwords/)
+
+
+<hr/>
 
 **Update 11/9/2016:** I made a first foray into the darkweb using [Tor running on Tails in a VM](https://tails.boum.org/about/index.en.html) (on a usb stick soon), but I didn't find anything yet.
 
@@ -55,7 +62,7 @@ Bitcoin addresses are unique.
 
 By the way, nothing ever came from me ignoring the original letter I received.
 
-If you're a victim too, if you'd be so kind, please shoot me an email with your general location, and whether the post office stamp was also Nashville, Tennessee 370. ~~I'm also still looking for a full scan of the new letter -- apparently there are some changes, further supporting the idea that there's a Word document floating around.~~ Scan received, see link at bottom of this post. Mostly identical, with two differences:
+A later version of the letter had these revisions:
 
 * First sentence is "I know about the secret you are keeping from your wife" instead of "I know you cheated on your wife."
 * There's a reference to "I stumbled across your misadventures while working a job around [location close to victim's address]", whereas before the location was not specified.
@@ -107,9 +114,11 @@ multiple post offices were used: so far, I've seen Wichita KS, Richmond VA, Rale
 * **January 23rd and 24th, 2018** -- Chattanooga TN -- asking price either ~$3,800, or low-to-high $8,000's. Nothing in between.
 * **February 12th, 2018** -- Wichita KS, Denver CO, Richmond VA, Raleigh NC -- asking price north of $8.
 
+**Update July 19, 2018** -- There has been something like one wave every three weeks consistently since the last wave I noted for February 12, 2018. Only notable difference is that the asking price has jumped to around $15k. Most coming from Nashville, some from Little Rock.
+
 ## Locations
 
-Literally no rhyme or reason as far as I can tell. All over the United States. High variance within waves.
+Literally no rhyme or reason as far as I can tell. All over the United States. High variance within waves. Generally middle- or high-income neighborhoods though.
 
 ## Google analytics
 
@@ -196,7 +205,7 @@ In the 23 January 2018 wave, the attacker started beginning his letters with "My
 
 ## Miscellaneous
 
-(mostly just for my records)
-
 * [KrebsOnSecurity](https://krebsonsecurity.com/2018/01/bitcoin-blackmail-by-snail-mail-preys-on-those-with-guilty-conscience/) -- comment area has some interesting discussion
 * [CNBC interview](https://www.cnbc.com/2018/01/22/growing-blackmail-scam-demands-payment-in-bitcoin.html) -- they scoped my lock picking stand out of the office shot :-(
+* [https://withoutbullshit.com/blog/my-bitcoin-blackmail-experience-started-with-a-well-written-letter](https://withoutbullshit.com/blog/my-bitcoin-blackmail-experience-started-with-a-well-written-letter)
+* [My buddy Kyle goes public](https://www.localmemphis.com/news/local-news/national-extortion-letter-scam-hits-memphis/1187893603)
