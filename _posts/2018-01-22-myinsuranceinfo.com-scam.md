@@ -8,6 +8,8 @@ blockquote {font-size:16px; margin: 0px}
 blockquote p {margin-top: 0px; }
 </style>
 
+<div class='alert alert-info'>Please read all the way to the bottom. This turned out to be a legit, albeit incredibly tacky, letter from a partner of my credit union. Call your credit union to confirm.</div>
+
 Got the below letter in the mail Saturday night. It claims to be from the credit union that services our vehicle loan. It says that our insurance information is not current, and if we do not quickly provide our up-to-date insurance information to them, they may purchase insurance on our behalf. 
 
 > Dear [Me]:
