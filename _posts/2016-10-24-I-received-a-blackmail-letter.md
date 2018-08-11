@@ -1,6 +1,6 @@
 ---
 title: I received a blackmail letter
-description:
+description: Original report of receiving a blackmail letter in the mail in 2016. Includes ongoing analysis as wave after wave of new letters have gone out over the following years. Includes contact information to USPIS inspector covering the case.
 ---
 
 
@@ -27,9 +27,15 @@ Other considerations are that, for the letter I received, the attacker had to kn
 
 You should contact the U.S. Postal Inspection Service (USPIS). The agent handling the case is Kyle Parker (<KWParker@uspis.gov>). Shoot him an email, and cc me if you wouldn't mind. You may also file a formal complaint on [the agency website](https://ehome.uspis.gov/fcsexternal/default.aspx). The Postal Inspection Service is the lead agency and is working with FBI and other federal and local agency regarding this scheme. Due to the time sensitivity of this fraud, Inspector Parker requests you scan a copy of the letter and envelope as soon as possible to him directly.
 
-## There is a somewhat-copycat blackmail email floating around
+_This is still current as of 8/11/2018. Kyle is still leading the investigation._
 
-See [here](https://krebsonsecurity.com/2018/07/sextortion-scam-uses-recipients-hacked-passwords/)
+
+## There is a somewhat-copycat blackmail email floating around (First reported July 2018-ish)
+
+It is an email that reports that the blackmailer has compromised your computer camera and recorded you doing embarrassing things. To "prove" the claim, the attacker shows you one of your legitimate passwords. Don't worry, this is also a ruse. Your passwords have been compromised and leaked by a plethora of sites over the last decade or so, over and over again. Your personal information has likely also been available for sale on the black market for years, too. Best advice, *do not reuse passwords across sites*. Easy way to get pwned. Say you use the same password on linkedin as you do for your online banking portal. Bad move, linkedin got breached in 2012. Sites get breached every day. Equifax was not a new thing. It was just bigger, and no one really understands why they (data brokers) have our information in the first place, so the audacity was off the chart and therefore it got a lot of media attention. Check 
+[https://haveibeenpwned.com/](haveibeenpwned) to see which mega-breaches your email account(s) may have been involved in. It's a legit service run by Troy Hunt, security researcher. Sponsored by 1password password manager, which I also use and recommend.
+
+See [here](https://krebsonsecurity.com/2018/07/sextortion-scam-uses-recipients-hacked-passwords/) for more.
 
 
 <hr/>
