@@ -584,7 +584,7 @@ date: 8/9/2018
                 
                 <div class='form-row align-items-center'>
                     <div class='col-auto'>
-                        <input v-on:click='do_all_goal_seeks' class='btn btn-primary' type='button' id='do-goal-seek' value='Optimize Investment Strategies'></input>
+                        <input v-on:click='do_all_goal_seeks' class='btn btn-primary' type='button' id='do-goal-seek' value='Optimize Investment Strategies'>
                     </div>
                     <div class='col-sm-3'>
                         <small class='form-text text-muted'>This button uses goal seek to find the investment amounts for each of the strategies that results in a final investment value close to 0.</small>
