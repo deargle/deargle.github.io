@@ -9,6 +9,7 @@ regenerate: true
 {% assign schools = site.class | group_by: "school" %}
 {% for school in schools %} 
 <h1>{{ school.name }}</h1>
+    <ul>
     {% assign years = school.items | group_by: "year" %}
     {% for year in years %}
     
@@ -16,9 +17,10 @@ regenerate: true
         {% for semester in semesters %}
             
             {% for class in semester.items %}
-                {{ year.name }} | {{ semester.name | capitalize }} | <a href='{{ site.baseurl }}{{ class.url }}'>{% include smartify text=class.title %}</a>
+                <li>{{ year.name }} | {{ semester.name | capitalize }} | <a href='{{ site.baseurl }}{{ class.url }}'>{% include smartify text=class.title %}</a></li>
             {% endfor %} 
         {% endfor %}
     {% endfor %}
+    </ul>
 {% endfor %}
 </div>

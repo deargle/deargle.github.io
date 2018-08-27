@@ -6,9 +6,13 @@ semester: fall
 coursenum:
  - BAIM-4250-001
  - MSBX-5480-002
+slack: https://infosecmanagement-f18.slack.com
 ---
 
-_Fall 2018_ 
+_{{ page.semester | capitalize }} {{ page.year }}_ 
+
+{% for item in page.coursenum %}- {{ item }}
+{% endfor %}
 
 <div id='nav-bar'></div>
 
@@ -16,13 +20,10 @@ Instructor
 : Dave Eargle  ([contact](<mailto:David.Eargle@colorado.edu>)) 
 
 Class
-: Tue/Thu 12:30PM - 1:45PM 
-: KOBL 302
+: See [my.cu.edu](https://my.cu.edu)
 
 Office Hours
-: Location: S450J 	
-: Hours: Tuesday 2-3pm, Thursday 3-4pm
-: Or, by appointment 
+: TBA
 
  
 
@@ -32,6 +33,14 @@ Office Hours
 ## Course Description
 
 This course is a broad introduction to the managerial issues of information security. Because security is multifaceted, the topics of the class range widely, including technical (e.g., cryptography), managerial (e.g., policy compliance), physical (e.g., door locks), and psychological (e.g., social engineering) issues. A key objective of the class is to develop a security mindset, in which one learns to think like an attacker for ways to exploit a system.
+
+
+## Communication
+
+<div class='alert alert-info'><strong>Heads up!</strong> I rely <b>heavily</b> on slack to able to assist you all, and to communicate important information. Ignore slack at your peril!</div>
+
+For communication, we will use Slack. Add an account at [{{page.slack}}]({{page.slack}}) (install laptop and phone apps so that you get notifications. There is also a desktop client. Use your @colorado.edu email address for instant verification.
+
 
 
 ## Learning Outcomes
@@ -80,13 +89,13 @@ To receive credit for the certification, a student must show evidence of having 
 
 |                Item                | Points |
 |------------------------------------|--------|
-| Quizzes  | 50 |
+| Quizzes  | 75 |
 | Labs | 400 |
 | Midterm project |  150 |
 | Threat assessment project | 75 |
 | Participation | 50 |
-| Security Films | 25 | 
-| Final Exam | 250 | 
+| Security Films | 50 | 
+| Final Exam | 200 | 
 |=|=|
 | **Total** |    **1000** |
 
