@@ -54,7 +54,7 @@ Required:
 
 1. Provost, Foster and Tom Fawcett (2013), Data Science for Business: What You Need to Know About Data Mining and Data-Analytic Thinking. O’Reilly Media. Available on Amazon. (Links to an external site.)Links to an external site. Available as Kindle version—note that you do not require a Kindle to read the book. Kindle is available as software for your computer or iPad. Hardcopy also available on Amazon.
 
-1. DataRobot Access Card. (CU bookstore: $105.95, Direct from DataRobot (Links to an external site.)Links to an external site.: $80). This will give you access to a lot of computing power that would otherwise bog down your machine, sometimes for days at a time. We use this approach partially because students with expensive computers may in the past have had an unfair advantage in this class and because DataRobot is the premier AutoML on the market.
+1. DataRobot Access Card. (CU bookstore: $105.95, [Direct from DataRobot](https://www.datarobot.com/datarobot-academic-payment-yp9qzs/): $80). This will give you access to a lot of computing power that would otherwise bog down your machine, sometimes for days at a time. We use this approach partially because students with expensive computers may in the past have had an unfair advantage in this class and because DataRobot is the premier AutoML on the market.
 
 
 ## Grading
@@ -147,7 +147,7 @@ Students are welcome to use laptops in class for note taking and completing clas
 
 ### Late Work 
 
-All assignments and projects are to be submitted on time or early, so plan accordingly. If you have to miss class please submit your assignment early. On VERY rare o
+All assignments and projects are to be submitted on time or early, so plan accordingly. If you have to miss class please submit your assignment early. On VERY rare occasions, an exception may be granted, allowing the student to submit the work late with a 20% penalty. Under no circumstances will anything be accepted more than a week late.
     
     
 # Assignments
