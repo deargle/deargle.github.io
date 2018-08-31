@@ -127,6 +127,7 @@ This sickens me (the new method, not Kyle ;-) ). Please don't start a witch hunt
 * **January 2nd, 2018** -- Evansville, IN -- asking price $3,450 to $3,600
 * **January 23rd and 24th, 2018** -- Chattanooga TN -- asking price either ~$3,800, or low-to-high $8,000's. Nothing in between.
 * **February 12th, 2018** -- Wichita KS, Denver CO, Richmond VA, Raleigh NC -- asking price north of $8.
+* **Mid-August, 2018** -- Attacker starts to include return addresses of previous victims.
 
 
 
