@@ -44,7 +44,9 @@ For communication, we will use Slack. Add an account at [{{page.slack}}]({{page.
 
 You will use Alteryx and DataRobot.
 
-* Alteryx is installed on all Leeds computers. You can optionally also install it on your laptop -- I will provide you with a free license. You can install it into Windows (x64) bit, or you can use a virtual machine that I will provide to run it on Mac without having to do bootcamp. Details forthcoming.
+* Alteryx is installed on all Leeds computers, and on some Engineering school computers. You can optionally also install it on your laptop -- I will provide you with a free license. You can install it into Windows (x64) bit, or you can use a virtual machine that I will provide to run it on Mac without having to do bootcamp. 
+    * See [How to Run Alteryx](https://canvas.colorado.edu/courses/21394/pages/how-to-get-alteryx) on Canvas. This link includes a list of campus lab computers that have Alteryx installed.
+
 * DataRobot is browser-based. You get access with a DataRobot Access Card that you purchase.
 
 
