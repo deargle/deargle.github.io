@@ -106,6 +106,14 @@ multiple post offices were used: so far, I've seen Wichita KS, Richmond VA, Rale
 
 <iframe src="https://www.google.com/maps/d/embed?mid=12Mh9ehgSjL6-HvBH77f8mscu2upmdJKU&hl=en" width="640" height="480"></iframe>
 
+**Update July 19, 2018** -- There has been something like one wave every three weeks consistently since the last wave I noted for February 12, 2018. Only notable difference is that the asking price has jumped to around $15k. Most coming from Nashville, some from Little Rock.
+
+**Update 31 August 2018**: A twisted development has come to light. As of two weeks ago, the attacker has started to include a return address on the letters. The return addresses are for previous blackmail victims! Here's USPIS inspector Kyle's observation:
+
+> The return addresses started about two weeks ago.  The return addresses are secondary victims who are being recycled from earlier letters. At this point, they are mostly attorneys and for the most part consistently being used from the same state as the postmark. Demand amounts exceeding $15k.
+
+This sickens me (the new method, not Kyle ;-) ). Please don't start a witch hunt going after the people listed on your return addresses.
+
 <hr/>
 
 ## Waves so far (precise dates are postmark dates)
@@ -120,7 +128,7 @@ multiple post offices were used: so far, I've seen Wichita KS, Richmond VA, Rale
 * **January 23rd and 24th, 2018** -- Chattanooga TN -- asking price either ~$3,800, or low-to-high $8,000's. Nothing in between.
 * **February 12th, 2018** -- Wichita KS, Denver CO, Richmond VA, Raleigh NC -- asking price north of $8.
 
-**Update July 19, 2018** -- There has been something like one wave every three weeks consistently since the last wave I noted for February 12, 2018. Only notable difference is that the asking price has jumped to around $15k. Most coming from Nashville, some from Little Rock.
+
 
 ## Locations
 
