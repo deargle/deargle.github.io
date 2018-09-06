@@ -1,6 +1,6 @@
 <script type='text/javascript'>
     var $ul = $('<ul></ul>').addClass('nav nav-pills');
-    $('h1:not(.title)').each(function() {
+    $('{{ include.selector | default: h1:not(.title) }}').each(function() {
         var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
         $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
         $li = $('<li></li>');
