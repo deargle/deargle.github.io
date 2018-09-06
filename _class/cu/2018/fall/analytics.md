@@ -24,7 +24,9 @@ Class
 : See [my.cu.edu](https://my.cu.edu)
 
 Office Hours
-: TBA
+: Location: S450J 	
+: Hours: MW 3:30-4:30pm
+: Or, by appointment 
 
 # Course Information
 

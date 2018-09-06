@@ -23,9 +23,10 @@ Class
 : See [my.cu.edu](https://my.cu.edu)
 
 Office Hours
-: TBA
+: Location: S450J 	
+: Hours: MW 3:30-4:30pm
+: Or, by appointment 
 
- 
 
 # Course Information
 
@@ -222,6 +223,3 @@ Similarly, you can **replace your lowest lab score** by reading a _security book
 [Discrimination and Harassment](http://www.colorado.edu/policies/discrimination-and-harassment-policy-and-procedures)
 
 [Final Examination Policy](http://www.colorado.edu/policies/final-examination-policy) (should you have 3 exams on the date of our final exam)
-
-
-
