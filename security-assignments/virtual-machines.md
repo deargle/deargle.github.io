@@ -41,8 +41,8 @@ I pre-prepare the virtual machines to be on the same virtual network so that the
         * Open `Terminal` application
         * Copy-paste the following lines into the terminal, and press `enter`
 
-            vboxmanage natnetwork add --netname infosec-net --network 192.168.55.0/24 --enable --dhcp off
-            vboxmanage natnetwork start --netname infosec-net
+                vboxmanage natnetwork add --netname infosec-net --network 192.168.55.0/24 --enable --dhcp off
+                vboxmanage natnetwork start --netname infosec-net
 
     You can test whether the scripts were successful by navigating to `Virtuabox > File > Preferences > Network`, where you should see "infosec-net" in the list of networks. If you don't see that network, then you can manually create the network from this dialog prompt by clicking the `plus` and using the following options:
     
