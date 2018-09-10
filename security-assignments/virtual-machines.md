@@ -46,7 +46,7 @@ I pre-prepare the virtual machines to be on the same virtual network so that the
 
     You can test whether the scripts were successful by navigating to `Virtuabox > File > Preferences > Network`, where you should see "infosec-net" in the list of networks. If you don't see that network, then you can manually create the network from this dialog prompt by clicking the `plus` and using the following options:
     
-    Then click 'ok', 'ok'.
+    Then click 'ok', 'ok'. 
     
         * Enable Network: `checked`
         * Network Name: `infosec-net` (case-sensitive!)

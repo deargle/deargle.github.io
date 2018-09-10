@@ -4,23 +4,11 @@ title: Lab &ndash; Symmetric Encryption and Hashing
 number: 2
 ---
 
-# VM Setup
+# Required virtual machine
 
-<div class='alert alert-info'>If you'd like, I have Cryptool and a few other things installed on a ready-to-go virtual machinne for students in my class to use. Simply do this:</div>
+Obtain [My prepared Windows 10 VM]( /security-assignments/virtual-machines/#windows-10 )
 
-1. Install one of the VirtualBox platform packages from [here](https://www.virtualbox.org/wiki/Downloads).
-2. If you're on Windows you can skip this step, but if you're on a Mac:
-	* 	Open VirtualBox, then from the menu, select "Virtual Box" -> "Preferences" -> "Network." 
-	* 	Select "Host-only" tab, then click the plus button on the right to add a new host-only interface. Accept the default name. You just created a host-only virtual interface for VirtualBox guests. 
-		This will let your virtual machine guests talk with each other and with your host, but not with anyone else.
-3. Get a copy of my Windows `.ova` file onto your computer.
-4. "File" > "Import Appliance", then browse to the file obtained in step 3.
-5. Try to start the imported appliance. If it complains about network settings needing to be changed:
-	* click the "Update network settings" button or whatever it is (I forget).
-	* For Adapter 1, select the virtual interface you created in step 2.
-	* You should be good-to-go now. (If this is still giving you grief, select "Internal Network" for Adapater 1 instead of "Host-Only" -- that will be fine for this lab.)
-6. The password is `Password1`.
-7. You can now delete the `.ova` file if you're disk space-starved.
+See [here](/security-assignments/virtual-machines/#setting-up-virtualbox-and-the-infoset-net-network) for instructions on setting up virtualbox for this class.
 
 	
 # Part 1
@@ -39,7 +27,7 @@ number: 2
 	
     Important: Number your alphabet so that it starts with zero, e.g., A = 0.
     
-    **Answer:**
+    {% include lab_question.html question='What is the ciphertext when encrypting "send money" with the key "security"?' %}
     
 2.	Consider the transposition method discussed in class.  Assume the plaintext is
 		
@@ -49,7 +37,7 @@ number: 2
         
     Create the ciphertext as was demonstrated in class. Pad the message so that there is an even block of characters, meaning that each column will have the same number of characters. One way to do this is to pad the block by repeating the message until the block is complete. Show your result.
     
-    **Answer:**
+    {% include lab_question.html question='What is the ciphertext when encrypting "attack postponed until two am" with the key {4312567}? (Enter without spaces)' %}
 
 ## Frequency analysis
 
@@ -78,21 +66,21 @@ Open CrypTool 2.0. Under Templates, select Cryptanalysis, then Classical, and do
 
 1. Examine the frequency table in the Frequency Test component. What are the four most frequent characters, in descending order? Examine the frequency table chart at [http://en.wikipedia.org/wiki/Frequency_analysis](http://en.wikipedia.org/wiki/Frequency_analysis). What does this suggest the four letters identified correspond to?
 
-	**Answer:**
+    {% include lab_question.html question='According to CrypTool, what are the four most frequent characters?' %}
 
 2. Do the same analysis, but for character pairs (bigrams) or trigrams. You can either open up a new Frequency Test or hit the Stop button and modify the test you’re currently running.  Under the settings tab of the Frequency Test box, you can change the length of n-grams.  Hit Play and then view the Presentation tab for a graphical view of your results.  What are the three most frequent N-grams of length 2 in your analysis? Examine the frequency table chart at [http://en.wikipedia.org/wiki/Bigram](http://en.wikipedia.org/wiki/Bigram). What does this suggest the three 2-length N-grams identified correspond to? Also examine N-grams of length 3, and report the likely plaintext identities of the four 3-length N-grams reported (use [http://en.wikipedia.org/wiki/Trigram](http://en.wikipedia.org/wiki/Trigram)).
 
     ![image_1](../images/lab_2/lab_2_1.png)
     
-    **Answer: (for both 2-length and 3-length N-grams)**
+    {% include lab_question.html question='According to CrypTool, what are the three most frequent trigrams?' %}
     
 3. Assume that a simple cipher that shifts all characters by a fixed number was used to create the cipertext. Given the above information, what is the key (the number of characters shifted)?  Don’t be proud; you can use your fingers to count.   
 
-    **Answer:**
+    {% include lab_question.html question='What is the key of the ciphertext, counting forwards?' %}
 
 4. What is the plaintext?  (Hint: Which cipher shifts all the characters by a fixed number?  It’s listed as one of the Classic Ciphers in this tool, so you can use this tool to perform the decryption.)
 
-	**Answer:**
+    {% include lab_question.html question='What author is quoted in the plaintext?' %}
     
 ## One-time Pad
 
@@ -110,23 +98,21 @@ Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 
 1. One-time pad 1: `A1 B1 C1 D1 E1 F1 AA BB CC DD EE FF 10 34 76`
     
-    **Answer:**
+    {% include lab_question.html question='What is the plaintext using the one-time pad 1?' %}
 
 2. One-time pad 2: `B2 A0 C1 C2 E7 FB FE FA D9 89 AA AF 56 6A 67`
     
-    **Answer:** 
+    {% include lab_question.html question='What is the plaintext using the one-time pad 2?' %}
 
 3. One-time pad 3: `B3 B0 C7 C2 E7 F4 EE BF CA DD EC F1 15 2E 76`
     
-    **Answer:** 
+    {% include lab_question.html question='What is the plaintext using the one-time pad 3?' %}
 
 4. One-time pad 4: `B4 AD D0 90 E1 FB FE FA D1 8E AA FA 02 3B 33`
     
-    **Answer:** 
+    {% include lab_question.html question='What is the plaintext using the one-time pad 4?' %}
 
-**Question:** How many possible ASCII plaintexts are there for this ciphertext? What does the above tell you about the security of one-time pads, if each of the above one-time pads are equally likely? 
-
-**Answer:**
+{% include lab_question.html question='How many possible plaintexts exist for this one-time-pad ciphertext?' %}
 
 
 
@@ -134,13 +120,11 @@ Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 
 ## Hashing
 
-
-
 Find a file and hash it with multiple hashing algorithms (e.g., using md5deep.exe, sha1deep.exe, and sha256deep.exe, command-line tools installed on the windows vm).
 
 * You can use "hash-me.txt" on the Windows vm desktop
 * Shft+Right-click on the desktop and choose "Open PowerShell window here"
-* The command-line tools are available on the "path", which means you can type their name followed by the filename to get a hash. E.g., "md5deep hash-me.txt"
+* The command-line tools are available from this prompt, which means you can type their name followed by the filename to get a hash. E.g., "md5deep hash-me.txt"
 
 <div class='alert alert-info'>
 <p>If you're not using the lab VM, you can download the command-line tools yourself from <a href='https://github.com/jessek/hashdeep/releases/download/v4.4/md5deep-4.4.zip'>here</a>.
@@ -150,18 +134,24 @@ then open a new command prompt / PowerShell window. Voila, you should have the t
 
 **Questions:**
 
-1.	What is the length of each algorithm hash in characters? How many bits does each hash represent? (hint: how many bits are in one hex digit -- also called a 'nibble'? How many nibbles in the key? Or, How many bits in a byte, and how many bytes in a two-digit hex number like 'FA'? Review [this](https://simple.wikipedia.org/wiki/Hexadecimal_numeral_system) if you're still stuck)
+1.	What is the length of each algorithm hash in characters (MD5 sha1, sha256)? How many bits does each hash represent? 
 
-	**Answer:** 
+    (hint: how many bits are in one hex digit -- also called a 'nibble'? How many nibbles in the key? Or, How many bits in a byte, and how many bytes in a two-digit hex number like 'FA'? Review [this](https://simple.wikipedia.org/wiki/Hexadecimal_numeral_system) if you're still stuck)
+
+    {% include lab_question.html question='How many bits are in an MD5 hash?' %}
 
 Make a copy of your file and open the copy in HxD. (HxD is available on the desktop.) Use the hexeditor to change just a single bit (e.g, change an “A” — 1010 to a B — 1011. Use Windows Calculator in the “Programmer” mode to be sure that your hexcode change represents a change of only one bit.) 
-Save the modified file and hash it again. Since you only changed a single bit in a file of billions of bits, you might reason that the hashes would be nearly the same.  Are they? Explain why.
+Save the modified file and hash it again. Since you only changed a single bit in a file of billions of bits, you might reason that the hashes would be nearly the same. Are they?
 
-**Answer:**
+{% include lab_question.html question='If only one bit is changed on a 10 GB file how different will the hash be?' %}
+{% include lab_question.html question='Which property of cryptographic hash functions is most related to the previous question?' %}
+
+
 
 **Optional:** Use the MD5 function in CrypTool to hash a file. Look at the graphical depiction for how it works.
 
 ![image_4](../images/lab_2/lab_2_4.png){: width="300px" }
+
 
 ## Symmetric encryption with AES
 
@@ -180,9 +170,10 @@ Message (base64):
 
 ![image_1](../images/lab_2/lab_2_3.png)
 
-**Question:** What is the plaintext of the message?
+What is the plaintext of the message?
 
-**Answer:**
+{% include lab_question.html question='What is the URL included in the plaintext you decrypted with AES?' %}
+
 
 ## Message Sharing
 
@@ -193,17 +184,7 @@ Use AES or another symmetric block cipher to encrypt/decrypt messages exchanged 
 
 Questions:
 
-1.	How did you ensure that the key exchange was safe? How would you exchange keys if you weren’t in the same location?
+1. {% include lab_question.html question='How did you ensure that the key exchange was safe? How would you exchange keys if you were not in the same location?' %}
 
-    **Answer:**
+1. {% include lab_question.html question='Which of the parameters of a block cipher (e.g., algorithm name, mode of operation, IV (if any), key length) are <strong>essential</strong> to keep secret? Security through obscurity does not count as "essential".' %}
 
-2.	Was it important that the other parameters of the block cipher (algorithm name, mode of operation, IV (if any), key length, etc.) was kept secret?
-
-    **Answer:** 
-
-
-
-
-
-
-    
