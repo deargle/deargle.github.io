@@ -87,9 +87,11 @@ If you are a mac user and virtualbox fails to install with the ever-so-helpful m
 
 ## The Virtual Machines
 
+<div class='alert alert-info'>All links can be found <a href='https://canvas.colorado.edu/courses/21392/pages/virtual-machine-links'>here</a>.</div>
+
 ### Windows 10
 
-(download link forthcoming. remind me.)
+Download link ready! See above.
 
 |-|-|
 | username: | `labuser` |
