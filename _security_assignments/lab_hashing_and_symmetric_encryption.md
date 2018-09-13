@@ -36,7 +36,7 @@ Next, obtain [My prepared Windows 10 VM]( /security-assignments/virtual-machines
 		
         attack postponed until two am
 		
-    and the key is `{4312567}`
+    and the key is `{3421567}`
         
     Create the ciphertext as was demonstrated in class. Pad the message so that there is an even block of characters, meaning that each column will have the same number of characters. One way to do this is to pad the block by repeating the message a character at a time until the block is complete. Show your result.
     
