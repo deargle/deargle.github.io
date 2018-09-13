@@ -38,7 +38,7 @@ Next, obtain [My prepared Windows 10 VM]( /security-assignments/virtual-machines
 		
     and the key is `{3421567}`
         
-    Create the ciphertext as was demonstrated in class. Pad the message so that there is an even block of characters, meaning that each column will have the same number of characters. One way to do this is to pad the block by repeating the message a character at a time until the block is complete. Show your result.
+    Create the ciphertext as was demonstrated in class. Pad the message so that there is an even block of characters, meaning that each column will have the same number of characters. One way to do this is to pad the block by repeating the message a character at a time until the block is complete. Or, you can fill out the block with random letters from the alphabet. Show your result.
     
     {% include lab_question.html question='What is the ciphertext when encrypting "attack postponed until two am" with the key {4312567}? (Enter without spaces)' %}
 
