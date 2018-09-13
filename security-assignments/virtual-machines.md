@@ -83,7 +83,7 @@ If you are a mac user and virtualbox fails to install with the ever-so-helpful m
 
 * There is a computer science help desk in the engineering school who can help you set up virtualization.
 
-* High Sierra Mac users: if you try to launch the VM and get the following error message: **Kernel driver not installed (rc=-1908)** Then follow the instructions [here](https://apple.stackexchange.com/a/300518)then try launching the VM again.
+* High Sierra Mac users: if you try to launch the VM and get the following error message: **Kernel driver not installed (rc=-1908)** Then follow the instructions [here](https://apple.stackexchange.com/a/300518) then try launching the VM again.
 
 ## The Virtual Machines
 

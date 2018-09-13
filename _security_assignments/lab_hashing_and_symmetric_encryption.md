@@ -6,9 +6,12 @@ number: 2
 
 # Required virtual machine
 
-Obtain [My prepared Windows 10 VM]( /security-assignments/virtual-machines/#windows-10 )
-
 See [here](/security-assignments/virtual-machines/#setting-up-virtualbox-and-the-infoset-net-network) for instructions on setting up virtualbox for this class.
+
+<div class='alert alert-info'><strong>Heads up!</strong> Be sure that you have created the <code>infosec-net</code> virtualbox network, as specified at the top of the above link, <i>before</i> importing the vm! It's not the end of the world if you don't, but it does require some extra work.</div>
+
+Next, obtain [My prepared Windows 10 VM]( /security-assignments/virtual-machines/#windows-10 )
+
 
 	
 # Part 1
@@ -35,7 +38,7 @@ See [here](/security-assignments/virtual-machines/#setting-up-virtualbox-and-the
 		
     and the key is `{4312567}`
         
-    Create the ciphertext as was demonstrated in class. Pad the message so that there is an even block of characters, meaning that each column will have the same number of characters. One way to do this is to pad the block by repeating the message until the block is complete. Show your result.
+    Create the ciphertext as was demonstrated in class. Pad the message so that there is an even block of characters, meaning that each column will have the same number of characters. One way to do this is to pad the block by repeating the message a character at a time until the block is complete. Show your result.
     
     {% include lab_question.html question='What is the ciphertext when encrypting "attack postponed until two am" with the key {4312567}? (Enter without spaces)' %}
 
@@ -74,7 +77,7 @@ Open CrypTool 2.0. Under Templates, select Cryptanalysis, then Classical, and do
     
     {% include lab_question.html question='According to CrypTool, what are the three most frequent trigrams?' %}
     
-3. Assume that a simple cipher that shifts all characters by a fixed number was used to create the cipertext. Given the above information, what is the key (the number of characters shifted)?  Don’t be proud; you can use your fingers to count.   
+3. Assume that a simple cipher that shifts all characters by a fixed number was used to create the cipertext. Given the above information, what is the key (the shift to go from plaintext to ciphertext)?  Don’t be proud; you can use your fingers to count.   
 
     {% include lab_question.html question='What is the key of the ciphertext, counting forwards?' %}
 
