@@ -28,7 +28,9 @@ Next, obtain [My prepared Windows 10 VM]( /security-assignments/virtual-machines
 
         Decryption: plaintext = (ciphertext - key) mod 27
 	
-    Important: Number your alphabet so that it starts with zero, e.g., A = 0.
+    Important: Number your alphabet so that it starts with zero, e.g., `A = 0, Z=25, [space] = 26`.
+    
+    As a general rule for shift ciphers, *the modulus is always the size of the alphabet, but you must start your alphabet at 0*.
     
     {% include lab_question.html question='What is the ciphertext when encrypting "send money" with the key "security"?' %}
     
@@ -126,7 +128,7 @@ Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 Find a file and hash it with multiple hashing algorithms (e.g., using md5deep.exe, sha1deep.exe, and sha256deep.exe, command-line tools installed on the windows vm).
 
 * You can use "hash-me.txt" on the Windows vm desktop
-* Shft+Right-click on the desktop and choose "Open PowerShell window here"
+* `Shift+Right-click` on the desktop _without having any file selected_ and choose "Open PowerShell window here"
 * The command-line tools are available from this prompt, which means you can type their name followed by the filename to get a hash. E.g., "md5deep hash-me.txt"
 
 <div class='alert alert-info'>
