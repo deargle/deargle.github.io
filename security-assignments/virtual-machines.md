@@ -61,6 +61,12 @@ I pre-prepare the virtual machines to be on the same virtual network so that the
 ### Troubleshooting
 
 If you are a mac user and virtualbox fails to install with the ever-so-helpful message that "Virtualbox Failed to Install", then I have no idea how to help you, stupid Macs. Let me know if you figure out a solution. There is a computer science help desk in the engineering school who can help you set up virtualization.
+
+### "I forgot to do this before importing the VM, what should I do?"
+
+You will need to reconfigure the network adapter for each VM that you imported before creating the `infosec-net` network. To do this, shut down the virtual machine (_shut down_, not _power off_!), then select the virtual machine from the virtualbox manager, click `Settings` > `Network` > `Adapter 1` > attached to `Nat Network' > name `infosec-net`. Then, start up the VM again. You should hopefully now have a working internet connection.
+
+![img](../images/infosec-net-specific-device.png){: width="500px"}
             
             
 ## Importing Virtual Machine (VM) `.ova` files
