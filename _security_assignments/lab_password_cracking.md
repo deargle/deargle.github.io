@@ -4,6 +4,14 @@ title: Lab &ndash; Password Cracking
 number: 9
 ---
 
+{% include vm-setup-boilerplate.html vm='[My prepared Kali VM]( /security-assignments/virtual-machines/#kali )'%}
+
+# Part 0: Introduction to Linux Tutorial
+
+1.  Complete the ["Intro to Linux" tutorial]( /security-assignments/intro-to-linux ). There is a deliverable associated with this tutorial which counts towards your participation grade.
+
+
+
 # Part 1: Testing Passwords
 
 1.	Visit the following URL:
@@ -12,26 +20,11 @@ number: 9
 
 2.	Try out different passwords to see how strong they are.
 
-    **Optional:** If you want to learn more about password strength estimation, see this video and paper:
+    **Optional:** If you want to learn more about password strength estimation, see [this video and paper](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/wheeler)
 
-    [https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/wheeler](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/wheeler)
-
+    
+    
 # Part 2: Online Password Attack
-
-<div class='alert alert-info' markdown='1'>
-
-There's a bug in Kali + hydra v8.6.1 (the default version that comes with Kali). I downgraded to an earlier version in the Kali image I made available to you, 
-but in case you installed your own Kali, you'll need to do this:	
-
-	apt-get install libssl-dev libssh-dev
-	git clone https://github.com/vanhauser-thc/thc-hydra
-	cd thc-hydra
-	git checkout v8.5
-	./configure
-	make
-	make install
-			
-</div>
 
 1.	Open a terminal window in your Kali VM, and type `cd /usr/share/wordlists`.
 2.	Unzip the `rockyou.txt.gz` archive as follows:
@@ -42,7 +35,13 @@ but in case you installed your own Kali, you'll need to do this:
 
     This file comprises all unique passwords from the 32 million RockYou password breach you read about in your reading.
 
-4.	Launch an online password attack using THC-Hydra. Type the following (all on one line):
+    
+    
+4.	Using this password list, launch an online password attack using `THC-Hydra`. 
+
+    Visit [https://is.theorizeit.org](https://is.theorizeit.org) in a browser. Let's pretend that you forgot the password. Let's "recover" the password.
+    
+    Type the following (all on one line):
 
         hydra -V -l istheory -P rockyou.txt https-get://is.theorizeit.org/auth/
 
@@ -59,9 +58,20 @@ but in case you installed your own Kali, you'll need to do this:
 
     **Note:** you can also use THC-Hydra with web forms: [http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html](http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html)
     
-    **Question:** What was the password (Scan the results to find the line beginning with `[443][http-get]`)?
+    In Greek and Roman mythology, [Hyrda](https://en.wikipedia.org/wiki/Lernaean_Hydra) is a mythical sea monster with many heads. When a head is cut off, it is replaced by another. `THC Hydra`, the tool you are using,
+    likewise launches multiple "heads" (tasks), each of which makes a battery of attacks (password guesses) before dying off and being replaced by another head (task). By default, Hyrda runs with 16 concurrent heads.
+    
+    The Hyrda output will tell you at what time it started, how many passwords it has tried so far, and at what time it stopped.
+    
+    {% include lab_question.html question='What was the password (Scan the results to find the line beginning with <code>[443][http-get]</code>)?' %}
     
     **Question:** Approximately how many passwords a second were you able to try? **Hint:** You may need to calculate this from the start and end time along with number of guesses made.
+    
+    {% include lab_question.html question='For the lab submission, you will be asked to look at sample output from a `hydra` run, and determine how many passwords were tried per second in the sample output.' %}
+    
+    
+    
+    
     
 # Part 3: Offline Attack Using Hashcat
 
@@ -81,9 +91,9 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 		
 	Note: 
 	* office2john.py can be obtained [here](https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py), but I already put it in your home dir.
-	* hashcat.doc is available [here](https://github.com/deargle/deargle.github.io/raw/master/class/cu/mgmt4250/hashcat.doc). I already put that in your home dir too, but if you need it, you can run 
+	* hashcat.doc is available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc). To obtain it, run 
 		
-			wget https://github.com/deargle/deargle.github.io/raw/master/class/cu/mgmt4250/hashcat.doc
+			wget https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc
 	
 
 5.	In the output you’ll see the name of the file followed by the type. The type is shown with a $ at the beginning and end of it. You’ll need to copy the type and everything until “:::”. For example, the hash looks like the following, all on one line:
@@ -117,26 +127,31 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 
 	<br/>
 
-	**Question:** What is the password for “hashcat.doc”?
+    {% include lab_question.html question='What is the password for <code>hashcat.doc</code>?' %}
+    
+    
+    Do the same for the file `john.doc` (available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/john.doc), use `wget` as above to obtain it from url `https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/john.doc`). 
 
-	**Question:** Roughly how many passwords per second can Hashcat try on a .doc file? See [here](https://hashcat.net/forum/thread-2906.html) for interpreting cracking speeds.
-	(Note: this would be orders of magnitude faster if you weren't running hashcat in a VM.)
-
-7. 	~~Run the following command to see how many hashes a second Hashcat can guess a second for various hashing algorithms:~~
+    {% include lab_question.html question='What is the password for <code>john.doc</code>?' %}
+    
+    
+    Examine [the hashcat cracking benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40) for a [Brutalis](https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/). See [here](https://hashcat.net/forum/thread-4908.html) and [here](https://hashcat.net/forum/thread-2906.html) for help interpreting hashcat cracking speed notation.
+    
+    
+    {% include lab_question.html question='Roughly how many passwords per second can Hashcat running on a Brutalis try on a <code>.doc</code> file?' %}
+        
+    {% include lab_question.html question='How much faster is Hashcat in cracking .doc MS Office documents (option 9700, "&lt;= 2003 $0|$1, MD5 + RC4") compared to Office 2013 documents (option 9600)?' %}
+   
+        
+    **Optional:** Install `hashcat` on your own machine (not the VM). See how your benchmarks compare against a Brutalis. Note that running benchmarks on the VM will break once it reaches `scrypt` before complete results are reported.
 
 		hashcat -b --force
+        
+   
+    {% include lab_question.html question='How does an offline password attack compare with the online hydra attack you attempted earlier?' %}
 
-	~~Note: This command may take 10 minutes or so to run. Keep this window open, continue with the next section of this lab, and come back to this question when the above command finishes.~~
 
-	~~Note: Keep this terminal window open so you can reference this output for another question later in this lab.~~
-
-    Refer to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40). (Running benchmark on your own machines is breaking on `scrypt` for some reason.).
-    Units are expressed as (unit)H/s, or hashes per second, [thusly](https://hashcat.net/forum/thread-4908.html).
     
-	**Question:** How much slower is Hashcat in cracking .doc MS Office documents (option 9700, “<= 2003 $0\|$1, MD5 + RC4”) compared to Office 2013 documents (option 9600)?
-
-	**Question:** How does an offline password attack compare with the online hydra attack you attempted earlier? 
-
     
 # Part 4. Cracking Linkedin Hashes Using Hashcat
 
@@ -148,15 +163,18 @@ hashes. Ask me for a copy.
 
 1.	Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/class/cu/mgmt4250/LinkedIn_HalfMillionHashes.txt)).
 
-2.	Open a terminal. To get your feet wet, perform a straight dictionary attack using the rockyou.txt wordlist again, as follows (one line):
+2.	Open a terminal. To get your feet wet, perform a "straight" dictionary attack using the `rockyou.txt` wordlist again, as follows (one line):
 
 		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
 
 	Note: This command may take 5–10 minutes to run. To see the status of a running job in Hashcat, press the “s” key (it might take up to 15 seconds for Hashcat to report its status).
     
+    Hashcat will report how many passwords it "recovered" when it finishes.
+    
     <div class='alert alert-warning'>These commands use the <code>--remove</code> flag. This will remove cracked hashes from the input file. So, if you run these commands more than once without changing anything, it won't crack anything after the first time.</div>
     
-    Hashcat will report how many passwords it "recovered" when it finishes. You can always count the number of lines in your outfile (`LinkedIn_cracked.txt`) to see how many you've cracked so far, total:
+
+    You can always count the number of lines in your outfile (`LinkedIn_cracked.txt`) to see how many you've cracked so far, total:
            
         wc -l LinkedIn_cracked.txt
     
@@ -164,10 +182,14 @@ hashes. Ask me for a copy.
         
         wc -l LinkedIn_HalfMillionHashes.txt
 
-    To see hashes cracked in real time, in another terminal shell, type the command: `tail -f LinkedIn_cracked.txt`. Type `control+c` to exit the tail command.
+    To see hashes cracked in real time, in another terminal shell, type the command: `tail -f LinkedIn_cracked.txt`. Type `control+c` to exit the `tail` command.
 
-	**Question:** How many passwords were you able to recover using this command?
 
+    {% include lab_question.html question='How many passwords were you able to recover using this command?' %}
+
+
+    
+    
 6.	Run another attack that uses a rules-based method (one line):
 
 		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best64.rule /usr/share/wordlists/rockyou.txt
@@ -182,20 +204,26 @@ hashes. Ask me for a copy.
 	
 	[http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html](http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html)
 
-	**Question:** How many additional passwords were you able to recover using this rules based attack?
+    {% include lab_question.html question='How many total passwords were you able to recover after using this rules based attack in combination with the earlier straight attack?' %}
+    
+	
+	
 
-	**Optional:** Experiment with other rules found in `/usr/share/hashcast/rules`.
-
+    
+    
 	
 7. Run another attack that uses a hybrid method that uses a dictionary attack combined with a “mask,” which is a pattern that is appended to each password in the password dictionary:
 
 		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 6 /usr/share/wordlists/rockyou.txt ?d?d
 
-	The “?d?d” at the end means to append two digits between 0–9 each at the end of each password in the rockyou.txt password dictionary.
+	The `?d?d` at the end means to append two digits between 0–9 each at the end of each password in the rockyou.txt password dictionary.
 
-	**Question:** How many passwords were you able to recover using this hybrid attack?
+    {% include lab_question.html question='How many total passwords were you able to recover after using this hybrid attack combination with the earlier straight and rules-based attacks?' %}
+    
 
-	If you would like to try using a different character set for your mask, you can use the following masks below. Note that each mask below is for one character. If you wanted to test four digits at the end of each password, the mask would be: ?d?d?d?d.
+    
+    
+8. If you would like to try using a different character set for your mask, you can use the following masks below. Note that each mask below is for one character. If you wanted to test four digits at the end of each password, the mask would be: ?d?d?d?d.
 
 		?l = abcdefghijklmnopqrstuvwxyz
 		?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -204,24 +232,36 @@ hashes. Ask me for a copy.
 		?a = ?l?u?d?s
 		?b = 0x00 - 0xff
 
+    **Optional:** Experiment with other rules found in `/usr/share/hashcast/rules`.
+        
 	**Optional:** Another common password pattern is to prepend digits at the beginning of passwords. If you would like try this mask, run the following command:
 
 		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
+
+
 		
 <div class='alert alert-info'>Want even more practice? You can download the massive Troy Hunt haveibeenpwned SHA1 password hash list 
 on the bottom of <a href='https://haveibeenpwned.com/Passwords'>this page</a>.</div>
 
 <div class='alert alert-info'>See <a href='https://github.com/danielmiessler/SecLists/tree/master/Passwords'>Daniel Miessler's wordlist collection</a> for more wordlists besides rockyou to try.</div>
     
+    
+    
+    
 # Part 5. Secure Password Hashing
 
-~~Refer back to the benchmark command that you ran in a separate window for Part 3 step 7 (`hashcast -b`).~~
+Refer again to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40).
 
-Refer to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40). (Running benchmark on your own machines is breaking on `scrypt` for some reason.) Units are expressed as (unit)H/s, or hashes per second, [thusly](https://hashcat.net/forum/thread-4908.html).
+{% include lab_question.html question='How much slower is Hashcat in cracking bcrypt hashes compared to SHA1 hashes?' %}
 
-**Question:** How much slower is Hashcat in cracking bcrypt hashes compared to SHA1 hashes?
+Read about the bcrypt algorithm [here](https://en.wikipedia.org/wiki/Bcrypt#Algorithm), and also [here](https://stackoverflow.com/questions/6832445/how-can-bcrypt-have-built-in-salts)
 
-**Question:** Would it be feasible to crack the passwords of LinkedIn breach if LinkedIn had used bcrypt instead of SHA1? Why or why not?
+{% include lab_question.html question='Imagine that bcrypt is set to a work factor of 12. How many hashing rounds will Bcrypt go through to compute the final hash?' %}
+
+{% include lab_question.html question='An attacker knows that a user generated their password using 8 random lowercase letters exclusively (so character space of 26, length of 8). On average, an attacker needs to try only half of all possible passwords in order to brute force the password. The attacker has access to a Brutalis. How long would it take to crack the password hash if SHA1 had been used? bcrypt with the benchmarks shown for brutalis?' %}
+
+
+
 
 # Learn more:
 

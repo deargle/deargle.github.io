@@ -104,4 +104,32 @@ Download link ready! See above.
 | password: | `Password1` |
 
 
+
+### Kali
+
+Download link not yet ready...
+
+|-|-|
+| username: | `root` |
+| password: | `toor` |
+
+
+#### Building your own instead of using mine
+
+<div class='alert alert-info' markdown='1'>
+
+There's a bug in Kali + hydra v8.6.1 (the default version that comes with Kali). I downgraded to an earlier version in the Kali image I made available to you, 
+but in case you installed your own Kali, you'll need to do this:	
+
+	apt-get install libssl-dev libssh-dev
+	git clone https://github.com/vanhauser-thc/thc-hydra
+	cd thc-hydra
+	git checkout v8.5
+	./configure
+	make
+	make install
+			
+</div>
+
+
 {% include nav-pills.html selector='h2' %}
