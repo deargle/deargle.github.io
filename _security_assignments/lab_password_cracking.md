@@ -22,9 +22,41 @@ number: 9
 
     **Optional:** If you want to learn more about password strength estimation, see [this video and paper](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/wheeler)
 
+
+    
+# Part 2: Checking an Account for an Existing Data Breach
+
+1.  Check to see if one of your online accounts has already been breached. 
+
+    Visit: [https://haveibeenpwned.com](https://haveibeenpwned.com). Type in one of your email accounts or usernames to see if it has already been compromised in a data breach.
+
+1.  Next visit: [https://haveibeenpwned.com/Passwords](https://haveibeenpwned.com/Passwords)
+
+    Try out some passwords to see if they have already been compromised in a data breach.
+
+1.  Finally, visit: [https://haveibeenpwned.com/NotifyMe](https://haveibeenpwned.com/NotifyMe)
+
+    Sign up to be notified when one of your accounts is breached in the future.
+
+{% include lab_question.html question="Was one of your accounts breached? If so, which one? Share an appropriately redacted version of your experience with haveibeenpwned on slack on 
+<a href='https://infosecmanagement-f18.slack.com/messages/CD500PRNE'>#haveibeenpwned</a>" %}
     
     
-# Part 2: Online Password Attack
+    
+# Part 3. Sign-up for Two Factor Authentication
+
+Visit [https://twofactorauth.org](https://twofactorauth.org) and browse through the categories to find an online service that you regularly use 
+(e.g., Gmail, Snapchat, Instagram, Facebook, etc.). Click the box-arrow icon in the “Docs” column to learn how to set two factor authentication for that service. 
+Sign up for 2FA for at least one account.
+
+
+{% include lab_question.html question='You will be asked to report whether or not you signed up for 2FA.' %}
+
+    
+    
+    
+    
+# Part 4: Online Password Attack
 
 1.	Open a terminal window in your Kali VM, and type `cd /usr/share/wordlists`.
 2.	Unzip the `rockyou.txt.gz` archive as follows:
@@ -34,8 +66,6 @@ number: 9
 3.	`ls` command grants a view to see which files are in this folder. Type `wc -l rockyou.txt` to see how many entries are in this password dictionary file (‘-l’ is a lower-case ‘L’). 
 
     This file comprises all unique passwords from the 32 million RockYou password breach you read about in your reading.
-
-    
     
 4.	Using this password list, launch an online password attack using `THC-Hydra`. 
 
@@ -73,12 +103,16 @@ number: 9
     
     
     
-# Part 3: Offline Attack Using Hashcat
+# Part 5: Offline Attack Using Hashcat
 
 Cracking in Hashcat:
 
-<div class='alert alert-info'>If you're feeling adventurous, you can install hashcat on your host computer, where you'll get massive speed improvements. Hashcast needs to be able to directly interface with
-the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.</div>
+<div class='alert alert-info'>
+<p>If you're feeling adventurous, you can install hashcat on your host computer, where you'll get massive speed improvements. Hashcast needs to be able to directly interface with
+the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.</p>
+<p>For Windows or Linux, download Hashcat <a href='https://hashcat.net/hashcat'>here</a>. For Mac, I recommend that you first install Homebrew (follow instructions at <a href='https://brew.sh'>https://brew.sh</a>), 
+then run the command, <code>brew install hashcat</code>.</p>
+</div>
 
 1.	On your Kali machine, open up a terminal and navigate to your home directory (`/root/`).
 2.	Hashcat uses a command-line interface. To see available options and syntax, type: 
@@ -90,8 +124,11 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 		python office2john.py hashcat.doc
 		
 	Note: 
-	* office2john.py can be obtained [here](https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py), but I already put it in your home dir.
-	* hashcat.doc is available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc). To obtain it, run 
+	* office2john.py can be obtained [here](https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py). To obtain it in Kali, run:
+    
+            wget https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py
+            
+	* hashcat.doc is available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc). To obtain it, run:
 		
 			wget https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc
 	
@@ -106,7 +143,9 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 	If you get a "line-length exception" in the next step, make sure there's not a typo in the beginning of the hash.
 
 6.	While still in your home dir, run the following command (all on one line). Reference the hash file you just created, and choose an arbitrary name for an output file. Once the password is cracked,
-    you will read your output file to see the cracked password. It will be appended to the end of the hash following a `:` symbol.
+    you will read your output file to see the cracked password. It will be appended to the end of the hash following a colon (`:`) symbol.
+    
+    <div class='alert alert-info'><strong>Note: </strong>In the commands below, the <code><< >></code> notation means to replace that text with the names of the actual files you are using.</div>
 
 		hashcat --force -a 0 -m 9700 --potfile-disable -o <<outputFileName.txt>> <<HashInputFileName.txt>> /usr/share/wordlists/rockyou.txt
 
@@ -135,8 +174,16 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
     {% include lab_question.html question='What is the password for <code>john.doc</code>?' %}
     
     
-    Examine [the hashcat cracking benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40) for a [Brutalis](https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/). See [here](https://hashcat.net/forum/thread-4908.html) and [here](https://hashcat.net/forum/thread-2906.html) for help interpreting hashcat cracking speed notation.
+    Examine [the hashcat cracking benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40) for a [Brutalis](https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/).
     
+    Cracking speeds are in the following format:
+
+        H/s	Hashes per second
+        KH/s 	Kilohashes per second (Thousands of hashes per second)
+        MH/s	Megahashes per second (Millions of hashes per second)
+        GH/s	Gigahashes per second (Billions of hashes per second)
+        TH/s	Terahashes per second (Trillions of hashes per second)
+        PH/s	Petahashes per second (Quadrillions of hashes per second)    
     
     {% include lab_question.html question='Roughly how many passwords per second can Hashcat running on a Brutalis try on a <code>.doc</code> file?' %}
         
@@ -153,7 +200,7 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 
     
     
-# Part 4. Cracking Linkedin Hashes Using Hashcat
+# Part 6. Cracking Linkedin Hashes Using Hashcat
 
 In this section, you’ll see how many hashes you can recover from the 2016 LinkedIn password breach. This breach of 177,500,189 unsalted SHA1 password hashes represents the data of all 
 LinkedIn users as of 2012. Among these passwords, only 61,829,207 are unique.
@@ -248,7 +295,7 @@ on the bottom of <a href='https://haveibeenpwned.com/Passwords'>this page</a>.</
     
     
     
-# Part 5. Secure Password Hashing
+# Part 7. Secure Password Hashing
 
 Refer again to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40).
 
@@ -259,6 +306,53 @@ Read about the bcrypt algorithm [here](https://en.wikipedia.org/wiki/Bcrypt#Algo
 {% include lab_question.html question='Imagine that bcrypt is set to a work factor of 12. How many hashing rounds will Bcrypt go through to compute the final hash?' %}
 
 {% include lab_question.html question='An attacker knows that a user generated their password using 8 random lowercase letters exclusively (so character space of 26, length of 8). On average, an attacker needs to try only half of all possible passwords in order to brute force the password. The attacker has access to a Brutalis. How long would it take to crack the password hash if SHA1 had been used? bcrypt with the benchmarks shown for brutalis?' %}
+
+
+
+
+# Part 8. Create a Targeted Wordlist Using CeWL
+
+CeWL (Custom Word List Generator) is a command-line tool that creates custom wordlists from a target website. This can be useful for cracking a password of an organization or individual that also has a website or social media profile. Because people often use information about themselves or their organization when creating passwords, custom wordlists can be very effective.
+
+Imagine that you exfiltrated the following MD5 hash from a database on neurosecurity.byu.edu:
+
+    cf4aff530715824c055892438a1ab6b2
+
+You want to create a custom dictionary using the words on neurosecurity.byu.edu to see if you can crack the hash.
+
+1.	Create a custom dictionary using CeWL for the website neurosecurity.byu.edu:
+
+        cewl -v -d 2 -m 5 -w custom_dict.txt https://neurosecurity.byu.edu
+
+    Where:
+    •	“v” runs CeWL in verbose mode.
+    •	“d” is the depth to “spider” or crawl the website
+    •	“m” is the minimum word length
+    •	“w” “custom_dict.txt” is the name of your new custom wordlist or dictionary.
+
+    Give the command a minute or two to complete.
+
+2.	Check how many entries are in the `custom_dict.txt` file:
+
+        wc -l custom_dict.txt
+
+3.	Look at the words in `custom_dict.txt`:
+
+        less custom_dict.txt
+        
+4.	Permute the words in the `custom_dict.txt` wordlist using the “best64” rule, and append the output to `custom_dict.txt` (all one line):
+
+        hashcat -a 0 custom_dict.txt -r /usr/share/hashcat/rules/best64.rule --stdout >> custom_dict.txt
+
+5.	Check how many entries are in the custom_dict.txt file now:
+
+        wc -l custom_dict.txt
+
+6.	Run Hashcat using custom_dict against the MD5 hash (all one line):
+
+        hashcat --force -a 0 -m 0 cf4aff530715824c055892438a1ab6b2 custom_dict.txt
+        
+{% include lab_question.html question='What is the plaintext of the hash?' %}
 
 
 
