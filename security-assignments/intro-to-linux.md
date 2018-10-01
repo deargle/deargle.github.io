@@ -32,7 +32,7 @@ title: Intro to Linux
 		- 5.1
 		- 5.3
 	- Chapter 6
-		- Actually, in lieu of reading Chapter 6, read [this note on choosing which text editor to learn](/class/security/note-on-editors), then learn it (i.e., google 'nano tutorial').
+		- Actually, in lieu of reading Chapter 6, read [this note on choosing which text editor to learn](/security-assignments/note-on-editors), then learn it (i.e., google 'nano tutorial').
 	- Chapter 7
 		- 7.2.5
 		- 7.5.3.2
@@ -42,3 +42,17 @@ title: Intro to Linux
 	- man 5 passwd
 	- man 5 group
 	- ssh & scp
+    
+    
+# Deliverable
+
+* Make a directory called `le-tutorial`
+* In that directory, create a file called `i-did-it.txt` with the following contents: `Hello, world!`
+* Submit a screenshot showing:
+    * The contents of that file (`cat`)
+    * A string with your name and uni email, e.g., `echo David Eargle david.eargle@colorado.edu`
+    * Run the `date` command
+    
+For example:
+
+![img](/security-assignments/intro-linux-lab.png)
