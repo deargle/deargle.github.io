@@ -161,7 +161,7 @@ LinkedIn users as of 2012. Among these passwords, only 61,829,207 are unique.
 However, in interest of your time, this section will require you to crack only 500,000 of these passwords. After you complete this lab, you’re welcome to crack all of the LinkedIn 
 hashes. Ask me for a copy.
 
-1.	Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/class/cu/mgmt4250/LinkedIn_HalfMillionHashes.txt)).
+1.	Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/LinkedIn_HalfMillionHashes.txt)).
 
 2.	Open a terminal. To get your feet wet, perform a "straight" dictionary attack using the `rockyou.txt` wordlist again, as follows (one line):
 

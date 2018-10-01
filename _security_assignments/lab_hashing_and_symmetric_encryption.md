@@ -6,12 +6,7 @@ number: 2
 
 # Required virtual machine
 
-See [here](/security-assignments/virtual-machines/#setting-up-virtualbox-and-the-infoset-net-network) for instructions on setting up virtualbox for this class.
-
-<div class='alert alert-info'><strong>Heads up!</strong> Be sure that you have created the <code>infosec-net</code> virtualbox network, as specified at the top of the above link, <i>before</i> importing the vm! It's not the end of the world if you don't, but it does require some extra work.</div>
-
-Next, obtain [My prepared Windows 10 VM]( /security-assignments/virtual-machines/#windows-10 )
-
+{% include vm-setup-boilerplate.html vm='[My prepared Windows 10 VM]( /security-assignments/virtual-machines/#windows-10 )'%}
 
 	
 # Part 1
