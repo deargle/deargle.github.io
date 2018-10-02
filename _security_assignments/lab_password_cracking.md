@@ -359,7 +359,7 @@ You want to create a custom dictionary using the words on neurosecurity.byu.edu 
     
 7.  Confirm that you found the correct password:
     
-        echo -n "<< the plaintext password>>" | md5sum
+        echo -n "<<the plaintext password>>" | md5sum
         
     We include the `-n` flag because otherwise, the `echo` command will append a newline character, which will throw off the hash.
         

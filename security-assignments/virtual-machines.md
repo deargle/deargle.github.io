@@ -7,27 +7,6 @@ layout: assignment
 
 I prepare virtual machines for students in my class to use, which communicate over a `infosec-net` NatNetwork. This page documents the virtual machines, along with how to install and configure virtualbox to use the network.
 
-# `infosec-net` Network Map
-
-The network map is as follows:
-        
-<div style='width:40%'> 
-    <table class='table'>
-        <thead>
-            <tr>
-                <th>IP Address</th>
-                <th>Machine</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>192.168.55.100</td>
-            <td>Windows 10 VM</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-
 # Setting up Virtualbox and the infoset-net network
 
 I pre-prepare the virtual machines to be on the same virtual network so that they have internet access and so that they can talk to one another. However, you must initialize the virtualbox network after you install virtualbox. To do so:
@@ -93,11 +72,41 @@ You will need to reconfigure the network adapter for each VM that you imported b
 
 # The Virtual Machines
 
-<div class='alert alert-info'>All links can be found <a href='https://canvas.colorado.edu/courses/21392/pages/virtual-machine-links'>here</a>.</div>
+<a class='btn btn-primary' href='https://canvas.colorado.edu/courses/21392/pages/virtual-machine-links'><i class='fa fa-download'></i> VM Download Page</a>
+
+## `infosec-net` Network Map
+
+The network map is as follows:
+        
+<div style='width:40%'> 
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>IP Address</th>
+                <th>Machine</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>192.168.55.1</td>
+            <td>Gateway</td>
+        </tr>        
+        <tr>
+            <td>192.168.55.100</td>
+            <td>Windows 10 VM</td>
+        </tr>        
+        <tr>
+            <td>192.168.55.101</td>
+            <td>Kali</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 
 ## Windows 10
 
-<div class='alert alert-info'>Download link ready! See above</div>
+<span class='label label-info'>Download link ready! See above</span>
 
 |-|-|
 | username: | `labuser` |
@@ -107,7 +116,7 @@ You will need to reconfigure the network adapter for each VM that you imported b
 
 ## Kali
 
-<div class='alert alert-info'>Download link ready! See above</div>
+<span class='label label-info'>Download link ready! See above</span>
 
 |-|-|
 | username: | `root` |
@@ -116,7 +125,7 @@ You will need to reconfigure the network adapter for each VM that you imported b
 
 ### Building your own Kali instead of using mine
 
-<div class='alert alert-danger'><strong>Warning: </strong>If you are in my class and you do this, you are crazy.</div>
+<div class='alert alert-danger'><strong>Warning: </strong>If you are in my class and you do this, <strong>you are crazy <i class='fa fa-sign-language'></i></strong> yet I salute you.</div>
 
 1.  Download Kali Linux Light 64 Bit from [here](https://www.kali.org/downloads/). It's less than 1GB.
 2.  Follow the instructions [here](http://www.wikigain.com/install-kali-linux-virtualbox-pc/) to create the VM, except:
