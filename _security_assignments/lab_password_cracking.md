@@ -58,22 +58,15 @@ Sign up for 2FA for at least one account.
     
 # Part 4: Online Password Attack
 
-1.	Open a terminal window in your Kali VM, and type `cd /usr/share/wordlists`.
-2.	Unzip the `rockyou.txt.gz` archive as follows:
+This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all unique passwords from the 32 million RockYou password breach you read about in your reading.
 
-        gunzip rockyou.txt.gz 
-
-3.	`ls` command grants a view to see which files are in this folder. Type `wc -l rockyou.txt` to see how many entries are in this password dictionary file (‘-l’ is a lower-case ‘L’). 
-
-    This file comprises all unique passwords from the 32 million RockYou password breach you read about in your reading.
-    
-4.	Using this password list, launch an online password attack using `THC-Hydra`. 
+4.	We will use the rockyou password list to launch an online password attack using `THC-Hydra`. 
 
     Visit [https://is.theorizeit.org](https://is.theorizeit.org) in a browser. Let's pretend that you forgot the password. Let's "recover" the password.
     
-    Type the following (all on one line):
+    Open a terminal in your Kali vm. Type the following (all on one line):
 
-        hydra -V -l istheory -P rockyou.txt https-get://is.theorizeit.org/auth/
+        hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt.gz https-get://is.theorizeit.org/auth/
 
     **Note:** The trailing slash (‘/’) is needed.
 
@@ -82,7 +75,7 @@ Sign up for 2FA for at least one account.
     * `hydra` is the password cracking tool to execute
     * `-V` means verbose, and will show you the username and password combination being attempted
     * `-l istheory` sets “istheory” as the login name. Note: that’s a lowercase ‘L.’
-    * `-P rockyou.txt` is the password dictionary file to use. 
+    * `-P /usr/share/wordlists/rockyou.txt.gz` is the password dictionary file to use. 
     * `https-get` means a GET request over HTTPS. Note that Hydra supports many protocols (e.g., ftp, ssh).
     * `is.theorizeit.org/auth/` is the password-protected URL to be accessed.
 
@@ -325,10 +318,11 @@ You want to create a custom dictionary using the words on neurosecurity.byu.edu 
         cewl -v -d 2 -m 5 -w custom_dict.txt https://neurosecurity.byu.edu
 
     Where:
-    •	“v” runs CeWL in verbose mode.
-    •	“d” is the depth to “spider” or crawl the website
-    •	“m” is the minimum word length
-    •	“w” “custom_dict.txt” is the name of your new custom wordlist or dictionary.
+    
+    * 	`-v` runs CeWL in verbose mode.
+    * 	`-d` is the depth to “spider” or crawl the website
+    * 	`-m` is the minimum word length
+    * 	`-w custom_dict.txt` is the name of your new custom wordlist or dictionary.
 
     Give the command a minute or two to complete.
 
@@ -342,7 +336,7 @@ You want to create a custom dictionary using the words on neurosecurity.byu.edu 
         
 4.	Permute the words in the `custom_dict.txt` wordlist using the “best64” rule, and append the output to `custom_dict.txt` (all one line):
 
-        hashcat -a 0 custom_dict.txt -r /usr/share/hashcat/rules/best64.rule --stdout >> custom_dict.txt
+        hashcat custom_dict.txt -r /usr/share/hashcat/rules/best64.rule --stdout >> custom_dict.txt
 
 5.	Check how many entries are in the custom_dict.txt file now:
 
@@ -351,6 +345,14 @@ You want to create a custom dictionary using the words on neurosecurity.byu.edu 
 6.	Run Hashcat using custom_dict against the MD5 hash (all one line):
 
         hashcat --force -a 0 -m 0 cf4aff530715824c055892438a1ab6b2 custom_dict.txt
+    
+    Where `-m 0` signifies `md5` mode, and `-a` specifies "straight attack mode" (do not permutate the wordlist, because we already did)
+    
+7.  Confirm that you found the correct password:
+    
+        echo -n "<< the plaintext password>>" | md5sum
+        
+    We include the `-n` flag because otherwise, the `echo` command will append a newline character, which will throw off the hash.
         
 {% include lab_question.html question='What is the plaintext of the hash?' %}
 
