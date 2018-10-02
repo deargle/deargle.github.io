@@ -60,13 +60,17 @@ Sign up for 2FA for at least one account.
 
 This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all unique passwords from the 32 million RockYou password breach you read about in your reading.
 
+1.  First, unzip the password list.
+        
+        gunzip /usr/share/wordlists/rockyou.txt.gz
+
 4.	We will use the rockyou password list to launch an online password attack using `THC-Hydra`. 
 
     Visit [https://is.theorizeit.org](https://is.theorizeit.org) in a browser. Let's pretend that you forgot the password. Let's "recover" the password.
     
     Open a terminal in your Kali vm. Type the following (all on one line):
 
-        hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt.gz https-get://is.theorizeit.org/auth/
+        hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt https-get://is.theorizeit.org/auth/
 
     **Note:** The trailing slash (‘/’) is needed.
 
@@ -75,7 +79,7 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
     * `hydra` is the password cracking tool to execute
     * `-V` means verbose, and will show you the username and password combination being attempted
     * `-l istheory` sets “istheory” as the login name. Note: that’s a lowercase ‘L.’
-    * `-P /usr/share/wordlists/rockyou.txt.gz` is the password dictionary file to use. 
+    * `-P /usr/share/wordlists/rockyou.txt` is the password dictionary file to use. 
     * `https-get` means a GET request over HTTPS. Note that Hydra supports many protocols (e.g., ftp, ssh).
     * `is.theorizeit.org/auth/` is the password-protected URL to be accessed.
 
@@ -140,11 +144,11 @@ then run the command, <code>brew install hashcat</code>.</p>
     
     <div class='alert alert-info'><strong>Note: </strong>In the commands below, the <code><< >></code> notation means to replace that text with the names of the actual files you are using.</div>
 
-		hashcat --force -a 0 -m 9700 --potfile-disable -o <<outputFileName.txt>> <<HashInputFileName.txt>> /usr/share/wordlists/rockyou.txt
+		hashcat --force -a 0 -m 9700  -o <<outputFileName.txt>> <<HashInputFileName.txt>> /usr/share/wordlists/rockyou.txt
 
 	Or alternatively, if you prefer to do it without making an input file, put the hash string right in the terminal, surrounded by single quotes:  
 
-		hashcat --force -a 0 -m 9700 --potfile-disable -o <<outputFileName.txt>> '[hash string]' /usr/share/wordlists/rockyou.txt
+		hashcat --force -a 0 -m 9700  -o <<outputFileName.txt>> '[hash string]' /usr/share/wordlists/rockyou.txt
 	
 	Where the switches correspond to:
 
@@ -201,11 +205,12 @@ LinkedIn users as of 2012. Among these passwords, only 61,829,207 are unique.
 However, in interest of your time, this section will require you to crack only 500,000 of these passwords. After you complete this lab, you’re welcome to crack all of the LinkedIn 
 hashes. Ask me for a copy.
 
-1.	Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/LinkedIn_HalfMillionHashes.txt)).
+1.	Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/LinkedIn_HalfMillionHashes.txt). 
+    Right-click this link, select "copy link" , then paste it into Kali after `wget`).
 
 2.	Open a terminal. To get your feet wet, perform a "straight" dictionary attack using the `rockyou.txt` wordlist again, as follows (one line):
 
-		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
+		hashcat --force -m 100 --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
 
 	Note: This command may take 5–10 minutes to run. To see the status of a running job in Hashcat, press the “s” key (it might take up to 15 seconds for Hashcat to report its status).
     
@@ -232,7 +237,7 @@ hashes. Ask me for a copy.
     
 6.	Run another attack that uses a rules-based method (one line):
 
-		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best64.rule /usr/share/wordlists/rockyou.txt
+		hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best64.rule /usr/share/wordlists/rockyou.txt
 
 	Rules apply common patterns to password dictionaries to crack even more hashes. You can read about rules in Hashcat here: [https://hashcat.net/wiki/doku.php?id=rule_based_attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack). 
 
@@ -254,7 +259,7 @@ hashes. Ask me for a copy.
 	
 7. Run another attack that uses a hybrid method that uses a dictionary attack combined with a “mask,” which is a pattern that is appended to each password in the password dictionary:
 
-		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 6 /usr/share/wordlists/rockyou.txt ?d?d
+		hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 6 /usr/share/wordlists/rockyou.txt ?d?d
 
 	The `?d?d` at the end means to append two digits between 0–9 each at the end of each password in the rockyou.txt password dictionary.
 
@@ -276,7 +281,7 @@ hashes. Ask me for a copy.
         
 	**Optional:** Another common password pattern is to prepend digits at the beginning of passwords. If you would like try this mask, run the following command:
 
-		hashcat --force -m 100 --potfile-disable --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
+		hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
 
 
 		
@@ -347,6 +352,10 @@ You want to create a custom dictionary using the words on neurosecurity.byu.edu 
         hashcat --force -a 0 -m 0 cf4aff530715824c055892438a1ab6b2 custom_dict.txt
     
     Where `-m 0` signifies `md5` mode, and `-a` specifies "straight attack mode" (do not permutate the wordlist, because we already did)
+    
+    The password will be reported towards the top of the output in the format: `hash:password`. If you miss the output, you can view it in your potfile once you have cracked it by running
+    
+        hashcat --show cf4aff530715824c055892438a1ab6b2
     
 7.  Confirm that you found the correct password:
     

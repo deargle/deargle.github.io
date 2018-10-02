@@ -50,7 +50,7 @@ title: Intro to Linux
 * In that directory, create a file called `i-did-it.txt` with the following contents: `Hello, world!`
 * Submit a screenshot showing:
     * The contents of that file (`cat`)
-    * A string with your name and uni email, e.g., `echo David Eargle david.eargle@colorado.edu`
+    * A string with your name and uni email, e.g., `echo "David Eargle david.eargle@colorado.edu"`
     * Run the `date` command
     
 For example:
