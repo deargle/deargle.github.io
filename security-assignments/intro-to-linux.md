@@ -5,26 +5,32 @@ title: Intro to Linux
 
 # Complete this very gentle introduction to Linux Terminal
 
-CodeAcademy has a [nice introductory set of lessons](https://www.codecademy.com/learn/learn-the-command-line) that teach the Linux Terminal. You should complete all four free lesson-sets:
+CodeAcademy has an [introductory set of lessons](https://www.codecademy.com/learn/learn-the-command-line) that teach the Linux Terminal. 
+You should complete the first lesson-set within each module:
 
 1. Navigating the File System
+    1. [Navigation](https://www.codecademy.com/courses/learn-the-command-line/lessons/navigation/resume)
 2. Viewing and Changing the File System
+    1. [Manipulation](https://www.codecademy.com/courses/learn-the-command-line/lessons/manipulation/resume)
 3. Redirecting Input and Output
+    1. [Redirection](https://www.codecademy.com/courses/learn-the-command-line/lessons/redirection/resume)
 4. Configuring the Environment
+    1. [Environment](https://www.codecademy.com/courses/learn-the-command-line/lessons/environment/resume)
 
-If you complete these, you should have a sufficient knowledge of Linux to be able to follow
-along with all of the labs for my class.
+You do _not_ need to do any of the "projects" or multiple choice quizzes. Just the lesson-sets.
+    
 
-
-
+    
+    
 # Learn a linux text editor
 
-Read [this note on choosing which text editor to learn](/security-assignments/note-on-editors), then learn one (i.e., google 'nano tutorial'). I recommend `nano` for you all.
+The CodeAcademy lessons above give you basic exposure to the `nano` text editor. However, you are free to use whatever text editor you like. `nano` is good for beginners, though.
+
 
 
 # Deliverable
 
-You _must use your Kali vm for the following_. Doing so proves both that you got Kali up and running, and that you have baby-step skills with Linux terminal.
+You _must use your Kali vm for the following_. Doing so proves both that you got Kali up and running, and that you have basic skills with Linux terminal.
 
 * Make a directory called `le-tutorial`
 * In that directory, create a file called `i-did-it.txt` with the following contents: `Hello, world!`
