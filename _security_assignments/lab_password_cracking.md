@@ -1,10 +1,10 @@
 ---
 
 title: Lab &ndash; Password Cracking
-number: 9
+number: 5
+vms:
+    - Kali
 ---
-
-{% include vm-setup-boilerplate.html vm='[My prepared Kali VM]( /security-assignments/virtual-machines/#kali )'%}
 
 # Part 0: Introduction to Linux Tutorial
 

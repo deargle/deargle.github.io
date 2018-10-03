@@ -1,7 +1,7 @@
 ---
 
 title: Lab &ndash; Physcial Security Scavenger Hunt
-number: 5
+number: 9
 ---
 
 **Note:** This lab can be completed in a group of up to four members. Turn in one document to D2L with all group members’ names listed.

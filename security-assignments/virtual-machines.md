@@ -3,6 +3,19 @@ title: Virtual Machines for the Security Labs
 layout: assignment
 ---
 
+<style>
+.language-ascii-noshadows {
+    display: block;
+    unicode-bidi: embed;
+    font-family: monospace;
+    white-space: pre;
+    font-family: "Lucida Console", Monaco, monospace;
+    letter-spacing: -0.2em;
+    line-height: 0.8em;
+}
+
+</style>
+
 <div id='nav-bar'></div>
 
 I prepare virtual machines for students in my class to use, which communicate over a `infosec-net` NatNetwork. This page documents the virtual machines, along with how to install and configure virtualbox to use the network.
@@ -72,7 +85,9 @@ You will need to reconfigure the network adapter for each VM that you imported b
 
 # The Virtual Machines
 
-<a class='btn btn-primary' href='https://canvas.colorado.edu/courses/21392/pages/virtual-machine-links'><i class='fa fa-download'></i> VM Download Page</a>
+<div class='alert alert-info'>All VMs can be found here: 
+    <a class='btn btn-primary' href='https://canvas.colorado.edu/courses/21392/pages/virtual-machine-links'><i class='fa fa-download'></i> VM Download Page</a>
+</div>
 
 ## `infosec-net` Network Map
 
@@ -93,18 +108,32 @@ The network map is as follows:
         </tr>        
         <tr>
             <td>192.168.55.100</td>
-            <td>Windows 10 VM</td>
+            <td><a href='#windows-10'>Windows 10</a></td>
         </tr>        
         <tr>
             <td>192.168.55.101</td>
-            <td>Kali</td>
+            <td><a href='#kali'>Kali</a></td>
+        </tr>
+        <tr>
+            <td>192.168.55.102</td>
+            <td><a href='#metasploitable2'>Metasploitable2</a></td>
         </tr>
         </tbody>
     </table>
 </div>
 
+IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
 
-## Windows 10
+
+<h2 class='language-ascii-noshadows' id='windows-10'>
+ _    _ _           _                     __  _____ 
+| |  | (_)         | |                   /  ||  _  |
+| |  | |_ _ __   __| | _____      _____  `| || |/' |
+| |/\| | | '_ \ / _` |/ _ \ \ /\ / / __|  | ||  /| |
+\  /\  / | | | | (_| | (_) \ V  V /\__ \ _| |\ |_/ /
+ \/  \/|_|_| |_|\__,_|\___/ \_/\_/ |___/ \___/\___/ 
+                                                    
+</h2>
 
 <span class='label label-info'>Download link ready! See above</span>
 
@@ -114,7 +143,15 @@ The network map is as follows:
 
 
 
-## Kali
+<h2 class='language-ascii-noshadows' id='windows-10'>
+ ____  __.      .__  .__ 
+|    |/ _|____  |  | |__|
+|      < \__  \ |  | |  |
+|    |  \ / __ \|  |_|  |
+|____|__ (____  /____/__|
+        \/    \/         
+</h2>
+
 
 <span class='label label-info'>Download link ready! See above</span>
 
@@ -215,5 +252,66 @@ The network map is as follows:
         git clone https://github.com/trustedsec/social-engineer-toolkit/ set/
         cd set
         python setup.py install
+    
+4.  You should now have a pretty good Kali install for this class.
 
-4. You should now have a pretty good Kali install for this class.
+<section id='install-nessus'></section>    
+#### Install the Nessus vulnerability scanner (wait to do this step until you actually need Nessus -- it takes 1+ hrs to complete)
+
+1.	Register for a Nessus Home license. Browse to the URL below and enter your name and email address:
+    
+    [https://www.tenable.com/products/nessus-home](https://www.tenable.com/products/nessus-home)
+
+2.	(Note: Nessus is already installed on the lab VM, skip this step if you're using the VM I provided.) Download Nessus to your Kali machine from [here](https://www.tenable.com/products/nessus/select-your-operating-system#tos). 
+    Navigate to your Download directory and run `dpkg -i <filename of your download>` to install Nessus. 
+    
+2.	After you receive the email from Tenable containing your serial number, type in the following command in the Kali terminal:
+
+        /opt/nessus/sbin/nessuscli fetch --register <serial>
+
+    Where `<serial>` is the serial number you received in the email from Tenable. You should see a message saying that your activation code has been registered properly. 
+
+3.	In the Kali VM, open a terminal and type `service nessusd start`
+
+4.	Open a web browser in Kali and navigate to `https://kali:8834` to open the Nessus web interface (note the “s”). (Click 'Advanced' > 'Add Security Exception' > 'Confirm Security Exception' to get past the SSL warning.)
+
+5.	For consistency with my lab, create user `root` password `toor` when prompted by Nesssus. Click “reload” if the page fails to load.
+
+
+<h2 class='language-ascii-noshadows' id='windows-10'>
+   __  __      _                  _       _ _        _     _      ___  
+ |  \/  |    | |                | |     (_) |      | |   | |    |__ \ 
+ | \  / | ___| |_ __ _ ___ _ __ | | ___  _| |_ __ _| |__ | | ___   ) |
+ | |\/| |/ _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ / / 
+ | |  | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// /_ 
+ |_|  |_|\___|\__\__,_|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|____|
+                          | |                                         
+                          |_|                                         
+</h2>
+
+|-|-|
+| username: | `msfadmin` |
+| password: | `msfadmin` |
+
+### Configure your own Metasploitable2 instead of using mine.
+
+The only change that I made was to the network interfaces so that they would connecto the `infosec-net`. If you want to make the same changes, do the following from within Metasploitable2:
+
+    cat <<EOF >> /etc/network/interfaces
+    auto eth0
+    iface eth0 inet static
+        address 192.168.55.101
+        netmask 255.255.255.0
+        gateway 192.168.55.1
+
+    auto eth1
+    iface eth1 inet dhcp
+    EOF
+
+    cat <<EOF > /etc/resolv.conf
+    nameserver 192.168.55.1
+    nameserver 8.8.8.8
+    nameserver 8.8.4.4
+    EOF
+
+    /etc/init.d/networking restart
