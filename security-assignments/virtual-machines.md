@@ -171,8 +171,15 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
     * Choose whatever for the "Configure the Network" step. My scripts below reset all that anyway.
     * For Step 7 "Partition disks" step, choose "Guided - use entire disk" to save yourself extra work. Choose "All files in one partition" a few steps later on, too. Continue the instructions with Step 16.
     
+3.  Confirm that Network Adapter 1 is set to `NATNetwork` pointed to the `infosec-net` network, and set Network Adapter 2 to be `NAT`.    
 3.  In a `terminal` in Kali, run the following commands.
     
+        # confirm that the apt repositories are set up
+        
+        cat <<EOF > /etc/apt/sources.list
+        deb http://http.kali.org/kali kali-rolling main non-free contrib
+        EOF
+        
         #############
         # virtualbox guest additions
         # for fullscreen and shared clipboard
@@ -278,7 +285,7 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
 5.	For consistency with my lab, create user `root` password `toor` when prompted by Nesssus. Click “reload” if the page fails to load.
 
 
-<h2 class='language-ascii-noshadows' id='windows-10'>
+<h2 class='language-ascii-noshadows' id='metasploitable2'>
    __  __      _                  _       _ _        _     _      ___  
  |  \/  |    | |                | |     (_) |      | |   | |    |__ \ 
  | \  / | ___| |_ __ _ ___ _ __ | | ___  _| |_ __ _| |__ | | ___   ) |
@@ -300,7 +307,7 @@ The only change that I made was to the network interfaces so that they would con
     cat <<EOF >> /etc/network/interfaces
     auto eth0
     iface eth0 inet static
-        address 192.168.55.101
+        address 192.168.55.102
         netmask 255.255.255.0
         gateway 192.168.55.1
 
