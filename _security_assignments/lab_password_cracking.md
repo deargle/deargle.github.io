@@ -60,7 +60,7 @@ Sign up for 2FA for at least one account.
 
 This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all unique passwords from the 32 million RockYou password breach you read about in your reading.
 
-1.  First, unzip the password list.
+1.  First, if the file `/usr/share/wordlists/rockyou.txt` is not present, unzip the password list.
         
         gunzip /usr/share/wordlists/rockyou.txt.gz
 
@@ -83,6 +83,7 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
     * `https-get` means a GET request over HTTPS. Note that Hydra supports many protocols (e.g., ftp, ssh).
     * `is.theorizeit.org/auth/` is the password-protected URL to be accessed.
 
+    
     **Note:** you can also use THC-Hydra with web forms: [http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html](http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html)
     
     In Greek and Roman mythology, [Hyrda](https://en.wikipedia.org/wiki/Lernaean_Hydra) is a mythical sea monster with many heads. When a head is cut off, it is replaced by another. `THC Hydra`, the tool you are using,
@@ -135,31 +136,36 @@ then run the command, <code>brew install hashcat</code>.</p>
 		$oldoffice$1*04477077758555626246182730342136*b1b72ff351e41a7c68f6b45c4e938bd6*0d95331895e99f73ef8b6fbc4a78ac1a 
 
 	Save the hash into a file in your home dir. 
-
+    
 	Note: make sure the entire hash is on one line within the text file. **Don't add extra spaces at the end.** 
 	If you get a "line-length exception" in the next step, make sure there's not a typo in the beginning of the hash.
+    
+    <div class='alert alert-info'>If you are cool, you can use text redirection (e.g., <code>></code>) to put the output of office2john into a file for you. Then you would just have to open up the file and remove the extra stuff.</div>
+    <div class='alert alert-warning'>Also, if you are cool, you might attempt to <code>echo -n "thehash" > afile.txt</code> the hash into a file. But beware! The hash contains <code>$</code> signs, which in bash indicate
+    a variable when couched in double-quotes. Long story short, if you want to echo the hash into a file, use single quotes, and you won't be bitten by bash variable expansion. Just <code>cat</code> the contents of your hashfile after you made it to make sure it looks right.</div>
+
 
 6.	While still in your home dir, run the following command (all on one line). Reference the hash file you just created, and choose an arbitrary name for an output file. Once the password is cracked,
     you will read your output file to see the cracked password. It will be appended to the end of the hash following a colon (`:`) symbol.
     
-    <div class='alert alert-info'><strong>Note: </strong>In the commands below, the <code><< >></code> notation means to replace that text with the names of the actual files you are using.</div>
+    <div class='alert alert-info'><strong>Note: </strong>In the commands below, the <code>< ></code> notation means to replace that text -- <strong>including replacing the <code>< ></code> symbols! </strong> -- with the names of the actual files you are using.</div>
 
-		hashcat --force -a 0 -m 9700  -o <<outputFileName.txt>> <<HashInputFileName.txt>> /usr/share/wordlists/rockyou.txt
+		hashcat --force -a 0 -m 9700  -o <outputFileName.txt> <HashInputFileName.txt> /usr/share/wordlists/rockyou.txt
 
-	Or alternatively, if you prefer to do it without making an input file, put the hash string right in the terminal, surrounded by single quotes:  
+	Or alternatively, if you prefer to do it without making an input file, put the hash string right in the terminal, surrounded by single quotes (not double-quotes! and type the quotes in yourself, do not copy-paste them, Mac can break them.):  
 
-		hashcat --force -a 0 -m 9700  -o <<outputFileName.txt>> '[hash string]' /usr/share/wordlists/rockyou.txt
+		hashcat --force -a 0 -m 9700  -o <outputFileName.txt> '<hash string>' /usr/share/wordlists/rockyou.txt
 	
 	Where the switches correspond to:
 
 	{: .table .table-condensed } 
-	| \-\-force | This is necssary to get hashcat to run in a VM environment (it doesn't normally like to). | 
-	| -a 0 | Straight dictionary attack against the hash |
-	| -m <<Office_Flag>> | The corresponding flag for the version of Office in use (see table in `hashcat --help`) |
-	| \-\-status | Provides an update of the status of the process without giving a prompt |
-	| -o <<Output_File>> | The location where the cracked hashes will be saved. <br>The results will also be saved on the .pot file, unless otherwise specified. In our case, we disabled it. |
-	| <<Hash>> | The saved password hash. |
-	| <<Dictionary>> | The list of words that will be used to try and crack the password. |
+	| `--force` | This is necssary to get hashcat to run in a VM environment (it doesn't normally like to). | 
+	| `-a 0` | Straight dictionary attack against the hash |
+	| `-m <Office_Flag>` | The corresponding flag for the version of Office in use (see table in `hashcat --help`) |
+	| `--status` | Provides an update of the status of the process without giving a prompt |
+	| `-o <Output_File>` | The location where the cracked hashes will be saved. <br>The results will also be saved on the .pot file, unless otherwise specified. In our case, we disabled it. |
+	| `<Hash>` | The saved password hash. |
+	| `<Dictionary>` | The list of words that will be used to try and crack the password. |
 
 	<br/>
 
@@ -171,7 +177,8 @@ then run the command, <code>brew install hashcat</code>.</p>
     {% include lab_question.html question='What is the password for <code>john.doc</code>?' %}
     
     
-    Examine [the hashcat cracking benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40) for a [Brutalis](https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/).
+    Examine [the hashcat cracking benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40) for a [Brutalis](https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/). The Brutals has 8 graphics cards, each of which 
+    can simultaneously work on cracking hashes. The measured speed for each card is shown, along with a cumulative speed at the bottom (`Speed.Dev.#*`). Use the cumulative speed for all Brutalis-related calculations in this lab.
     
     Cracking speeds are in the following format:
 
@@ -220,6 +227,7 @@ hashes. Ask me for a copy.
     <div class='alert alert-danger'>
         <p>If you accidentally delete your cracked outfile, you will need to delete your hashcat "potfile" too before you try to recreate the outfile. You have to do this because otherwise, hashcat won't write any already-cracked hashes found in the potfile to the outfile.</p>
         <p>To do this, <code>rm ~/.hashcat/hashcat.pofile</code>.</p>
+        <p>Don't forget to also start with a fresh 500k hashlist.</p>
     </div>
     
 
@@ -363,7 +371,7 @@ You want to create a custom dictionary using the words on neurosecurity.byu.edu 
     
 7.  Confirm that you found the correct password:
     
-        echo -n "<<the plaintext password>>" | md5sum
+        echo -n "<the plaintext password>" | md5sum
         
     We include the `-n` flag because otherwise, the `echo` command will append a newline character, which will throw off the hash.
         

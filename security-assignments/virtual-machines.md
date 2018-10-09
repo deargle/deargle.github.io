@@ -296,6 +296,8 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
                           |_|                                         
 </h2>
 
+<span class='label label-info'>Download link ready! See above</span>
+
 |-|-|
 | username: | `msfadmin` |
 | password: | `msfadmin` |
