@@ -141,6 +141,23 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
 | username: | `labuser` |
 | password: | `Password1` |
 
+### Building your own Vuln Windows 10 vm instead of using mine
+
+lol good luck.
+
+I installed:
+
+* [WannaCry](https://github.com/fabrimagic72/malware-samples/tree/master/Ransomware/Wannacry)
+* [CryptTool2](https://www.cryptool.org/de/ct2-downloads)
+* [HxD](https://mh-nexus.de/en/hxd/)
+* [hashdeep](http://md5deep.sourceforge.net/)
+* [IceCast 2.0.1](https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.0.1.tar.gz)
+* [Microsoft Word 2003](https://softfamous.com/postdownload-file/microsoft-office-2007/455/314/) (because it has an acceptable trial length, and because it is VBA-exploitable)
+* Add a script that can pull down windows defender easily.
+* [Notepad++](https://notepad-plus-plus.org/)
+
+Add two network adapters to the machine. I set my first one to be NATNetwork with a static ip set in windows.
+
 
 
 <h2 class='language-ascii-noshadows' id='windows-10'>
@@ -286,7 +303,7 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
 
 
 <h2 class='language-ascii-noshadows' id='metasploitable2'>
-   __  __      _                  _       _ _        _     _      ___  
+  __  __      _                  _       _ _        _     _      ___  
  |  \/  |    | |                | |     (_) |      | |   | |    |__ \ 
  | \  / | ___| |_ __ _ ___ _ __ | | ___  _| |_ __ _| |__ | | ___   ) |
  | |\/| |/ _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ / / 

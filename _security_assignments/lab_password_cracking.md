@@ -112,12 +112,12 @@ the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.
 then run the command, <code>brew install hashcat</code>.</p>
 </div>
 
-1.	On your Kali machine, open up a terminal and navigate to your home directory (`/root/`).
-2.	Hashcat uses a command-line interface. To see available options and syntax, type: 
+1.  On your Kali machine, open up a terminal and navigate to your home directory (`/root/`).
+2.  Hashcat uses a command-line interface. To see available options and syntax, type: 
 
 		hashcat --help
 	
-4.	First, a dictionary attack will be performed against a password-protected Word document. The following command uses a Python script to obtain the hash of the Word document password:
+4.  First, a dictionary attack will be performed against a password-protected Word document. The following command uses a Python script to obtain the hash of the Word document password:
 
 		python office2john.py hashcat.doc
 		
@@ -131,7 +131,7 @@ then run the command, <code>brew install hashcat</code>.</p>
 			wget https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc
 	
 
-5.	In the output you’ll see the name of the file followed by the type. The type is shown with a $ at the beginning and end of it. You’ll need to copy the type and everything until “:::”. For example, the hash looks like the following, all on one line:
+5.  In the output you’ll see the name of the file followed by the type. The type is shown with a $ at the beginning and end of it. You’ll need to copy the type and everything until “:::”. For example, the hash looks like the following, all on one line:
 
 		$oldoffice$1*04477077758555626246182730342136*b1b72ff351e41a7c68f6b45c4e938bd6*0d95331895e99f73ef8b6fbc4a78ac1a 
 
@@ -145,7 +145,7 @@ then run the command, <code>brew install hashcat</code>.</p>
     a variable when couched in double-quotes. Long story short, if you want to echo the hash into a file, use single quotes, and you won't be bitten by bash variable expansion. Just <code>cat</code> the contents of your hashfile after you made it to make sure it looks right.</div>
 
 
-6.	While still in your home dir, run the following command (all on one line). Reference the hash file you just created, and choose an arbitrary name for an output file. Once the password is cracked,
+6.  While still in your home dir, run the following command (all on one line). Reference the hash file you just created, and choose an arbitrary name for an output file. Once the password is cracked,
     you will read your output file to see the cracked password. It will be appended to the end of the hash following a colon (`:`) symbol.
     
     <div class='alert alert-info'><strong>Note: </strong>In the commands below, the <code>< ></code> notation means to replace that text -- <strong>including replacing the <code>< ></code> symbols! </strong> -- with the names of the actual files you are using.</div>
@@ -212,10 +212,10 @@ LinkedIn users as of 2012. Among these passwords, only 61,829,207 are unique.
 However, in interest of your time, this section will require you to crack only 500,000 of these passwords. After you complete this lab, you’re welcome to crack all of the LinkedIn 
 hashes. Ask me for a copy.
 
-1.	Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/LinkedIn_HalfMillionHashes.txt). 
+1.  Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/LinkedIn_HalfMillionHashes.txt). 
     Right-click this link, select "copy link" , then paste it into Kali after `wget`).
 
-2.	Open a terminal. To get your feet wet, perform a "straight" dictionary attack using the `rockyou.txt` wordlist again, as follows (one line):
+2.  Open a terminal. To get your feet wet, perform a "straight" dictionary attack using the `rockyou.txt` wordlist again, as follows (one line):
 
 		hashcat --force -m 100 --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
 
@@ -247,7 +247,7 @@ hashes. Ask me for a copy.
 
     
     
-6.	Run another attack that uses a rules-based method (one line):
+6.  Run another attack that uses a rules-based method (one line):
 
 		hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best64.rule /usr/share/wordlists/rockyou.txt
 
@@ -269,9 +269,9 @@ hashes. Ask me for a copy.
     
     
 	
-7. Run another attack that uses a hybrid method that uses a dictionary attack combined with a “mask,” which is a pattern that is appended to each password in the password dictionary:
+7.  Run another attack that uses a hybrid method that uses a dictionary attack combined with a “mask,” which is a pattern that is appended to each password in the password dictionary:
 
-		hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 6 /usr/share/wordlists/rockyou.txt ?d?d
+        hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 6 /usr/share/wordlists/rockyou.txt ?d?d
 
 	The `?d?d` at the end means to append two digits between 0–9 each at the end of each password in the rockyou.txt password dictionary.
 
@@ -280,7 +280,7 @@ hashes. Ask me for a copy.
 
     
     
-8. If you would like to try using a different character set for your mask, you can use the following masks below. Note that each mask below is for one character. If you wanted to test four digits at the end of each password, the mask would be: ?d?d?d?d.
+8.  If you would like to try using a different character set for your mask, you can use the following masks below. Note that each mask below is for one character. If you wanted to test four digits at the end of each password, the mask would be: ?d?d?d?d.
 
 		?l = abcdefghijklmnopqrstuvwxyz
 		?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -293,7 +293,7 @@ hashes. Ask me for a copy.
         
 	**Optional:** Another common password pattern is to prepend digits at the beginning of passwords. If you would like try this mask, run the following command:
 
-		hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
+        hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
 
 
 		
