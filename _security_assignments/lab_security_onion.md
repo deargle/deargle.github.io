@@ -242,13 +242,19 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
         http contains "cars.php"
         
     Note again the IP address of the attack host -- in this case, the destination ip address. Right-click the destination field, then choose `Apply as Filter` > `Selected`. This will filter the entire tracefile
-    to only activity with a destination ip matching this field. Let's filter even further to only select the records with `HTTP` protocol. This can be done by appending `and http` to your `ip.dst` filter. 
+    to only activity with a destination ip matching this field. Let's filter even further to only select the records with `HTTP` protocol. This can be done by appending `and http` after your `ip.dst ==` filter expression. 
     
     You should now see three HTTP requests to this malicious IP. We know that the second one, the `GET /cars.php`, is the one that delivered the malware. Let's look at the first one -- right-click `Follow TCP Stream` it.
     You will notice that this HTTP reqeust as a `REFERER` header. This is http-speak for the site that redirected the browser to the current one. Note the value for the `REFERER`. 
-    There is a good chance that this is a compromised website. They're probably all compromised, but hey, world we live in. Fix one site at a time.
+    There is a good chance that this is a compromised website. They're probably all compromised, but hey, world we live in. Fix or blacklist one site at a time.
     
-    {% include lab_question.html question='What was the domain name of the “referer” website that referred the Windows VM to the IP that delivered the malware?' %}
+    {% include lab_question.html question='What is the domain name of the “referer” website that referred the Windows VM to the IP that delivered the malware?' %}
+    
+    We are also interested in knowing the IP address of this referer website -- the host at that IP may be hosting other compromised sites, so we may want to blacklist the address. 
+    One way that you can find that IP address is by applying the following filter: `http contains "Host: name.of.the.referer"` (case-sensitive, and do not include the protocol (e.g., `http://` ))
+    
+    {% include lab_question.html question='What was the ip address of this referer website?' %}
+    
     
     <div class='alert alert-info'><strong>What could you do with this information?</strong> Oh, lots of things. 
     
