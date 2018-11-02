@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 /* SITE */
 Last Updated: {{ site.time | date:"%Y/%m/%d" }}

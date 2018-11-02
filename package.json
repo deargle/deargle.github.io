@@ -1,7 +1,7 @@
 {
-  "name": "benbalter.github.com",
+  "name": "deargle.github.com",
   "version": "1.0.0",
-  "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
+  "description": ""
   "main": "script/server",
   "dependencies": {
     "@bower_components/anchor-js": "git://github.com/bryanbraun/anchorjs.git#*",
@@ -40,14 +40,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benbalter/benbalter.github.com.git"
+    "url": "git+https://github.com/deargle/deargle.github.com.git"
   },
-  "author": "Ben Balter",
+  "author": "Dave Eargle",
   "license": "CC-BY-3.0",
   "bugs": {
-    "url": "https://github.com/benbalter/benbalter.github.com/issues"
+    "url": "https://github.com/deargle/deargle.github.com/issues"
   },
-  "homepage": "https://github.com/benbalter/benbalter.github.com#readme",
+  "homepage": "https://github.com/deargle/deargle.github.com#readme",
   "engines": {
     "yarn": ">= 1.0.0"
   }

@@ -17,6 +17,10 @@
   "dependencies": {
     "anchor-js": "*",
     "bootstrap-sass": "*",
-    "font-awesome": "*"
+    "font-awesome": "*",
+    "financejs": "^4.1.0",
+    "goalSeek-js": "https://github.com/adam-hanna/goalSeek.js.git#b0e8a8560811e95e8c1c01ebd994cc6214911138",
+    "vue": "^2.5.17",
+    "d3": "^5.5.0"
   }
 }
