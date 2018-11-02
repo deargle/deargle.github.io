@@ -159,6 +159,10 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
 
     When you click this number, more details will appear below the accordion expansion, including the source and destination IP of the associated IDS event.
     
+    <div class='alert alert-info'>
+    This particular record is a response to a HTTP web browser request which downloaded a malicious executable payload. Because it is a response, the source IP represents the attack machine, and the destination IP
+    represents the victim machine. This convention will not always hold for this case analysis-- it depends on whether a query or a response is being examined. 
+    </div>
     
     {% include lab_question.html question='What is the IP address of the the Windows VM to where the malware payload was sent (the destination IP)?' %}
     
