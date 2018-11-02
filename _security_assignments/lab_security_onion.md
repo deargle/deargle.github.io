@@ -253,7 +253,7 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     We are also interested in knowing the IP address of this referer website -- the host at that IP may be hosting other compromised sites, so we may want to blacklist the address. 
     One way that you can find that IP address is by applying the following filter: `http contains "Host: name.of.the.referer"` (case-sensitive, and do not include the protocol (e.g., `http://` ))
     
-    {% include lab_question.html question='What was the ip address of this referer website?' %}
+    {% include lab_question.html question='What was the IP address of this referer website?' %}
     
     
     <div class='alert alert-info'><strong>What could you do with this information?</strong> Oh, lots of things. 
@@ -302,7 +302,7 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     Browse to a website such as [virustotal.com](virustotal.com) or [hybrid-analysis.com](hybrid-analysis.com) and search the site using the sha256 hash. This can tell you more about what you're 
     dealing with in your network and potentially how to clean it up.
     
-    {% include lab_question.html question='What does Kaspersky antivirus report the exe to likely be?' %}
+    {% include lab_question.html question='As shown on virustotal.com, what does Kaspersky antivirus report the exe to likely be?' %}
     
     
     [Read about](https://krebsonsecurity.com/2014/01/feds-to-charge-alleged-spyeye-trojan-author/) the arrest of, charges against, and plea to conspiracy from Aleksander Panin, the author of this variant of malware. 
