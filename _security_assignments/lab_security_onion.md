@@ -259,12 +259,12 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     <div class='alert alert-info'><strong>What could you do with this information?</strong> Oh, lots of things. 
     
         <ul>
-            <li>You could be proactice and contact the website to alert them to their likely compromise. If it's a giant
-        such as ebay though and the compromise is a malicious script embedded in someone's item listing, fat chance that ebay will do anything about it. Or maybe they will, and take down the listing. If they do not
+            <li>You could be proactive and contact the website to alert them to their likely compromise. If it's a giant
+        such as ebay though and the compromise is a malicious script embedded in someone's item listing, fat chance that ebay will do anything about it. Or maybe they will, and take down the listing. But if they do not
         take further steps to block malicious redirects from being postedo on their site, it will likely just happen again and again.</li>    
-            <li>Therefore, you could just block this domain from being accessed within your organization. Why is this employee doing online shopping during work anyway? Fire the guy. Oh wait, everyone in your organization cyberloafs,
+            <li>You could just block this domain from being accessed within your organization. Why is this employee doing online shopping during work anyway? Fire the guy. Oh wait, everyone in your organization cyberloafs,
         you can't just fire everyone. Or maybe it was the CEO who was doing the online shopping. Sigh.</li>
-            <li><p>You could report the compromise to Google, who can put a rule into the Chrome browser to block requests to this domain from being fulfilled. You may have seen a message along these lines before: 
+            <li><p>You could report the compromise to Google, who can put a rule into the Chrome browser to block requests to this domain from being fulfilled. You may have seen a message along these lines in Chrome before: 
             
             <p>"The site
             that you are trying to visit is currently serving malware. Try again later. <em>If you are the domain administrator and are viewing this message, contact us *here* for more information on what we found. If you
@@ -288,29 +288,30 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     
     Next, open a terminal and navigate to the directory where you saved the stream, and use a forensics file carving tool called Foremost:
 
-        foremost -i the.name.you.chose -o carved_files
+        foremost -i the.name.you.chose -o name.of.the.directory.where.you.want.to.save.the.carved_files
 
-    This will create a directory “carved_files” containing all of the files that Foremost carved out of the network stream.
+    This will create a directory `name.of.the.directory.where.you.want.to.save.the.carved_files` containing all of the files that Foremost carved out of the network stream.
 
-    Inside the “carved_files” directory you’ll find a subdirectory for each file type recovered. You should see two subdirectories -- one for `png` files extracted,
-    and another for `exe` files extracted. The `.exe` is the malware payload.
+    Inside your carved files directory, you will find a subdirectory for each file type recovered. For this analysis, you should see two subdirectories -- one for extracted `png` files,
+    and another for extracted `exe` files. The `.exe` in the `exe` directory is the malware payload.
     
-    Use either `md5sum` or `sha256sum` to hash the extracted `.exe` file. 
+    Use a hashing algo such as `sha256sum` to hash the extracted `.exe` file. 
     
     {% include lab_question.html question='What is the <code>sha256</code> hash of the exe payload?' %}
     
-    Browse to a website such as [virustotal.com](virustotal.com) or [hybrid-analysis.com](hybrid-analysis.com) and search the site using the sha256 hash. This can tell you more about what you're 
+    Browse to a website such as [virustotal.com](virustotal.com) or [hybrid-analysis.com](hybrid-analysis.com) and search the site using the payload's hash. This can tell you more about what you're 
     dealing with in your network and potentially how to clean it up.
     
     {% include lab_question.html question='As shown on virustotal.com, what does Kaspersky antivirus report the exe to likely be?' %}
     
     
-    [Read about](https://krebsonsecurity.com/2014/01/feds-to-charge-alleged-spyeye-trojan-author/) the arrest of, charges against, and plea to conspiracy from Aleksander Panin, the author of this variant of malware. 
+    [Read about](https://krebsonsecurity.com/2014/01/feds-to-charge-alleged-spyeye-trojan-author/) the arrest of, charges against, and plea to conspiracy from Aleksander Panin, the author of the variant of malware with which
+    we are dealing. 
     
-    {% include lab_question.html question='What does Brian indicate this malware is typically used for?' %}
+    {% include lab_question.html question='What does Brian Krebs indicate this malware is typically used for?' %}
     
     
-    **For fun:** Install `mirage` and use it open the png inside that directory if you're curious what it looks like (preface install commands with `sudo` on this system), Inside that subdirectory, use the `file` command to identify the file type.
+    **For fun:** Install `mirage` and use it open the png inside your carved-files directory if you're curious what it looks like (preface install commands with `sudo` on this system), Inside that subdirectory, use the `file` command to identify the file type.
     
     <div class='alert alert-success'>If you ever have a storage device that corrupts and is reported to be unreadable by your operating system, 
     it is possible that you can use a tool like <code>foremost</code> 
@@ -383,13 +384,13 @@ Seeing an opportunity that could get him that Vice President of Product Developm
         </p>
     
         <p>The payload is created with the javascript <code>var LLVcUmerhpt</code>, and the memory is manipulated by overwriting those earlier <code>.data</code> properties with a value
-        which will cause the browser to execute the payload.</p>
+        which be interpreted as a memory address and which will cause the browser to execute the payload from that attacker-chosen location in memory.</p>
     </div>
     
     
     
 
-3.	The loaded webpage included an IFRAME element which caused Alex’s computer to make a second HTTP GET request for an object. 
+3.	The loaded webpage included an [IFRAME](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) element which caused Alex’s computer to make a second HTTP GET request for an object. 
     
     {% include lab_question.html question="What was the filename of the second HTTP object that was requested?" %}
     
