@@ -118,6 +118,10 @@ The network map is as follows:
             <td>192.168.55.102</td>
             <td><a href='#metasploitable2'>Metasploitable2</a></td>
         </tr>
+        <tr>
+            <td>192.168.55.103</td>
+            <td><a href='#SecurityOnion'>Security Onion</a></td>
+        </tr>
         </tbody>
     </table>
 </div>
@@ -341,3 +345,47 @@ The only change that I made was to the network interfaces so that they would con
     EOF
 
     /etc/init.d/networking restart
+
+    
+<h2 class='language-ascii-noshadows' id='SecurityOnion'>
+ ___  ____  ___  __  __  ____  ____  ____  _  _    _____  _  _  ____  _____  _  _ 
+/ __)( ___)/ __)(  )(  )(  _ \(_  _)(_  _)( \/ )  (  _  )( \( )(_  _)(  _  )( \( )
+\__ \ )__)( (__  )(__)(  )   / _)(_   )(   \  /    )(_)(  )  (  _)(_  )(_)(  )  ( 
+(___/(____)\___)(______)(_)\_)(____) (__)  (__)   (_____)(_)\_)(____)(_____)(_)\_)
+</h2>
+
+
+<span class='label label-info'>Download link ready! See above</span>
+
+|-|-|
+| username: | `securityonion` |
+| password: | `Password1` |
+
+
+### Setting up your own instead of using mine
+
+Download and install Security Onion following [these instructions](https://github.com/Security-Onion-Solutions/security-onion/wiki/QuickISOImage) and [these instructions](https://askubuntu.com/questions/64915/how-do-i-install-ubuntu-on-a-virtualbox-client-from-an-iso-image). [Make note](https://github.com/Security-Onion-Solutions/security-onion/wiki/Hardware): 
+
+{: style='font-size:16px;'}
+> If you just want to quickly evaluate Security Onion in a VM, the bare minimum amount of RAM needed is 3GB. More is obviously better!
+	
+* I gave mine a 15 GB hard disk.
+* Give it two network cards. 
+	* **Important:** Set Adapter 1 to "Host-only" or to "Internal Network", click the "Advanced" triangle, and (this is the important part) change "Promiscuous Mode" to "Allow All".
+	* On the Adapter 2 tab, select "Enable Network Adapter," and select "NAT."
+* I installed with username:password `securityonion:Password1`
+* If you value your eyesight, [install VBox Guest Additions](http://www.binarytides.com/vbox-guest-additions-ubuntu-14-04/) to get fullscreen resolution (I had to run it twice).
+* Once you have updated everything (`soup up`), double-click "Setup" on the desktop.
+	* Choose "eth1" as the Management interface, and use DHCP addressing.
+	* Choose "YES, configure sniffing interfaces," and use your promiscuous eth0.
+	* Reboot, and double-click "Setup" again, this time skipping network configuration.
+	* Choose "Evaluation" mode.
+	* Accept the default monitoring interface (eth0).
+	* For Squil, here's an easy-to-remember username:password -- analyst:analyst
+* Obtain the files necessary for this lab:
+	* `sudo mkdir /data && sudo chown -R securityonion /data && cd /data`
+	* `wget https://tools.netsa.cert.org/silk/refdata/SiLK-LBNL-05-nonscan.tar.gz`
+	* `wget https://tools.netsa.cert.org/silk/refdata/SiLK-LBNL-05-scanners.tar.gz`
+	* `gzip -d -c SiLK-LBNL-05-nonscan.tar.gz | tar xf -`
+    * `gzip -d -c SiLK-LBNL-05-scanners.tar.gz | tar xf -`
+* Install SiLK on Security Onion, [following this guide](http://www.appliednsm.com/silk-on-security-onion/), stopping before the "Configuring SiLK" section.
