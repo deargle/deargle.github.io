@@ -2,6 +2,7 @@
 
 title: Lab &ndash; Digital Certificates
 number: 4
+description: PGP key party, contrasted with Signal
 ---
 
 <div class='alert alert-info'>I recommend using the Windows 10 vm for this lab. Alternatively, you can install gpg onto your [Windows](https://www.gpg4win.org/) or [Mac](https://gnupg.org/download/), but you're on your own if you do.</div>
@@ -93,7 +94,7 @@ You will receive a response encrypted with your key which contants a secret code
 {% include lab_question.html question='What is the plaintext of what you received back?' %}
 
 
-# Part 3. Overall Questions
+# Part 2. Overall Questions
 
 Read [the following article](https://en.wikipedia.org/wiki/Web_of_trust).
 
@@ -101,7 +102,7 @@ Read [the following article](https://en.wikipedia.org/wiki/Web_of_trust).
 
 
 
-# Part 4. Communicate Securely with Signal
+# Part 3. Communicate Securely with Signal
 
 1.	Read about WhisperSystem’s Signal app [here](https://signal.org/) and [here](https://theintercept.com/2017/05/01/cybersecurity-for-the-people-how-to-keep-your-chats-truly-private-with-signal/)
 

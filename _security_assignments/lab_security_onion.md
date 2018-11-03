@@ -3,6 +3,7 @@ title: Lab &ndash; Network Security Monitoring / Security Onion
 number: 12
 vms:
     - SecurityOnion
+description: Learn your network before an intruder does
 ---
 
 	

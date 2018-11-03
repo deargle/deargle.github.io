@@ -1,6 +1,7 @@
 ---
 title: Lab &ndash; Threat Modeling with Attack Trees
 number: 1
+descripton: Practice with attack trees
 ---
  
 **Note:** you can do this assignment alone or in groups of 2–3.

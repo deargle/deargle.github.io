@@ -4,6 +4,7 @@ title: Lab &ndash; Password Cracking
 number: 5
 vms:
     - Kali
+description: hydra, hashcat, rockyou, hashcat rules, cewl wordlists
 ---
 
 # Part 0: Introduction to Linux Tutorial

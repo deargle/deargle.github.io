@@ -2,6 +2,7 @@
 
 title: Lab &ndash; Symmetric Encryption and Hashing 
 number: 2
+description: Fundamentals of symmetric encryption, cryptanalysis, and of hashing
 ---
 
 # Required virtual machine
@@ -39,6 +40,7 @@ number: 2
     
     {% include lab_question.html question='What is the ciphertext when encrypting "attack postponed until two am" with the key {4312567}? (Enter without spaces)' %}
 
+    
 ## Frequency analysis
 
 [Download](https://www.cryptool.org/modules/mod_ctdownloads/assets/curversion.php) and install CrypTool 2 (Windows only).

@@ -2,6 +2,7 @@
 
 title: Lab &ndash; Social Engineering
 number: 11
+description:
 ---
 
 Today, social engineering attacks represent a major primary vector for hackers. As Bruce Schneier said, “Only amateurs attack machines; professionals target people.”[1](https://www.schneier.com/crypto-gram-0010.html)  Further, client-side software represents a much larger attack surface than server-side software. For these reason, many of the major breaches you read about in the news began with a client-side attack. 
