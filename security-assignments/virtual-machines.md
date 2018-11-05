@@ -258,7 +258,7 @@ Add two network adapters to the machine. I set my first one to be NATNetwork wit
         ############
 
         apt-get install -y libssl-dev libssh-dev
-        apt-get install -y hashcat hydra wordlists vim metasploit-framework cewl openvpn
+        apt-get install -y hashcat hydra wordlists vim metasploit-framework cewl openvpn leafpad mirage xtightvncviewer
         
         ####
         # metasploit framework database setup
