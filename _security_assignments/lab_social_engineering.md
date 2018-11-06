@@ -74,24 +74,21 @@ In this section, you’ll use msfvenom to perform a client-side attack. Msfvenom
 20. Carry out your nefarious purposes with the victim <i class='fa fa-birthday-cake'></i>
 
 
-21. **Deliverable**:       
+## <span class='label label-success'>Deliverable</span>
 
-    Take a screenshot showing the output of running the following commands from your meterpreter session:
-        
-        pgrep AdobeUpdate.exe
-        getpid
-        shell
-        echo "your first and last name"
-        date /t
+Take a screenshot showing the output of running the following commands from your meterpreter session:
+    
+    pgrep AdobeUpdate.exe
+    getpid
+    shell
+    echo "your first and last name"
+    date /t
 
 The first command should show the process id related to your trojan pdf, and the second verifies that you are tied to that process. 
 This establishes that you were successful in this exploit.
 
 The last three commands drop you into a windows shell where you can more easily establish your identity.
 
-
-20.	Return to msfconsole by typing `control + z`. Enter `y` to background the session.
-21.	To close the session, type `sessions -k 1`.
 
 
 <div class='alert alert-info' markdown='1'><strong>Convenience! </strong> The above pattern of (1) generate a payload and (2) set up a handler to listen for a callback
@@ -114,22 +111,7 @@ Nice, eh?
 
 In this section, you’ll use the Social Engineering Toolkit (SET) to craft social engineering attacks. 
 
-## Setup
-
-Get the latest version of SET by entering the following commands in the Kali terminal (note: this lab was written for SET v. 6.0.5). To obtain the latest version of SET, use these commands:
-
-    cd /opt/
-    git clone https://github.com/trustedsec/social-engineer-toolkit/  set/
-    
-**Note:** There is a space before the word `set/`
-
-Edit `/opt/set/src/core/config.baseline` and scroll to the bottom of the document.  Change `BLEEDING_EDGE=OFF` to `BLEEDING_EDGE=ON`
-
-![](../images/lab_11_1.png){: .img-responsive width='50%'}
-
-Save the file and exit.
-
-1.	Return to the `/opt/set` directory and run the command `./setoolkit` (don’t forget the `./`). Agree to the terms of service. You should see a screen like the following:
+1.	Navigate to the `/opt/set` directory and run the command `./setoolkit` (don’t forget the `./`). Agree to the terms of service. You should see a screen like the following:
     
     ![](../images/lab_11_2.png){: .img-responsive width='30%'}
 
@@ -147,17 +129,17 @@ Save the file and exit.
 
 5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to the IP address of Kali Linux for the host-only network.
 
-Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`
+    Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`
 
-If all has gone well, you should see a screen like the following:
+    If all has gone well, you should see a screen like the following:
 
-![](../images/lab_11_6.png){: .img-responsive width='30%'}
+    ![](../images/lab_11_6.png){: .img-responsive width='30%'}
     
 6.	Now it’s time to script the phishing message to send. At this point, an attacker would use a tool or service to send a spoofed email. For simplicity, skip this step and instead send an email to your own email account with the message:
 
-> “You are receiving this email because there is a problem with your account. Please go to www.facebook.com and login to verify your account."
+    > “You are receiving this email because there is a problem with your account. Please go to www.facebook.com and login to verify your account."
 
-Use rich text formatting to make `www.facebook.com` a hyperlink that points to `http://[IP of your Kali VM]`.
+    Use rich text formatting to make `www.facebook.com` a hyperlink that points to `http://[IP of your Kali VM]`.
 
 7. Open the email in your Windows 10 VM. When you receive the email, click the link, which should forward you to this page:
 
@@ -170,12 +152,15 @@ Use rich text formatting to make `www.facebook.com` a hyperlink that points to `
     ![](../images/lab_set_facebook.png){: .img-responsive width='50%'}
         
 
-## Deliverable         
+## <span class='label label-success'>Deliverable</span>
 
 Take a screenshot of `setoolkit` reporting the capture of credentials you enter onto whatever site you spoofed. The screengrab should show:
 
 *   `POSSIBLE USERNAME FIELD FOUND: your.first.and.last.name (or something else clearly identifying you)`
 *   `POSSIBLE PASSWORD FIELD FOUND: whatever.password.you.entered`
+        
+        
+        
         
         
 # Part 3. Social Engineering Toolkit (SET) -- PowerShell Shellcode Injector
@@ -207,7 +192,7 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
 
 <div class='alert alert-info'><strong>Consider: </strong>What ways might you trick a user into running this script?</div>
 
-## Deliverable         
+## <span class='label label-success'>Deliverable</span>
 
 Take a screenshot showing the output of running the following commands from your meterpreter session:
     
@@ -260,7 +245,7 @@ Download and install a vulnerable version of Adobe Reader to the Windows 10 vm. 
 6.  You should now have a meterpreter session opened on kali. Interact with it, and continue pwn-age.
         
 
-## Deliverable         
+## <span class='label label-success'>Deliverable</span>
 
 Take a screenshot showing the output of running the following commands from your meterpreter session:
     
@@ -282,7 +267,7 @@ tricked into being compromised...</div>
 
 
 
-# Part 4. Create a Malicious Microsoft Word Document
+# Part 5. Create a Malicious Microsoft Word Document
 
 In this section, you will create a macro-enabled Microsoft Word file that opens a Meterpreter session on an attacker’s machine. Note that this is a feature of Word, and not a security vulnerability. For this reason, this attack vector will work as long as you can convince a user to open the Word file.
 
@@ -350,7 +335,7 @@ In this section, you will create a macro-enabled Microsoft Word file that opens 
     
     **Optional:** Use the sendEmail command on Kali to send a spoofed email with the malicious Word file as an attachment. To see how the sendEmail command works, type `man sendEmail.`
 
-## Deliverable         
+## <span class='label label-success'>Deliverable</span>
     
 Two screenshots for this one:
 

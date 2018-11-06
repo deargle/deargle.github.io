@@ -3,6 +3,7 @@
 title: Lab &ndash; Asymmetric Encryption
 number: 3
 description: PGP setup and RSA practice
+---
 
 <div class='alert alert-danger'><strong>Important:</strong> To receive full credit, you must complete Part 1 of the lab by the day marked in the calendar, which entails generating a PGP keypair, uploading your public key to a keyserver, and submitting your key's fingerprint on Canvas. This is required for the PGP key signing class activity.</div>
 
