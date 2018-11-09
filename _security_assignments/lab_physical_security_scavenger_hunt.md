@@ -1,6 +1,6 @@
 ---
 
-title: Lab &ndash; Physcial Security Scavenger Hunt
+title: Lab &ndash; Physical Security Scavenger Hunt
 description: There can be no information security without physical security
 number: 9
 ---
@@ -52,7 +52,7 @@ Example:
 
 **Note:** Please specify the information, but redact the information in the attached photo.
 
-<div class='alert alert-warning'>While it is not illegal to dumpster dive in CO, you can still get in trouble for tresspassing, so be mindful and don't tresspass. See Colorado : State v. Hillman, 834 P.2d. 1271 (1992), which says that trash
+<div class='alert alert-warning'>While it is not illegal to dumpster dive in CO, you can still get in trouble for trespassing, so be mindful and don't trespass. See Colorado : State v. Hillman, 834 P.2d. 1271 (1992), which says that trash
 curbside / in front of house / outside fenced area of property is public.</div>
 
 Example:
@@ -176,7 +176,7 @@ Obtain the password hashes from an unattended public computer. In Windows 7/10, 
 
 `C:\Windows\system32\config\system`
 
-Since these files are protected by the operating system, b[oot from a Live CD/USB Linux distribution, such as Kali](https://docs.kali.org/downloading/kali-linux-live-usb-install). From within Kali, copy the SAM and system files to a USB stick.
+Since these files are protected by the operating system, [boot from a Live CD/USB Linux distribution, such as Kali](https://docs.kali.org/downloading/kali-linux-live-usb-install). From within Kali, copy the SAM and system files to a USB stick.
 
 Password hashes can be dumped from the SAM file using a number of tools. For this lab, use Cain.
  
