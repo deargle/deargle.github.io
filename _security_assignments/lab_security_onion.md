@@ -169,7 +169,7 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     
     {% include lab_question.html question='What is the IP address of the host that sent the malware payload? (the source IP)?' %}
     
-    {% include lab_question.html question='What country does this malware payload comes from?' %}
+    
     
 	
     You can also click on the Summary tab to see a map and summary of traffic by countries.
@@ -178,6 +178,7 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
 	
 	If the map isn't working, just search for the IP address using Wolfram-Alpha. Or, follow the instructions in the box below to update your map.
     
+    {% include lab_question.html question='What country does this malware payload comes from?' %}
     
 	<div class='alert alert-info' markdown='1'>If you don't have any country information showing, first make sure that you have an internet connection (try `ping google.com`), 
     
@@ -209,7 +210,7 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     In the RED text you should see a `HOST` header, as well as a `GET` header. the `HOST` header shows the domain name and port that the browser requested. This is the malicious web domain. the `GET` header shows the specific URL that was requested
     that delivered the malware payload. 
     
-    <div class='alert alert-info'><strong>Feeling saucy?</strong> If the host were still serving the malware, you could theoretically combine the HOST and the GET values and paste them into your browser, and download the malware anew! But
+    <div class='alert alert-info'><strong>Feeling saucy?</strong> If the host were still serving the malware, you could theoretically combine the HOST and the GET values and paste them into your browser, and download the malware anew!
     But there is no need to do this if it is the malware you seek. You already can extract it because you have a record of the entire malware download network activity. This is the power of NSM -- to know all, see all, recreate all, 
     for anything going to or sent from anyone on your network (assuming it's not encrypted).
     </div>
@@ -339,11 +340,11 @@ The logs on Security Onion have been reset, giving you a clean slate for the cas
 
 ## Case Scenario
 
-You will use all the skills you’ve learned in this lab so far to solve the following case. First, watch [this video](https://en.wikipedia.org/wiki/Operation_Aurora) or 
-read [this Wikipedia article](https://www.youtube.com/watch?v=T2DqLj1nQkc) about Operation Aurora, which was an attack on Google and other companies:
+You will use all the skills you’ve learned in this lab so far to solve the following case based on a real hack called Operation Aurora. First, watch [this video](https://en.wikipedia.org/wiki/Operation_Aurora) or 
+read [this Wikipedia article](https://www.youtube.com/watch?v=T2DqLj1nQkc) about Operation Aurora, which was an attack on Google and other companies. Then, read the following scenario:
 
 
-> Claire Young is after GumTiger's killer app source code. She’s been trailing the lead developer, Alex Stephens, to figure out how she can remotely access LeetSpoken’s servers. 
+> Claire Young is after GumTiger's killer app source code. She’s been trailing the lead developer, Alex Stephens, to figure out how she can remotely access GumTiger's servers. 
 One night, while conducting reconnaissance, she sees him log into his laptop <code>10.10.10.70</code> and VPN into GumTiger’s headquarters.
 
 > Leveraging her connections with international hacking organizations, Claire obtains a [0-day exploit for Internet Explorer](http://www.symantec.com/connect/blogs/trojanhydraq-incident-analysis-aurora-0-day-exploit) 
@@ -351,6 +352,8 @@ and launches a client-side spear phishing attack against Alex Stephens. Claire c
 Seeing an opportunity that could get him that Vice President of Product Development title (and corner office) that he’s been coveting, Alex clicks on the link. Claire is ready to strike…
 
 > You are the forensic investigator. Your mission is to analyze [the packet capture](http://forensicscontest.com/contest06/evidence06.pcap) containing Claire’s exploit, build a timeline, and answer the questions below.
+
+<div class='alert alert-danger'><strong>Intentional lack of specific steps ahead!</strong> Apply skills covered in Part 2 to solve this case.</div>
 
 <div class='alert alert-info'>
     If you are using my class VM, the packet capture evidence file (the <code>.pcap</code> file) is downloaded to your VM and available at 
