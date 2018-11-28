@@ -7,7 +7,6 @@ description: Learn your network before an intruder does
 ---
 
 	
-	
 # Part 1: Analyzing NetFlow information
 
 Although full-content data are powerful, they are less useful for fast querying and timely incident response. This is where NetFlow records, some of the most powerful information sources available to incident responders, become very useful. These records are brief summaries of network traffic which can be maintained indefinitely due to their small file size. They provide a running history of network connections at the time of an incident.
@@ -57,7 +56,11 @@ and is used here with their permission. This data covers selected hours on selec
 	**Important:** Note that the `-` at the end of `--protocol=0-` is important. It indicates that all protocols from `0` and above will be included. It is equivalent to `--protocol=0-255`. If you don’t include the hyphen, no results will be returned. 
     [IP protocols include](https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers), but are not limited to, TCP and ICMP (ping, traceroute)
 
-	**Note:** The code following the `|` (pipe) symbol passes the output of `rwfilter` to `rwstats`, which provides fast and powerful statistics. The `sip` and `dip` fields stand for source and destination IP respectively.
+	**Note:** The code following the `|` (pipe) symbol passes the output of `rwfilter` to `rwstats`, which provides fast and powerful statistics. The `sip` and `dip` fields stand for source and destination IP respectively. 
+    To understand "source" and "destination", consider the client-server architecture pattern. In the vulnerability scanning lab, we identified services listening on ports on metasploitable. One such service was
+    an sshd -- an ssh server listening on port 22. If we were to connect to this server with an ssh client, say, to log in to a metasploitable account from kali, and if that login were captured in a netflow record,
+    then the "source" for that record would be kali, and the "destination" would be metasploitable.
+    
     
     **Note:** The `--percentage=1` flag specifies that we only want to retain a `sip,dip` pair if total bytes exchanged between the two comprised at least 1% of total network byte traffic. The `--fields` conceptually performs
     a "group-by" on the incoming `rwfilter` data for, in this case, unique `sip,dip` pairs. Then the `--percentage` flag filters based on ranked group aggregate values for, in this case, `--bytes`.
@@ -117,7 +120,7 @@ and is used here with their permission. This data covers selected hours on selec
     **Note:** In this example, `--duration=1700-` and `--dport=22` filters to only records with a ssh connection time of at least 1700 seconds (almost 30 minutes).
     
         
-    {% include lab_question.html question='What is the IP address that has had an an ongoing outbound SSH connection of <em>at least 30 minutes</em>?' %}
+    {% include lab_question.html question='What is the IP address of the host client (source) that had an an ongoing SSH connection/session to an ssh server on another host (destination) of <em>at least 30 minutes</em>?' %}
     
     <div class='alert alert-info'><strong>Reflect:</strong> Conceptually, why should we look for long standing SSH connections?</div>
 
@@ -130,6 +133,22 @@ and is used here with their permission. This data covers selected hours on selec
 # Part 2: Examining PCAP Files
 
 In this section, you’ll examine the network traffic for a Windows VM that browsed to a compromised website that in turn referred the Windows VM to a server that delivered malware to the Windows VM. You’ll use Squert and Wireshark to investigate these events.
+
+1.  Ensure that a IDS signature rule 2000419 is enabled.
+
+    The following steps in this lab rely on a snort rule being enabled in securityonion that will be tripped by a windows EXE being downloaded over a non-standard HTTP port. Downloading executables is a normal
+    part of using operating systems, but perhaps not so much in a corporate environment where employees shouldn't be downloading executable files onto their machines. 
+    
+    The signature rule we want to enable is [2000419](https://doc.emergingthreats.net/bin/view/Main/2000419). This signature is in a list of rules downloaded by PulledPork, which securityonion uses to manage IDS rules. Ensure that it is enabled by adding it sid 2000419 is enabled, even if it is default-disabled
+    in downloaded rule sets, by adding this id to a pulledpork config file:
+    
+        sudo bash
+        echo 1:2000419 >> /etc/nsm/pulledpork/enablesid.conf
+        rule-update
+    
+    Examine the rule at the link above. When this rule is triggered, it will write "ET POLICY PE EXE or DLL Windows file download" or "ET POLICY PE EXE or DLL Windows file download Non-HTTP", depending on the rule
+    version in use.
+
 
 1.	Navigate to the `/data/cases/` directory, where `case.pcap` is found (available [here](https://daveeargle.com/class/cu/mgmt4250/case.pcap) if you don't already have it). Run the following command.
 
