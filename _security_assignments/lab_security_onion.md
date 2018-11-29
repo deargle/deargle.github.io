@@ -95,13 +95,13 @@ and is used here with their permission. This data covers selected hours on selec
     <div class='alert alert-info'><strong>Consider:</strong> will the sIP or dIP represent the ssh-connection initiator, if the destination SSH port is 22?</div>
     
     
-10. Do a follow-up analysis on a particular SSH-connection-starter.
+10. Starting from the query in the previous step, do a follow-up analysis on a particular SSH-connection-starter.
 
     <div class='alert alert-info'>
         <strong>Take heed!</strong> This question <em>intentionaly</em> offers minimal guidance.
     </div>
     
-    *   Write a query using a `rwfilter` flag to select only records associated with a single ip address (`man rwfilter`). 
+    *   Write a query using a `rwfilter` flag to select only records associated with a single ip address (`rwfilter --help` and browse through the "partitioning switches" section). 
         Filter to only SSH connections initiated by `128.3.161.229`.
     *   Pipe that to `rwstats`, group by unique source ip and destination ip addresses, and examine the pairs with the 10 highest total number of ssh flow records.
     
@@ -262,11 +262,15 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
 
         http contains "cars.php"
         
-    Note again the IP address of the attack host -- in this case, the destination ip address. Right-click the destination field, then choose `Apply as Filter` > `Selected`. This will filter the entire tracefile
-    to only activity with a destination ip matching this field. Let's filter even further to only select the records with `HTTP` protocol. This can be done by appending `and http` after your `ip.dst ==` filter expression. 
+    This should return one result -- the one web request associated with fetching a route called "cars.php". For this record, note again the IP address of the attack host -- 
+    in this case, the destination ip address.
     
-    You should now see three HTTP requests to this malicious IP. We know that the second one, the `GET /cars.php`, is the one that delivered the malware. Let's look at the first one -- right-click `Follow TCP Stream` it.
-    You will notice that this HTTP reqeust as a `REFERER` header. This is http-speak for the site that redirected the browser to the current one. Note the value for the `REFERER`. 
+    For this one record, right-click the destination field value (the ip address), then choose `Apply as Filter` > `Selected`. This will filter the entire tracefile
+    to only activity with a destination ip matching this field. Let's filter even further to only select the records with `HTTP` protocol. 
+    This can be done by appending `and http` after your `ip.dst ==` filter expression. 
+    
+    You should now see three HTTP requests to this malicious IP. We recognize the second one -- the `GET /cars.php` one. It is the one that delivered the malware. Let's look at the first one -- right-click `Follow TCP Stream` it.
+    You will notice that this HTTP request as a `REFERER` header. This is http-speak for the site that redirected the browser to the current one. Note the value for the `REFERER`. 
     There is a good chance that this is a compromised website. They're probably all compromised, but hey, world we live in. Fix or blacklist one site at a time.
     
     {% include lab_question.html question='What is the domain name of the “referer” website that referred the Windows VM to the IP that delivered the malware?' %}
@@ -312,6 +316,11 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
         foremost -i the.name.you.chose -o name.of.the.directory.where.you.want.to.save.the.carved_files
 
     This will create a directory `name.of.the.directory.where.you.want.to.save.the.carved_files` containing all of the files that Foremost carved out of the network stream.
+    
+    <div class='alert alert-info'><strong>Foremost stuck on "reading from stdin"?</strong> This happens when foremost cannot find the file you reference on <code>-i</code>. It will never end. 
+        <code>stdin</code> means that it is sitting there waiting for you to enter something, because it couldn't find an input otherwise. It's an odd behavior, but makes sense I guess in some programmer's mind.
+        Navigate to the directory where your input file is located, and <em>then</em> run foremost.
+    </div>
 
     Inside your carved files directory, you will find a subdirectory for each file type recovered. For this analysis, you should see two subdirectories -- one for extracted `png` files,
     and another for extracted `exe` files. The `.exe` in the `exe` directory is the malware payload.
