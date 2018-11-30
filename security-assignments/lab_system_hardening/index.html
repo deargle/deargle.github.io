@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18">
+
+  <link href="/assets/css/bootstrap-custom.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Lab – System Hardening | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Lab – System Hardening" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this lab, you will use Nmap and Nessus to identify and close security vulnerabilities on Metasploitable. Your objective will be to harden this machine against attack to make it less vulnerable. Setup If you’ve finished “Lab: Exploitation”, you can use the Metasploitable VM from that lab to complete this lab. Alternatively, you can create a new Metasploitable VM by importing the .ova a second time. But if you haven’t finished the exploitation lab, don’t perform the steps in this lab on your only Metaspolitable copy. Snapshot the Metasploitable VM Create a snapshot of your Metasploitable VM in case you need to revert to its original state. Do this by highlighting the virtual machine in VirtualBox, and click the “Snapshots button in the top right. Finally, click the “Take a snapshot button.” Closing Ports on Metasploitable 2 For this part of the lab, use the command nmap -p 0-65535 -sV [IP address of Metasploitable VM] to get a list of services. It’s your job to close all ports except for ports 80 (HTTP) and 22 (SSH). Recall that shutting down services is only one way to harden a system. For services deemed essential to business function, you could also harden by applying security patches (i.e., upgrading the software). But for this lab, you will focus on just shutting down unnecessary services. Whenever you are instructed to &#39;edit&#39; a file, you will use a text editor, such as `nano`. See this note on choosing an editor. Log in to metasploitable. The password is “msfadmin”. On Metasploitable 2, become root by typing: sudo su –, then by giving msfadmin’s password when prompted. Use the command netstat -p -l -n | grep [port number] (as root) to find process related to the port you want to close. For help interpreting the output of this command, run netstat -pln without piping to grep and look at the column headers. Use the command ps aux | grep [name of process] to find the id of the process (the PID) that is listening on the port you want to close. For help interpreting the output of ps, run ps aux without piping it to grep, and look at the column headers. You can use the kill command to kill running processes. However, these may be restarted by the system. You need to change the configuration so that the services don’t restart. Most processes are started by the init (or initialization) daemon. The directory /etc/init.d/ has scripts that init uses to start programs when started. You can stop a service by running this command: /etc/init.d/[name of script] stop Or, analogously (but this doesn’t work on metasploitable): service [name of script] stop You can get a good idea of the name of the script to look for in this directory by using your nmap -sV output, and by looking at the output of netstat and ps aux. You can hunt for a likely script candidate by using tab completion. For example, if you had an idea that the ‘tomcat’ process was responsible for running a service, you could type /etc/init.d/tom&lt;tab tab&gt; (tab twice after typing ‘tom’). This will show you a list of everything in the directory that starts with ‘tom’ – or it will autocomplete for you if there is only one script name that starts with ‘tom’. You can permanently prevent a script from starting by using this command: update-rc.d -f [name of script] remove Some gotchas: vsftpd is started by xinetd. Turn this service off by editing /etc/xinetd.d/vsftpd to change the “disable” variable to “yes”. Tell Xinetd to pick up the changes with this command: kill -USR2 [process number of xinetd] Edit /etc/inetd.conf, and comment out all the processes (telnet, tftp, rlogin, rexec, etc.) Then enter the command: /etc/init.d/xinetd restart Postfix is required by Linux. Change it from listening to external connections by editing /etc/postfix/main.cf, and changing the following line: inet_interfaces = all To: inet_interfaces = loopback-only Then restart postfix: /etc/init.d/postfix restart The named DNS service is run by bind9. smdb is run by the samba process. You can also simply remove programs with this command: dpkg -r [name of package] You can get a list of installed packages with this command: dpkg -l. Submitting the Lab Copy the output of the command nmap -p 0-65535 -sV [IP address of Metasploitable VM], showing that you Metasploitable 2 only has two ports, 22 and 80, that are open." />
+<meta property="og:description" content="In this lab, you will use Nmap and Nessus to identify and close security vulnerabilities on Metasploitable. Your objective will be to harden this machine against attack to make it less vulnerable. Setup If you’ve finished “Lab: Exploitation”, you can use the Metasploitable VM from that lab to complete this lab. Alternatively, you can create a new Metasploitable VM by importing the .ova a second time. But if you haven’t finished the exploitation lab, don’t perform the steps in this lab on your only Metaspolitable copy. Snapshot the Metasploitable VM Create a snapshot of your Metasploitable VM in case you need to revert to its original state. Do this by highlighting the virtual machine in VirtualBox, and click the “Snapshots button in the top right. Finally, click the “Take a snapshot button.” Closing Ports on Metasploitable 2 For this part of the lab, use the command nmap -p 0-65535 -sV [IP address of Metasploitable VM] to get a list of services. It’s your job to close all ports except for ports 80 (HTTP) and 22 (SSH). Recall that shutting down services is only one way to harden a system. For services deemed essential to business function, you could also harden by applying security patches (i.e., upgrading the software). But for this lab, you will focus on just shutting down unnecessary services. Whenever you are instructed to &#39;edit&#39; a file, you will use a text editor, such as `nano`. See this note on choosing an editor. Log in to metasploitable. The password is “msfadmin”. On Metasploitable 2, become root by typing: sudo su –, then by giving msfadmin’s password when prompted. Use the command netstat -p -l -n | grep [port number] (as root) to find process related to the port you want to close. For help interpreting the output of this command, run netstat -pln without piping to grep and look at the column headers. Use the command ps aux | grep [name of process] to find the id of the process (the PID) that is listening on the port you want to close. For help interpreting the output of ps, run ps aux without piping it to grep, and look at the column headers. You can use the kill command to kill running processes. However, these may be restarted by the system. You need to change the configuration so that the services don’t restart. Most processes are started by the init (or initialization) daemon. The directory /etc/init.d/ has scripts that init uses to start programs when started. You can stop a service by running this command: /etc/init.d/[name of script] stop Or, analogously (but this doesn’t work on metasploitable): service [name of script] stop You can get a good idea of the name of the script to look for in this directory by using your nmap -sV output, and by looking at the output of netstat and ps aux. You can hunt for a likely script candidate by using tab completion. For example, if you had an idea that the ‘tomcat’ process was responsible for running a service, you could type /etc/init.d/tom&lt;tab tab&gt; (tab twice after typing ‘tom’). This will show you a list of everything in the directory that starts with ‘tom’ – or it will autocomplete for you if there is only one script name that starts with ‘tom’. You can permanently prevent a script from starting by using this command: update-rc.d -f [name of script] remove Some gotchas: vsftpd is started by xinetd. Turn this service off by editing /etc/xinetd.d/vsftpd to change the “disable” variable to “yes”. Tell Xinetd to pick up the changes with this command: kill -USR2 [process number of xinetd] Edit /etc/inetd.conf, and comment out all the processes (telnet, tftp, rlogin, rexec, etc.) Then enter the command: /etc/init.d/xinetd restart Postfix is required by Linux. Change it from listening to external connections by editing /etc/postfix/main.cf, and changing the following line: inet_interfaces = all To: inet_interfaces = loopback-only Then restart postfix: /etc/init.d/postfix restart The named DNS service is run by bind9. smdb is run by the samba process. You can also simply remove programs with this command: dpkg -r [name of package] You can get a list of installed packages with this command: dpkg -l. Submitting the Lab Copy the output of the command nmap -p 0-65535 -sV [IP address of Metasploitable VM], showing that you Metasploitable 2 only has two ports, 22 and 80, that are open." />
+<link rel="canonical" href="https://daveeargle.com/security-assignments/lab_system_hardening/" />
+<meta property="og:url" content="https://daveeargle.com/security-assignments/lab_system_hardening/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Lab – System Hardening","url":"https://daveeargle.com/security-assignments/lab_system_hardening/","author":{"@type":"Person","name":"deargle"},"description":"In this lab, you will use Nmap and Nessus to identify and close security vulnerabilities on Metasploitable. Your objective will be to harden this machine against attack to make it less vulnerable. Setup If you’ve finished “Lab: Exploitation”, you can use the Metasploitable VM from that lab to complete this lab. Alternatively, you can create a new Metasploitable VM by importing the .ova a second time. But if you haven’t finished the exploitation lab, don’t perform the steps in this lab on your only Metaspolitable copy. Snapshot the Metasploitable VM Create a snapshot of your Metasploitable VM in case you need to revert to its original state. Do this by highlighting the virtual machine in VirtualBox, and click the “Snapshots button in the top right. Finally, click the “Take a snapshot button.” Closing Ports on Metasploitable 2 For this part of the lab, use the command nmap -p 0-65535 -sV [IP address of Metasploitable VM] to get a list of services. It’s your job to close all ports except for ports 80 (HTTP) and 22 (SSH). Recall that shutting down services is only one way to harden a system. For services deemed essential to business function, you could also harden by applying security patches (i.e., upgrading the software). But for this lab, you will focus on just shutting down unnecessary services. Whenever you are instructed to &#39;edit&#39; a file, you will use a text editor, such as `nano`. See this note on choosing an editor. Log in to metasploitable. The password is “msfadmin”. On Metasploitable 2, become root by typing: sudo su –, then by giving msfadmin’s password when prompted. Use the command netstat -p -l -n | grep [port number] (as root) to find process related to the port you want to close. For help interpreting the output of this command, run netstat -pln without piping to grep and look at the column headers. Use the command ps aux | grep [name of process] to find the id of the process (the PID) that is listening on the port you want to close. For help interpreting the output of ps, run ps aux without piping it to grep, and look at the column headers. You can use the kill command to kill running processes. However, these may be restarted by the system. You need to change the configuration so that the services don’t restart. Most processes are started by the init (or initialization) daemon. The directory /etc/init.d/ has scripts that init uses to start programs when started. You can stop a service by running this command: /etc/init.d/[name of script] stop Or, analogously (but this doesn’t work on metasploitable): service [name of script] stop You can get a good idea of the name of the script to look for in this directory by using your nmap -sV output, and by looking at the output of netstat and ps aux. You can hunt for a likely script candidate by using tab completion. For example, if you had an idea that the ‘tomcat’ process was responsible for running a service, you could type /etc/init.d/tom&lt;tab tab&gt; (tab twice after typing ‘tom’). This will show you a list of everything in the directory that starts with ‘tom’ – or it will autocomplete for you if there is only one script name that starts with ‘tom’. You can permanently prevent a script from starting by using this command: update-rc.d -f [name of script] remove Some gotchas: vsftpd is started by xinetd. Turn this service off by editing /etc/xinetd.d/vsftpd to change the “disable” variable to “yes”. Tell Xinetd to pick up the changes with this command: kill -USR2 [process number of xinetd] Edit /etc/inetd.conf, and comment out all the processes (telnet, tftp, rlogin, rexec, etc.) Then enter the command: /etc/init.d/xinetd restart Postfix is required by Linux. Change it from listening to external connections by editing /etc/postfix/main.cf, and changing the following line: inet_interfaces = all To: inet_interfaces = loopback-only Then restart postfix: /etc/init.d/postfix restart The named DNS service is run by bind9. smdb is run by the samba process. You can also simply remove programs with this command: dpkg -r [name of package] You can get a list of installed packages with this command: dpkg -l. Submitting the Lab Copy the output of the command nmap -p 0-65535 -sV [IP address of Metasploitable VM], showing that you Metasploitable 2 only has two ports, 22 and 80, that are open.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="tony-assignment post-security-assignments-lab_system_hardening" id="/security-assignments/lab_system_hardening">
+
+<div class="container">
+
+  
+  
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<h1 class='title'>Lab &ndash; System Hardening</h1> 
+
+
+
+
+<p>In this lab, you will use Nmap and Nessus to identify and close security vulnerabilities on Metasploitable. Your objective will be to harden this machine against attack to make it less vulnerable.</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>If you’ve finished “Lab: Exploitation”, you can use the Metasploitable VM from that lab to complete this lab. Alternatively, you can create a new Metasploitable VM by importing the <code class="highlighter-rouge">.ova</code> a second time.
+But if you haven’t finished the exploitation lab, don’t perform the steps in this lab on your only Metaspolitable copy.</p>
+
+<h1 id="snapshot-the-metasploitable-vm">Snapshot the Metasploitable VM</h1>
+
+<ol>
+  <li>Create a snapshot of your Metasploitable VM in case you need to revert to its original state. Do this by highlighting the virtual machine in VirtualBox, and click the “Snapshots button in the top right. Finally, click the “Take a snapshot button.”</li>
+</ol>
+
+<p><img src="../images/lab_8_1.jpg" alt="" class="center-block" /></p>
+
+<h1 id="closing-ports-on-metasploitable-2">Closing Ports on Metasploitable 2</h1>
+
+<p>For this part of the lab, use the command <code class="highlighter-rouge">nmap -p 0-65535 -sV [IP address of Metasploitable VM]</code> to get a list of services. It’s your job to close all ports except for ports 80 (HTTP) and 22 (SSH).</p>
+
+<p>Recall that shutting down services is only one way to harden a system. For services deemed essential to business function, you could also harden by applying security patches (i.e., upgrading the software). But for this lab, you will focus on just shutting down unnecessary services.</p>
+
+<div class="alert alert-info">Whenever you are instructed to 'edit' a file, you will use a text editor, such as `nano`. See <a href="/class/security/note-on-editors/">this note on choosing an editor</a>.</div>
+
+<ol>
+  <li>Log in to metasploitable. The password is “msfadmin”.</li>
+  <li>On Metasploitable 2, become root by typing: <code class="highlighter-rouge">sudo su –</code>, then by giving msfadmin’s password when prompted.</li>
+  <li>Use the command <code class="highlighter-rouge">netstat -p -l -n | grep [port number]</code> (as root) to find process related to the port you want to close.
+    <ul>
+      <li>For help interpreting the output of this command, run <code class="highlighter-rouge">netstat -pln</code> without piping to <code class="highlighter-rouge">grep</code> and look at the column headers.</li>
+    </ul>
+  </li>
+  <li>Use the command <code class="highlighter-rouge">ps aux | grep [name of process]</code> to find the id of the process (the PID) that is listening on the port you want to close.
+    <ul>
+      <li>For help interpreting the output of <code class="highlighter-rouge">ps</code>, run <code class="highlighter-rouge">ps aux</code> without piping it to <code class="highlighter-rouge">grep</code>, and look at the column headers.</li>
+    </ul>
+  </li>
+  <li>You can use the <code class="highlighter-rouge">kill</code> command to kill running processes. However, these may be restarted by the system. You need to change the configuration so that the services don’t restart.</li>
+  <li>
+    <p>Most processes are started by the init (or initialization) daemon. The directory /etc/init.d/ has scripts that init uses to start programs when started. You can stop a service by running this command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/init.d/[name of script] stop
+</code></pre></div>    </div>
+
+    <p>Or, analogously (but this doesn’t work on metasploitable):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service [name of script] stop
+</code></pre></div>    </div>
+
+    <p>You can get a good idea of the name of the script to look for in this directory by using your <code class="highlighter-rouge">nmap -sV</code> output, and by looking at the output of <code class="highlighter-rouge">netstat</code> and <code class="highlighter-rouge">ps aux</code>. You can hunt for a likely script candidate by using tab completion. For example, if you had an idea that the ‘tomcat’ process was responsible for running a service, you could type <code class="highlighter-rouge">/etc/init.d/tom&lt;tab tab&gt;</code> (tab twice after typing ‘tom’). This will show you a list of everything in the directory that starts with ‘tom’ – or it will autocomplete for you if there is only one script name that starts with ‘tom’.</p>
+
+    <p>You can permanently prevent a script from starting by using this command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>update-rc.d -f [name of script] remove
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Some gotchas:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">vsftpd</code> is started by <code class="highlighter-rouge">xinetd</code>. Turn this service off by editing /etc/xinetd.d/vsftpd to change the “disable” variable to “yes”. Tell Xinetd to pick up the changes with this command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kill -USR2 [process number of xinetd]
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Edit <code class="highlighter-rouge">/etc/inetd.conf</code>, and comment out all the processes (telnet, tftp, rlogin, rexec, etc.)</p>
+
+    <p>Then enter the command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/init.d/xinetd restart
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Postfix is required by Linux. Change it from listening to external connections by editing <code class="highlighter-rouge">/etc/postfix/main.cf</code>, and changing the following line:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>inet_interfaces = all
+</code></pre></div>    </div>
+
+    <p>To:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>inet_interfaces = loopback-only
+</code></pre></div>    </div>
+
+    <p>Then restart postfix:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/init.d/postfix restart
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>The <code class="highlighter-rouge">named</code> DNS service is run by <code class="highlighter-rouge">bind9</code>.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">smdb</code> is run by the <code class="highlighter-rouge">samba</code> process.</p>
+  </li>
+  <li>
+    <p>You can also simply remove programs with this command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg -r [name of package]
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>You can get a list of installed packages with this command: <code class="highlighter-rouge">dpkg -l</code>.</p>
+
+<h1 id="submitting-the-lab">Submitting the Lab</h1>
+
+<p>Copy the output of the command <code class="highlighter-rouge">nmap -p 0-65535 -sV [IP address of Metasploitable VM]</code>, showing that you Metasploitable 2 only has two ports, 22 and 80, that are open.</p>
+
+
+
+<script type='text/javascript'>
+    var $ul = $('<ul></ul>').addClass('nav nav-pills');
+    $('h1:not(.title)').each(function() {
+        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
+        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
+        $li = $('<li></li>');
+        $li.append($a);
+        $ul.append($li);
+    });
+    $('#nav-bar').append($ul);
+    
+</script>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/security-assignments/lab_system_hardening/',
+		  'title': 'Lab &ndash; System Hardening'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-11-30 14:35:18 -0500 | Revision 0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18 -->

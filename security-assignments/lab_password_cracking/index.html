@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18">
+
+  <link href="/assets/css/bootstrap-custom.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Lab – Password Cracking | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Lab – Password Cracking" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="hydra, hashcat, rockyou, hashcat rules, cewl wordlists" />
+<meta property="og:description" content="hydra, hashcat, rockyou, hashcat rules, cewl wordlists" />
+<link rel="canonical" href="https://daveeargle.com/security-assignments/lab_password_cracking/" />
+<meta property="og:url" content="https://daveeargle.com/security-assignments/lab_password_cracking/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Lab – Password Cracking","url":"https://daveeargle.com/security-assignments/lab_password_cracking/","author":{"@type":"Person","name":"deargle"},"description":"hydra, hashcat, rockyou, hashcat rules, cewl wordlists","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="tony-assignment post-security-assignments-lab_password_cracking" id="/security-assignments/lab_password_cracking">
+
+<div class="container">
+
+  
+  
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<h1 class='title'>Lab &ndash; Password Cracking</h1> 
+
+
+
+<p>See <a href='/security-assignments/virtual-machines/#setting-up-virtualbox-and-the-infoset-net-network'>here</a> for instructions on setting up virtualbox for this class.</p>
+
+<div class='alert alert-info'><strong>Heads up!</strong> Be sure that you have created the <code>infosec-net</code> virtualbox network, as specified at the top of the above link, <i>before</i> importing the vm! It's not the end of the world if you don't, but it does require some extra work.</div>
+
+<p>This lab uses the following <a href='/security-assignments/virtual-machines/#the-virtual-machines'>vms:</a></p>
+<ul>
+
+    <li>Kali</li>
+
+</ul>
+
+
+
+<h1 id="part-0-introduction-to-linux-tutorial">Part 0: Introduction to Linux Tutorial</h1>
+
+<ol>
+  <li>Complete the <a href="/security-assignments/intro-to-linux">“Intro to Linux” tutorial</a>. There is a deliverable associated with this tutorial which counts towards your participation grade.</li>
+</ol>
+
+<h1 id="part-1-testing-passwords">Part 1: Testing Passwords</h1>
+
+<ol>
+  <li>
+    <p>Visit the following URL:</p>
+
+    <p><a href="https://lowe.github.io/tryzxcvbn/">https://lowe.github.io/tryzxcvbn/</a></p>
+  </li>
+  <li>
+    <p>Try out different passwords to see how strong they are.</p>
+
+    <p><strong>Optional:</strong> If you want to learn more about password strength estimation, see <a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/wheeler">this video and paper</a></p>
+  </li>
+</ol>
+
+<h1 id="part-2-checking-an-account-for-an-existing-data-breach">Part 2: Checking an Account for an Existing Data Breach</h1>
+
+<ol>
+  <li>
+    <p>Check to see if one of your online accounts has already been breached.</p>
+
+    <p>Visit: <a href="https://haveibeenpwned.com">https://haveibeenpwned.com</a>. Type in one of your email accounts or usernames to see if it has already been compromised in a data breach.</p>
+  </li>
+  <li>
+    <p>Next visit: <a href="https://haveibeenpwned.com/Passwords">https://haveibeenpwned.com/Passwords</a></p>
+
+    <p>Try out some passwords to see if they have already been compromised in a data breach.</p>
+  </li>
+  <li>
+    <p>Finally, visit: <a href="https://haveibeenpwned.com/NotifyMe">https://haveibeenpwned.com/NotifyMe</a></p>
+
+    <p>Sign up to be notified when one of your accounts is breached in the future.</p>
+  </li>
+</ol>
+
+<div class="alert alert-warning"><strong>Question: </strong>Was one of your accounts breached? If so, which one? Share an appropriately redacted version of your experience with haveibeenpwned on slack on 
+<a href="https://infosecmanagement-f18.slack.com/messages/CD500PRNE">#haveibeenpwned</a></div>
+
+<h1 id="part-3-sign-up-for-two-factor-authentication">Part 3. Sign-up for Two Factor Authentication</h1>
+
+<p>Visit <a href="https://twofactorauth.org">https://twofactorauth.org</a> and browse through the categories to find an online service that you regularly use 
+(e.g., Gmail, Snapchat, Instagram, Facebook, etc.). Click the box-arrow icon in the “Docs” column to learn how to set two factor authentication for that service. 
+Sign up for 2FA for at least one account.</p>
+
+<div class="alert alert-warning"><strong>Question: </strong>You will be asked to report whether or not you signed up for 2FA.</div>
+
+<h1 id="part-4-online-password-attack">Part 4: Online Password Attack</h1>
+
+<p>This attack uses <code class="highlighter-rouge">/usr/share/wordlists/rockyou.txt.gz</code>, which comprises all unique passwords from the 32 million RockYou password breach you read about in your reading.</p>
+
+<ol>
+  <li>
+    <p>First, if the file <code class="highlighter-rouge">/usr/share/wordlists/rockyou.txt</code> is not present, unzip the password list.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gunzip /usr/share/wordlists/rockyou.txt.gz
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>We will use the rockyou password list to launch an online password attack using <code class="highlighter-rouge">THC-Hydra</code>.</p>
+
+    <p>Visit <a href="https://is.theorizeit.org">https://is.theorizeit.org</a> in a browser. Let’s pretend that you forgot the password. Let’s “recover” the password.</p>
+
+    <p>Open a terminal in your Kali vm. Type the following (all on one line):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt https-get://is.theorizeit.org/auth/
+</code></pre></div>    </div>
+
+    <p><strong>Note:</strong> The trailing slash (‘/’) is needed.</p>
+
+    <p>Where:</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">hydra</code> is the password cracking tool to execute</li>
+      <li><code class="highlighter-rouge">-V</code> means verbose, and will show you the username and password combination being attempted</li>
+      <li><code class="highlighter-rouge">-l istheory</code> sets “istheory” as the login name. Note: that’s a lowercase ‘L.’</li>
+      <li><code class="highlighter-rouge">-P /usr/share/wordlists/rockyou.txt</code> is the password dictionary file to use.</li>
+      <li><code class="highlighter-rouge">https-get</code> means a GET request over HTTPS. Note that Hydra supports many protocols (e.g., ftp, ssh).</li>
+      <li><code class="highlighter-rouge">is.theorizeit.org/auth/</code> is the password-protected URL to be accessed.</li>
+    </ul>
+
+    <p><strong>Note:</strong> you can also use THC-Hydra with web forms: <a href="http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html">http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html</a></p>
+
+    <p>In Greek and Roman mythology, <a href="https://en.wikipedia.org/wiki/Lernaean_Hydra">Hyrda</a> is a mythical sea monster with many heads. When a head is cut off, it is replaced by another. <code class="highlighter-rouge">THC Hydra</code>, the tool you are using,
+likewise launches multiple “heads” (tasks), each of which makes a battery of attacks (password guesses) before dying off and being replaced by another head (task). By default, Hyrda runs with 16 concurrent heads.</p>
+
+    <p>The Hyrda output will tell you at what time it started, how many passwords it has tried so far, and at what time it stopped.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What was the password (Scan the results to find the line beginning with <code>[443][http-get]</code>)?</div>
+
+    <p><strong>Question:</strong> Approximately how many passwords a second were you able to try? <strong>Hint:</strong> You may need to calculate this from the start and end time along with number of guesses made.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>For the lab submission, you will be asked to look at sample output from a `hydra` run, and determine how many passwords were tried per second in the sample output.</div>
+  </li>
+</ol>
+
+<h1 id="part-5-offline-attack-using-hashcat">Part 5: Offline Attack Using Hashcat</h1>
+
+<p>Cracking in Hashcat:</p>
+
+<div class="alert alert-info">
+<p>If you're feeling adventurous, you can install hashcat on your host computer, where you'll get massive speed improvements. Hashcast needs to be able to directly interface with
+the CPU/GPU in order to fly -- it can't so as well in a virtualized environment.</p>
+<p>For Windows or Linux, download Hashcat <a href="https://hashcat.net/hashcat">here</a>. For Mac, I recommend that you first install Homebrew (follow instructions at <a href="https://brew.sh">https://brew.sh</a>), 
+then run the command, <code>brew install hashcat</code>.</p>
+</div>
+
+<ol>
+  <li>On your Kali machine, open up a terminal and navigate to your home directory (<code class="highlighter-rouge">/root/</code>).</li>
+  <li>
+    <p>Hashcat uses a command-line interface. To see available options and syntax, type:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --help
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>First, a dictionary attack will be performed against a password-protected Word document. The following command uses a Python script to obtain the hash of the Word document password:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python office2john.py hashcat.doc
+</code></pre></div>    </div>
+
+    <p>Note:</p>
+    <ul>
+      <li>
+        <p>office2john.py can be obtained <a href="https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py">here</a>. To obtain it in Kali, run:</p>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  wget https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>hashcat.doc is available <a href="https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc">here</a>. To obtain it, run:</p>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  wget https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>In the output you’ll see the name of the file followed by the type. The type is shown with a $ at the beginning and end of it. You’ll need to copy the type and everything until “:::”. For example, the hash looks like the following, all on one line:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$oldoffice$1*04477077758555626246182730342136*b1b72ff351e41a7c68f6b45c4e938bd6*0d95331895e99f73ef8b6fbc4a78ac1a 
+</code></pre></div>    </div>
+
+    <p>Save the hash into a file in your home dir.</p>
+
+    <p>Note: make sure the entire hash is on one line within the text file. <strong>Don’t add extra spaces at the end.</strong> 
+If you get a “line-length exception” in the next step, make sure there’s not a typo in the beginning of the hash.</p>
+
+    <div class="alert alert-info">If you are cool, you can use text redirection (e.g., <code>&gt;</code>) to put the output of office2john into a file for you. Then you would just have to open up the file and remove the extra stuff.</div>
+    <div class="alert alert-warning">Also, if you are cool, you might attempt to <code>echo -n "thehash" &gt; afile.txt</code> the hash into a file. But beware! The hash contains <code>$</code> signs, which in bash indicate
+a variable when couched in double-quotes. Long story short, if you want to echo the hash into a file, use single quotes, and you won't be bitten by bash variable expansion. Just <code>cat</code> the contents of your hashfile after you made it to make sure it looks right.</div>
+  </li>
+  <li>
+    <p>While still in your home dir, run the following command (all on one line). Reference the hash file you just created, and choose an arbitrary name for an output file. Once the password is cracked,
+you will read your output file to see the cracked password. It will be appended to the end of the hash following a colon (<code class="highlighter-rouge">:</code>) symbol.</p>
+
+    <div class="alert alert-info"><strong>Note: </strong>In the commands below, the <code>&lt; &gt;</code> notation means to replace that text -- <strong>including replacing the <code>&lt; &gt;</code> symbols! </strong> -- with the names of the actual files you are using.</div>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --force -a 0 -m 9700  -o &lt;outputFileName.txt&gt; &lt;HashInputFileName.txt&gt; /usr/share/wordlists/rockyou.txt
+</code></pre></div>    </div>
+
+    <p>Or alternatively, if you prefer to do it without making an input file, put the hash string right in the terminal, surrounded by single quotes (not double-quotes! and type the quotes in yourself, do not copy-paste them, Mac can break them.):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --force -a 0 -m 9700  -o &lt;outputFileName.txt&gt; '&lt;hash string&gt;' /usr/share/wordlists/rockyou.txt
+</code></pre></div>    </div>
+
+    <p>Where the switches correspond to:</p>
+
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td><code class="highlighter-rouge">--force</code></td>
+          <td>This is necssary to get hashcat to run in a VM environment (it doesn’t normally like to).</td>
+        </tr>
+        <tr>
+          <td><code class="highlighter-rouge">-a 0</code></td>
+          <td>Straight dictionary attack against the hash</td>
+        </tr>
+        <tr>
+          <td><code class="highlighter-rouge">-m &lt;Office_Flag&gt;</code></td>
+          <td>The corresponding flag for the version of Office in use (see table in <code class="highlighter-rouge">hashcat --help</code>)</td>
+        </tr>
+        <tr>
+          <td><code class="highlighter-rouge">--status</code></td>
+          <td>Provides an update of the status of the process without giving a prompt</td>
+        </tr>
+        <tr>
+          <td><code class="highlighter-rouge">-o &lt;Output_File&gt;</code></td>
+          <td>The location where the cracked hashes will be saved. <br />The results will also be saved on the .pot file, unless otherwise specified. In our case, we disabled it.</td>
+        </tr>
+        <tr>
+          <td><code class="highlighter-rouge">&lt;Hash&gt;</code></td>
+          <td>The saved password hash.</td>
+        </tr>
+        <tr>
+          <td><code class="highlighter-rouge">&lt;Dictionary&gt;</code></td>
+          <td>The list of words that will be used to try and crack the password.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><br /></p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the password for <code>hashcat.doc</code>?</div>
+
+    <p>Do the same for the file <code class="highlighter-rouge">john.doc</code> (available <a href="https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/john.doc">here</a>, use <code class="highlighter-rouge">wget</code> as above to obtain it from url <code class="highlighter-rouge">https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/john.doc</code>).</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the password for <code>john.doc</code>?</div>
+
+    <p>Examine <a href="https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40">the hashcat cracking benchmarks</a> for a <a href="https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/">Brutalis</a>. The Brutals has 8 graphics cards, each of which 
+can simultaneously work on cracking hashes. The measured speed for each card is shown, along with a cumulative speed at the bottom (<code class="highlighter-rouge">Speed.Dev.#*</code>). Use the cumulative speed for all Brutalis-related calculations in this lab.</p>
+
+    <p>Cracking speeds are in the following format:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>H/s	Hashes per second
+KH/s 	Kilohashes per second (Thousands of hashes per second)
+MH/s	Megahashes per second (Millions of hashes per second)
+GH/s	Gigahashes per second (Billions of hashes per second)
+TH/s	Terahashes per second (Trillions of hashes per second)
+PH/s	Petahashes per second (Quadrillions of hashes per second)    
+</code></pre></div>    </div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>Roughly how many passwords per second can Hashcat running on a Brutalis try on a <code>.doc</code> file?</div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>How much faster is Hashcat in cracking .doc MS Office documents (option 9700, "&lt;= 2003 $0|$1, MD5 + RC4") compared to Office 2013 documents (option 9600)?</div>
+
+    <p><strong>Optional:</strong> Install <code class="highlighter-rouge">hashcat</code> on your own machine (not the VM). See how your benchmarks compare against a Brutalis. Note that running benchmarks on the VM will break once it reaches <code class="highlighter-rouge">scrypt</code> before complete results are reported.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat -b --force
+</code></pre></div>    </div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>How does an offline password attack compare with the online hydra attack you attempted earlier?</div>
+  </li>
+</ol>
+
+<h1 id="part-6-cracking-linkedin-hashes-using-hashcat">Part 6. Cracking Linkedin Hashes Using Hashcat</h1>
+
+<p>In this section, you’ll see how many hashes you can recover from the 2016 LinkedIn password breach. This breach of 177,500,189 unsalted SHA1 password hashes represents the data of all 
+LinkedIn users as of 2012. Among these passwords, only 61,829,207 are unique.</p>
+
+<p>However, in interest of your time, this section will require you to crack only 500,000 of these passwords. After you complete this lab, you’re welcome to crack all of the LinkedIn 
+hashes. Ask me for a copy.</p>
+
+<ol>
+  <li>
+    <p>Navigate to your home directory, where you will find a copy of the file <code class="highlighter-rouge">LinkedIn_HalfMillionHashes.txt</code> (also available <a href="https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/LinkedIn_HalfMillionHashes.txt">here</a>. 
+Right-click this link, select “copy link” , then paste it into Kali after <code class="highlighter-rouge">wget</code>).</p>
+  </li>
+  <li>
+    <p>Open a terminal. To get your feet wet, perform a “straight” dictionary attack using the <code class="highlighter-rouge">rockyou.txt</code> wordlist again, as follows (one line):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --force -m 100 --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
+</code></pre></div>    </div>
+
+    <p>Note: This command may take 5–10 minutes to run. To see the status of a running job in Hashcat, press the “s” key (it might take up to 15 seconds for Hashcat to report its status).</p>
+
+    <p>Hashcat will report how many passwords it “recovered” when it finishes.</p>
+
+    <div class="alert alert-warning">These commands use the <code>--remove</code> flag. This will remove cracked hashes from the input file. So, if you run these commands more than once without changing anything, it won't crack anything after the first time.</div>
+    <div class="alert alert-danger">
+    <p>If you accidentally delete your cracked outfile, you will need to delete your hashcat "potfile" too before you try to recreate the outfile. You have to do this because otherwise, hashcat won't write any already-cracked hashes found in the potfile to the outfile.</p>
+    <p>To do this, <code>rm ~/.hashcat/hashcat.pofile</code>.</p>
+    <p>Don't forget to also start with a fresh 500k hashlist.</p>
+</div>
+
+    <p>You can always count the number of lines in your outfile (<code class="highlighter-rouge">LinkedIn_cracked.txt</code>) to see how many you’ve cracked so far, total:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wc -l LinkedIn_cracked.txt
+</code></pre></div>    </div>
+
+    <p>Or count the number of passwords left (it started with half a million):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wc -l LinkedIn_HalfMillionHashes.txt
+</code></pre></div>    </div>
+
+    <p>To see hashes cracked in real time, in another terminal shell, type the command: <code class="highlighter-rouge">tail -f LinkedIn_cracked.txt</code>. Type <code class="highlighter-rouge">control+c</code> to exit the <code class="highlighter-rouge">tail</code> command.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>How many passwords were you able to recover using this command?</div>
+  </li>
+  <li>
+    <p>Run another attack that uses a rules-based method (one line):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best64.rule /usr/share/wordlists/rockyou.txt
+</code></pre></div>    </div>
+
+    <p>Rules apply common patterns to password dictionaries to crack even more hashes. You can read about rules in Hashcat here: <a href="https://hashcat.net/wiki/doku.php?id=rule_based_attack">https://hashcat.net/wiki/doku.php?id=rule_based_attack</a>.</p>
+
+    <p>The “best64.rule” is one of the most effective sets of Hashcat rules. It is continually refined using input and testing from the password cracking community. You can view the contents of the best64.rule here:</p>
+
+    <p><a href="https://hashcat.net/wiki/doku.php?id=rule_based_attack]">https://github.com/hashcat/hashcat/blob/master/rules/best64.rule</a></p>
+
+    <p>You can read an explanation of these set of rules here:</p>
+
+    <p><a href="http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html">http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html</a></p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>How many total passwords were you able to recover after using this rules based attack in combination with the earlier straight attack?</div>
+  </li>
+  <li>
+    <p>Run another attack that uses a hybrid method that uses a dictionary attack combined with a “mask,” which is a pattern that is appended to each password in the password dictionary:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 6 /usr/share/wordlists/rockyou.txt ?d?d
+</code></pre></div>    </div>
+
+    <p>The <code class="highlighter-rouge">?d?d</code> at the end means to append two digits between 0–9 each at the end of each password in the rockyou.txt password dictionary.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>How many total passwords were you able to recover after using this hybrid attack combination with the earlier straight and rules-based attacks?</div>
+  </li>
+  <li>
+    <p>If you would like to try using a different character set for your mask, you can use the following masks below. Note that each mask below is for one character. If you wanted to test four digits at the end of each password, the mask would be: ?d?d?d?d.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?l = abcdefghijklmnopqrstuvwxyz
+?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ
+?d = 0123456789
+?s =  !"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~
+?a = ?l?u?d?s
+?b = 0x00 - 0xff
+</code></pre></div>    </div>
+
+    <p><strong>Optional:</strong> Experiment with other rules found in <code class="highlighter-rouge">/usr/share/hashcast/rules</code>.</p>
+
+    <p><strong>Optional:</strong> Another common password pattern is to prepend digits at the beginning of passwords. If you would like try this mask, run the following command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<div class="alert alert-info">Want even more practice? You can download the massive Troy Hunt haveibeenpwned SHA1 password hash list 
+on the bottom of <a href="https://haveibeenpwned.com/Passwords">this page</a>.</div>
+
+<div class="alert alert-info">See <a href="https://github.com/danielmiessler/SecLists/tree/master/Passwords">Daniel Miessler's wordlist collection</a> for more wordlists besides rockyou to try.</div>
+
+<h1 id="part-7-secure-password-hashing">Part 7. Secure Password Hashing</h1>
+
+<p>Refer again to the <a href="https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40">benchmark output for a Brutalis</a>.</p>
+
+<div class="alert alert-warning"><strong>Question: </strong>How much slower is Hashcat in cracking bcrypt hashes compared to SHA1 hashes?</div>
+
+<p>Read about the bcrypt algorithm <a href="https://en.wikipedia.org/wiki/Bcrypt#Algorithm">here</a>, and also <a href="https://stackoverflow.com/questions/6832445/how-can-bcrypt-have-built-in-salts">here</a></p>
+
+<div class="alert alert-warning"><strong>Question: </strong>Imagine that bcrypt is set to a work factor of 12. How many hashing rounds will Bcrypt go through to compute the final hash?</div>
+
+<div class="alert alert-warning"><strong>Question: </strong>An attacker knows that a user generated their password using 8 random lowercase letters exclusively (so character space of 26, length of 8). On average, an attacker needs to try only half of all possible passwords in order to brute force the password. The attacker has access to a Brutalis. How long would it take to crack the password hash if SHA1 had been used? bcrypt with the benchmarks shown for brutalis?</div>
+
+<h1 id="part-8-create-a-targeted-wordlist-using-cewl">Part 8. Create a Targeted Wordlist Using CeWL</h1>
+
+<p>CeWL (Custom Word List Generator) is a command-line tool that creates custom wordlists from a target website. This can be useful for cracking a password of an organization or individual that also has a website or social media profile. Because people often use information about themselves or their organization when creating passwords, custom wordlists can be very effective.</p>
+
+<p>Imagine that you exfiltrated the following MD5 hash from a database on neurosecurity.byu.edu:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cf4aff530715824c055892438a1ab6b2
+</code></pre></div></div>
+
+<p>You want to create a custom dictionary using the words on neurosecurity.byu.edu to see if you can crack the hash.</p>
+
+<ol>
+  <li>
+    <p>Create a custom dictionary using CeWL for the website neurosecurity.byu.edu:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cewl -v -d 2 -m 5 -w custom_dict.txt https://neurosecurity.byu.edu
+</code></pre></div>    </div>
+
+    <p>Where:</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">-v</code> runs CeWL in verbose mode.</li>
+      <li><code class="highlighter-rouge">-d</code> is the depth to “spider” or crawl the website</li>
+      <li><code class="highlighter-rouge">-m</code> is the minimum word length</li>
+      <li><code class="highlighter-rouge">-w custom_dict.txt</code> is the name of your new custom wordlist or dictionary.</li>
+    </ul>
+
+    <p>Give the command a minute or two to complete.</p>
+  </li>
+  <li>
+    <p>Check how many entries are in the <code class="highlighter-rouge">custom_dict.txt</code> file:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wc -l custom_dict.txt
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Look at the words in <code class="highlighter-rouge">custom_dict.txt</code>:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>less custom_dict.txt
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Permute the words in the <code class="highlighter-rouge">custom_dict.txt</code> wordlist using the “best64” rule, and append the output to <code class="highlighter-rouge">custom_dict.txt</code> (all one line):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat custom_dict.txt -r /usr/share/hashcat/rules/best64.rule --stdout &gt;&gt; custom_dict.txt
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Check how many entries are in the custom_dict.txt file now:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wc -l custom_dict.txt
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Run Hashcat using custom_dict against the MD5 hash (all one line):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --force -a 0 -m 0 cf4aff530715824c055892438a1ab6b2 custom_dict.txt
+</code></pre></div>    </div>
+
+    <p>Where <code class="highlighter-rouge">-m 0</code> signifies <code class="highlighter-rouge">md5</code> mode, and <code class="highlighter-rouge">-a</code> specifies “straight attack mode” (do not permutate the wordlist, because we already did)</p>
+
+    <p>The password will be reported towards the top of the output in the format: <code class="highlighter-rouge">hash:password</code>. If you miss the output, you can view it in your potfile once you have cracked it by running</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --show cf4aff530715824c055892438a1ab6b2
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Confirm that you found the correct password:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo -n "&lt;the plaintext password&gt;" | md5sum
+</code></pre></div>    </div>
+
+    <p>We include the <code class="highlighter-rouge">-n</code> flag because otherwise, the <code class="highlighter-rouge">echo</code> command will append a newline character, which will throw off the hash.</p>
+  </li>
+</ol>
+
+<div class="alert alert-warning"><strong>Question: </strong>What is the plaintext of the hash?</div>
+
+<h1 id="learn-more">Learn more:</h1>
+
+<p><a href="http://arstechnica.com/security/2013/03/how-i-became-a-password-cracker/">http://arstechnica.com/security/2013/03/how-i-became-a-password-cracker/</a></p>
+
+<p>Official Hashcat documentation: <a href="http://hashcat.net/wiki/">http://hashcat.net/wiki/</a></p>
+
+
+
+<script type='text/javascript'>
+    var $ul = $('<ul></ul>').addClass('nav nav-pills');
+    $('h1:not(.title)').each(function() {
+        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
+        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
+        $li = $('<li></li>');
+        $li.append($a);
+        $ul.append($li);
+    });
+    $('#nav-bar').append($ul);
+    
+</script>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/security-assignments/lab_password_cracking/',
+		  'title': 'Lab &ndash; Password Cracking'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-11-30 14:35:18 -0500 | Revision 0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18 -->

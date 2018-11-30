@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://daveeargle.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://daveeargle.com/" rel="alternate" type="text/html" /><updated>2018-11-30T14:35:18-05:00</updated><id>https://daveeargle.com/feed.xml</id><title type="html">Dave Eargle</title><subtitle>Information Systems Management Researcher</subtitle><author><name>deargle</name></author><entry><title type="html">I made a college financial calculator</title><link href="https://daveeargle.com/2018/08/09/College-Financial-Calculator/" rel="alternate" type="text/html" title="I made a college financial calculator" /><published>2018-08-09T00:00:00-04:00</published><updated>2018-08-09T00:00:00-04:00</updated><id>https://daveeargle.com/2018/08/09/College-Financial-Calculator</id><content type="html" xml:base="https://daveeargle.com/2018/08/09/College-Financial-Calculator/">&lt;div class=&quot;page-header text-center well&quot;&gt;&lt;h2&gt;Find the calculator &lt;a href=&quot;/college-financial-calculator/&quot;&gt;here&lt;/a&gt;.&lt;/h2&gt;&lt;/div&gt;
+
+&lt;p&gt;I was in school for a long time. When I finally got my first “real” job last year, I scheduled a meeting with my university’s contracted financial counselors to ask them for help in savings goals.
+I told them in advance that I was especially interested in figuring out how much I would need to save each month (or year or whatever) in order to have enough to help my children with college. My wife and I still haven’t decided whether or how much we’re going to assist our children with college versus letting them pay on their own for the life experience points – but I still wanted to know theoretically how much we would need to save to reach some arbitrary goal.&lt;/p&gt;
+
+&lt;p&gt;The financial counselor asked me again at the beginning of the meeting what I hoped to get from the meeting, and I reminded her of the college savings question. Then, to my disappointment, the counselor spent nearly the entirety of the hour pushing unrelated financial products on me. When I asked again at the end for a formula or something I could use for the college savings question, she shrugged her shoulders and turned to the almighty google to see what was out there. Nothing turned up (quickly, anyway).&lt;/p&gt;
+
+&lt;p&gt;Leaving the meeting, I realized that I had taken classes on this kind of thing in my business degree. It’s a question of long term investment with uneven cash flows. So I made a dadgum calculator with goal seek. First made it in Excel, then generalized it to this online one for the fun of it and to maybe help someone else.&lt;/p&gt;
+
+&lt;p&gt;To make this calculator, I played with Vue, d3, Finance.js, and goalSeek.js, all for the first time. I also accidentally used Bootstrap 4 instead of Bootstrap 3 (the rest of my site uses Bootstrap 3), so sigh I have to divorce this page from the entirety of the rest of my site. I &lt;em&gt;also&lt;/em&gt; learned that Bower is deprecated, so I’d better learn something new like npm/yarn and webpack. Sigh. I just want to throw a nice calculator online, dangit! I learned that I am a &lt;a href=&quot;https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70&quot;&gt;crusty old web-development dinosaur&lt;/a&gt; and that I’m way behind on all the newfangled front-end trends.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Update 8/10/2018&lt;/em&gt; – learned npm/yarn and webpack today. I’m beast-mode now.&lt;/p&gt;</content><author><name>deargle</name></author><summary type="html">Find the calculator here.</summary></entry><entry><title type="html">Interpreting dummy-coded parameter estimates with and without a model intercept</title><link href="https://daveeargle.com/2018/04/10/Reference-level-or-not/" rel="alternate" type="text/html" title="Interpreting dummy-coded parameter estimates with and without a model intercept" /><published>2018-04-10T00:00:00-04:00</published><updated>2018-04-10T00:00:00-04:00</updated><id>https://daveeargle.com/2018/04/10/Reference%20level%20or%20not</id><content type="html" xml:base="https://daveeargle.com/2018/04/10/Reference-level-or-not/">&lt;p&gt;This post is to illustrate the differences in model parameter estimates for dummy-coded factors when the model includes an intercept versus when it does not.&lt;/p&gt;
+
+&lt;h2 id=&quot;data&quot;&gt;Data&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;/class/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv&quot;&gt;Dataset&lt;/a&gt; is 10k rows from Lending Club, years 2007-2014.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;loan_status&lt;/dt&gt;
+  &lt;dd&gt;The target values are &lt;code class=&quot;highlighter-rouge&quot;&gt;0 = Fully Paid&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;1 = Charged off (default)&lt;/code&gt;. The goal is to predict whether a
+loan will default.&lt;/dd&gt;
+  &lt;dt&gt;dti&lt;/dt&gt;
+  &lt;dd&gt;A ratio calculated using the borrower’s total monthly debt payments on the total debt obligations, excluding mortgage and the requested LC loan, divided by the borrower’s selfreported monthly income.&lt;/dd&gt;
+  &lt;dt&gt;grade&lt;/dt&gt;
+  &lt;dd&gt;Lending Club-assigned loan grade. “A” is good, “G” is bad, etc.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lsmeans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my.data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://daveeargle.com/class/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;reference-level-with-an-intercept&quot;&gt;Reference level with an intercept&lt;/h2&gt;
+
+&lt;p&gt;If we fit a logistic regression model, by default, an intercept will be estimated. In R, by default,
+the first level is used as the reference level.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loan_status&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grade&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'binomial'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my.data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
+## Call:
+## glm(formula = loan_status ~ grade, family = &quot;binomial&quot;, data = my.data)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.5829  -0.6222  -0.4769  -0.3523   2.3710  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&amp;gt;|z|)    
+## (Intercept) -2.74868    0.09153 -30.030  &amp;lt; 2e-16 ***
+## gradeB       0.63193    0.10614   5.954 2.62e-09 ***
+## gradeC       1.20502    0.10544  11.429  &amp;lt; 2e-16 ***
+## gradeD       1.53512    0.11264  13.629  &amp;lt; 2e-16 ***
+## gradeE       1.83239    0.14778  12.399  &amp;lt; 2e-16 ***
+## gradeF       1.95645    0.26251   7.453 9.14e-14 ***
+## gradeG       3.66497    0.84165   4.355 1.33e-05 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 8070.2  on 9999  degrees of freedom
+## Residual deviance: 7719.6  on 9993  degrees of freedom
+## AIC: 7733.6
+## 
+## Number of Fisher Scoring iterations: 5&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The logOdds model predictions for any given instance starts with a value equal to the intercept that the model estimated – in this case, -2.75. Then, if the instance has a grade anywhere between B..G, the logOdds is adjusted up or down (depending on the value of the estimate). If the instance has a grade
+equal to the reference level (grade A), then no modification is made. This is because &lt;em&gt;the intercept
+is the estimated prediction for the reference level, Grade A, and all other estimates are relative to
+Grade A.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Using a reference level has the benefit of adding interpretabilty to the z-scores for each of the 
+parameter estimates. Because each of the estimates is &lt;em&gt;relative to the reference level&lt;/em&gt;, we can answer
+the question “Are the average values for Grade B statisictally significantly different from those of Grade A?” The answer to that is found by looking at the z-score for the gradeB estimate – 5.954, which has
+a very small associated p-value, therefore we can reject the hypothesis that the means of gradeA and gradeB are the same. All other grade parameter estimates can likewise be interpreted as pairwise comparisons between each level and gradeA. Comparisons between other pairs can be obtained by contrasting 
+least-square means for each grade level.&lt;/p&gt;
+
+&lt;p&gt;Least-square mean estimates:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;lsmeans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'grade'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##  grade     lsmean         SE df  asymp.LCL  asymp.UCL
+##  A     -2.7486832 0.09153079 NA -2.9280803 -2.5692861
+##  B     -2.1167522 0.05373719 NA -2.2220752 -2.0114293
+##  C     -1.5436646 0.05234020 NA -1.6462495 -1.4410797
+##  D     -1.2135612 0.06564622 NA -1.3422255 -1.0848970
+##  E     -0.9162907 0.11602387 NA -1.1436933 -0.6888881
+##  F     -0.7922381 0.24603778 NA -1.2744633 -0.3100129
+##  G      0.9162907 0.83666003 NA -0.7235328  2.5561143
+## 
+## Results are given on the logit scale. 
+## Confidence level used: 0.95&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And pairwise contrasts:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;pairs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lsmeans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'grade'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##  contrast   estimate         SE df     z.ratio p.value
+##  A - B    -0.6319310 0.10613940 NA  -5.9537833  &amp;lt;.0001
+##  A - C    -1.2050186 0.10543900 NA -11.4285852  &amp;lt;.0001
+##  A - D    -1.5351220 0.11263797 NA -13.6288143  &amp;lt;.0001
+##  A - E    -1.8323925 0.14778168 NA -12.3993210  &amp;lt;.0001
+##  A - F    -1.9564451 0.26251186 NA  -7.4527875  &amp;lt;.0001
+##  A - G    -3.6649739 0.84165188 NA  -4.3545010  0.0003
+##  B - C    -0.5730876 0.07501455 NA  -7.6396863  &amp;lt;.0001
+##  B - D    -0.9031910 0.08483579 NA -10.6463434  &amp;lt;.0001
+##  B - E    -1.2004615 0.12786409 NA  -9.3885745  &amp;lt;.0001
+##  B - F    -1.3245141 0.25183780 NA  -5.2593937  &amp;lt;.0001
+##  B - G    -3.0330430 0.83838397 NA  -3.6177254  0.0055
+##  C - D    -0.3301034 0.08395786 NA  -3.9317745  0.0016
+##  C - E    -0.6273739 0.12728329 NA  -4.9289573  &amp;lt;.0001
+##  C - F    -0.7514265 0.25154341 NA  -2.9872638  0.0447
+##  C - G    -2.4599554 0.83829559 NA  -2.9344725  0.0520
+##  D - E    -0.2972705 0.13330778 NA  -2.2299562  0.2793
+##  D - F    -0.4213232 0.25464488 NA  -1.6545518  0.6465
+##  D - G    -2.1298520 0.83923145 NA  -2.5378601  0.1458
+##  E - F    -0.1240526 0.27202230 NA  -0.4560385  0.9993
+##  E - G    -1.8325815 0.84466653 NA  -2.1695917  0.3122
+##  F - G    -1.7085288 0.87208634 NA  -1.9591280  0.4410
+## 
+## Results are given on the log scale. 
+## P value adjustment: tukey method for comparing a family of 7 estimates&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The z-score for the estimate of the intercept can be interpreted as “is the intercept significantly different from 0?”&lt;/p&gt;
+
+&lt;h2 id=&quot;no-intercept-no-reference-level&quot;&gt;No intercept, no reference level&lt;/h2&gt;
+
+&lt;p&gt;Now examine the parameter estimates for when we instruct our model to &lt;em&gt;not&lt;/em&gt; estimate an intercept.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loan_status&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grade&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'binomial'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my.data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
+## Call:
+## glm(formula = loan_status ~ grade - 1, family = &quot;binomial&quot;, data = my.data)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.5829  -0.6222  -0.4769  -0.3523   2.3710  
+## 
+## Coefficients:
+##        Estimate Std. Error z value Pr(&amp;gt;|z|)    
+## gradeA -2.74868    0.09153 -30.030  &amp;lt; 2e-16 ***
+## gradeB -2.11675    0.05374 -39.391  &amp;lt; 2e-16 ***
+## gradeC -1.54366    0.05234 -29.493  &amp;lt; 2e-16 ***
+## gradeD -1.21356    0.06565 -18.486  &amp;lt; 2e-16 ***
+## gradeE -0.91629    0.11602  -7.897 2.85e-15 ***
+## gradeF -0.79224    0.24604  -3.220  0.00128 ** 
+## gradeG  0.91629    0.83666   1.095  0.27344    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 13862.9  on 10000  degrees of freedom
+## Residual deviance:  7719.6  on  9993  degrees of freedom
+## AIC: 7733.6
+## 
+## Number of Fisher Scoring iterations: 5&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Take note that the estimate for grade A is equivalent to the previously-estimated intercept. However,
+the estimates for all other grade levels are no longer interpreted as being relative to any other level – but rather they are &lt;em&gt;each&lt;/em&gt; interpreted as testing whether the weight is different from 0. So, while the estimates in isolation are much different from what they were previously, they are exactly equal to the previous relative estimates added to the previous intercept. The two models will lead
+to exactly the same predictions.&lt;/p&gt;
+
+&lt;p&gt;Least-square means in this case are equivalent to what they were previously.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;lsmeans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'grade'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##  grade     lsmean         SE df  asymp.LCL  asymp.UCL
+##  A     -2.7486832 0.09153079 NA -2.9280803 -2.5692861
+##  B     -2.1167522 0.05373719 NA -2.2220752 -2.0114293
+##  C     -1.5436646 0.05234020 NA -1.6462495 -1.4410797
+##  D     -1.2135612 0.06564622 NA -1.3422255 -1.0848970
+##  E     -0.9162907 0.11602387 NA -1.1436933 -0.6888881
+##  F     -0.7922381 0.24603778 NA -1.2744633 -0.3100129
+##  G      0.9162907 0.83666003 NA -0.7235328  2.5561143
+## 
+## Results are given on the logit scale. 
+## Confidence level used: 0.95&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;more-than-one-predictor&quot;&gt;More than one predictor&lt;/h1&gt;
+
+&lt;p&gt;Note that least-square mean estimates are not reliable when interaction terms are present in the model. Also, when more than one predictor is used, least-square mean estimates are the mean effect for each level
+of the requested factor &lt;em&gt;holding all other predictors constant at their averages&lt;/em&gt;. In other words, they
+are mean estimates “controlling for” the effect of other predictors.&lt;/p&gt;</content><author><name>deargle</name></author><category term="R" /><category term="logistic-regression" /><summary type="html">This post is to illustrate the differences in model parameter estimates for dummy-coded factors when the model includes an intercept versus when it does not.</summary></entry><entry><title type="html">I social engineer my own banks</title><link href="https://daveeargle.com/2018/04/09/I-social-engineer-my-own-banks/" rel="alternate" type="text/html" title="I social engineer my own banks" /><published>2018-04-09T00:00:00-04:00</published><updated>2018-04-09T00:00:00-04:00</updated><id>https://daveeargle.com/2018/04/09/I-social-engineer-my-own-banks</id><content type="html" xml:base="https://daveeargle.com/2018/04/09/I-social-engineer-my-own-banks/">&lt;p&gt;For miscellaneous reasons, I have several different checking accounts at different banks. The most wild reason for opening a new account
+was that one day, while on a trip, I acquired $200+ in coins. I had no nearby bank account with a physical presence – just a very small credit union.
+I was too cheap to use a Coinstar machine*, so instead, I went to various credit unions that were supposed to be partners with mine. I hauled in an extremely heavy duffle bag packed with rolled coins and hefted it on the counter. “Can I deposit these?” At four different credit union branches, the answer was often
+“we refuse, because you don’t have an account with us.” One said “we &lt;em&gt;would&lt;/em&gt;, except we don’t have a coin-counting machine.” So I called the next one in advance.
+I asked “can I deposit coins into my partner credit union through your branch?” They said “Certainly! Bring them on in.” Finally. This one was in the middle of a mall – it was a long walk.
+So I arrived, panting, heaved and hefted in my giant duffle bag and dropped it on the counter. Employee’s jaw drops. “I… was imagining like $20. I’ll be right back.” Had the whole
+family with me. 10 minutes later, she comes back out, and says in a low voice, “We can only accept the deposit if you open an account with us.” Fine, whatever, I just want to be done
+with this. I open an account, deposit the money. They gave us free hats and tote bags for being new customers. I entered the new account into YNAB. Logged in and checked it every once in a while.&lt;/p&gt;
+
+&lt;p&gt;Yesterday, I realized that they had started to charge us account inactivity fees. I ask nicely if they can reverse the fees, and they do. I then decide to close the account, just to streamline things.&lt;/p&gt;
+
+&lt;p&gt;This is the troubling part.&lt;/p&gt;
+
+&lt;p&gt;I call in. Phone call goes like this.&lt;/p&gt;
+
+&lt;p&gt;Me: “I would like to close my account.”&lt;/p&gt;
+
+&lt;p&gt;Agent: “What’s your account number?” I read it to her. “What’s your name?” I tell her. “Nope, that’s not your account.” We double-check the account number, she tries it again.&lt;/p&gt;
+
+&lt;p&gt;Agent: “Are you David Eargle?” … yes, but it would have been better if I had told you my name, if that’s being used as part of identity verification.&lt;/p&gt;
+
+&lt;p&gt;Agent: “What’s your birthday”? I rattle it off quickly. She says, “Did you say [my actual birthday]?” “Yes.” “Okay, good.” Well, if I actually wasn’t me, and didn’t know my birthday, it wouldn’t have mattered! Could have just mumbled something close-ish and said “yes” to whatever she corrected me on.&lt;/p&gt;
+
+&lt;p&gt;Agent: “What’s your secret passphrase?” I say just a moment, I need to look at my notes. I don’t have a verbal passphrase recorded – just three secret questions and a password
+reset question, all of which are 20+ random characters. I ask, “I have secret phrases answering the following questions. Which one of those do you want?” She’s not certain. She suggests, “Well, what’s the last four of your social?” I tell her.&lt;/p&gt;
+
+&lt;p&gt;Again, she says, “Did you say [my actual last four of the SSN]?” Palm to forehead, yes, that’s what I said. Another thing I didn’t need to be accurate on.&lt;/p&gt;
+
+&lt;p&gt;Agent: “Okay, I’ll close the account, but there’s still funds in it. We’ll mail out a check.”&lt;/p&gt;
+
+&lt;p&gt;Me: “What address will the funds be sent to?”&lt;/p&gt;
+
+&lt;p&gt;Agent: “You can just fax us the address you want, with a picture of your ID.”&lt;/p&gt;
+
+&lt;p&gt;Done.&lt;/p&gt;
+
+&lt;p&gt;I couldn’t be happier to be rid of that bank. Opsec level is -9000. If I had the name of another member and their account number, I could buy a few extra pieces
+of identifying information, forge an ID for him, call in today, close the account, and have all funds mailed to a destination of my choosing. Would the funds eventually
+be refunded? Eventually, but not after a long headache for the customer.&lt;/p&gt;
+
+&lt;p&gt;Not the first bank of mine to fail on the verbal-password auth challenge, either. Many improperly-trained agents &lt;a href=&quot;https://krebsonsecurity.com/2017/11/simple-banking-security-tip-verbal-passwords/&quot;&gt;can be easily persuaded to accept answers to knowledge-based questions instead&lt;/a&gt;, &lt;em&gt;despite a verbal password requirement being on file&lt;/em&gt;. In that post,  Krebs says that he tests the opsec of customer service agents at institutions that hold his assets. He eventually found one that consistently followed the protocol, although
+he left it unnamed. Maybe one day I’ll find them, too.&lt;/p&gt;
+
+&lt;p&gt;*Although I’m reading online that I could have exchanged the coins at a Coinstar for a gift-card, sans fees. Sigh.&lt;/p&gt;</content><author><name>deargle</name></author><summary type="html">For miscellaneous reasons, I have several different checking accounts at different banks. The most wild reason for opening a new account was that one day, while on a trip, I acquired $200+ in coins. I had no nearby bank account with a physical presence – just a very small credit union. I was too cheap to use a Coinstar machine*, so instead, I went to various credit unions that were supposed to be partners with mine. I hauled in an extremely heavy duffle bag packed with rolled coins and hefted it on the counter. “Can I deposit these?” At four different credit union branches, the answer was often “we refuse, because you don’t have an account with us.” One said “we would, except we don’t have a coin-counting machine.” So I called the next one in advance. I asked “can I deposit coins into my partner credit union through your branch?” They said “Certainly! Bring them on in.” Finally. This one was in the middle of a mall – it was a long walk. So I arrived, panting, heaved and hefted in my giant duffle bag and dropped it on the counter. Employee’s jaw drops. “I… was imagining like $20. I’ll be right back.” Had the whole family with me. 10 minutes later, she comes back out, and says in a low voice, “We can only accept the deposit if you open an account with us.” Fine, whatever, I just want to be done with this. I open an account, deposit the money. They gave us free hats and tote bags for being new customers. I entered the new account into YNAB. Logged in and checked it every once in a while.</summary></entry><entry><title type="html">myinsuranceinfo.com Legit-yet-scammy Letter</title><link href="https://daveeargle.com/2018/01/22/myinsuranceinfo.com-scam/" rel="alternate" type="text/html" title="myinsuranceinfo.com Legit-yet-scammy Letter" /><published>2018-01-22T00:00:00-05:00</published><updated>2018-01-22T00:00:00-05:00</updated><id>https://daveeargle.com/2018/01/22/myinsuranceinfo.com-scam</id><content type="html" xml:base="https://daveeargle.com/2018/01/22/myinsuranceinfo.com-scam/">&lt;style&gt;
+blockquote {font-size:16px; margin: 0px}
+blockquote p {margin-top: 0px; }
+&lt;/style&gt;
+
+&lt;div class=&quot;alert alert-info&quot;&gt;Please read all the way to the bottom. This turned out to be a legit, albeit incredibly tacky, letter from a partner of my credit union. Call your credit union to confirm.&lt;/div&gt;
+
+&lt;p&gt;Got the below letter in the mail Saturday night. It claims to be from the credit union that services our vehicle loan. It says that our insurance information is not current, and if we do not quickly provide our up-to-date insurance information to them, they may purchase insurance on our behalf.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dear [Me]:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A recent review of your loan file indicates that [my credit union] does not have a current copy of your physical damage insurance for the collateral listed below. The terms of your loan agreement require you to maintain this coverage on your collateral at all times.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Please furnish evidence of insurance that meets the following conditions. We will be unable to accept insurance information that does not meet all of these conditions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;[uninteresting conditions]&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For your convenience, you or your insurance agent may furnish evidence of insurance in the following ways:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;[uninteresting ways]&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In the event we do not receive evidence of your insurance coverage, we may purchase insurance on your behalf. You may want to avoid this action by providing proof of coverage.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you have any questions about this notice, please call our Insurance Service Center at 1(800)998-0763. Thank you for allowing us to serve you.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sincerely,&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Insurance Service Center&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;I was a bit distracted at the time of opening the letter, and it stressed me out – another thing on my todo list. I admit that at first, I intended to respond and submit our
+insurance information, but I was still hesitant. Why would my credit union be using an external company to process insurance information?&lt;/p&gt;
+
+&lt;p&gt;Thankfully I put it off until Monday, when I was fresher. Googled the name of the website and came
+across &lt;a href=&quot;https://www.reddit.com/r/Insurance/comments/6vkatb/myinsuranceinfocom/&quot;&gt;this reddit post&lt;/a&gt;, tipping me off to check out the loan number. The loan number was incorrect. The VIN is correct, though. (Redacted, although hey, you could likely find it too.) Phone number didn’t match up with our credit union. Phone number is also posted to some site called &lt;a href=&quot;http://www.gosafco.com/customers/automobile-insurance/&quot;&gt;GoSafco&lt;/a&gt;, supposedly for some automotive insurance company called Safco. web.archive.org says the site has been online since 2012. They helpfully offer this advice on their website:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you have received a notice regarding your insurance policy cancellation, a letter stating we need proof of insurance, or a non-renewal letter, please provide us with a copy of your insurance policy. You can FAX it to: 1-866-319-1597 or call 1-800-998-0763.  You may also email the information to MyInsurance@GoSAFCO.com&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;No thanks.&lt;/p&gt;
+
+&lt;p&gt;The site (&lt;a href=&quot;gosafco.com&quot;&gt;gosafco.com&lt;/a&gt;) is pretty thorough for a scam site, and free of typos. There’s another company called Safco that &lt;a href=&quot;http://www.safcoproducts.com/&quot;&gt;sells office products&lt;/a&gt; and that has &lt;a href=&quot;https://www.glassdoor.com/Overview/Working-at-SAFCo-EI_IE691184.11,16.htm&quot;&gt;Glassdoor reviews&lt;/a&gt;, so I think that SafCO &lt;em&gt;is&lt;/em&gt; legit.&lt;/p&gt;
+
+&lt;p&gt;Be careful out there, it’s a scammy world. (But most people are good.)&lt;/p&gt;
+
+&lt;p&gt;Edit: I might be wrong about this, but if I am, shame on my credit union partner for the terribly scammy-feeling letter. I found several other sites that have been around for almost two decades that link that website and phone number:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nicholasfinancial.com/?page_id=6809%3E&quot;&gt;Nicholas Financial Inc&lt;/a&gt; – which has a &lt;a href=&quot;https://www.glassdoor.com/Salary/Nicholas-Financial-Salaries-E7603.htm&quot;&gt;glassdoor&lt;/a&gt; profile with 29 reviews, which links back to that website. But the reviews themselves follow a pattern, as if the same person wrote many of them. But why would scammers need to establish the legitimacy of a company that the victims already believe exists, because they are legitimate customers of the company? That’s what I don’t get.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.gosafco.com/customers/automobile-insurance/&quot;&gt;Gosafco&lt;/a&gt; – feels phishy, and there’s an entirely separate company by the name Safco that sells home office products.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://csfservicing.com/&quot;&gt;CSF Servicing&lt;/a&gt; – but I mean, who includes an “update your insurance info” on their homepage?&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.goamplify.com/tools-and-maintenance/loan-info.aspx&quot;&gt;Amplify CU&lt;/a&gt; – different phone number, but also links www.myinsuranceinfo.com&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Edit 2: My credit union says they contacted their Allied rep, who confirms that they manage www.myinsuranceinfo.com, and who runs that phone number. However, they have not yet explained why they sent a letter with an incorrect loan number. I’m not embarrassed that I mistook this for a scam – it’s remarkably tacky for Allied to send a letter as if they were my CU (with CU letterhead!), and to identify themselves simply as “Insurance Service Center.” Shame on you, Allied.&lt;/p&gt;
+
+&lt;p&gt;I have shared my experience on that reddit post, which, interestingly, contradicts the experience of that OP with his bank.&lt;/p&gt;
+
+&lt;p&gt;And here’s what I sent to my credit union:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Please also pass this along: It’s really tacky of Allied to use your letterhead (which looks like a poor imitation at that) and to claim to be you, and then to link to a non-Alliant site, and to only call themselves “Insurance Service Center.” Insurance fraud is a big concern, and letters like this would be a great way to harvest information. VIN information is easy to get (I think). There’s no indicator of legitimacy in their letter – the post office box isn’t even linked to [the credit union] on your website from what I can tell. Perhaps [the credit union] could leave a note on your site explaining that Allied is your external partner who manages these kinds of things?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/myinsuranceinfo-scam-letter.png&quot; alt=&quot;scam letter page 1&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;</content><author><name>deargle</name></author><summary type="html"></summary></entry><entry><title type="html">Was almost certain this was an Experian postal phish</title><link href="https://daveeargle.com/2017/09/19/experian-letter-not-a-phish/" rel="alternate" type="text/html" title="Was almost certain this was an Experian postal phish" /><published>2017-09-19T00:00:00-04:00</published><updated>2017-09-19T00:00:00-04:00</updated><id>https://daveeargle.com/2017/09/19/experian-letter-not-a-phish</id><content type="html" xml:base="https://daveeargle.com/2017/09/19/experian-letter-not-a-phish/">&lt;p&gt;I froze my credit in the wake of the Equifax breach. Got two letters in the mail today, one for me and one for my wife, that I strongly suspected was a phishing scam. I 
+don’t recall asking to have our names removed from receiving preapproved credit offers for five years, but I suppose it could have been part of the freeze process and I just
+dind’t notice. Google searching
+for the P.O. box showed me it’s legit. Go figure. At any rate, it’s a good idea for a phishing scam with the credit bureaus in the news lately. Letter below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/experian-not-phish/img-2.jpg&quot; alt=&quot;the letter&quot; width=&quot;600px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/experian-not-phish/img-1.jpg&quot; alt=&quot;the envelope&quot; width=&quot;600px&quot; /&gt;&lt;/p&gt;</content><author><name>deargle</name></author><summary type="html">I froze my credit in the wake of the Equifax breach. Got two letters in the mail today, one for me and one for my wife, that I strongly suspected was a phishing scam. I don’t recall asking to have our names removed from receiving preapproved credit offers for five years, but I suppose it could have been part of the freeze process and I just dind’t notice. Google searching for the P.O. box showed me it’s legit. Go figure. At any rate, it’s a good idea for a phishing scam with the credit bureaus in the news lately. Letter below.</summary></entry><entry><title type="html">How to learn lockpicking</title><link href="https://daveeargle.com/2017/09/06/How-to-learn-lockpicking/" rel="alternate" type="text/html" title="How to learn lockpicking" /><published>2017-09-06T00:00:00-04:00</published><updated>2017-09-06T00:00:00-04:00</updated><id>https://daveeargle.com/2017/09/06/How%20to%20learn%20lockpicking</id><content type="html" xml:base="https://daveeargle.com/2017/09/06/How-to-learn-lockpicking/">&lt;p&gt;I’m preparing to teach lockpicking to my class of 20 students in my information security management course at CU Boulder as an object lesson on the importance of physical security.
+My colleague &lt;a href=&quot;https://anthonyvance.com/&quot;&gt;Tony Vance&lt;/a&gt; has done the same at BYU, so he shared with me how he approaches it. I’m documenting what I’ve done.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Make lock stands out of wood. I used 2x4 cut to 11”, which I screwed onto some scrap 1x wood I had lying around. Screws need about 1” bite, more going into endgrain, 
+so I used 2” screws for the joint. (I’ll post a picture soon). 2x4’s are just baaarely wide enough to receive a doorknob jig &lt;a href=&quot;http://www.homedepot.com/p/Ryobi-Wood-Metal-Door-Lock-Installation-Kit-A99DLK4/205209873&quot;&gt;like this&lt;/a&gt;,
+but it doesn’t matter if the hole goes off the wood a bit. The deadbolt doesn’t rely on a perfectly in-tact hole for stability. (You don’t have to use a stand – you can just hold the deadbolt in the same hand applying the tension. But I think the stands are fun.)
+    &lt;ul&gt;
+      &lt;li&gt;1” hole saws, like the kind that come in knob jigs, are a bane of my existence. I had the hardest time getting them to release the wood plug. I much prefer using a 1” spade bit.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I bought a slew of Defiant single-cylinder deadbolts, $11 each. They use a KW1-keyway. Defiants are good for beginners, but that doesn’t mean they’re &lt;em&gt;too&lt;/em&gt; easy for beginners.
+All Defaint deedbolts have at least once security pin (a spool) in position #3. But even with those, I picked my first lock within two days.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Since these deadbolts use a KW-1 keyway, they’re bumpable with &lt;a href=&quot;https://www.bumpmylock.com/kwikset-kw1-house-key-bump-key.html&quot;&gt;these bump keys&lt;/a&gt;, which I also bought several of.
+These deadbolts aren’t expensive enough to have any kind of anti-bumping pins, so they’re super bumpable. For bump hammers, I just bought a bunch of &lt;a href=&quot;http://www.homedepot.com/p/2-in-x-4-in-Phillips-Head-Screwdriver-008-004-NOB/100651743&quot;&gt;&amp;lt;$1 screwdrivers from HD&lt;/a&gt;.
+They work well enough. I strike with the handle.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For lock picks, I ordered several sets of &lt;a href=&quot;https://www.southord.com/Lock-Pick-Tools/Lock-Pick-Set-11-Piece-Metal-Handles.html&quot;&gt;Southord “Eleven Piece Lock Pick Set With Metal Handles”&lt;/a&gt;. &lt;a href=&quot;http://www.southord.com/Lock-Pick-Tools/Lock-Pick-Set-14-Piece-PXS-14.html&quot;&gt;This set&lt;/a&gt;
+also looks nice, and they’re a little cheaper, but I haven’t tried them.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;My first read was Deviant Ollam’s &lt;a href=&quot;http://a.co/3kuTwFw&quot;&gt;Practical Lock Picking: A Physical Penetration Tester’s Training Guide&lt;/a&gt;, which got me started. I struggled my first day though – probably because
+I didn’t read far enough into it to learn about security pins. Reading &lt;a href=&quot;https://www.dropbox.com/s/y39ix9u9qpqffct/Lockpicking%20Detail%20Overkill.pdf?dl=0&quot;&gt;Lock Picking: Detail Overkill&lt;/a&gt;, which I found on the &lt;a href=&quot;https://www.reddit.com/r/lockpicking&quot;&gt;/r/lockping&lt;/a&gt; wiki, helped me get a better 
+feel for the right amount of tension to apply, and also for how to deal with the spool security pin. Also, by the second day, I had a better feel for how to hold the pick and tension wrench. I think 
+sleeping on it helped. I’ve been practicing at the office for 2-minute breaks, and it’s feeling even more natural.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The single lock picking stand on my desk right is very interesting to anyone who visits my office. I haven’t taught that class yet, but the students are excited. My neighbor isn’t so excited (“Hi Dave, what’s new?” “Just picked my first lock!” “… so my neighbor is a criminal…” “I’m also going to teach it to 20 college students,
+making them all criminals, too.” “… oh, that’s… good.”)&lt;/p&gt;</content><author><name>deargle</name></author><summary type="html">I’m preparing to teach lockpicking to my class of 20 students in my information security management course at CU Boulder as an object lesson on the importance of physical security. My colleague Tony Vance has done the same at BYU, so he shared with me how he approaches it. I’m documenting what I’ve done.</summary></entry><entry><title type="html">Why Flame md5 collision was necessary</title><link href="https://daveeargle.com/2017/09/06/why-flame-md5-collision-was-necessary/" rel="alternate" type="text/html" title="Why Flame md5 collision was necessary" /><published>2017-09-06T00:00:00-04:00</published><updated>2017-09-06T00:00:00-04:00</updated><id>https://daveeargle.com/2017/09/06/why-flame-md5-collision-was-necessary</id><content type="html" xml:base="https://daveeargle.com/2017/09/06/why-flame-md5-collision-was-necessary/">&lt;p&gt;I read &lt;a href=&quot;https://www.amazon.com/Countdown-Zero-Day-Stuxnet-Digital/dp/0770436196&quot;&gt;Countdown to Zero Day&lt;/a&gt; (and really enjoyed it!) but I still didn’t have a firm grasp 
+on why the NSA needed to forge their own certificate when they already had a valid code-signing certificate from Microsoft. &lt;a href=&quot;https://crypto.stackexchange.com/questions/44151/how-does-the-flame-malware-take-advantage-of-md5-collision&quot;&gt;These&lt;/a&gt; &lt;a href=&quot;https://trailofbits.files.wordpress.com/2012/06/flame-md5.pdf&quot;&gt;two&lt;/a&gt; sources were the most
+helpful for me to finally understand why.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;They got their hands on a signed windows certificate that could sign code. But the problem was that it could only sign code for Window XP – it had an extension in it that 
+blocked it from signing Vista or Windows 7 code. So &lt;em&gt;that’s&lt;/em&gt; why they needed to make a forged certificate – one that had the signature stolen from the legit cert, but the extension disabled, 
+so that it could sign code for Windows 7.&lt;/li&gt;
+  &lt;li&gt;The only code that they straight-up copied from the legit cert was the md5 signature and some bits before it (including the extension they wanted to disable). 
+The rest was their own. They put their own RSA signing key into their certificate. They modified a block after the key which made Windows ignore the 
+extension they needed to disable. The trick was predicting the serial number and the validity period. They had a 1-second window for predicting the validity 
+period, and a 1-ms period for predicting the serial number.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This slide from the second link, a TrailOfBits slide deck, is what helped me the most:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/md5-flame-cert-comparison.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The whole slide deck is worth a read-over. I admit I’m too novice to understand the importance of near collision blocks and birthday bits.&lt;/p&gt;</content><author><name>deargle</name></author><summary type="html">I read Countdown to Zero Day (and really enjoyed it!) but I still didn’t have a firm grasp on why the NSA needed to forge their own certificate when they already had a valid code-signing certificate from Microsoft. These two sources were the most helpful for me to finally understand why.</summary></entry><entry><title type="html">Hosting vulnerable servers on AWS</title><link href="https://daveeargle.com/2017/03/28/Hosting-vulnerable-servers-on-AWS/" rel="alternate" type="text/html" title="Hosting vulnerable servers on AWS" /><published>2017-03-28T00:00:00-04:00</published><updated>2017-03-28T00:00:00-04:00</updated><id>https://daveeargle.com/2017/03/28/Hosting%20vulnerable%20servers%20on%20AWS</id><content type="html" xml:base="https://daveeargle.com/2017/03/28/Hosting-vulnerable-servers-on-AWS/">&lt;p&gt;I’ll be starting a new job at CU Boulder soon. One of my responsibilities will be to teach an information security management class to business school students. I don’t know whether there will be a lab available where I can host VMs for students to do vulnerability assessments on, and I can’t just distribute OVAs for this because of how easy it would be to boot into root. So I want to host vulnerable servers on something like AWS. Obvious problem is that vulnerable servers are… vulnerable. I don’t want the boxes to be pwned before the students can start playing with them. So for the last day or so I learned about taking vulnerable VMs and launching them into a VPN on AWS. This post documents what I learned.&lt;/p&gt;
+
+&lt;p&gt;Went like this:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;create a VPC on AWS&lt;/li&gt;
+  &lt;li&gt;configure OpenVPN community on an Ubuntu AMI&lt;/li&gt;
+  &lt;li&gt;make a vulnerable virtual image&lt;/li&gt;
+  &lt;li&gt;Export the appliance and convert it to an AMI&lt;/li&gt;
+  &lt;li&gt;launch 1-to-many instances of your vulnerable AMIs into the VPN&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;create-a-vpc&quot;&gt;Create a VPC&lt;/h3&gt;
+
+&lt;p&gt;I created a new VPC intended just for vulnerable servers + the OpenVPN server. I created two subnets: one default public, where I put the openVPN server, and another default private, where all the violator instances were launched.&lt;/p&gt;
+
+&lt;p&gt;In my config:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;vpc with subnet &lt;code class=&quot;highlighter-rouge&quot;&gt;172.32.0.0/16&lt;/code&gt;. Your CIDR just has to be different from whatever VPCs you already have.&lt;/li&gt;
+  &lt;li&gt;created a new internet gateway, attached it to the new VPC&lt;/li&gt;
+  &lt;li&gt;Two subnets, named one ‘vulnerable-public’ and the other ‘vulnerable-private’, CIDR’s &lt;code class=&quot;highlighter-rouge&quot;&gt;172.32.0.0/20&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;172.32.16.0/20&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Edited the route table for the public subnet to include the new internet gateway: Destination &lt;code class=&quot;highlighter-rouge&quot;&gt;0.0.0.0/0&lt;/code&gt; Target &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;the gateway&amp;gt;&lt;/code&gt;. This will allow OpenVPN to access the interwebs.&lt;/li&gt;
+  &lt;li&gt;While in the VPC Dashboard, check your Network ACLs, and make sure that your inbound rules allow all traffic. Also check your default security group for your new VPC, and change the source to &lt;code class=&quot;highlighter-rouge&quot;&gt;0.0.0.0/0&lt;/code&gt;. (I don’t use the default for the openvpn server, just for the instances launched into the private-only subnet).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now I’ll admit something: that last step took me late into the night. I must have kept looking over the Source error in the security rule, I could not figure out why I couldn’t ssh into my openvpn server. I’m pretty certain the security group stuff here is the same as it is on the ec2 dashboard page. Note to self though, if no connectivity, it’s almost certaintly security group stuff somewhere.&lt;/p&gt;
+
+&lt;p&gt;Note 9/26/2017: Looks like the default nowadays is for the ACLs to allow all inbound/outbound traffic by default.&lt;/p&gt;
+
+&lt;p&gt;It’s important to note that your vulnerable VMs will not have access to the internet. For that, you would need a NAT Gateway. VPC has a handy wizard which will set that up for you, but I don’t need my vulnerable VMs to have internet access.&lt;/p&gt;
+
+&lt;h3 id=&quot;configure-openvpn-community-on-an-ubuntu-ami&quot;&gt;Configure OpenVPN community on an Ubuntu AMI&lt;/h3&gt;
+
+&lt;p&gt;Now from the EC2 dashboard. I created a new micro instance from an official ubuntu 16.04 AWS AMI.&lt;/p&gt;
+
+&lt;p&gt;During the launch config:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Change Network to the new VPC&lt;/li&gt;
+  &lt;li&gt;Change Subnet to your public one&lt;/li&gt;
+  &lt;li&gt;Click through to configure the security group. I created one that matches the one created by the official (but paid) OpenVPN Access Server marketplace AMI. That security group does this:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Custom UPD | 1194 | 0.0.0.0/0&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Custom TCP | 943 | 0.0.0.0/0&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTPS | 0.0.0.0&lt;/code&gt; (not necessary for the community version though)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SSH | 0.0.0.0/0&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Create a new keypair, download the pem, and if on Windows, use puttygen to load it and save the private .ppk file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Aaaand launch and then ssh in, following the &lt;code class=&quot;highlighter-rouge&quot;&gt;connect&lt;/code&gt; instructions.&lt;/p&gt;
+
+&lt;p&gt;For configuring OpenVPN server, I leaned mostly on &lt;a href=&quot;https://rbgeek.wordpress.com/2012/12/13/openvpn-server-on-ubuntu-12-04-behind-nat/&quot;&gt;this blog post&lt;/a&gt;, and partly on &lt;a href=&quot;http://agiletesting.blogspot.com/2015/01/setting-up-openvpn-server-inside-aws-vpc.html&quot;&gt;this blog post&lt;/a&gt;. Command history for posterity:&lt;/p&gt;
+
+&lt;p&gt;Assume &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; when not root.&lt;/p&gt;
+
+&lt;p&gt;Note: if you get an error about ‘unable to resolve host’ when you try sudo, then add &lt;code class=&quot;highlighter-rouge&quot;&gt;hostname&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt; localhost entry.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get update -y &amp;amp;&amp;amp; apt-get upgrade -y
+apt-get install openvpn easy-rsa
+cd /etc/openvpn/
+mkdir easy-rsa
+cp -r /usr/share/easy-rsa/* /etc/openvpn/easy-rsa/
+vim vars # edit parameters at bottom to whatever
+su -
+cd /etc/openvpn/easy-rsa
+. ./vars
+./clean-all
+./build-ca
+./build-key-server server # I didn't set a password
+./build-key client # I didn't set a password.
+./build-dh
+cd keys
+cp ca.crt server.crt server.key client.key client.crt dh2048.pem /etc/openvpn
+exit # to leave root
+openvpn --genkey --secret secret.key
+cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/
+gzip -d /etc/openvpn/server.conf.gz
+
+vim server.conf  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Changes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;push the CIDR for your entire VPC. In my case, &lt;code class=&quot;highlighter-rouge&quot;&gt;push &quot;route 172.32.0.0 255.255.0.0&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;change tls-auth line to be &lt;code class=&quot;highlighter-rouge&quot;&gt;tls-auth secret.key 0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;uncomment &lt;code class=&quot;highlighter-rouge&quot;&gt;duplicate-cn&lt;/code&gt; (Important!). This allows multiple clients to connect using the same certificate, which is our situation&lt;/li&gt;
+  &lt;li&gt;uncomment &lt;code class=&quot;highlighter-rouge&quot;&gt;client-to-client&lt;/code&gt; to let metasploit exploits connect back to listeners on kali&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim /etc/sysctl.conf&lt;/code&gt;, uncomment &lt;code class=&quot;highlighter-rouge&quot;&gt;net.ipv4.ip_forward=1&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sysctl -p
+
+iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-s&lt;/code&gt; here should be the CIDR that you set in the &lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt; directive in server.conf, &lt;em&gt;not&lt;/em&gt; your VPC CIDR.&lt;/li&gt;
+  &lt;li&gt;also put that &lt;code class=&quot;highlighter-rouge&quot;&gt;iptables&lt;/code&gt; line into in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/rc.local&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now test that you can launch the server.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;openvpn --config /etc/openvpn/server.conf # to test that everything is working
+
+openvpn --daemon --config /etc/openvpn/server.conf # when ready
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;note that if you restart your instance, openvpn will launch as a service (e.g., &lt;code class=&quot;highlighter-rouge&quot;&gt;service openvpn start&lt;/code&gt;, so you won’t be able to run the last two commands unless you shut it down via &lt;code class=&quot;highlighter-rouge&quot;&gt;service openvpn stop&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Now, get your &lt;code class=&quot;highlighter-rouge&quot;&gt;client.conf&lt;/code&gt; prepared for distribution to the kali boxes.&lt;/p&gt;
+
+&lt;p&gt;Whatever you name your client conf, don’t put it in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/openvpn&lt;/code&gt; with a &lt;code class=&quot;highlighter-rouge&quot;&gt;*.conf&lt;/code&gt; extension. If you do, &lt;code class=&quot;highlighter-rouge&quot;&gt;service openvpn start&lt;/code&gt; will run it, as well as your
+&lt;code class=&quot;highlighter-rouge&quot;&gt;server.conf&lt;/code&gt; in that directory. That will make your box both a server and a client to itself, which leads to bad times and headaches.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/client.conf.for-kali&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, &lt;code class=&quot;highlighter-rouge&quot;&gt;vim client.conf.for-kali&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Set your open vpn public server ip in &lt;code class=&quot;highlighter-rouge&quot;&gt;remote ... 1194&lt;/code&gt;. Add elastic ip to your openvpn aws instance when ready so that you don’t have to keep changing this every time you start/stop your vpn instance.&lt;/li&gt;
+  &lt;li&gt;Add your secret.key contents inside a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;tls-auth&amp;gt;&lt;/code&gt; block, and also add &lt;code class=&quot;highlighter-rouge&quot;&gt;key-direction 1&lt;/code&gt; after. See my redacted client.conf below. 
+  See &lt;a href=&quot;http://serverfault.com/questions/483941/generate-an-openvpn-profile-for-client-user-to-import&quot;&gt;here&lt;/a&gt; for a discussion of inline certs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Do &lt;em&gt;not&lt;/em&gt; put any &lt;code class=&quot;highlighter-rouge&quot;&gt;route&lt;/code&gt; statements in &lt;code class=&quot;highlighter-rouge&quot;&gt;client.conf&lt;/code&gt;. Let the server do the pushing.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scp&lt;/code&gt; or whatever your client.conf down off the server, and try connecting while your openvpn server is running. On Kali, just run &lt;code class=&quot;highlighter-rouge&quot;&gt;openvpn client.conf&lt;/code&gt;. Then to test that it’s all working, run &lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt; and look for a &lt;code class=&quot;highlighter-rouge&quot;&gt;tun&lt;/code&gt; interface. Try pinging the openvpn host, in my case, 10.8.0.1.&lt;/p&gt;
+
+&lt;p&gt;Also run &lt;code class=&quot;highlighter-rouge&quot;&gt;route&lt;/code&gt; on Kali, and confirm that you have a &lt;code class=&quot;highlighter-rouge&quot;&gt;destination&lt;/code&gt; entry for your vpn CIDR – in my case, &lt;code class=&quot;highlighter-rouge&quot;&gt;10.8.0.0 10.8.0.x 255.255.255.0&lt;/code&gt;, where &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; is the ip of the destination gateway for your &lt;code class=&quot;highlighter-rouge&quot;&gt;tun&lt;/code&gt; interface (viewable in &lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;On Windows, with the OpenVPN community GUI, you can just rename your &lt;code class=&quot;highlighter-rouge&quot;&gt;client.conf&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;client.ovpn&lt;/code&gt; and import that into the tool, then connect.&lt;/p&gt;
+
+&lt;h4 id=&quot;full-conf-files&quot;&gt;Full conf files&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/deargle/ce70b597645dc7c7c9eaec40875faaf5&quot;&gt;Here’s my redacted server.conf and client.conf&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;make-a-vulnerable-virtual-image-then-export-it&quot;&gt;Make a vulnerable virtual image, then export it&lt;/h3&gt;
+
+&lt;p&gt;I skipped this step, but here you’d create a VM however you like, making it nice and vulnerable. Then you export your image into a format that AWS likes. There are &lt;a href=&quot;http://docs.aws.amazon.com/vm-import/latest/userguide/export-vm-image.html&quot;&gt;several acceptable formats for AWS mentioned in the docs&lt;/a&gt;, OVA included. In VirtualBox, you can export a VM as an OVA using &lt;code class=&quot;highlighter-rouge&quot;&gt;File &amp;gt; Export Appliance...&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The important thing to note here is that only certain OSes are compatible with AWS’s AMI format. &lt;a href=&quot;http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html&quot;&gt;Thankfully, the list is long.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;letting-the-vulnerable-vms-talk-back-to-connected-vpn-clients&quot;&gt;Letting the vulnerable VMs talk back to connected VPN clients&lt;/h4&gt;
+
+&lt;p&gt;If you want to be able to run metasploit shell exploits, the vulnerable VMs need to have a route to the connected VPN clients (to the attack machines). This is because metasploit launches
+listeners, then executes payloads on victim machines that reach out to the listener. The solution I came up with for doing this is to put each of the vulnerable VMs on the VPN, too, but to
+change their client.conf a bit.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install openvpn to your image.&lt;/li&gt;
+  &lt;li&gt;Change client.conf &lt;code class=&quot;highlighter-rouge&quot;&gt;remote&lt;/code&gt; directive to point to the &lt;em&gt;private ip address&lt;/em&gt; of your openvpn instance, not the public one (remember, the instances in the private network don’t have internet connectivity)&lt;/li&gt;
+  &lt;li&gt;Add two more lines to &lt;code class=&quot;highlighter-rouge&quot;&gt;client.conf&lt;/code&gt; that goes on the vulnerable vms (do &lt;em&gt;not&lt;/em&gt; put these in the client.conf that Kali uses!):
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;route-nopull&lt;/code&gt; (this blocks the vpn connection from clobbering the private network route that already exists for your VPC via the ‘push route’ statements, in my case, 172.32.0.0/16.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;route 10.8.0.0 255.255.255.0&lt;/code&gt; (Set your vpn server’s &lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt; directive CIDR network here. This lets the vulnerable servers talk to clients on the VPN network, when combined with the &lt;code class=&quot;highlighter-rouge&quot;&gt;client-to-client&lt;/code&gt; directive in server.conf)
+        &lt;ul&gt;
+          &lt;li&gt;This route statement is necessary because we said &lt;code class=&quot;highlighter-rouge&quot;&gt;route-nopull&lt;/code&gt;, which otherwise would have set the &lt;code class=&quot;highlighter-rouge&quot;&gt;10.8.0.0&lt;/code&gt; for us.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Edit &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/defaults/openvpn&lt;/code&gt; on the vulnerable vms and add a line for &lt;code class=&quot;highlighter-rouge&quot;&gt;AUTOSTART=&quot;client&quot;&lt;/code&gt;, then put your edited client.conf in /etc/openvpn. With it there, it should be automatically started on boot.&lt;/p&gt;
+
+&lt;p&gt;If you forgot to do this step before you imported your VM image into AWS, you can edit one of your launched images, then make a new AMI image based on that running instance. Faster than reuploading the whole thing to S3.&lt;/p&gt;
+
+&lt;h3 id=&quot;convert-your-image-to-an-ami&quot;&gt;Convert your image to an AMI&lt;/h3&gt;
+
+&lt;p&gt;You’ll need the &lt;a href=&quot;https://aws.amazon.com/cli/&quot;&gt;AWS CLI&lt;/a&gt;. Download it, and then give it your root credentials by running &lt;code class=&quot;highlighter-rouge&quot;&gt;aws configure&lt;/code&gt; so that you can follow the next steps.&lt;/p&gt;
+
+&lt;p&gt;The process for creating an AMI involves:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;uploading your &lt;code class=&quot;highlighter-rouge&quot;&gt;.ova&lt;/code&gt; to an S3 bucket,&lt;/li&gt;
+  &lt;li&gt;creating an IAM &lt;code class=&quot;highlighter-rouge&quot;&gt;VM Import Service Role&lt;/code&gt;,&lt;/li&gt;
+  &lt;li&gt;invoking the magic spells in the aws console to import the image from S3 into an AMI.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note: upload your &lt;code class=&quot;highlighter-rouge&quot;&gt;.ova&lt;/code&gt; into the S3 bucket in the region where you want your &lt;code class=&quot;highlighter-rouge&quot;&gt;openvpn&lt;/code&gt; server to run. When you run the commands to convert the &lt;code class=&quot;highlighter-rouge&quot;&gt;.ova&lt;/code&gt; into an AMI, the bucket region will determine in which region the AMI ends up.
+If you import it into the wrong region, you can copy your AMI to a different region &lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html#copying-an-ami&quot;&gt;thusly&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Docs &lt;a href=&quot;http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html&quot;&gt;here&lt;/a&gt;. First follow &lt;a href=&quot;http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#import-vm-image&quot;&gt;these steps for creating a VM Import Service Role&lt;/a&gt;. Then, upload the VM image file to S3 (I used the browser interface to upload). Then follow the last step to initiate the import transfer.&lt;/p&gt;
+
+&lt;p&gt;Went smoothly for me, although the actual import (the last step) took 10+ minutes. When you create your own AMI, AWS launches a copy of your instance appliance and then takes a snapshot of it. That snapshot will be associated with your new AMI, and is not deletable unless you first unregister your AMI. So be aware, you’ll be paying for the storage of that snapshot as long as you have the AMI. Note that your AMI will
+only show up in the view for the region where you deployed it.&lt;/p&gt;
+
+&lt;p&gt;Note: When you convert your &lt;code class=&quot;highlighter-rouge&quot;&gt;.ova&lt;/code&gt; into an AMI, any network interface that it used to have are replaced with one that will work with EC2. The new network interface should
+automatically obtain a private ip in the subnet that it’s launched in when it starts up.&lt;/p&gt;
+
+&lt;p&gt;Note 9/26/2017: When I used the aws cli on Linux, I had to run &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ntpdate time.nist.gov&lt;/code&gt; before the s3 commands would work.&lt;/p&gt;
+
+&lt;h3 id=&quot;launch-a-gazillion-violators&quot;&gt;Launch a gazillion Violators&lt;/h3&gt;
+
+&lt;p&gt;Or whatever.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Launch them into the correct &lt;code class=&quot;highlighter-rouge&quot;&gt;Network&lt;/code&gt;, and for the &lt;code class=&quot;highlighter-rouge&quot;&gt;Subnet&lt;/code&gt;, into the &lt;em&gt;private&lt;/em&gt; subnet so that they don’t get a public ip.&lt;/li&gt;
+  &lt;li&gt;“Proceed without a keypair”&lt;/li&gt;
+  &lt;li&gt;Change to a security group setting that allows “All Traffic” inbound.&lt;/li&gt;
+  &lt;li&gt;You can launch multiple at once at “Step 3: Configure Instance Details” &amp;gt; “Number of instances”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Try pinging their ips from a client that’s connected to the VPN. Then try exploiting them. &lt;strong&gt;Important:&lt;/strong&gt; In &lt;code class=&quot;highlighter-rouge&quot;&gt;msf&lt;/code&gt;, for &lt;code class=&quot;highlighter-rouge&quot;&gt;LHOST&lt;/code&gt;, use kali’s &lt;em&gt;vpn ip address&lt;/em&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;tun0&lt;/code&gt;, 
+but you can target the private-ip address of the vulnerable vms (the &lt;code class=&quot;highlighter-rouge&quot;&gt;172.&lt;/code&gt; addresses for me – you don’t need to target or know the vulnerable vm’s vpn tun0 
+ip address).&lt;/p&gt;
+
+&lt;p&gt;Fist-pump &lt;del&gt;three&lt;/del&gt; six times if great success.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Note: Because &lt;code class=&quot;highlighter-rouge&quot;&gt;client-to-client&lt;/code&gt; is enabled, students can theoretically attack other students’ kali instances if they’re both connected to the vpn at the same time. 
+Kali doesn’t have a listening ssh server by default, so known-password isn’t a vector. (They’ll likely not have changed the password from what it
+was when you distributed VM instances to them…)&lt;/p&gt;</content><author><name>deargle</name></author><summary type="html">I’ll be starting a new job at CU Boulder soon. One of my responsibilities will be to teach an information security management class to business school students. I don’t know whether there will be a lab available where I can host VMs for students to do vulnerability assessments on, and I can’t just distribute OVAs for this because of how easy it would be to boot into root. So I want to host vulnerable servers on something like AWS. Obvious problem is that vulnerable servers are… vulnerable. I don’t want the boxes to be pwned before the students can start playing with them. So for the last day or so I learned about taking vulnerable VMs and launching them into a VPN on AWS. This post documents what I learned.</summary></entry><entry><title type="html">I received a blackmail letter</title><link href="https://daveeargle.com/2016/10/24/I-received-a-blackmail-letter/" rel="alternate" type="text/html" title="I received a blackmail letter" /><published>2016-10-24T00:00:00-04:00</published><updated>2016-10-24T00:00:00-04:00</updated><id>https://daveeargle.com/2016/10/24/I-received-a-blackmail-letter</id><content type="html" xml:base="https://daveeargle.com/2016/10/24/I-received-a-blackmail-letter/">&lt;p&gt;Got something very interesting in the mail a few days ago – a blackmail letter! Claiming that someone discovered that I have been unfaithful to my wife (which I haven’t been, I assure you). Obviously a phishing scam, but while these kinds of things may be common in email spamboxes, when USPS is used, it’s a felony. I did some research and it looks very much like a copycat of &lt;a href=&quot;https://www.grahamcluley.com/ashley-madison-blackmail-letter/&quot;&gt;the Ashley Madison blackmail letters&lt;/a&gt; that went out last December, except the version I received only requires a name and an address. My name was only mentioned twice, and no other names were named. I’m attaching redacted copies.&lt;/p&gt;
+
+&lt;p&gt;Compare the letter I received (below) to the Ashley Madison one linked above.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The line spacing within-paragraph is the same,&lt;/li&gt;
+  &lt;li&gt;the font face is the same,&lt;/li&gt;
+  &lt;li&gt;the spacing between paragraphs is the same (which is noteworthy since it’s rather large spacing),&lt;/li&gt;
+  &lt;li&gt;the requested amount ($2k) is exactly the same except that my version includes a comma in the number figure,&lt;/li&gt;
+  &lt;li&gt;the language and font styling describing the “Receiving Bitcoin Address” is exactly the same, as is the wording from that point onward about things like “payment must be received by…”&lt;/li&gt;
+  &lt;li&gt;the “THIS DOCUMENT IS TWO-SIDED” language on the bottom is also identical, although mine is right-aligned. Etcetera.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It’s such a close match that it’s obviously related to AM, but who would have taken the time to start with a physical letter and then match the formatting exactly in their own word template? Doesn’t make sense, unless there’s just one guy doing all this, which I doubt. I suspect that the digital file template that was used in the original AM blackmails is being shared on the darkwebs, although I haven’t ventured out to confirm. Sharing of source material is common, especially when the originator is feeling the heat and needs plausible deniability. &lt;a href=&quot;https://krebsonsecurity.com/2016/10/source-code-for-iot-botnet-mirai-released/&quot;&gt;Happened with the Mirai IoT Botnet source code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The envelope used a physical stamp, and was sent from “Pittsburgh 150.” Impossible to say exactly where that is, but 150 is the first three in the 5-digit zip for the wide Pittsburgh region. I sent my original copy to the Pittsburgh US Postal Inspector, and I also filed a report with my local borough police in case these guys are shot-gunning letters to everyone in the neighborhood. It kind of unnerves me to imagine someone as nearby as downtown taking the time to stuff the envelope and drop it in the mailbox with my name on it, though. The day I received it, I found myself on edge when cars slowed down in front of our house. I suspect they got my address from the same place that junk mailers got it from. We’ll see what the inspector general finds, if anything. I doubt they’ll get much from the letter I sent them since I handled it so much, but maybe they’ll find something somewhere else.&lt;/p&gt;
+
+&lt;p&gt;On the cost issue from the perspective of the attacker: I’d be curious to know the response rates to postal letters versus spam emails, if the exact same message were sent out. I’d naturally predict that postal response rates would be much higher. But how much higher do they need to be, economically speaking? I’m having trouble finding an exact number (I know it’s in Brian Kreb’s &lt;em&gt;Spam Nation&lt;/em&gt;, amazing book by the way), but an old estimate I found is that spam costs &lt;a href=&quot;https://en.wikipedia.org/wiki/Email_spam#Cost_of_spam&quot;&gt;$0.00001 per email&lt;/a&gt;. So the response rate to a physical letter has to be at least 44,000 times higher than for a single spam email in order for it to make financial sense. I wouldn’t be surprised if it were. At 50 cents each and at 2k payout you’d only need a response rate of 1/4000 in order to break even.&lt;/p&gt;
+
+&lt;p&gt;Other considerations are that, for the letter I received, the attacker had to know that I am currently married, to a woman. They did not need to know my gender. My next curiosity is to see what’s available in the way of address list specificity. Maybe there is a specific list of “addresses of people married to a woman.” That’d be interesting. I’d also be interested to see what the street value is of each bit of information, e.g. the price of an address, birthday, home ownership status, credit cards owned, web searching behavior, etc. But I need to prepare a bit more before I delve into the darkwebs. vpn, tor, etc.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-should-you-do-if-you-also-got-a-letter&quot;&gt;What should you do if you also got a letter?&lt;/h2&gt;
+
+&lt;p&gt;You should contact the U.S. Postal Inspection Service (USPIS). The agent handling the case is Kyle Parker (&lt;a href=&quot;mailto:KWParker@uspis.gov&quot;&gt;KWParker@uspis.gov&lt;/a&gt;). Shoot him an email, and cc me if you wouldn’t mind. You may also file a formal complaint on &lt;a href=&quot;https://ehome.uspis.gov/fcsexternal/default.aspx&quot;&gt;the agency website&lt;/a&gt;. The Postal Inspection Service is the lead agency and is working with FBI and other federal and local agency regarding this scheme. Due to the time sensitivity of this fraud, Inspector Parker requests you scan a copy of the letter and envelope as soon as possible to him directly.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This is still current as of 8/11/2018. Kyle is still leading the investigation.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;there-is-a-somewhat-copycat-blackmail-email-floating-around-first-reported-july-2018-ish&quot;&gt;There is a somewhat-copycat blackmail email floating around (First reported July 2018-ish)&lt;/h2&gt;
+
+&lt;p&gt;It is an email that reports that the blackmailer has compromised your computer camera and recorded you doing embarrassing things. To “prove” the claim, the attacker shows you one of your legitimate passwords. Don’t worry, this is also a ruse. Your passwords have been compromised and leaked by a plethora of sites over the last decade or so, over and over again. Your personal information has likely also been available for sale on the black market for years, too. Best advice, &lt;em&gt;do not reuse passwords across sites&lt;/em&gt;. Easy way to get pwned. Say you use the same password on linkedin as you do for your online banking portal. Bad move, linkedin got breached in 2012. Sites get breached every day. Equifax was not a new thing. It was just bigger, and no one really understands why they (data brokers) have our information in the first place, so the audacity was off the chart and therefore it got a lot of media attention. Check 
+&lt;a href=&quot;haveibeenpwned&quot;&gt;https://haveibeenpwned.com/&lt;/a&gt; to see which mega-breaches your email account(s) may have been involved in. It’s a legit service run by Troy Hunt, security researcher. Sponsored by 1password password manager, which I also use and recommend.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://krebsonsecurity.com/2018/07/sextortion-scam-uses-recipients-hacked-passwords/&quot;&gt;here&lt;/a&gt; for more.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 11/9/2016:&lt;/strong&gt; I made a first foray into the darkweb using &lt;a href=&quot;https://tails.boum.org/about/index.en.html&quot;&gt;Tor running on Tails in a VM&lt;/a&gt; (on a usb stick soon), but I didn’t find anything yet.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 10/27/2017:&lt;/strong&gt; I got three emails today from other victims. I have only received one other email in the 12-ish months that this post has been up. Seems like another wave has gone out.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 10/28/2017:&lt;/strong&gt; I have now received 8 emails from victims since yesterday. There’s definitely been another wave. At least five were postmarked “Nashville, Tennessee 370.” Several didn’t have the stamp cancelled out. Recipients are all over the US:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Portland, Oregon&lt;/li&gt;
+  &lt;li&gt;Alabama&lt;/li&gt;
+  &lt;li&gt;California (Unknown + Southern + San Francisco)&lt;/li&gt;
+  &lt;li&gt;Fort Myers, Florida&lt;/li&gt;
+  &lt;li&gt;Houston, Texas&lt;/li&gt;
+  &lt;li&gt;Austin, Texas&lt;/li&gt;
+  &lt;li&gt;Chandler, Arizona&lt;/li&gt;
+  &lt;li&gt;Cincinnati, Ohio&lt;/li&gt;
+  &lt;li&gt;Annandale, Virginia&lt;/li&gt;
+  &lt;li&gt;Wilmington, Delaware&lt;/li&gt;
+  &lt;li&gt;Seattle, Washington&lt;/li&gt;
+  &lt;li&gt;Nashville, Tennessee (!)&lt;/li&gt;
+  &lt;li&gt;York, Maine (a detective from the York police department reached out to me for that one)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All postmarked October 24, 2017.&lt;/p&gt;
+
+&lt;p&gt;Bitcoin addresses are unique.&lt;/p&gt;
+
+&lt;p&gt;By the way, nothing ever came from me ignoring the original letter I received.&lt;/p&gt;
+
+&lt;p&gt;A later version of the letter had these revisions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First sentence is “I know about the secret you are keeping from your wife” instead of “I know you cheated on your wife.”&lt;/li&gt;
+  &lt;li&gt;There’s a reference to “I stumbled across your misadventures while working a job around [location close to victim’s address]”, whereas before the location was not specified.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I know my name (all our names) are on a lot of lists for sale out there (the same lists that junk mailers use), but I still wonder, which list did the scammer use for this? Knowing that would answer the question – “why me?”. Probably just a mundane “people who are married” list of some kind, with random selection from the list. It’s not even a “people who are married and who probably have $2,000 to spare” list, because I got targeted when I was a doctoral student ¯\_ツ_/¯.&lt;/p&gt;
+
+&lt;p&gt;The other thing is that before, I got a letter postmarked from my local city (which was unnerving). So did another victim who contacted me last year. I wonder how the attacker pulled that off. Are there such things as local letter-sending mules? But this time, it’s all from Nashville?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 11/2/2017&lt;/strong&gt;: By now, over two dozen people have contacted me. Thought it would be interesting to share the Google Analytics traffic to this blog post. I typically get ~3-5 visits a day, but since Oct 25th I’ve had an explosion. I’ve had 1,300 visits to the page in the past week, 960 of those being unique visits. If that’s any indication of the number of victims, that’s huge.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blackmail/2017-blackmail-traffic.png&quot; alt=&quot;google-analytics-traffic&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 11/22/2017&lt;/strong&gt;: Another wave has been released! I’ve had another dozen people contact me so far. Dates for this wave are Nov 17th and 18th. A disproportionate number of people who have contacted me have been lawyers – seems the targeting is getting more sophisticated. One person reported that multiple people in their neighborhood received copies of the letter. Letter contents are exactly the same, except that the extortion amount has increased to either $2,500 or $3,500 (interesting, isn’t it?).&lt;/p&gt;
+
+&lt;p&gt;Again, victims are all over the U.S.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 12/14/2017&lt;/strong&gt;: Two more waves have come out. One on December 1st, postmarked from Chattanooga TN 374, asking $2500. Another on December 2nd, again from Nashville, TN 370. Unsure about the dates of several sent in, but overall less people contacted me this time. Another received on December 11th, postmarked Birmingham AL 350. I wonder if the attacker is getting nervous about only using Nashville, so he’s using nearby post offices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 1/8/2018&lt;/strong&gt;: Birmingham from December 11th was a huge wave. Another wave started on Jan 2nd, 2018, this time out of Evansville, Indiana (IN). Evansville is noteworthy because it’s within two-ish hours from  Nashville. Birmingham was also close to Nashville. Extortion amount for the Evansville wave is $3,500 (with a few interesting cases at $3,450 and $3,600 – I don’t know what to make of the small variance in pricing). The Birmingham wave demand got as high as $8,000!&lt;/p&gt;
+
+&lt;p&gt;(An earlier version of this update incorrectly stated that the new wave was out of &lt;em&gt;Evanston Illinois&lt;/em&gt;. I got mixed up because someone in Evanston IL got a letter from Evansville IN.)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 1/26/2018&lt;/strong&gt;: Another few weeks pass, another wave has begun. Postmarks 23 January, Chattanooga TN again. If you get a letter from this wave, please tell me the first sentence of your letter. the attacker has started saying “My name is &lt;strong&gt;__&lt;/strong&gt;__”, but he uses a different name each time. I can’t decide if the attacker is just messing with me because he’s realized I’m collecting letters and is giving me a wild goose chase or a “fun” thing to collect, or if the attacker is just trying to throw off the google-abilty of blog articles like mine. Either way, I’ll post some of the names I’ve seen the attacker use so far (below).&lt;/p&gt;
+
+&lt;p&gt;There’s a few other different things that stand out to me about this letter, from what I’ve seen from readers sending theirs in. Biggest change besides some new line breaks is that it includes the wive’s name peppered throughout. See lower for a transcribed exceprt from this letter.&lt;/p&gt;
+
+&lt;p&gt;Something else I noticed is that not everyone is getting the same kind of window mailer envelope. Some have the address on the top-right of the letter, and some on the top-left. Don’t know what to make of that.&lt;/p&gt;
+
+&lt;p&gt;A reader suggested that demand amount may be correlated with home value / property tax. Interesting idea. Doing so would be a “smart” way to extract the maximum amount from victims without being more than victims can pay.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 2/17/2018&lt;/strong&gt;: Like clockwork, another wave, all postmark dates Feb 12 2018. What a nice letter to receive on Valentine’s Day… asking price seems to be north of $8k for all I’ve seen. Blackmailer is still using ridiculous handles. Shocker this time is that
+multiple post offices were used: so far, I’ve seen Wichita KS, Richmond VA, Raleigh NC, and Denver CO. Which begs the question, who else has the blackmailer recruited to help, and who is sending what where? Well…&lt;/p&gt;
+
+&lt;iframe src=&quot;https://www.google.com/maps/d/embed?mid=12Mh9ehgSjL6-HvBH77f8mscu2upmdJKU&amp;amp;hl=en&quot; width=&quot;640&quot; height=&quot;480&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;strong&gt;Update July 19, 2018&lt;/strong&gt; – There has been something like one wave every three weeks consistently since the last wave I noted for February 12, 2018. Only notable difference is that the asking price has jumped to around $15k. Most coming from Nashville, some from Little Rock.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 31 August 2018&lt;/strong&gt;: A twisted development has come to light. As of two weeks ago, the attacker has started to include a return address on the letters. The return addresses are for previous blackmail victims! Here’s USPIS inspector Kyle’s observation:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The return addresses started about two weeks ago.  The return addresses are secondary victims who are being recycled from earlier letters. At this point, they are mostly attorneys and for the most part consistently being used from the same state as the postmark. Demand amounts exceeding $15k.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This sickens me (the new method, not Kyle ;-) ). Please don’t start a witch hunt going after the people listed on your return addresses.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;waves-so-far-precise-dates-are-postmark-dates&quot;&gt;Waves so far (precise dates are postmark dates)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;October 2016&lt;/strong&gt; – I posted this article and only heard from one other person. If the letter has been posted back in time, I probably would have gotten more emails. Mine was postmarked Pittsburgh.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;October 24, 2017&lt;/strong&gt; – Wave of letters, postmarked Nashville, Tennessee 370&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nov 17th and Nov 18th, 2017&lt;/strong&gt; – Nashville, TN again. Asking price $2,500 or $3,500&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;December 1st, 2017&lt;/strong&gt; – Chatttanooga TN 374&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;December 2nd, 2017&lt;/strong&gt; – Nashville, TN 370&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;December 11th, 2017&lt;/strong&gt; – Birmingham AL 350 – asking price as high as $8,000&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;January 2nd, 2018&lt;/strong&gt; – Evansville, IN – asking price $3,450 to $3,600&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;January 23rd and 24th, 2018&lt;/strong&gt; – Chattanooga TN – asking price either ~$3,800, or low-to-high $8,000’s. Nothing in between.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;February 12th, 2018&lt;/strong&gt; – Wichita KS, Denver CO, Richmond VA, Raleigh NC – asking price north of $8.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mid-August, 2018&lt;/strong&gt; – Attacker starts to include return addresses of previous victims.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;locations&quot;&gt;Locations&lt;/h2&gt;
+
+&lt;p&gt;Literally no rhyme or reason as far as I can tell. All over the United States. High variance within waves. Generally middle- or high-income neighborhoods though.&lt;/p&gt;
+
+&lt;h2 id=&quot;google-analytics&quot;&gt;Google analytics&lt;/h2&gt;
+
+&lt;p&gt;Interesting because you can clearly see the waves of letters in my traffic spikes. The flat line before October 2017 was my traffic to that page for the entire year before that.&lt;/p&gt;
+
+&lt;p&gt;Posted: 1/26/2018&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blackmail/2018-jan-26-blackmail-traffic.png&quot; alt=&quot;google-analytics-traffic&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;original-letter-i-received-in-october-2016&quot;&gt;Original Letter I received in October 2016&lt;/h2&gt;
+
+&lt;p&gt;My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyway.):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blackmail/page-1.jpg&quot; alt=&quot;blackmail page 1&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blackmail/page-2.jpg&quot; alt=&quot;blackmail page 2&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blackmail/how-to-page-1.jpg&quot; alt=&quot;blackmail how-to page 1&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blackmail/how-to-page-2.jpg&quot; alt=&quot;blackmail how-to page 2&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/blackmail/envelope.jpg&quot; alt=&quot;envelope&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;text-excerpt-of-letters-beginning-october-2017&quot;&gt;Text excerpt of letters beginning October 2017&lt;/h2&gt;
+
+&lt;p&gt;A friend recommended I post some of the text of the letter for SEO purposes (to help victims find this post), so here goes with the first two paragraphs:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I’m going to cut to the chase. I know about the secret you are keeping from your wife. More importantly, I have &lt;em&gt;evidence&lt;/em&gt; of what you have been hiding. I won’t go into the specifics here in case your wife intercepts this, but you know what I am talking about.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You don’t know me personally and nobody hired me to look into you. Nor did I go out looking to burn you. It is just your bad luck that I stumbled across your misadventures while working a job around [redacted]. I then put in more time than I probably should have looking into your life. Frankly, I am ready to forget all about you and let you get on with your life. And I am going to give you two options that will accomplish that very thing. Those two options are either to ignore this letter, or simply pay me $2,000. Let’s examine those two options in more details.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And so on.&lt;/p&gt;
+
+&lt;p&gt;And &lt;del&gt;here’s a PDF scan of one of the October 24, 2017 that a reader sent in.&lt;/del&gt; Removed because of the &lt;a href=&quot;https://krebsonsecurity.com/2018/01/bitcoin-blackmail-by-snail-mail-preys-on-those-with-guilty-conscience/comment-page-1/#comment-457223&quot;&gt;double-sided photoshop address recovery threat&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;text-excerpt-of-letters-beginning-january-23-2018-ish-that-include-wife-name-with-commentary&quot;&gt;Text excerpt of letters beginning January 23 2018-ish that include wife name, with commentary.&lt;/h2&gt;
+
+&lt;p&gt;I haven’t looked too closely at other letters that have been sent in to me to note more differences.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My name is SwiftDog~[redacted] and I know about the secret you are keeping from your wife and from everyone else. More importantly, I have &lt;em&gt;evidence&lt;/em&gt; of what you have been hiding. I won’t go into the specifics here in case your wife intercepts this, but you know what I am talking about.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You don’t know me personally and nobody hired me to look into you. Nor did I go out looking to burn you. It is just your bad luck that I stumbled across your misadventures while working a job around [nearby place]. I then put in more time than I probably should have [note: “looking into your life” has been removed.]. Frankly, I am ready to forget all about you and [wife name!] and let you get on with your life. So I am going to give you two options that will accomplish that very thing. Those two options are either [note: “to” has been dropped here] ignore this letter, or simply pay me $3,800 [or whatever other varying amount.]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[new line break here] Let’s examine those two options in more detail.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Option 1 is to ignore this letter. Let me tell you what will happen if you choose this path. I will take this evidence and send it to everyone in your life, [this part is new:] especially [wife name]. And as insurance against you intercepting it before she gets it, I will also send copies to her friends, family, associates, and all your neighbors on and around [street name of address letter sent to]. So even if you decide to come clean with your wife, it won’t protet her from the humiliation she will feel when everyone she knows finds out your sordid details from me.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Option 2 is to pay me [amount]. We’ll call this my “confidentiality fee”. Now let me tell you what happens if you choose this path. Your secret remains your secret. You go on with your life as though none of this ever happened. Though you may want to do a better job at keeping your misdeeds [used to say indiscretion] secret in the future.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;At this point you may be thinking, “[Used to say “This is blackmail!] I’ll just go to the cops.” [Used to say: “Yes, this is blackmail. And yes, blackmail is illegal and I would likely do some jail time if caught.”] Which is why I have taken steps to ensure this letter cannot be traced back to me. So that won’t help, and it won’t stop the evidence from ruining your life. [Used to say: “So going to the cops won’t stop the evidence from being sent out and would destroy your life the same as Option 1.”] I’m not looking to break your bank. I just want to be compensated for the time I put into investigating you. [Used to say here: “[amount] will close the books on that”]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[snipped…]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;… &lt;strong&gt;payment must be received within 9 days of this letter’s post marked date.&lt;/strong&gt; [Used to be “within 10 days”!] [Used to say: “There will be no further communication between us.”] If I don’t receive the bitcoin by the deadline, I will go ahead[…] the least you could do is tell [wife] so she can come up with an excuse to prepare her friends and family before they find out. The clock is ticking.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;10 days is too long I guess, had to make it 9? I notice that in &lt;a href=&quot;https://krebsonsecurity.com/wp-content/uploads/2018/01/extortionletter.pdf&quot;&gt;Brian Kreb’s transcription of the letter his reader sent him&lt;/a&gt;, the deadline was &lt;strong&gt;12&lt;/strong&gt; days.&lt;/p&gt;
+
+&lt;p&gt;Wife’s name peppered throughout? Supposedly as an indicator that he actually knows something, I guess.&lt;/p&gt;
+
+&lt;h2 id=&quot;sample-of-ridiculous-usernames-ive-seen-the-attacker-use-so-far&quot;&gt;Sample of ridiculous usernames I’ve seen the attacker use so far&lt;/h2&gt;
+
+&lt;p&gt;In the 23 January 2018 wave, the attacker started beginning his letters with “My name is _______”. No two letters sent in to me have used the same name here so far. Here’s some I’ve seen, with numbers redacted.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GreenWolf&lt;/li&gt;
+  &lt;li&gt;BlueWolf&lt;/li&gt;
+  &lt;li&gt;BadOwl&lt;/li&gt;
+  &lt;li&gt;SwiftOwl&lt;/li&gt;
+  &lt;li&gt;WhiteBat&lt;/li&gt;
+  &lt;li&gt;NightBat&lt;/li&gt;
+  &lt;li&gt;BigShark&lt;/li&gt;
+  &lt;li&gt;GreyBear&lt;/li&gt;
+  &lt;li&gt;SwiftDog&lt;/li&gt;
+  &lt;li&gt;BlackDog&lt;/li&gt;
+  &lt;li&gt;BadStag&lt;/li&gt;
+  &lt;li&gt;RedBear&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://krebsonsecurity.com/2018/01/bitcoin-blackmail-by-snail-mail-preys-on-those-with-guilty-conscience/&quot;&gt;KrebsOnSecurity&lt;/a&gt; – comment area has some interesting discussion&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.cnbc.com/2018/01/22/growing-blackmail-scam-demands-payment-in-bitcoin.html&quot;&gt;CNBC interview&lt;/a&gt; – they scoped my lock picking stand out of the office shot :-(&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://withoutbullshit.com/blog/my-bitcoin-blackmail-experience-started-with-a-well-written-letter&quot;&gt;https://withoutbullshit.com/blog/my-bitcoin-blackmail-experience-started-with-a-well-written-letter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.localmemphis.com/news/local-news/national-extortion-letter-scam-hits-memphis/1187893603&quot;&gt;My buddy Kyle goes public&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>deargle</name></author><summary type="html">Got something very interesting in the mail a few days ago – a blackmail letter! Claiming that someone discovered that I have been unfaithful to my wife (which I haven’t been, I assure you). Obviously a phishing scam, but while these kinds of things may be common in email spamboxes, when USPS is used, it’s a felony. I did some research and it looks very much like a copycat of the Ashley Madison blackmail letters that went out last December, except the version I received only requires a name and an address. My name was only mentioned twice, and no other names were named. I’m attaching redacted copies.</summary></entry></feed>

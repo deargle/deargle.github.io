@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18">
+
+  <link href="/assets/css/bootstrap-custom.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Lab – Asymmetric Encryption | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Lab – Asymmetric Encryption" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="PGP setup and RSA practice" />
+<meta property="og:description" content="PGP setup and RSA practice" />
+<link rel="canonical" href="https://daveeargle.com/security-assignments/lab_asymmetric_encryption/" />
+<meta property="og:url" content="https://daveeargle.com/security-assignments/lab_asymmetric_encryption/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Lab – Asymmetric Encryption","url":"https://daveeargle.com/security-assignments/lab_asymmetric_encryption/","author":{"@type":"Person","name":"deargle"},"description":"PGP setup and RSA practice","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="tony-assignment post-security-assignments-lab_asymmetric_encryption" id="/security-assignments/lab_asymmetric_encryption">
+
+<div class="container">
+
+  
+  
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<h1 class='title'>Lab &ndash; Asymmetric Encryption</h1> 
+
+
+
+
+<div class="alert alert-danger"><strong>Important:</strong> To receive full credit, you must complete Part 1 of the lab by the day marked in the calendar, which entails generating a PGP keypair, uploading your public key to a keyserver, and submitting your key's fingerprint on Canvas. This is required for the PGP key signing class activity.</div>
+
+<div class="alert alert-info">I recommend using the tools in the Windows VM for Part 1, although you are free to install GPG on your own machine.</div>
+
+<h1 id="part-1-install-pgp-and-create-a-public-private-key-pair">Part 1. Install PGP and Create a Public-Private Key Pair</h1>
+
+<p>On the Windows 10 VM, open the app <code class="highlighter-rouge">Kleopatra</code>. This is an app that interfaces with gpg, allowing you to create and manage gpg public/private keypairs.</p>
+
+<p>Do the following:</p>
+
+<ul>
+  <li>Open Kleopatra &gt; navigate to <code class="highlighter-rouge">Settings</code> &gt; <code class="highlighter-rouge">Configure Kleopatra</code> &gt; <code class="highlighter-rouge">GnuPG System</code> &gt; then click <code class="highlighter-rouge">edit</code> next to “use keyserver at”, then “new”, then “OK”.</li>
+  <li>Then, in Kleopatra still, <code class="highlighter-rouge">File</code> &gt; <code class="highlighter-rouge">New Certificate</code></li>
+  <li>Create a personal OpenPGP key pair</li>
+  <li>Enter your first and last name and your <strong>identikey@colorado.edu</strong> email. Do <span class="label label-danger">not</span> click “OK” yet.</li>
+  <li><code class="highlighter-rouge">Advanced Settings</code> &gt; change the keylength to <code class="highlighter-rouge">4096 bits</code> for both fields.</li>
+  <li>Create the key. If you enter a passphrase (you should, although you don’t have to), <em>do not forget your passphrase</em>.</li>
+  <li>Open your newly-created key. Open the “User-IDs &amp; Certifications” tab. Highlight your key, and click “Add”. Add your <strong>first.last@colorado.edu</strong> email variant.</li>
+  <li>Take note of your key <code class="highlighter-rouge">Key-ID</code> displayed in the Kleopatra interface. <em>This is your short-form key fingerprint.</em> If you double-click the key, the dialog will display your full-length key fingerprint.</li>
+  <li>Right-click your key and “Export Certificates to Server…” By default, this will send your key to <code class="highlighter-rouge">keys.gnupg.net</code>, from where it will replicate to other keyservers around the world… eventually. Sometimes the replication is very quick (minutes), while in other cases <a href="https://security.stackexchange.com/questions/96949/how-long-before-a-key-is-visible-on-a-key-server">it can reportedly take hours</a>.
+    <ul>
+      <li>Alternatively, you can:
+        <ul>
+          <li>
+            <p>right-click and “export certificate”, choose “then save the <code class="highlighter-rouge">.asc</code> file, open this file in notepad which will begin with a line like</p>
+
+            <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  -----BEGIN PGP PUBLIC KEY BLOCK-----
+</code></pre></div>            </div>
+          </li>
+          <li>
+            <p>visit <code class="highlighter-rouge">https://keys.gnupg.net/</code> (yes, it is ironic that it is throwing an SSL warning as of 9/19/2018), click, “submit key”, and paste in the <em>entire contents</em> of your <code class="highlighter-rouge">.asc</code> file. No extra lines, spaces, or anything. Nothing more, nothing less. These servers are finnicky.</p>
+          </li>
+        </ul>
+
+        <p>It’s the same thing as submitting via Kleopatra. In fact, if you wanted to send someone your public key without relying on a keyserver, you could sent them the <code class="highlighter-rouge">.asc</code> file as an email attachment.</p>
+      </li>
+    </ul>
+  </li>
+  <li>Use a web browser to browse to a keyserver such as <code class="highlighter-rouge">https://keys.gnupg.net/</code> and verify that when you search by your email address or fingerprint, your key is displayed, with the correct keyID, that it is 4096 bits, and that both of your <code class="highlighter-rouge">@colorado.edu</code> email addresses are associated with your key.
+    <ul>
+      <li>To search by your key-id or fingerprint, prefix the value with <code class="highlighter-rouge">0x</code>, which is the prefix for hex values. For example, to search for my key-id, <code class="highlighter-rouge">8DC01F3A</code>, I would enter the following search query into <code class="highlighter-rouge">https://keys.gnupg.net/</code>: <code class="highlighter-rouge">0x8DC01F3A</code>.</li>
+    </ul>
+  </li>
+  <li>Once you have verified the above, submit your fingerprint on canvas.</li>
+</ul>
+
+<div class="alert alert-info">It is important that <strong>both</strong> your <code>identikey</code> and <code>first.last</code> email variants are tied to your key, so that you can get credit for this part of the lab. If you forget, you can add and then re-export, and your key will be updated on the keyserver... eventually.</div>
+
+<h2 id="part-1-deliverable">Part 1 deliverable</h2>
+
+<p>In summary, using Kleopatra,</p>
+
+<ul>
+  <li>upload your key to a keyserver</li>
+  <li>make a key with key length of 4096 bits</li>
+  <li>ensure that both first.last@colorado.edu and identikey@colorado.edu addresses are associated with your key</li>
+  <li>verify that your key is discoverable on `https://keys.gnupg.net/</li>
+  <li>submit your key key-id or fingerprint on canvas</li>
+</ul>
+
+<p><strong>Q:</strong> Why do we need a 4096-bit key? Isn’t that overkill?</p>
+
+<p><strong>A:</strong> <a href="https://www.yubico.com/2015/02/big-debate-2048-4096-yubicos-stand/">To better future-proof your key</a>, Generate a 4096-bit key, not the default 2048-bit one.</p>
+
+<p><strong>History Lesson:</strong> Edward Snowden originally reached out directly to Glen Greenwald, seeking to leak the NSA documents. However, Greenwald didn’t have a secure communication method such as PGP. So, Snowden made him a voice-obfuscated how-to video, for doing the same things that you are doing. Greenwald blew it off, because seriously who has time for the usability mess that is PGP. Eventually, Greenwald’s friend and journalist, Laura Poitras, arranged for Greenwald to meet Snowden anyway. <a href="https://vimeo.com/56881481">Watch Snowden’s tutorial video to Greenwald here!</a></p>
+
+<h1 id="part-2-understanding-asymmetric-cryptography">Part 2. Understanding Asymmetric Cryptography</h1>
+
+<ol>
+  <li>
+    <p><strong>Key Exchange Problem.</strong> Imagine 200 people wish to communicate securely using symmetric keys, one symmetric key for each pair of people. (See <a href="http://en.wikipedia.org/wiki/Metcalf%27s_law">Metcalf’s Law</a>).</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>How many symmetric keys would this system use in total?</div>
+  </li>
+  <li>
+    <p><strong>RSA keys vs AES keys</strong></p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>Does a 256-bit RSA key (a key with a 256-bit modulus) provide strength similar to that of a 256-bit AES key? Explain.</div>
+
+    <p>Note: <a href="http://www.keylength.com">www.keylength.com</a> gives estimates for good key lengths. Here’s a tip for interpreting that site: If you were to select “Compare all methods”, and then enter the year “2030”, the “Method” column means “group that makes recommendations using their method” (recall that NIST held the competition that resulted in the AES winner being selected). “Date” means how long you’ll be secure until. “Symmetric” means the minimum keysize you would need to be secure for that long using a symmetric method such as AES. “Factoring Modulus” means the minimum keysize you would need to be secure for that long using an asymmetric method such as RSA.</p>
+  </li>
+</ol>
+
+<div class="alert alert-info">Note: To help you answer the following questions, view <a href="https://youtu.be/Z8M2BTscoD4">this “RSA Algorithm” video</a>. Also, you can review <a href="http://en.wikipedia.org/wiki/RSA_(cryptosystem)#Example">the RSA wikipedia page example</a></div>
+
+<ol>
+  <li>
+    <p>Complete encryption and decryption using the RSA algorithm, for the following data (show all work): <code class="highlighter-rouge">p = 5, q = 11, e = 3, M = 9</code>. Also:</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the ciphertext when performing RSA encryption with p=5, q=11, e=3, M=9?</div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>Show all work for encryption <b>and</b> decryption</div>
+  </li>
+  <li>
+    <p>You are Eve. In a public-key system using RSA, you intercept the ciphertext, <code class="highlighter-rouge">C=10</code>, sent to a user whose public key is <code class="highlighter-rouge">e=5, n=35</code>. You grin – an evil, knowing grin.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the plaintext `M`?</div>
+  </li>
+</ol>
+
+
+
+
+<script type='text/javascript'>
+    var $ul = $('<ul></ul>').addClass('nav nav-pills');
+    $('h1:not(.title)').each(function() {
+        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
+        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
+        $li = $('<li></li>');
+        $li.append($a);
+        $ul.append($li);
+    });
+    $('#nav-bar').append($ul);
+    
+</script>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/security-assignments/lab_asymmetric_encryption/',
+		  'title': 'Lab &ndash; Asymmetric Encryption'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-11-30 14:35:18 -0500 | Revision 0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18 -->

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18">
+
+  <link href="/assets/css/bootstrap-custom.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Final Exam Review | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Final Exam Review" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Information Systems Management Researcher" />
+<meta property="og:description" content="Information Systems Management Researcher" />
+<link rel="canonical" href="https://daveeargle.com/class/security/final-exam-review/" />
+<meta property="og:url" content="https://daveeargle.com/class/security/final-exam-review/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Final Exam Review","url":"https://daveeargle.com/class/security/final-exam-review/","author":{"@type":"Person","name":"deargle"},"description":"Information Systems Management Researcher","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="assignment post" id="">
+
+<div class="container">
+
+  
+  
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<h1 class='title'>Final Exam Review</h1>
+
+<p>These are questions that may appear on the final exam, in one form or another. I reserve the right to ask you questions not explicitly on this review document.</p>
+
+<p>This is a living document. You can view diffs between the most up-to-date version and older versions on github.</p>
+
+<p>12/5/2017: <a href="https://github.com/deargle/deargle.github.io/commit/43f3bca749a5843ea22ba612f5eab6d3ecf97a8a#diff-a8b3162e09b806d64c21f18902057e39">Diff between the original version and this one</a></p>
+
+<p>12/14/2017: <a href="https://github.com/deargle/deargle.github.io/commit/f56149499458cb1d1005dc34ba84ebdb7c97a602#diff-a8b3162e09b806d64c21f18902057e39">Diff between last version version and this one</a></p>
+
+<p>P.S. – all slides are available <a href="https://www.dropbox.com/sh/yoq1cqn1tbupgwz/AAC4I9X-I79kAYtzv8ZemwQ0a?dl=0">here</a></p>
+
+<h2 id="threat-modeling">Threat modeling</h2>
+
+<ul>
+  <li>Create a threat model for cheating on an exam (i.e., obtaining an undeserved grade). Which attack is the easiest for the attacker? Which attack poses the least amount of risk for the attacker? You should have metrics representing ‘ease’ and ‘risk’ so that you can answer the question.</li>
+</ul>
+
+<h2 id="symmetric-encryption-and-hashing">Symmetric encryption and hashing</h2>
+
+<ul>
+  <li>
+    <p>Name each of the four properties that cryptography provides for secure communications, and define each one. Give an example of what cryptographic primitive you could use to achieve each property. (See <a href="https://en.wikipedia.org/wiki/Cryptographic_primitive#Commonly_used_primitives">here</a>)</p>
+  </li>
+  <li>
+    <p>What is the difference between symmetric and asymmetric cryptography? Give at least two examples of each.</p>
+  </li>
+  <li>
+    <p>When you exchanged a symmetric message with another class member, was it important that the other parameters of the block cipher besides the key (i.e., algorithm name, mode of operation, IV (if any), key length, etc.) were kept secret? If so, why, or if not, why not? Name the principle.</p>
+
+    <ul>
+      <li>What is Shannon’s Maxim, also known as Kerckhoff’s principle? Give an example of the maxim/principle in practice.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Fundamentally, how do secure block ciphers such as AES work? “Claude Shannon, pioneer of digital computing and modern cryptography, demonstrated that _______________________, sufficiently combined, yield encrypted data that is indistinguishable from random data.”</p>
+  </li>
+  <li>
+    <p>Imagine 200 people wish to communicate securely using symmetric keys, one symmetric key for each pair of people. How many symmetric keys would this system use in total?</p>
+  </li>
+  <li>
+    <p>Does a 256-bit RSA key (a key with a 256-bit modulus) provide strength similar to that of a 256-bit AES key? Explain.</p>
+  </li>
+  <li>
+    <p>What is the difference between hashing and encrypting?</p>
+  </li>
+  <li>
+    <p>If you change only a single bit in a file of billions of bits, you might reason that the hashes would be nearly the same. Are they? Explain why or why not, and name the effect at play.</p>
+  </li>
+  <li>
+    <p>Be able to perform simple substitution and transposition encryption, like you did in the lab.</p>
+  </li>
+</ul>
+
+<h2 id="digital-certificates">Digital Certificates</h2>
+
+<ul>
+  <li>
+    <p>How is trust handled differently by S/MIME and PGP public key?</p>
+  </li>
+  <li>
+    <p>How does an app like Signal compare to PGP or S/MIME? Discuss usability and underlying cryptography (symmetric? asymmetric?)</p>
+  </li>
+</ul>
+
+<h2 id="vulnerability-scanning">Vulnerability Scanning</h2>
+
+<ul>
+  <li>
+    <p>Describe the first steps an attacker performs in attacking a system. Relate the steps to the risk calculation formula (risk = asset x vulnerability x threat).</p>
+  </li>
+  <li>
+    <p>Define “attack surface.” How can an organization decrease their attack surface?</p>
+  </li>
+</ul>
+
+<h2 id="hardening">Hardening</h2>
+
+<ul>
+  <li>
+    <p>What is a “zero day”?</p>
+  </li>
+  <li>
+    <p>What is the best security practices discussed in class that individuals and organizations can do to harden themselves against weaponized exploits of known vulnerabilities? Name at least one reason why organizations may find it difficult to perform this best practice.</p>
+  </li>
+</ul>
+
+<h2 id="authentication-and-passwords">Authentication and Passwords</h2>
+
+<ul>
+  <li>
+    <p>Gaining access involves what three things? Define each. Use an example to illustrate each of the three things.</p>
+  </li>
+  <li>
+    <p>Name three primary means of authentication, and give at least two examples of each.</p>
+  </li>
+  <li>
+    <p>Why do passwords persist as such a common means of authenitcation if they are often the weakest link in the security chain?</p>
+  </li>
+  <li>
+    <p>Your organization only uses passwords for authentication, and there is a concern that the passwords might be cracked by an attacker. What could you recommend to bolster the overall security of the system?</p>
+  </li>
+</ul>
+
+<h2 id="password-cracking">Password Cracking</h2>
+
+<ul>
+  <li>
+    <p>How much entropy does a nine-sided die have? Express your answer in bits. (Also be able to calculate entropy of a passphrase, as we did in class.)</p>
+  </li>
+  <li>
+    <p>What is the maximum entropy that a 128-bit key can have? Express your answer in bits. What if you use a random-number generator that only ever produces one of two 128-bit keys. How much entropy exists in this this system?</p>
+  </li>
+  <li>
+    <p>Discuss the importance of salting passwords.</p>
+  </li>
+  <li>
+    <p>What software tools can be used to crack password hashes? Name at least two used in class. What hardware is often used for the fastest cracking speeds (hint: think of the Brutalis)?</p>
+  </li>
+  <li>
+    <p>Password cracking is a function of what two input discussed in class? Explain the two factors.</p>
+  </li>
+  <li>
+    <p>What password tips might you share to improve password security? (We discussed two in class, be familiar with those.)</p>
+  </li>
+</ul>
+
+<h2 id="sqli-and-xss">SQLi and XSS</h2>
+
+<ul>
+  <li>
+    <p>What is the number one best-practice defense against web-based attacks such as SQLi and XSS?</p>
+  </li>
+  <li>
+    <p>What is the difference between SQLi and XSS?</p>
+  </li>
+</ul>
+
+<h2 id="network-security-monitoring">Network Security Monitoring</h2>
+
+<ul>
+  <li>
+    <p>What are two key performance metrics that you could use measure the performance and effectiveness of your organization’s network security monitoring efforts. Why is a comparison of total security expenditures betweeen organizations not great benchmark for measuring security performance?</p>
+  </li>
+  <li>
+    <p>List each of the steps an attacker performs when attempting to achieve a goal. How do these steps relate to the kill-chain concept? Why is the kill-chain concept important?</p>
+  </li>
+</ul>
+
+<h2 id="privacy">Privacy</h2>
+
+<ul>
+  <li>
+    <p>How does web privacy relate to information security management (why are we studying it in this class)? Name at least two ways.</p>
+  </li>
+  <li>
+    <p>How do advertisers track users across websites?</p>
+  </li>
+  <li>
+    <p>The most common retort to privacy advocates is “I’ve got nothing to hide.” How might you respond?</p>
+  </li>
+</ul>
+
+<h2 id="social-engineering">Social Engineering</h2>
+
+<ul>
+  <li>What are the common goals of a social engineer? What principles does a social engineer use to obtain these goals? Give at least three examples of a tactic a social engineer might try.</li>
+</ul>
+
+<h2 id="information-security-in-organizations">Information Security in Organizations</h2>
+
+<ul>
+  <li>
+    <p>List the responsibilities of a CISO</p>
+  </li>
+  <li>
+    <p>What are the three primary areas of security management? Describe the four subtopics relating to the ‘organization’ area.</p>
+  </li>
+</ul>
+
+<h2 id="security-and-terrorism">Security and Terrorism</h2>
+
+<ul>
+  <li>Use the five steps for rationally considering a threat to analyze [a security countermeasure of my choosing].</li>
+</ul>
+
+<h2 id="overall">Overall</h2>
+
+<p>Some of the most important things to remember from this class:</p>
+
+<ul>
+  <li>don’t roll your own crypto</li>
+  <li>first things to do in an organization:
+    <ul>
+      <li>implement backup policy</li>
+      <li>implement network monitoring</li>
+      <li>implement and monitor patch management</li>
+    </ul>
+  </li>
+</ul>
+
+
+<script type='text/javascript'>
+    var $ul = $('<ul></ul>').addClass('nav nav-pills');
+    $('h1:not(.title)').each(function() {
+        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
+        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
+        $li = $('<li></li>');
+        $li.append($a);
+        $ul.append($li);
+    });
+    $('#nav-bar').append($ul);
+    
+</script>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/class/security/final-exam-review/',
+		  'title': 'Final Exam Review'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-11-30 14:35:18 -0500 | Revision 0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18 -->
