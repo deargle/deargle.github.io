@@ -1,0 +1,232 @@
+/* SITE */
+Last Updated: 2018/11/30
+Standards: HTML5, CSS3
+Components: jekyll, jekyll-sass-converter, kramdown, jekyll-commonmark-ghpages, liquid, rouge, github-pages-health-check, jekyll-redirect-from, jekyll-sitemap, jekyll-feed, jekyll-gist, jekyll-paginate, jekyll-coffeescript, jekyll-seo-tag, jekyll-github-metadata, jekyll-avatar, jekyll-remote-theme, jemoji, jekyll-mentions, jekyll-relative-links, jekyll-optional-front-matter, jekyll-readme-index, jekyll-default-layout, jekyll-titles-from-headings, listen, activesupport, jekyll-swiss, minima, jekyll-theme-primer, jekyll-theme-architect, jekyll-theme-cayman, jekyll-theme-dinky, jekyll-theme-hacker, jekyll-theme-leap-day, jekyll-theme-merlot, jekyll-theme-midnight, jekyll-theme-minimal, jekyll-theme-modernist, jekyll-theme-slate, jekyll-theme-tactile, jekyll-theme-time-machine, ruby, github-pages, html-pipeline, sass, safe_yaml, nokogiri
+
+/* TEAM */
+
+Name: benbalter
+Site: https://github.com/benbalter
+
+Name: deargle
+Site: https://github.com/deargle
+
+Name: balterbot
+Site: https://github.com/balterbot
+
+Name: konklone
+Site: https://github.com/konklone
+
+Name: IanLee1521
+Site: https://github.com/IanLee1521
+
+Name: parkr
+Site: https://github.com/parkr
+
+Name: doktorbro
+Site: https://github.com/doktorbro
+
+Name: gregjd
+Site: https://github.com/gregjd
+
+Name: Lewiscowles1986
+Site: https://github.com/Lewiscowles1986
+
+Name: waldoj
+Site: https://github.com/waldoj
+
+Name: gsf
+Site: https://github.com/gsf
+
+Name: jasonrudolph
+Site: https://github.com/jasonrudolph
+
+Name: aaronjorbin
+Site: https://github.com/aaronjorbin
+
+Name: adelevie
+Site: https://github.com/adelevie
+
+Name: david-a-wheeler
+Site: https://github.com/david-a-wheeler
+
+Name: jseppi
+Site: https://github.com/jseppi
+
+Name: mlinksva
+Site: https://github.com/mlinksva
+
+Name: gbinal
+Site: https://github.com/gbinal
+
+Name: psgs
+Site: https://github.com/psgs
+
+Name: ctbarna
+Site: https://github.com/ctbarna
+
+Name: mitio
+Site: https://github.com/mitio
+
+Name: philipashlock
+Site: https://github.com/philipashlock
+
+Name: JulieBalter
+Site: https://github.com/JulieBalter
+
+Name: ajschumacher
+Site: https://github.com/ajschumacher
+
+Name: alulsh
+Site: https://github.com/alulsh
+
+Name: nacin
+Site: https://github.com/nacin
+
+Name: smashwilson
+Site: https://github.com/smashwilson
+
+Name: benchun
+Site: https://github.com/benchun
+
+Name: openbrian
+Site: https://github.com/openbrian
+
+Name: bgaid
+Site: https://github.com/bgaid
+
+Name: bryanbraun
+Site: https://github.com/bryanbraun
+
+Name: budparr
+Site: https://github.com/budparr
+
+Name: caseydriscoll
+Site: https://github.com/caseydriscoll
+
+Name: ChelseaStats
+Site: https://github.com/ChelseaStats
+
+Name: danayel
+Site: https://github.com/danayel
+
+Name: DanielSchuman
+Site: https://github.com/DanielSchuman
+
+Name: eduardozulian
+Site: https://github.com/eduardozulian
+
+Name: esonderegger
+Site: https://github.com/esonderegger
+
+Name: ghelleks
+Site: https://github.com/ghelleks
+
+Name: guttmann
+Site: https://github.com/guttmann
+
+Name: oeon
+Site: https://github.com/oeon
+
+Name: meilinger
+Site: https://github.com/meilinger
+
+Name: johnbillion
+Site: https://github.com/johnbillion
+
+Name: jldec
+Site: https://github.com/jldec
+
+Name: keegoid
+Site: https://github.com/keegoid
+
+Name: kijanawoodard
+Site: https://github.com/kijanawoodard
+
+Name: Merovex
+Site: https://github.com/Merovex
+
+Name: michaelbeil
+Site: https://github.com/michaelbeil
+
+Name: mgriffin
+Site: https://github.com/mgriffin
+
+Name: mikemorris
+Site: https://github.com/mikemorris
+
+Name: Phlow
+Site: https://github.com/Phlow
+
+Name: n1c
+Site: https://github.com/n1c
+
+Name: nschonni
+Site: https://github.com/nschonni
+
+Name: pborreli
+Site: https://github.com/pborreli
+
+Name: paulfitz
+Site: https://github.com/paulfitz
+
+Name: philoushka
+Site: https://github.com/philoushka
+
+Name: Philmageddon
+Site: https://github.com/Philmageddon
+
+Name: rebeccawilliams
+Site: https://github.com/rebeccawilliams
+
+Name: CdrMarks
+Site: https://github.com/CdrMarks
+
+Name: hillsy
+Site: https://github.com/hillsy
+
+Name: shayfrendt
+Site: https://github.com/shayfrendt
+
+Name: stevemoser
+Site: https://github.com/stevemoser
+
+Name: stevector
+Site: https://github.com/stevector
+
+Name: talniv
+Site: https://github.com/talniv
+
+Name: tmaybe
+Site: https://github.com/tmaybe
+
+Name: tmcw
+Site: https://github.com/tmcw
+
+Name: mojombo
+Site: https://github.com/mojombo
+
+Name: tomcentrate
+Site: https://github.com/tomcentrate
+
+Name: wpears
+Site: https://github.com/wpears
+
+Name: ZachMoreno
+Site: https://github.com/ZachMoreno
+
+Name: bezthomas
+Site: https://github.com/bezthomas
+
+Name: jahla
+Site: https://github.com/jahla
+
+Name: mattvivier
+Site: https://github.com/mattvivier
+
+Name: pmaiorana
+Site: https://github.com/pmaiorana
+
+Name: vzvenyach
+Site: https://github.com/vzvenyach
+

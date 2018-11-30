@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18">
+
+  <link href="/assets/css/bootstrap-custom.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Lab – Digital Certificates | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Lab – Digital Certificates" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="PGP key party, contrasted with Signal" />
+<meta property="og:description" content="PGP key party, contrasted with Signal" />
+<link rel="canonical" href="https://daveeargle.com/security-assignments/lab_digital_certificates/" />
+<meta property="og:url" content="https://daveeargle.com/security-assignments/lab_digital_certificates/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Lab – Digital Certificates","url":"https://daveeargle.com/security-assignments/lab_digital_certificates/","author":{"@type":"Person","name":"deargle"},"description":"PGP key party, contrasted with Signal","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="tony-assignment post-security-assignments-lab_digital_certificates" id="/security-assignments/lab_digital_certificates">
+
+<div class="container">
+
+  
+  
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<h1 class='title'>Lab &ndash; Digital Certificates</h1> 
+
+
+
+
+<div class="alert alert-info">I recommend using the Windows 10 vm for this lab. Alternatively, you can install gpg onto your [Windows](https://www.gpg4win.org/) or [Mac](https://gnupg.org/download/), but you're on your own if you do.</div>
+
+<h1 id="part-1">Part 1</h1>
+
+<h2 id="part-1a-sign-some-public-keys-from-the-key-signing-party">Part 1a. Sign some public keys from the key signing party</h2>
+
+<p>First, make sure that Kleopatra is set to point to <code class="highlighter-rouge">keys.gnupg.net</code> – <span class="label label-danger">not <code>pgp.mit.edu</code></span> .</p>
+
+<ol>
+  <li><code class="highlighter-rouge">Kleopatra</code> &gt; <code class="highlighter-rouge">Settings</code> &gt; <code class="highlighter-rouge">Configure Kleopatra</code> &gt; <code class="highlighter-rouge">Directory Services</code>. You should have only one entry here: <code class="highlighter-rouge">keys.gnupg.net</code> – and it should be set for <code class="highlighter-rouge">OpenPGP</code> (the default). If this is not the case, delete all entries, then press <code class="highlighter-rouge">new</code>. You should get the correct default.</li>
+</ol>
+
+<p>Then, repeat the steps below for at least three classmates, not including myself.</p>
+
+<ol>
+  <li>Verify their keys (i.e., witness the person show his/her government ID and attest that his/her key-id or fingerprint is correct)</li>
+  <li>Sign the public key that you have verified.
+    <ol>
+      <li>Get their public key into your keyring.
+        <ol>
+          <li>I bundled many keys into a class keyring – find it on <code class="highlighter-rouge">Canvas</code> &gt; <code class="highlighter-rouge">Files</code> &gt; download and import the <code class="highlighter-rouge">.asc</code>. file there.</li>
+          <li>If their key is not in the keyring,
+            <ul>
+              <li>you can use the <code class="highlighter-rouge">Lookup Certificates on Server</code> button within Kleopatra,</li>
+              <li>or you can manually navigate to <code class="highlighter-rouge">keys.gnupg.net</code> from a webbrowser, find their key,
+                <ul>
+                  <li>select-all and copy to your clipboard, then <code class="highlighter-rouge">Kleopatra</code> &gt; <code class="highlighter-rouge">Clipboard</code> &gt; <code class="highlighter-rouge">Certificate Import</code></li>
+                  <li>select-all and paste into a blank <code class="highlighter-rouge">notepad</code> document, save with a <code class="highlighter-rouge">.asc</code> extension, then <code class="highlighter-rouge">Kleopatra</code> &gt; <code class="highlighter-rouge">Import Certificates</code></li>
+                  <li>sometimes, the server is responsive via the protocol that Kleopatra uses, but not the web browser protocol. Try one if the other isn’t working.</li>
+                  <li>While testing, I experienced the frustrating situation where <code class="highlighter-rouge">https://keys.gnupg.net</code> search-by-key-id-or-fingerprint did not work unless I opened “advanced options’ and deselcted all options on the left. Don’t forget to append <code class="highlighter-rouge">0x</code> to your query.</li>
+                </ul>
+              </li>
+              <li>You can make them do all this for you on your machine if you want, since they didn’t get their key in to me in time ;-)</li>
+            </ul>
+          </li>
+        </ol>
+      </li>
+      <li>In <code class="highlighter-rouge">Kleopatra</code>, right-click the key &gt; <code class="highlighter-rouge">Certify Certificate</code>.</li>
+      <li>Check each of the key IDs that you have verified.</li>
+      <li>Check “I have verified the fingerprint” (assuming that you have!)</li>
+      <li>Choose which of your private keys you will use to sign/certify their key. Change the radio to “Certify for everyone to see”. Leave the “Send certified certificate to server afterwards” checked.</li>
+    </ol>
+
+    <div class="alert alert-info"><strong>Factoid: </strong>In pgp culture, it can be considered rude to upload someone else's key to a public server. They might not want your signature on their key, or they may not want their key on a keyserver. In practice, you could alternatively export their key after you have certified it, and send it back to them. But for this assignment, we will be rude. Upload the certified keys to a keyserver.</div>
+
+    <ol>
+      <li>Send the key to the keyserver.</li>
+    </ol>
+  </li>
+  <li>
+    <p>At this point, the signed-key owner should be able to redownload their own public key from the server, and see the new signature.</p>
+
+    <ol>
+      <li><code class="highlighter-rouge">Kleopatra</code> &gt; <code class="highlighter-rouge">Lookup Certificates on Server</code> &gt; search for their key… reimport</li>
+      <li>Double-click the key &gt; <code class="highlighter-rouge">User-IDs &amp; Certifications</code> &gt; <code class="highlighter-rouge">Load Certifications (may take a while)</code> &gt; check it out!</li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="part-1a-deliverable">Part 1a deliverable</h3>
+
+<div class="alert alert-warning"><strong>Question: </strong>What are the names, email address(es), and fingerprints or key-ids of the three people whose keys you signed?</div>
+
+<h2 id="part-1b-have-at-least-three-people-sign-and-upload-your-key">Part 1b. Have at least three people sign and upload your key.</h2>
+
+<p>Follow the steps above, and make sure that your key is discoverable on <code class="highlighter-rouge">keys.gnupg.net</code>.</p>
+
+<ol>
+  <li>Ensure that your public key is uploaded to a PGP key server like <a href="http://pgp.mit.edu">http://pgp.mit.edu</a>.  (In Kleopatra, you can upload it to OpenPGP by highlighting your key, right-clicking it, and selecting “export certificates to server”. Other key-management software should have similar easy-to-use functionality.)</li>
+  <li>Ensure that your public key available on public key servers has been signed by members of the class. To do this, you can re-download or refresh your public key from the key server, then view your key details.</li>
+</ol>
+
+<div class="alert alert-warning"><strong>Question: </strong>What is your key-id or fingerprint? (Tell me again even if you submitted this before. It's possible that some of you lost your key and had to create a new one.)</div>
+
+<div class="alert alert-warning"><strong>Question: </strong>What are the names, email address(es), and fingerprints or key-ids of the three people who signed <i>your</i> key?</div>
+
+<h2 id="part-1c-send-and-receive-an-encrypted-email-via-pgp">Part 1c. Send and receive an encrypted email via PGP</h2>
+
+<p>For this, use <code class="highlighter-rouge">GPA</code> (gnu-privacy-assistant), which is installed on the Windows 10 VM. <code class="highlighter-rouge">GPA</code> has access to the same keyring on your machine as does <code class="highlighter-rouge">Kleopatra</code>.</p>
+
+<p>You will send an <span class="label label-info">encrypted <strong>and</strong> signed</span>email to <a href="mailto:leedsinfosecmgmnt@gmail.com">Leeds Information Security Management (leedsinfosecmgmnt@gmail.com)</a> (Key-id: <code class="highlighter-rouge">20E0A236</code>).</p>
+
+<div class="alert alert-danger">
+    <p><strong>Q:</strong> But how can we trust this key?</p>
+    <p><strong>A:</strong> Download it and look at the signatures (refresh from the keyserver to see it). It was signed with key-id `8DC01F3A`, which I verified in during the key party belongs to me. Do you trust me? If you trust me, and you trust me to only sign keys that I have verified, then can you trust this unknown key?</p>
+</div>
+
+<p>You will receive a response encrypted with your key which contants a secret code. This secret code will be the deliverable for this question. You will not receive the code if:</p>
+<ul>
+  <li>your public key cannot be found</li>
+  <li>you did not sign your message with your key</li>
+  <li>you did not encrypt your message with the public key of <code class="highlighter-rouge">leedsinfosecmgmnt@gmail.com</code>.</li>
+</ul>
+
+<ol>
+  <li>Launch <code class="highlighter-rouge">GPA</code> on the Windows 10 vm. It opens with the <code class="highlighter-rouge">Clipboard</code> view.</li>
+  <li>In this view, type a funny joke for the Leeds Info Sec Mgmnt account.</li>
+  <li>Click “Encrypt”. Choose <em>at least</em> the public key for `leedsinfosecmgmnt@gmail.com
+    <ul>
+      <li>If you also want to be able to decrypt what you encrypt, then also select your public key.</li>
+    </ul>
+  </li>
+  <li>Check the box for <code class="highlighter-rouge">Sign</code>. Select with which key you will sign the message.
+    <div class="alert alert-info">If you are curious what a signed-but-not-encrypted message looks like, write a message, then press the `Sign` button within GPA. Observe the result -- the original message in plaintext, and a block with a signed hash. If you applied your public key to this signed hash, you would obtain a hash against which you could compare your own hash of the plaintext. Cool, isn't it? (The correct answer is "yes".)</div>
+  </li>
+  <li>Copy-paste the output of the previous step into a <code class="highlighter-rouge">gmail.com</code> window or whatever. Just send it from an email address associated with your public key.</li>
+  <li>Make sure that the recipient has access to your public key. You can provide a link to your key on the keyserver, or attach your public key.</li>
+  <li>If you <span class="label label-info">encrypted <strong>and</strong> signed</span> your funny joke, then you will receive an encrypted response back, encrypted with your public key. Decrypt this response. This response is the answer to the next question in this lab.
+    <ol>
+      <li>If you missed a step, you will receive back a plaintext message saying as much.</li>
+    </ol>
+  </li>
+</ol>
+
+<div class="alert alert-warning"><strong>Question: </strong>What is the plaintext of what you received back?</div>
+
+<h1 id="part-2-overall-questions">Part 2. Overall Questions</h1>
+
+<p>Read <a href="https://en.wikipedia.org/wiki/Web_of_trust">the following article</a>.</p>
+
+<div class="alert alert-warning"><strong>Question: </strong>Compare and contrast the trust models used by PGP public key versus X.509 certs used by websites.</div>
+
+<h1 id="part-3-communicate-securely-with-signal">Part 3. Communicate Securely with Signal</h1>
+
+<ol>
+  <li>
+    <p>Read about WhisperSystem’s Signal app <a href="https://signal.org/">here</a> and <a href="https://theintercept.com/2017/05/01/cybersecurity-for-the-people-how-to-keep-your-chats-truly-private-with-signal/">here</a></p>
+  </li>
+  <li>
+    <p>Also read about the cryptographic primities that the Signal protocol uses, <a href="https://medium.com/@justinomora/demystifying-the-signal-protocol-for-end-to-end-encryption-e2ee-ad6a567e6cb4">here</a></p>
+  </li>
+</ol>
+
+<div class="alert alert-warning"><strong>Question: </strong>What attacks does Signal protect you against? Which does it not protect you against?</div>
+<div class="alert alert-warning"><strong>Question: </strong>On a high level, how does the Signal protocol work?</div>
+
+<ol>
+  <li>
+    <p>Install the app “Signal” on an iOS or Android device (if you don’t have an iOS or Android device, borrow one from a friend). Ask a partner (friend or classmate) to do the same.</p>
+  </li>
+  <li>
+    <p>Using Signal, call or send a text message to your partner.</p>
+  </li>
+  <li>
+    <p>Reflect: How does your experience using Signal compare to using encrypted email with PGP?</p>
+  </li>
+</ol>
+
+<div class="alert alert-warning"><strong>Question: </strong>Visit <a href="https://infosecmanagement-f18.slack.com/messages/CCZB79SSJ">this Slack channel</a> and vent your frustration with pgp, or laud the accolades of Signal.</div>
+
+
+
+<script type='text/javascript'>
+    var $ul = $('<ul></ul>').addClass('nav nav-pills');
+    $('h1:not(.title)').each(function() {
+        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
+        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
+        $li = $('<li></li>');
+        $li.append($a);
+        $ul.append($li);
+    });
+    $('#nav-bar').append($ul);
+    
+</script>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/security-assignments/lab_digital_certificates/',
+		  'title': 'Lab &ndash; Digital Certificates'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-11-30 13:35:51 -0500 | Revision 0d95d00e6a8a9fabcb7ddf50c2ecb56b2a19fb18 -->
