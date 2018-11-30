@@ -9,8 +9,23 @@ My approach is to create a repository in `_site` which tracks remote `master` (b
         must build from the `master` branch). One directory up, the jekyll project tracks the `build-from-me` branch
 of the same remote repository. 
 
-Now I _will_ need to do the things that github normally does on its own when it builds pages, such as set a "production"
-environment var. Will need to differentiate development builds from production builds.
+```
+cd _site
+
+git init # if you haven't already
+git add remote origin git@github.com:deargle/deargle.github.io.git
+
+git fetch origin/master
+git add .
+git commit -m 'updating published site'
+git merge origin/master master -s ours
+git push origin master
+```
+
+use `script/production-build` and `script/production-push` for great success
+
+## Todo
+Shunt copying of files and whatnot to gulp. Then can make better use of node_modules, and abandon bower.
 
 ## License
 

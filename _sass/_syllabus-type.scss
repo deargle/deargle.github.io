@@ -17,3 +17,24 @@ $syllabus-font-size-h6:            ceil(($syllabus-font-size-base * 0.85)) !defa
     h5, .h5 { font-size: $syllabus-font-size-h5; }
     h6, .h6 { font-size: $syllabus-font-size-h6; }
 }
+
+.syllabus {
+    table {
+        @extend .table;
+    }
+    h1.title {
+        font-size: ($syllabus-font-size-h1 * 1.25);
+		border-bottom: none;
+    }    
+    
+    tbody > tr.border-bottom > td {
+        border-bottom: 1px solid black !important;
+    }
+}
+
+.assignment, .tony-assignment {
+	h1.title {
+		font-size: ($syllabus-font-size-h1 * 1.25);
+		border-bottom: none;
+	}
+}

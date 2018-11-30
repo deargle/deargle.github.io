@@ -1,14 +1,7 @@
 ---
 ---
-$icon-font-path: "{{ site.baseurl }}/assets/vendor/bootstrap-sass/assets/fonts/bootstrap/";
-$fa-font-path: "{{ site.baseurl }}/assets/vendor/font-awesome/fonts";
-$font-size-base: 16px;
-$syllabus-font-size-base: 12px;
-
-@import "bootstrap/stylesheets/bootstrap";
 @import "highlighting";
-@import "font-awesome/font-awesome";
-@import "syllabus-type";
+
 
 body { padding-top: 20px; font-weight: 200; }
 @media (max-width: 768px) {
@@ -121,26 +114,6 @@ body { padding-top: 20px; font-weight: 200; }
 
 @import "svg-icons";
 
-.syllabus {
-    table {
-        @extend .table;
-    }
-    h1.title {
-        font-size: ($syllabus-font-size-h1 * 1.25);
-		border-bottom: none;
-    }    
-    
-    tbody > tr.border-bottom > td {
-        border-bottom: 1px solid black !important;
-    }
-}
-
-.assignment, .tony-assignment {
-	h1.title {
-		font-size: ($syllabus-font-size-h1 * 1.25);
-		border-bottom: none;
-	}
-}
 	
 dt {
     margin-top: 5px;

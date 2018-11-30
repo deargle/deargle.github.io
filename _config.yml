@@ -15,6 +15,7 @@ gravatar_id:
 job_title: 
 employer: 
 url: 'https://daveeargle.com'
+baseurl: ''
 location: 
   city: 'Pittsburgh'
   state: 
@@ -30,8 +31,6 @@ collections:
     security_assignments:
         output: true
         permalink: /security-assignments/:path/
-    security_books:
-    security_films:
     class:
         output: true
       
@@ -60,6 +59,7 @@ google_plus_id:
 google_analytics: 'UA-35065822-1'
 
 #files to exclude, array
+
 exclude:
   - CONTRIBUTING.md
   - README.md
@@ -67,7 +67,6 @@ exclude:
   - readme.md
   - bundle
   - src
-  - CNAME
   - Gemfile
   - Gemfile.lock
   - bower.json
@@ -81,19 +80,19 @@ exclude:
   - composer.json
   - component.json
   - grunt.js
-  - assets/vendor/bootstrap-sass/stylesheets
-  - assets/vendor/font-awesome/less
-  - assets/vendor/font-awesome/scss
-  - assets/vendor/font-awesome/src
-  - assets/vendor/modernizr/feature-detects
-  - assets/vendor/modernizr/media
-  - assets/vendor/modernizr/test
-  - assets/vendor/anchor-js/index.html
+  - assets/vendor/jquery/src
+  - assets/vendor/bootstrap-sass/assets/fonts
+  - assets/vendor/bootstrap-sass/assets/stylesheets
+  - assets/vendor/bootstrap-sass/assets/javascripts/bootstrap/
   - ".bundle"
   - vendor
   - node_modules
   - Rakefile
   - "*.Rmd"
+  - R
+  - yarn.lock
+  - yarn-error.log
+    
   
 #number of items in RSS feed
 rss_limit: 10
@@ -136,17 +135,21 @@ timezone: America/New_York
 encoding: UTF-8
 branch: master
 
-gems:
+plugins:
   - jemoji
-  - jekyll-mentions
-  - jekyll-redirect-from
-  - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-seo-tag
+  #- jekyll-mentions
+  #- jekyll-redirect-from
+  #- jekyll-sitemap
+  #- jekyll-feed
+  #- jekyll-seo-tag
   - jekyll-github-metadata
 
 sass:
-  style: :compressed
+    style: compressed
+    load_paths:
+        - _sass
+        - assets/vendor/bootstrap-sass/assets
+        - assets/vendor/font-awesome/scss
 
 # markdown: redcarpet
 # redcarpet:

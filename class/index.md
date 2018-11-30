@@ -2,7 +2,7 @@
 layout: default
 permalink: /class/
 published: true
-regenerate: true
+#regenerate: true
 
 ---
 <div>

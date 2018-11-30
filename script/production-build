@@ -1,0 +1,12 @@
+#!/bin/sh
+#build site for development and launch a podunk webserver to do final checks
+
+set -e
+
+script/branding
+
+echo "building for production..."
+JEKYLL_ENV=production JEKYLL_GITHUB_TOKEN="$(cat ~/.token)" DISABLE_WHITELIST=true \
+  bundle exec jekyll build --config _config.yml,_config_production.yml --verbose
+  
+cd _site && python -m SimpleHTTPServer 4000

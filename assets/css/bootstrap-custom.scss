@@ -1,0 +1,8 @@
+$icon-font-path: "{{ site.baseurl }}/assets/vendor/bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "{{ site.baseurl }}/assets/vendor/font-awesome/fonts";
+$font-size-base: 16px;
+$syllabus-font-size-base: 12px; 
+
+@import "bootstrap/stylesheets/bootstrap";
+@import "font-awesome/font-awesome";
+@import "syllabus-type";

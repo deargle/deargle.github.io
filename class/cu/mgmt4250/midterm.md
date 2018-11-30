@@ -27,7 +27,7 @@ or sensitive information obtained could be protected.
 **The scope of your project is restricted to the computer belonging to the
 IP address I communicated to you via email.**
 
-The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN. Download `client.conf` to kali from D2L. Open a separate Terminal session, and run `openvpn client.conf`. 
+The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN. Download `client.conf` to kali from canvas. Open a separate Terminal session, and run `openvpn client.conf`. 
 Leave this terminal running for as long as you need to connect to the midterm vm. Running this will give you an ip address on VPN in the `10.8.` network space. **Use this new ip address as your LHOST whenever needed, not your `192.` one.** As usual, you
 can view your ip address by running `ifconfig`. You will be able to connect to the private `172.32.0.0/16` address of your target server even though it is on a different network, because the VPN server passes traffic through for you.
 
@@ -77,22 +77,56 @@ questions.
 
 ## Tips
 
-* Did your scan show that the server is running something on port 80? It's probably a web page! Try browsing to it by using kali's firefox, and put your server's `172.` ip address into the address bar.
+* Did your scan show that the server is running something on port 80? It's probably a web page! Try browsing to it by using kali's firefox, and put your server's ip address into the address bar.
+* `hyrda` can try to bruteforce ssh logins. It has some nice flags for that task. Read the documentation for hydra's `-e` flag. For example, to try the reverse of a username of a password, you would pass `-e r`. You can pass multiple values for `-e`, like it shows in the documentation.
+
 
 You can crack passwords with either John the Ripper (JtR) or with hashcat.
 
-* [how to use John the ripper](http://www.openwall.com/john/doc/EXAMPLES.shtml) (note the `--rules` flag). John the ripper uses its own wordlist, stored in `/usr/share/john/password.lst`
-* If you're using hashcat and your password file is formatted like [username]:[password hash], tell hashcat that your file has usernames by passing the `--username` flag.
-* If you want to crack `/etc/passwd` and `/etc/shadow`, you need to 'unshadow' the files first. This puts the usernames and passwords into the same file. JtR can unshadow the two files for you using the `unshadow` command.
-	Example usage:
+*   hashcat expects hashes to be fed to it in a certain format. See [here](https://hashcat.net/wiki/doku.php?id=example_hashes) for guidance for that.
+*   Remember that you need to tell hashcat what type of hash you are trying to crack (with the `-m` flag). It can sometimes be tricky to know what kind of hash you are dealing with. Try installing and using the package `hash-identifier`.
+*   In your experience with hashcat, you passed it a hash, and then if it cracked it, it would by default match the plaintext with the hash. For example, if I had:
+    
+        * user: foobar
+        * password: dogman
+        * hash: a8uf33kljufd88
+        
+    Then I would feed the following to hashcat:
+    
+        a8uf33kljufd88
+       
+    And if it cracked it, it would output:
+        
+        a8uf33kljufd88:dogman
+        
+    However, if you have several hashes you are trying to crack at once, it is convenient if hashcat also associates a hash with a username. You can do that as follows:
+    
+        1.  pass the username:hash to hashcat:
+        
+                foobar:a8uf33kljufd88
+            
+            ... and also set the `--username` flag in your hashcat call, so that hashcat knows that you are feeding in a prepended username.
+            
+            If you do this, hashcat will output the crack thusly:
+            
+                foobar:a8uf33kljufd88:dogman
+    
+    Remember that you can view cracked passwords that are saved in hashcat's potfile by using the `--show` command:
+    
+        hashcat --show a8uf33kljufd88
+        
+*   If you want to crack usernames and passwords at the same time, you can 'unshadow' the files first. This puts the usernames and passwords into the same file.
+	
+    Example usage:
 		
 		unshadow [passwd file] [shadow file] > myunshadowed_file
-	
-	* If your shell has root access, you can use the metasploitable `post/linux/gather/hashdump` post module to unshadow the files for you. This will copy the unshadowed files to your machine. 
-	* JtR can try to crack the unshadowed file as-is. See [here](http://www.openwall.com/john/doc/EXAMPLES.shtml)
-	* If you want to crack the unshadowed file using hashcat, you will need to edit the unshadowed file a bit. You have to manually edit the unshadowed file and remove everything except for the username and the hash. See [here](https://samsclass.info/123/proj10/p12-hashcat.htm) (except, you can leave in the usernames, if you pass the `--username` flag)
+        
+*   Just like in the password-cracking lab, if you want to take a crack at hashes in `/etc/shadow`, you need to put them into a format that hashcat can understand. Read `man shadow`, and then read `man crypt`, to understand
+    how to interpret the values in `/etc/shadow`. `man crypt` will also help you figure out which hash type is being used.
+    
+    *   You have to manually edit the unshadowed file and remove everything except for the username and the hash. See [here](https://samsclass.info/123/proj10/p12-hashcat.htm) (except, you can leave in the usernames, if you pass the `--username` flag)
 
-* You will want to read up on using the following tools (Google is your friend):
+*   You will want to read up on using the following tools:
 	*   `scp` - one way to copy files from one computer to another, including from your server to kali. You could also use a meterpreter shell to download files if you have one.
         
         Example `scp` code (from Kali):
@@ -109,7 +143,3 @@ You can crack passwords with either John the Ripper (JtR) or with hashcat.
 	*   `sudo` (including `sudo -l`)
 	*   `id`
 	*   `hydra` to crack ssh logins
-
-* Trying to crack a password? Remember to try dictionary attacks + rule lists (such as hashcat's best64 rulelist, see the password cracking lab). Also remember that some users might use some combination of their username as their password. Read the documentation for hydra's `-e` flag. For example, to try the reverse of a username of a password, you would pass `-e r`. You can pass multiple values for `-e`, like it shows in the documentation.
-
-* You can [upgrade a regular shell to a meterpreter session](https://null-byte.wonderhowto.com/how-to/upgrade-normal-command-shell-metasploit-meterpreter-0166013/) (after you have a shell, see `shell_to_meterpreter`, step 2). 
