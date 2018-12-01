@@ -13,12 +13,12 @@ of the same remote repository.
 cd _site
 
 git init # if you haven't already
-git add remote origin git@github.com:deargle/deargle.github.io.git
+git remote add origin git@github.com:deargle/deargle.github.io.git
 
-git fetch origin/master
+git fetch origin master
 git add .
 git commit -m 'updating published site'
-git merge origin/master master -s ours
+git merge origin/master master -s ours -m 'merging'
 git push origin master
 ```
 
