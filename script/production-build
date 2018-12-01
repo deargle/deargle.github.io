@@ -9,6 +9,6 @@ rm -Rf _site/*
 
 echo "building for production..."
 JEKYLL_ENV=production JEKYLL_GITHUB_TOKEN="$(cat ~/.token)" DISABLE_WHITELIST=true \
-  bundle exec jekyll build --config _config.yml,_config_production.yml --verbose
+  bundle exec jekyll build --config _config.yml,_config_production.yml 
   
 cd _site && python -m SimpleHTTPServer 4000
