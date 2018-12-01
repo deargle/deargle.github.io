@@ -165,6 +165,8 @@ This is a group project. The midterm will be a vulnerability and penetration ass
 
 This is a group project. Teams will choose a recent security breach incident and report on it as if it just occurred. The report will summarize the incident and give recommendations for how to manage the threat. The report will also include a risk assessment of other potential threats the chosen organization faces, along with recommendations for mitigating each identified threat. Deliverables include a written report and a presentation.
 
+Assignment description [here](current_event_threat_assessment/).
+
 
 ## Readings Quizzes
 
