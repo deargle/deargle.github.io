@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=5dfa51a8cc15d86409ab5174f3b35459292b115c">
+
+  <link href="/assets/css/bootstrap-custom.css?v=5dfa51a8cc15d86409ab5174f3b35459292b115c" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=5dfa51a8cc15d86409ab5174f3b35459292b115c" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Lab – Network Security Monitoring / Security Onion | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Lab – Network Security Monitoring / Security Onion" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learn your network before an intruder does" />
+<meta property="og:description" content="Learn your network before an intruder does" />
+<link rel="canonical" href="https://daveeargle.com/security-assignments/lab_security_onion/" />
+<meta property="og:url" content="https://daveeargle.com/security-assignments/lab_security_onion/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Lab – Network Security Monitoring / Security Onion","url":"https://daveeargle.com/security-assignments/lab_security_onion/","author":{"@type":"Person","name":"deargle"},"description":"Learn your network before an intruder does","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="tony-assignment post-security-assignments-lab_security_onion" id="/security-assignments/lab_security_onion">
+
+<div class="container">
+
+  
+  
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<h1 class='title'>Lab &ndash; Network Security Monitoring / Security Onion</h1> 
+
+
+
+<p>See <a href='/security-assignments/virtual-machines/#setting-up-virtualbox-and-the-infoset-net-network'>here</a> for instructions on setting up virtualbox for this class.</p>
+
+<div class='alert alert-info'><strong>Heads up!</strong> Be sure that you have created the <code>infosec-net</code> virtualbox network, as specified at the top of the above link, <i>before</i> importing the vm! It's not the end of the world if you don't, but it does require some extra work.</div>
+
+<p>This lab uses the following <a href='/security-assignments/virtual-machines/#the-virtual-machines'>vms:</a></p>
+<ul>
+
+    <li>SecurityOnion</li>
+
+</ul>
+
+
+
+<h1 id="part-1-analyzing-netflow-information">Part 1: Analyzing NetFlow information</h1>
+
+<p>Although full-content data are powerful, they are less useful for fast querying and timely incident response. This is where NetFlow records, some of the most powerful information sources available to incident responders, become very useful. These records are brief summaries of network traffic which can be maintained indefinitely due to their small file size. They provide a running history of network connections at the time of an incident.
+Read the below article and use Google to answer the following questions:</p>
+
+<p><a href="https://en.wikipedia.org/wiki/NetFlow">https://en.wikipedia.org/wiki/NetFlow</a></p>
+
+<div class="alert alert-warning"><strong>Question: </strong>What types of information do NetFlow records contain?</div>
+
+<div class="alert alert-warning"><strong>Question: </strong>What are at least three benefits of NetFlow over full PCAP files?</div>
+
+<p>Now that you have basic understandings of NetFlow, we will use YAF and SiLK (open-source incident response tools for Linux) to analyze NetFlow data. 
+Further documentation can be found at http://www.appliednsm.com/silk-on-security-onion/.</p>
+
+<p>We will analyze sample data hosted <a href="https://tools.netsa.cert.org/silk/referencedata.html#">here</a>, which says the following about the data source:</p>
+
+<blockquote style="font-size:16px">
+  <p>This sample data is derived from anonymized enterprise packet header traces obtained from Lawrence Berkeley National Laboratory and ICSI, 
+and is used here with their permission. This data covers selected hours on selected dates in late 2004 and early 2005.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>First, you should run the following commands for the start and end dates to filter on:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export sd="--start-date=2004/10/04:20"
+export sd="$sd --end-date=2005/01/08:05"
+</code></pre></div>    </div>
+
+    <div class="alert alert-info">
+      <p>This is just a convenience variable that lets you not have to type out the <code class="highlighter-rouge">--start-date</code> and <code class="highlighter-rouge">--end-date</code> flags for each of the following commands. It is stored in <code class="highlighter-rouge">$sd</code>. You can view it by running <code class="highlighter-rouge">echo $sd</code>. Go on,
+it’s just text!</p>
+    </div>
+
+    <p>We can now start querying the sample data to find some interesting and important information about the sample network.</p>
+
+    <p>All commands that start with <code class="highlighter-rouge">rw</code> are part of the SiLK Tool Suite. <code class="highlighter-rouge">rwfilter</code> first selects records from netflow files, and <code class="highlighter-rouge">rwstats</code> summarises those records.</p>
+  </li>
+  <li>
+    <p>Query the top “talkers” (those host-pairs that send and receive the most traffic) <span class="label label-info">by bytes</span>.</p>
+
+    <p>Enter the following on one line, or use the backslash “\” to let you press enter to continue the command on a new line.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rwfilter --data-rootdir=/data/SiLK-LBNL-05 --protocol=0- \
+--type=all $sd --pass=stdout \
+| rwstats --percentage=1 --fields=sip,dip --bytes
+</code></pre></div>    </div>
+
+    <p><strong>Important:</strong> Note that the <code class="highlighter-rouge">-</code> at the end of <code class="highlighter-rouge">--protocol=0-</code> is important. It indicates that all protocols from <code class="highlighter-rouge">0</code> and above will be included. It is equivalent to <code class="highlighter-rouge">--protocol=0-255</code>. If you don’t include the hyphen, no results will be returned. 
+<a href="https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers">IP protocols include</a>, but are not limited to, TCP and ICMP (ping, traceroute)</p>
+
+    <p><strong>Note:</strong> The code following the <code class="highlighter-rouge">|</code> (pipe) symbol passes the output of <code class="highlighter-rouge">rwfilter</code> to <code class="highlighter-rouge">rwstats</code>, which provides fast and powerful statistics. The <code class="highlighter-rouge">sip</code> and <code class="highlighter-rouge">dip</code> fields stand for source and destination IP respectively. 
+To understand “source” and “destination”, consider the client-server architecture pattern. In the vulnerability scanning lab, we identified services listening on ports on metasploitable. One such service was
+an sshd – an ssh server listening on port 22. If we were to connect to this server with an ssh client, say, to log in to a metasploitable account from kali, and if that login were captured in a netflow record,
+then the “source” for that record would be kali, and the “destination” would be metasploitable.</p>
+
+    <p><strong>Note:</strong> The <code class="highlighter-rouge">--percentage=1</code> flag specifies that we only want to retain a <code class="highlighter-rouge">sip,dip</code> pair if total bytes exchanged between the two comprised at least 1% of total network byte traffic. The <code class="highlighter-rouge">--fields</code> conceptually performs
+a “group-by” on the incoming <code class="highlighter-rouge">rwfilter</code> data for, in this case, unique <code class="highlighter-rouge">sip,dip</code> pairs. Then the <code class="highlighter-rouge">--percentage</code> flag filters based on ranked group aggregate values for, in this case, <code class="highlighter-rouge">--bytes</code>.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>Looking at the output, take note of the top 5 talkers source and destination IPs, ranked by the % of bytes the pair generated.</div>
+  </li>
+  <li>
+    <p>Query “top talkers” (those host-pairs that send and receive the most traffic) <span class="label label-info">by the number of netflow records they generated</span>:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rwfilter --data-rootdir=/data/SiLK-LBNL-05 \
+--proto=0- --type=all $sd \
+--pass=stdout | rwstats --count=25 \
+--fields=sip,dip
+</code></pre></div>    </div>
+
+    <p><strong>Note:</strong> The <code class="highlighter-rouge">--count=25</code> flag specifies that we only want to retain a <code class="highlighter-rouge">sip,dip</code> pair if the number of netflow records associated with traffic exchanged
+between that pair  was in the top 25 of all netflow-record pair-counts.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>Take note of the source and desination IPs of the top three talker-pairs, ranked by number of flow records.</div>
+
+    <div class="alert alert-info"><strong>Consider:</strong> Conceptually, why do you think it’s important information to know the top talkers on the network?</div>
+  </li>
+  <li>
+    <p>Query top SSH flows. This is typically done using a destination port (<code class="highlighter-rouge">dport</code>) filter for port 22, as follows:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rwfilter --data-rootdir=/data/SiLK-LBNL-05 \
+--proto=0- --type=all $sd \
+--dport=22 --pass=stdout | rwstats --count=10 \
+--fields=sip,dip
+</code></pre></div>    </div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>Take note of the host IP address that has the greatest number of flow records associated with ssh'ing to another specific host.</div>
+
+    <div class="alert alert-info"><strong>Consider:</strong> will the sIP or dIP represent the ssh-connection initiator, if the destination SSH port is 22?</div>
+  </li>
+  <li>
+    <p>Starting from the query in the previous step, do a follow-up analysis on a particular SSH-connection-starter.</p>
+
+    <div class="alert alert-info">
+    <strong>Take heed!</strong> This question <em>intentionaly</em> offers minimal guidance.
+</div>
+
+    <ul>
+      <li>Write a query using a <code class="highlighter-rouge">rwfilter</code> flag to select only records associated with a single ip address (<code class="highlighter-rouge">rwfilter --help</code> and browse through the “partitioning switches” section). 
+Filter to only SSH connections initiated by <code class="highlighter-rouge">128.3.161.229</code>.</li>
+      <li>Pipe that to <code class="highlighter-rouge">rwstats</code>, group by unique source ip and destination ip addresses, and examine the pairs with the 10 highest total number of ssh flow records.</li>
+    </ul>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What are the top SSH destination IPs for <code>128.3.161.229</code>? In other words, what hosts is this box SSH'ing to the most often?</div>
+  </li>
+  <li>
+    <p>Query for long standing SSH traffic:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rwfilter --data-rootdir=/data/SiLK-LBNL-05 \
+--proto=0- --type=all \
+--dport=22 --duration=1700- \
+$sd --pass=stdout | rwcut
+</code></pre></div>    </div>
+
+    <p><strong>Note:</strong> <code class="highlighter-rouge">rwcut</code> dumps out all <code class="highlighter-rouge">rwfilter</code>-piped records – it performs no aggregations like until <code class="highlighter-rouge">rwstats</code>.</p>
+
+    <p><strong>Note:</strong> In this example, <code class="highlighter-rouge">--duration=1700-</code> and <code class="highlighter-rouge">--dport=22</code> filters to only records with a ssh connection time of at least 1700 seconds (almost 30 minutes).</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the IP address of the host client (source) that had an an ongoing SSH connection/session to an ssh server on another host (destination) of <em>at least 30 minutes</em>?</div>
+
+    <div class="alert alert-info"><strong>Reflect:</strong> Conceptually, why should we look for long standing SSH connections?</div>
+
+    <p>There are many other filters that we can use to analyze the network traffic in many situations, especially under incident response circumstances.  <br />
+To learn more about YAF and SILK, you can find additional material on <a href="https://tools.netsa.cert.org/">https://tools.netsa.cert.org/</a></p>
+  </li>
+</ol>
+
+<h1 id="part-2-examining-pcap-files">Part 2: Examining PCAP Files</h1>
+
+<p>In this section, you’ll examine the network traffic for a Windows VM that browsed to a compromised website that in turn referred the Windows VM to a server that delivered malware to the Windows VM. You’ll use Squert and Wireshark to investigate these events.</p>
+
+<ol>
+  <li>
+    <p>Ensure that a IDS signature rule 2000419 is enabled.</p>
+
+    <p>The following steps in this lab rely on a snort rule being enabled in securityonion that will be tripped by a windows EXE being downloaded over a non-standard HTTP port. Downloading executables is a normal
+part of using operating systems, but perhaps not so much in a corporate environment where employees shouldn’t be downloading executable files onto their machines.</p>
+
+    <p>The signature rule we want to enable is <a href="https://doc.emergingthreats.net/bin/view/Main/2000419">2000419</a>. This signature is in a list of rules downloaded by PulledPork, which securityonion uses to manage IDS rules. Ensure that it is enabled by adding it sid 2000419 is enabled, even if it is default-disabled
+in downloaded rule sets, by adding this id to a pulledpork config file:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo bash
+echo 1:2000419 &gt;&gt; /etc/nsm/pulledpork/enablesid.conf
+rule-update
+</code></pre></div>    </div>
+
+    <p>Examine the rule at the link above. When this rule is triggered, it will write “ET POLICY PE EXE or DLL Windows file download” or “ET POLICY PE EXE or DLL Windows file download Non-HTTP”, depending on the rule
+version in use.</p>
+  </li>
+  <li>
+    <p>Navigate to the <code class="highlighter-rouge">/data/cases/</code> directory, where <code class="highlighter-rouge">case.pcap</code> is found (available <a href="https://daveeargle.com/class/cu/mgmt4250/case.pcap">here</a> if you don’t already have it). Run the following command.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo tcpreplay -i eth0 -M 10.0 case.pcap
+</code></pre></div>    </div>
+
+    <p>This command replays network traffic stored in the <code class="highlighter-rouge">case.pcap</code> file onto security onion’s network card, as if the network activity were happening again, live.</p>
+
+    <p>You should see the following result (ignore the error messages for the 20 failed packets):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Statistics for network device: 	eth0
+Attempted packets:         	4682
+Successful packets:        	4662
+Failed packets:        		20
+Retried packets (ENOBUFS): 	0
+Retried packets (EAGAIN):  	0
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Log in to Squert using the icon on the Security Onion desktop using <code class="highlighter-rouge">analyst:analyst</code> for the username:password. (Bypass the SSL warning by clicking “Advanced” then “Proceed to site.” From SquertProject.org:</p>
+
+    <blockquote style="font-size:16px">
+      <p>“Squert is a web application that is used to query and view event data stored in a Sguil database (typically IDS alert data). Squert is a visual tool that attempts to provide additional context to events through the use of metadata, time series representations and weighted and logically grouped result sets. The hope is that these views will prompt questions that otherwise may not have been asked.”</p>
+    </blockquote>
+
+    <p>(IDS stands for Intrusion Detection System.)</p>
+  </li>
+  <li>
+    <p>Each row in Squert lists an IDS event. Click on the <code class="highlighter-rouge">QUEUE “2”</code> button on the row with <code class="highlighter-rouge">ET POLICY PE EXE or DLL Windows file download</code> to see the detail of this alert.</p>
+
+    <p><img src="../images/lab_12_1.png" alt="" class="img-responsive" width="70%" /></p>
+
+    <p>When you click this number, more details will appear below the accordion expansion, including the source and destination IP of the associated IDS event.</p>
+
+    <div class="alert alert-info">
+This particular record is a response to a HTTP web browser request which downloaded a malicious executable payload. Because it is a response, the source IP represents the attack machine, and the destination IP
+represents the victim machine. This convention will not always hold for this case analysis-- it depends on whether a query or a response is being examined. 
+</div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the IP address of the the Windows VM to where the malware payload was sent (the destination IP)?</div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the IP address of the host that sent the malware payload? (the source IP)?</div>
+
+    <p>You can also click on the Summary tab to see a map and summary of traffic by countries.</p>
+
+    <p><img src="../images/lab_12_2.png" alt="" class="img-responsive" width="30%" /></p>
+
+    <p>If the map isn’t working, just search for the IP address using Wolfram-Alpha. Or, follow the instructions in the box below to update your map.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What country does this malware payload comes from?</div>
+
+    <div class="alert alert-info">
+      <p>If you don’t have any country information showing, first make sure that you have an internet connection (try <code class="highlighter-rouge">ping google.com</code>),</p>
+
+      <p>If you can’t ping google.com, run this:</p>
+
+      <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ifdown eth1 &amp;&amp; sudo ifup eth1
+</code></pre></div>      </div>
+
+      <p>Once you can ping google.com, run this:</p>
+
+      <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /var/www/so/squert/.scripts
+sudo ./ip2c.tcl
+</code></pre></div>      </div>
+
+      <p>Then press Squert’s “Refresh” button (not the browser refresh button):</p>
+
+      <p><img src="../images/lab_so_1.png" alt="" class="img-responsive" width="600px" /></p>
+    </div>
+  </li>
+  <li>
+    <p>You can pivot from Squert to other network forensics tools for follow-up analyses. From the Events view, drill-down one level deeper by clicking on the second <code class="highlighter-rouge">QUEUE “2”</code> button that appeared after
+clicking on the first. You should now see two events. Click on one of these “event ids.” Doing so will pivot you to another tool called <code class="highlighter-rouge">CapME.</code> Log in with username:password <code class="highlighter-rouge">analyst:analyst</code>.</p>
+
+    <p>After a moment, you will see a representation of the HTTP web request which fetched and downloaded the malware payload. In <span class="label label-danger">red text</span> is the the HTTP request that the browser made for the download, 
+and in <span class="label label-info">blue text</span> is the malicious server’s response in which the payload was actually downloaded.</p>
+
+    <p>In the RED text you should see a <code class="highlighter-rouge">HOST</code> header, as well as a <code class="highlighter-rouge">GET</code> header. the <code class="highlighter-rouge">HOST</code> header shows the domain name and port that the browser requested. This is the malicious web domain. the <code class="highlighter-rouge">GET</code> header shows the specific URL that was requested
+that delivered the malware payload.</p>
+
+    <div class="alert alert-info"><strong>Feeling saucy?</strong> If the host were still serving the malware, you could theoretically combine the HOST and the GET values and paste them into your browser, and download the malware anew!
+But there is no need to do this if it is the malware you seek. You already can extract it because you have a record of the entire malware download network activity. This is the power of NSM -- to know all, see all, recreate all, 
+for anything going to or sent from anyone on your network (assuming it's not encrypted).
+</div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the domain name that served the malicious payload?</div>
+  </li>
+  <li>
+    <p>At the top and on the bottom of the CAPme report, you will see links to download a <code class="highlighter-rouge">.pcap</code> file. Do so, then open the download from the browser. This will pivot to WireShark, another network forensics tool, with a different
+view of the same event.</p>
+
+    <p>The very first row in the wireshark view shows the packet that the victim sent to the attack machine to begin the request to download the malware payload. So, the “source” is the victim, and the “destination” is the attack machine.</p>
+
+    <p>We are interested in knowing the MAC address of the victim machine so that we can do followup analysis. Examine this first packet. Expand the “Ethernet II” frame in the packet view, and note the 6-octet-long address delineated by <code class="highlighter-rouge">:</code>.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the MAC address of the victim VM?</div>
+  </li>
+  <li>
+    <p>But what was this host doing that led to them downloading malware? What sent them to that malicious domain? Let’s investigate!</p>
+
+    <p>In Wireshark’s File menu, choose “Open,” navigate to <code class="highlighter-rouge">/data/cases/case.pcap</code> file, click “Open.” This will load the entire traffic file – not just the traffic directly associated with the malware download.</p>
+
+    <p>Note the source IP address for packet number 1. This is the Windows VM that gets infected. This entire network trace only pertains to web-based traffic associated with our victim for a certain time window.</p>
+
+    <p>Right-click the first packet, and choose <code class="highlighter-rouge">Follow TCP Stream</code>. This will bundle together all of the network packets associated with this single HTTP web request, as did <code class="highlighter-rouge">CAPme</code> for the single HTTP event that resulted
+in the malware download.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What HOST did the victim machine make a request to in the initial TCP session?</div>
+  </li>
+  <li>
+    <p>We know from earlier that the malicious HTTP download request included a request for a page located at <code class="highlighter-rouge">/cars.php?honda=1185...</code> etc. Let’s find that event, and its corresponding stream, by filtering for it:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http contains "cars.php"
+</code></pre></div>    </div>
+
+    <p>This should return one result – the one web request associated with fetching a route called “cars.php”. For this record, note again the IP address of the attack host – 
+in this case, the destination ip address.</p>
+
+    <p>For this one record, right-click the destination field value (the ip address), then choose <code class="highlighter-rouge">Apply as Filter</code> &gt; <code class="highlighter-rouge">Selected</code>. This will filter the entire tracefile
+to only activity with a destination ip matching this field. Let’s filter even further to only select the records with <code class="highlighter-rouge">HTTP</code> protocol. 
+This can be done by appending <code class="highlighter-rouge">and http</code> after your <code class="highlighter-rouge">ip.dst ==</code> filter expression.</p>
+
+    <p>You should now see three HTTP requests to this malicious IP. We recognize the second one – the <code class="highlighter-rouge">GET /cars.php</code> one. It is the one that delivered the malware. Let’s look at the first one – right-click <code class="highlighter-rouge">Follow TCP Stream</code> it.
+You will notice that this HTTP request as a <code class="highlighter-rouge">REFERER</code> header. This is http-speak for the site that redirected the browser to the current one. Note the value for the <code class="highlighter-rouge">REFERER</code>. 
+There is a good chance that this is a compromised website. They’re probably all compromised, but hey, world we live in. Fix or blacklist one site at a time.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the domain name of the “referer” website that referred the Windows VM to the IP that delivered the malware?</div>
+
+    <p>We are also interested in knowing the IP address of this referer website – the host at that IP may be hosting other compromised sites, so we may want to blacklist the address. 
+One way that you can find that IP address is by applying the following filter: <code class="highlighter-rouge">http contains "Host: name.of.the.referer"</code> (case-sensitive, and do not include the protocol (e.g., <code class="highlighter-rouge">http://</code> ))</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What was the IP address of this referer website?</div>
+
+    <div class="alert alert-info"><strong>What could you do with this information?</strong> Oh, lots of things. 
+    
+    <ul>
+        <li>You could be proactive and contact the website to alert them to their likely compromise. If it's a giant
+    such as ebay though and the compromise is a malicious script embedded in someone's item listing, fat chance that ebay will do anything about it. Or maybe they will, and take down the listing. But if they do not
+    take further steps to block malicious redirects from being postedo on their site, it will likely just happen again and again.</li>    
+        <li>You could just block this domain from being accessed within your organization. Why is this employee doing online shopping during work anyway? Fire the guy. Oh wait, everyone in your organization cyberloafs,
+    you can't just fire everyone. Or maybe it was the CEO who was doing the online shopping. Sigh.</li>
+        <li><p>You could report the compromise to Google, who can put a rule into the Chrome browser to block requests to this domain from being fulfilled. You may have seen a message along these lines in Chrome before: 
+            
+        <p>"The site
+        that you are trying to visit is currently serving malware. Try again later. <em>If you are the domain administrator and are viewing this message, contact us *here* for more information on what we found. If you
+        think that this is a false positive, you are wrong, haha puny sysadmin. File a complaint and maybe a human or probably just a computer will get back with you.</em></p> 
+            
+        At which point your CEO will switch to Internet Explorer and visit the site anyway. Sigh, pwned.</p>
+        </li>
+    </ul> 
+        
+    <p>As you can see, you have many options.</p>
+</div>
+  </li>
+  <li>
+    <p>Well shoot. What exactly was downloaded? Let’s carve it out and search online for a report on what it does.</p>
+
+    <p>Follow again the tcp.stream related to the http request for getting <code class="highlighter-rouge">cars.php</code> (review above if you have forgotten how). From the popup window, choose “Save As”, and save the stream somewhere.</p>
+
+    <p>Note the “MZ” string at the top of the blue response stream. This string is a magic number that identifies the 
+file type that is being downloaded in this request (see <a href="https://asecuritysite.com/forensics/magic">https://asecuritysite.com/forensics/magic</a>). Note also the <code class="highlighter-rouge">This program…</code> message. 
+This is another indicator of the file type.</p>
+
+    <p>Next, open a terminal and navigate to the directory where you saved the stream, and use a forensics file carving tool called Foremost:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foremost -i the.name.you.chose -o name.of.the.directory.where.you.want.to.save.the.carved_files
+</code></pre></div>    </div>
+
+    <p>This will create a directory <code class="highlighter-rouge">name.of.the.directory.where.you.want.to.save.the.carved_files</code> containing all of the files that Foremost carved out of the network stream.</p>
+
+    <div class="alert alert-info"><strong>Foremost stuck on "reading from stdin"?</strong> This happens when foremost cannot find the file you reference on <code>-i</code>. It will never end. 
+    <code>stdin</code> means that it is sitting there waiting for you to enter something, because it couldn't find an input otherwise. It's an odd behavior, but makes sense I guess in some programmer's mind.
+    Navigate to the directory where your input file is located, and <em>then</em> run foremost.
+</div>
+
+    <p>Inside your carved files directory, you will find a subdirectory for each file type recovered. For this analysis, you should see two subdirectories – one for extracted <code class="highlighter-rouge">png</code> files,
+and another for extracted <code class="highlighter-rouge">exe</code> files. The <code class="highlighter-rouge">.exe</code> in the <code class="highlighter-rouge">exe</code> directory is the malware payload.</p>
+
+    <p>Use a hashing algo such as <code class="highlighter-rouge">sha256sum</code> to hash the extracted <code class="highlighter-rouge">.exe</code> file.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the <code>sha256</code> hash of the exe payload?</div>
+
+    <p>Browse to a website such as <a href="virustotal.com">virustotal.com</a> or <a href="hybrid-analysis.com">hybrid-analysis.com</a> and search the site using the payload’s hash. This can tell you more about what you’re 
+dealing with in your network and potentially how to clean it up.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>As shown on virustotal.com, what does Kaspersky antivirus report the exe to likely be?</div>
+
+    <p><a href="https://krebsonsecurity.com/2014/01/feds-to-charge-alleged-spyeye-trojan-author/">Read about</a> the arrest of, charges against, and plea to conspiracy from Aleksander Panin, the author of the variant of malware with which
+we are dealing.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What does Brian Krebs indicate this malware is typically used for?</div>
+
+    <p><strong>For fun:</strong> Install <code class="highlighter-rouge">mirage</code> and use it open the png inside your carved-files directory if you’re curious what it looks like (preface install commands with <code class="highlighter-rouge">sudo</code> on this system), Inside that subdirectory, use the <code class="highlighter-rouge">file</code> command to identify the file type.</p>
+
+    <div class="alert alert-success">If you ever have a storage device that corrupts and is reported to be unreadable by your operating system, 
+it is possible that you can use a tool like <code>foremost</code> 
+to carve out files from the media.</div>
+  </li>
+</ol>
+
+<h1 id="part-3-operation-aurora-case">Part 3: Operation Aurora Case</h1>
+
+<h2 id="preparation-clear-security-onion-history">Preparation: Clear Security Onion History</h2>
+
+<ol>
+  <li>Double-click the “Setup” icon on the Security Onion desktop, and enter the password “Password1”.</li>
+  <li>Click “Yes, skip network configuration!”</li>
+  <li>Click OK with the default setting of “evaluation mode.”</li>
+  <li>Click OK with the default setting of “eth0” for the monitoring interface.</li>
+  <li>Enter “analyst” for the Sguil username.</li>
+  <li>Enter “analyst” for the Sguil password, and confirm.</li>
+  <li>Click “Yes, proceed with changes!”</li>
+  <li>Click OK on the remaining dialog messages.</li>
+</ol>
+
+<p>The logs on Security Onion have been reset, giving you a clean slate for the case below.</p>
+
+<h2 id="case-scenario">Case Scenario</h2>
+
+<p>You will use all the skills you’ve learned in this lab so far to solve the following case based on a real hack called Operation Aurora. First, watch <a href="https://en.wikipedia.org/wiki/Operation_Aurora">this video</a> or 
+read <a href="https://www.youtube.com/watch?v=T2DqLj1nQkc">this Wikipedia article</a> about Operation Aurora, which was an attack on Google and other companies. Then, read the following scenario:</p>
+
+<blockquote>
+  <p>Claire Young is after GumTiger’s killer app source code. She’s been trailing the lead developer, Alex Stephens, to figure out how she can remotely access GumTiger’s servers. 
+One night, while conducting reconnaissance, she sees him log into his laptop <code>10.10.10.70</code> and VPN into GumTiger’s headquarters.</p>
+</blockquote>
+
+<blockquote>
+  <p>Leveraging her connections with international hacking organizations, Claire obtains a <a href="http://www.symantec.com/connect/blogs/trojanhydraq-incident-analysis-aurora-0-day-exploit">0-day exploit for Internet Explorer</a> 
+and launches a client-side spear phishing attack against Alex Stephens. Claire carefully crafts an email to Alex containing tips on how to improve the source code and sends it. 
+Seeing an opportunity that could get him that Vice President of Product Development title (and corner office) that he’s been coveting, Alex clicks on the link. Claire is ready to strike…</p>
+</blockquote>
+
+<blockquote>
+  <p>You are the forensic investigator. Your mission is to analyze <a href="http://forensicscontest.com/contest06/evidence06.pcap">the packet capture</a> containing Claire’s exploit, build a timeline, and answer the questions below.</p>
+</blockquote>
+
+<div class="alert alert-danger"><strong>Intentional lack of specific steps ahead!</strong> Apply skills covered in Part 2 to solve this case.</div>
+
+<div class="alert alert-info">
+    If you are using my class VM, the packet capture evidence file (the <code>.pcap</code> file) is downloaded to your VM and available at 
+    <code>/data/cases/evidence.pcap</code>
+</div>
+
+<ol>
+  <li>
+    <p>Find the the full URL of Alex Stephens’ original web request, including the port.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What was the full URI of Alex Stephens' original web request? (Please include the port in your URI.)</div>
+  </li>
+  <li>
+    <p>In response, the malicious web server sent back obfuscated JavaScript, which contained a zero-day exploit. Near the beginning of this JavaScript code, the attacker 
+created a javascript array named “UWnHADOfYHiHDDXj” with 1300 “COMMENT” HTML elements, then set the <code class="highlighter-rouge">data</code> property of each of those elements to a string. 
+What was the value of this string? (hint: look for <code class="highlighter-rouge">.data</code> a few lines down within the loop.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What was the string value of javascript variable “UWnHADOfYHiHDDXj”?</div>
+
+    <div class="alert alert-info">
+    
+    <p>JavaScript is the programming language that makes webpages interactive. With it, code can dynamically create and manipulate HTML elements
+    on a webpage. While a web server sends basic html in response to a page request, any javascript is executed on the <em>client's browser</em>, not on the server. That is important --
+    any code that can be executed on your own computer can potentially do bad things to your computer! Web browsers such as Internet Explorer are designed to not allow code
+    like javascript to do anything outside of the scope of the webpage you are viewing... but this 0-day escapes the jail of the browser.</p>
+    
+    <p>The Symantec analysis above reports that:
+        <blockquote>This exploit was used to deliver a malicious payload, known by the name of Trojan.Hydraq, 
+        the main purpose of which was to steal information from the compromised computer and report it back to the attackers.</blockquote>
+
+        <blockquote>The exploit code makes use of known techniques to exploit a vulnerability that exists in the way Internet Explorer handles a deleted object. The final purpose of the exploit itself is to access an object that was previously deleted, 
+        causing the code to reference a memory location over which the attacker has control and in which the attacker dropped his malicious code.</blockquote>
+    </p>
+    
+    <p>The payload is created with the javascript <code>var LLVcUmerhpt</code>, and the memory is manipulated by overwriting those earlier <code>.data</code> properties with a value
+    which be interpreted as a memory address and which will cause the browser to execute the payload from that attacker-chosen location in memory.</p>
+</div>
+  </li>
+  <li>
+    <p>The loaded webpage included an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe">IFRAME</a> element which caused Alex’s computer to make a second HTTP GET request for an object.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What was the filename of the second HTTP object that was requested?</div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the MD5 hash of the second file requested (the second HTTP response object)?</div>
+
+    <div class="alert alert-info"><strong>Hint:</strong>
+    <p>You can first filter to `http` traffic with `GET` requests, and note the name and properties of the second one. Then, You can use <code>foremost</code> to extract the http response object from a saved copy of the http tcp stream.</p>
+        
+    <p>
+    Alternatively and equivalently, you can export HTTP response objects in Wireshark by going to the wireshark <code>File</code> menu, and selecting “Export Objects” &gt; HTTP. You should see two "HTTP"-requested objects. The first is the initial 
+    webpage visited, and the second is a gif, the downloaded of which was triggered by the initial webpage loaded. Note the name of the second file requested. Save the second one to a file. This saved file is the equivalent of what
+    <code>foremost</code> would have carved.       
+    </p>
+</div>
+  </li>
+  <li>
+    <p>This new malicious object opened a TCP session on port 4444 between Alex’ computer and Claire’s machine.</p>
+
+    <p>Find the packet for when the TCP session on port 4444 opened, and also find the one when it closed. Use the timestamp difference between these two to determine
+how long the port was open. This is significant because it tells us how long the attackers had to perform their attack.</p>
+
+    <div class="alert alert-info">
+    <strong>Hint</strong> Use the Wireshark filter “tcp.port == 4444”. For the time, see the value in Wireshark’s “Time” column for the first row in the filtered results.
+    Right-click the first packet in the filtered results, and choose <code>Set Time Reference</code>. 
+    Then note the time value for the last row in the filtered results. With the first set
+    as the time reference, the last packet will indicate how long this tcp stream was open.
+</div>
+
+    <div class="alert alert-warning"><strong>Question: </strong>How long was the TCP session on port 4444 open?</div>
+  </li>
+  <li>
+    <p>In packet 17, the malicious server began to send a file to the client over the port 4444 TCP session. What type of file was it?</p>
+
+    <p>Hints:</p>
+    <ul>
+      <li>Examine the magic number at the beginning of the download data</li>
+      <li>Extract the downloaded file from the tcp stream associated with packet 17, carve out the files, and use the <code class="highlighter-rouge">file</code> command from the terminal.</li>
+    </ul>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What type of file was it, according to the magic number and to the <code>file</code> command?</div>
+    <div class="alert alert-warning"><strong>Question: </strong>What was the MD5sum of this file?</div>
+  </li>
+  <li>
+    <p>Search for a hash of the downloaded file on <a href="Virustotal.com">Virustotal.com</a> and on <a href="hybrid-analysis.com">hybrid-analysis.com</a>.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What type of file is this, according to hybrid-analysis and Virustotal?</div>
+  </li>
+  <li>
+    <p>You notice that the victim’s computer repeatedly tried to connect back to the malicious server on port 4445, even after the original connection on port 4444 was closed. 
+Eventually, the malicious server responded and opened a new connection on port 4445. 
+Subsequently, the malicious server sent a second executable file to the client on port 4445.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What was the MD5 sum of this second, new executable file downloaded over the port 4445 TCP session?</div>
+
+    <div class="alert alert-info">
+    <p><strong>Hint: </strong> 
+    Search for traffic with this new port. You will see a lot that are red and black -- these are failed connection attempts. The black is the victim    
+    sending TCP SYN packets to the attackbox port 4445, and the RST/ACK response is the attack box indicating that the 
+        <a href="https://stackoverflow.com/questions/5272026/tcp-server-sends-rst-ack-immediately-after-receiving-syn-from-client">port is closed</a>. 
+    </p>    
+    
+    <p>Eventually, the attackbox responds with SYN/ACK -- port is open and ready for business, establish the TCP session! 
+    The remainder of the tcp session is spent downloading the executable. 
+    </p>
+        
+    <p>You can be square and just scroll around until the colors change, or you can use the power of wireshark filters. Try this one:
+    <div><code>tcp.port == 4445 and tcp.flags.syn == 1 and tcp.flags.ack == 1 </code></div>
+    This will give you the start of the TCP stream that downloaded the second file.
+    </p>
+</div>
+  </li>
+</ol>
+
+<h1 id="sources">Sources</h1>
+
+<ul>
+  <li><a href="http://malware-traffic-analysis.net">http://malware-traffic-analysis.net</a></li>
+  <li><a href="http://forensicscontest.com/2010/05/21/puzzle-6-anns-aurora">http://forensicscontest.com/2010/05/21/puzzle-6-anns-aurora</a></li>
+  <li>McManus, Joe. <em>Using Net Flow Data for Incident Response.</em> Nov 2014. University of Colorado Boulder</li>
+</ul>
+
+
+
+
+<script type='text/javascript'>
+    var $ul = $('<ul></ul>').addClass('nav nav-pills');
+    $('h1:not(.title)').each(function() {
+        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
+        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
+        $li = $('<li></li>');
+        $li.append($a);
+        $ul.append($li);
+    });
+    $('#nav-bar').append($ul);
+    
+</script>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/security-assignments/lab_security_onion/',
+		  'title': 'Lab &ndash; Network Security Monitoring / Security Onion'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-12-01 03:00:52 -0500 | Revision 5dfa51a8cc15d86409ab5174f3b35459292b115c -->

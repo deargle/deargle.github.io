@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=5dfa51a8cc15d86409ab5174f3b35459292b115c">
+
+  <link href="/assets/css/bootstrap-custom.css?v=5dfa51a8cc15d86409ab5174f3b35459292b115c" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=5dfa51a8cc15d86409ab5174f3b35459292b115c" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Hosting vulnerable servers on AWS | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Hosting vulnerable servers on AWS" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Notebook on how I configured an AWS VPC with an OpenVPN server for hosting a set of vulnerable virtual images, intended for students to do vulnerability assessments with." />
+<meta property="og:description" content="Notebook on how I configured an AWS VPC with an OpenVPN server for hosting a set of vulnerable virtual images, intended for students to do vulnerability assessments with." />
+<link rel="canonical" href="https://daveeargle.com/2017/03/28/Hosting-vulnerable-servers-on-AWS/" />
+<meta property="og:url" content="https://daveeargle.com/2017/03/28/Hosting-vulnerable-servers-on-AWS/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-03-28T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","dateModified":"2017-03-28T00:00:00-04:00","datePublished":"2017-03-28T00:00:00-04:00","headline":"Hosting vulnerable servers on AWS","mainEntityOfPage":{"@type":"WebPage","@id":"https://daveeargle.com/2017/03/28/Hosting-vulnerable-servers-on-AWS/"},"url":"https://daveeargle.com/2017/03/28/Hosting-vulnerable-servers-on-AWS/","author":{"@type":"Person","name":"deargle"},"description":"Notebook on how I configured an AWS VPC with an OpenVPN server for hosting a set of vulnerable virtual images, intended for students to do vulnerability assessments with.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="post post-2017-03-28-Hosting vulnerable servers on AWS" id="/2017/03/28/Hosting vulnerable servers on AWS">
+
+<div class="container">
+
+  
+  
+  
+    
+        <nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://data-vocabulary.org/Person">
+    <meta itemprop="url" content="" />
+    <meta itemprop="title" content="" />
+    <meta itemprop="affiliation" content="" />
+    <meta itemprop="photo" content="http://www.gravatar.com/avatar/.png" />
+    <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+        <meta itemprop="locality" content="Pittsburgh" />
+        <meta itemprop="region" content="" />
+        <meta itemprop="country-name" content="" />
+    </span>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>    
+        <div>
+        <a class="navbar-brand" itemprop="name" href="/">Dave Eargle</a>
+        </div>
+    </div>
+    <div class='navbar-collapse collapse'>
+        <!--p class='navbar-text'>Information Systems Management Researcher</p-->
+        <ul class="nav navbar-nav navbar-right" >
+            <li>
+                <a href="/assets/Dave_Eargle_Vitae.pdf">Vita</a>
+            </li>
+            <li id="research">
+                <a href="https://scholar.google.com/citations?user=Nw7ibigAAAAJ&hl=en">Research</a>
+            </li>
+            <!--li id="portfolio">
+                <a href="/portfolio/">Portfolio</a>
+            </li-->
+            <li id="blog">
+                <a href="/blog/">Blog</a>
+            </li>
+            <li id="class">
+                <a href="/class/">Class</a>
+            </li>
+            <li id="about">
+                <a href="/about/" rel="author">About</a>
+            </li>
+            <li id="contact">
+                <a href="/contact/">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav><!-- navbar -->
+
+    
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+
+<article id="post-2017-03-28-Hosting vulnerable servers on AWS" class="post post-2017-03-28-Hosting vulnerable servers on AWS" itemscope itemtype="http://schema.org/Article">
+
+  <h2 class="title"><a href="/2017/03/28/Hosting-vulnerable-servers-on-AWS/" itemprop="name">Hosting vulnerable servers on AWS
+</a></h2>
+
+  
+      
+        
+        <meta itemprop="about" content="Notebook on how I configured an AWS VPC with an OpenVPN server for hosting a set of vulnerable virtual images, intended for students to do vulnerability assessments with." />
+        <meta itemprop="description" content="Notebook on how I configured an AWS VPC with an OpenVPN server for hosting a set of vulnerable virtual images, intended for students to do vulnerability assessments with." />
+      
+      <meta itemprop="author" content="Dave Eargle" />
+      <meta itemprop="copyrightHolder" content="Dave Eargle" />
+      <meta itemprop="copyrightYear" content="2017" />
+      <meta itemprop="datePublished" content="2017-03-28" />
+      <meta itemprop="discussionUrl" content="/2017/03/28/Hosting-vulnerable-servers-on-AWS/" />
+    
+  <div class="post-meta">
+    <span class="entry-date">Posted March 28, 2017</span> |
+    <a class="revision-history" href="https://github.com/deargle/deargle.github.com/commits/master/_posts/2017-03-28-Hosting vulnerable servers on AWS.md" target="_blank">View revision history</a>
+  </div>
+
+    <div class="entrybody" itemprop="articleBody">
+        <p>I’ll be starting a new job at CU Boulder soon. One of my responsibilities will be to teach an information security management class to business school students. I don’t know whether there will be a lab available where I can host VMs for students to do vulnerability assessments on, and I can’t just distribute OVAs for this because of how easy it would be to boot into root. So I want to host vulnerable servers on something like AWS. Obvious problem is that vulnerable servers are… vulnerable. I don’t want the boxes to be pwned before the students can start playing with them. So for the last day or so I learned about taking vulnerable VMs and launching them into a VPN on AWS. This post documents what I learned.</p>
+
+<p>Went like this:</p>
+
+<ul>
+  <li>create a VPC on AWS</li>
+  <li>configure OpenVPN community on an Ubuntu AMI</li>
+  <li>make a vulnerable virtual image</li>
+  <li>Export the appliance and convert it to an AMI</li>
+  <li>launch 1-to-many instances of your vulnerable AMIs into the VPN</li>
+</ul>
+
+<h3 id="create-a-vpc">Create a VPC</h3>
+
+<p>I created a new VPC intended just for vulnerable servers + the OpenVPN server. I created two subnets: one default public, where I put the openVPN server, and another default private, where all the violator instances were launched.</p>
+
+<p>In my config:</p>
+
+<ul>
+  <li>vpc with subnet <code class="highlighter-rouge">172.32.0.0/16</code>. Your CIDR just has to be different from whatever VPCs you already have.</li>
+  <li>created a new internet gateway, attached it to the new VPC</li>
+  <li>Two subnets, named one ‘vulnerable-public’ and the other ‘vulnerable-private’, CIDR’s <code class="highlighter-rouge">172.32.0.0/20</code> and <code class="highlighter-rouge">172.32.16.0/20</code></li>
+  <li>Edited the route table for the public subnet to include the new internet gateway: Destination <code class="highlighter-rouge">0.0.0.0/0</code> Target <code class="highlighter-rouge">&lt;the gateway&gt;</code>. This will allow OpenVPN to access the interwebs.</li>
+  <li>While in the VPC Dashboard, check your Network ACLs, and make sure that your inbound rules allow all traffic. Also check your default security group for your new VPC, and change the source to <code class="highlighter-rouge">0.0.0.0/0</code>. (I don’t use the default for the openvpn server, just for the instances launched into the private-only subnet).</li>
+</ul>
+
+<p>Now I’ll admit something: that last step took me late into the night. I must have kept looking over the Source error in the security rule, I could not figure out why I couldn’t ssh into my openvpn server. I’m pretty certain the security group stuff here is the same as it is on the ec2 dashboard page. Note to self though, if no connectivity, it’s almost certaintly security group stuff somewhere.</p>
+
+<p>Note 9/26/2017: Looks like the default nowadays is for the ACLs to allow all inbound/outbound traffic by default.</p>
+
+<p>It’s important to note that your vulnerable VMs will not have access to the internet. For that, you would need a NAT Gateway. VPC has a handy wizard which will set that up for you, but I don’t need my vulnerable VMs to have internet access.</p>
+
+<h3 id="configure-openvpn-community-on-an-ubuntu-ami">Configure OpenVPN community on an Ubuntu AMI</h3>
+
+<p>Now from the EC2 dashboard. I created a new micro instance from an official ubuntu 16.04 AWS AMI.</p>
+
+<p>During the launch config:</p>
+
+<ul>
+  <li>Change Network to the new VPC</li>
+  <li>Change Subnet to your public one</li>
+  <li>Click through to configure the security group. I created one that matches the one created by the official (but paid) OpenVPN Access Server marketplace AMI. That security group does this:
+    <ul>
+      <li><code class="highlighter-rouge">Custom UPD | 1194 | 0.0.0.0/0</code></li>
+      <li><code class="highlighter-rouge">Custom TCP | 943 | 0.0.0.0/0</code></li>
+      <li><code class="highlighter-rouge">HTTPS | 0.0.0.0</code> (not necessary for the community version though)</li>
+      <li><code class="highlighter-rouge">SSH | 0.0.0.0/0</code></li>
+    </ul>
+  </li>
+  <li>Create a new keypair, download the pem, and if on Windows, use puttygen to load it and save the private .ppk file.</li>
+</ul>
+
+<p>Aaaand launch and then ssh in, following the <code class="highlighter-rouge">connect</code> instructions.</p>
+
+<p>For configuring OpenVPN server, I leaned mostly on <a href="https://rbgeek.wordpress.com/2012/12/13/openvpn-server-on-ubuntu-12-04-behind-nat/">this blog post</a>, and partly on <a href="http://agiletesting.blogspot.com/2015/01/setting-up-openvpn-server-inside-aws-vpc.html">this blog post</a>. Command history for posterity:</p>
+
+<p>Assume <code class="highlighter-rouge">sudo</code> when not root.</p>
+
+<p>Note: if you get an error about ‘unable to resolve host’ when you try sudo, then add <code class="highlighter-rouge">hostname</code> to <code class="highlighter-rouge">/etc/hosts</code> localhost entry.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update -y &amp;&amp; apt-get upgrade -y
+apt-get install openvpn easy-rsa
+cd /etc/openvpn/
+mkdir easy-rsa
+cp -r /usr/share/easy-rsa/* /etc/openvpn/easy-rsa/
+vim vars # edit parameters at bottom to whatever
+su -
+cd /etc/openvpn/easy-rsa
+. ./vars
+./clean-all
+./build-ca
+./build-key-server server # I didn't set a password
+./build-key client # I didn't set a password.
+./build-dh
+cd keys
+cp ca.crt server.crt server.key client.key client.crt dh2048.pem /etc/openvpn
+exit # to leave root
+openvpn --genkey --secret secret.key
+cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/
+gzip -d /etc/openvpn/server.conf.gz
+
+vim server.conf  
+</code></pre></div></div>
+<p>Changes:</p>
+<ul>
+  <li>push the CIDR for your entire VPC. In my case, <code class="highlighter-rouge">push "route 172.32.0.0 255.255.0.0"</code></li>
+  <li>change tls-auth line to be <code class="highlighter-rouge">tls-auth secret.key 0</code></li>
+  <li>uncomment <code class="highlighter-rouge">duplicate-cn</code> (Important!). This allows multiple clients to connect using the same certificate, which is our situation</li>
+  <li>uncomment <code class="highlighter-rouge">client-to-client</code> to let metasploit exploits connect back to listeners on kali</li>
+</ul>
+
+<p><code class="highlighter-rouge">vim /etc/sysctl.conf</code>, uncomment <code class="highlighter-rouge">net.ipv4.ip_forward=1</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sysctl -p
+
+iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE 
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">-s</code> here should be the CIDR that you set in the <code class="highlighter-rouge">server</code> directive in server.conf, <em>not</em> your VPC CIDR.</li>
+  <li>also put that <code class="highlighter-rouge">iptables</code> line into in <code class="highlighter-rouge">/etc/rc.local</code></li>
+</ul>
+
+<p>Now test that you can launch the server.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openvpn --config /etc/openvpn/server.conf # to test that everything is working
+
+openvpn --daemon --config /etc/openvpn/server.conf # when ready
+</code></pre></div></div>
+
+<ul>
+  <li>note that if you restart your instance, openvpn will launch as a service (e.g., <code class="highlighter-rouge">service openvpn start</code>, so you won’t be able to run the last two commands unless you shut it down via <code class="highlighter-rouge">service openvpn stop</code></li>
+</ul>
+
+<hr />
+
+<p>Now, get your <code class="highlighter-rouge">client.conf</code> prepared for distribution to the kali boxes.</p>
+
+<p>Whatever you name your client conf, don’t put it in <code class="highlighter-rouge">/etc/openvpn</code> with a <code class="highlighter-rouge">*.conf</code> extension. If you do, <code class="highlighter-rouge">service openvpn start</code> will run it, as well as your
+<code class="highlighter-rouge">server.conf</code> in that directory. That will make your box both a server and a client to itself, which leads to bad times and headaches.</p>
+
+<p><code class="highlighter-rouge">cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/client.conf.for-kali</code></p>
+
+<p>Then, <code class="highlighter-rouge">vim client.conf.for-kali</code></p>
+
+<p>Changes:</p>
+
+<ul>
+  <li>Set your open vpn public server ip in <code class="highlighter-rouge">remote ... 1194</code>. Add elastic ip to your openvpn aws instance when ready so that you don’t have to keep changing this every time you start/stop your vpn instance.</li>
+  <li>Add your secret.key contents inside a <code class="highlighter-rouge">&lt;tls-auth&gt;</code> block, and also add <code class="highlighter-rouge">key-direction 1</code> after. See my redacted client.conf below. 
+  See <a href="http://serverfault.com/questions/483941/generate-an-openvpn-profile-for-client-user-to-import">here</a> for a discussion of inline certs.</li>
+</ul>
+
+<p>Do <em>not</em> put any <code class="highlighter-rouge">route</code> statements in <code class="highlighter-rouge">client.conf</code>. Let the server do the pushing.</p>
+
+<p><code class="highlighter-rouge">scp</code> or whatever your client.conf down off the server, and try connecting while your openvpn server is running. On Kali, just run <code class="highlighter-rouge">openvpn client.conf</code>. Then to test that it’s all working, run <code class="highlighter-rouge">ifconfig</code> and look for a <code class="highlighter-rouge">tun</code> interface. Try pinging the openvpn host, in my case, 10.8.0.1.</p>
+
+<p>Also run <code class="highlighter-rouge">route</code> on Kali, and confirm that you have a <code class="highlighter-rouge">destination</code> entry for your vpn CIDR – in my case, <code class="highlighter-rouge">10.8.0.0 10.8.0.x 255.255.255.0</code>, where <code class="highlighter-rouge">x</code> is the ip of the destination gateway for your <code class="highlighter-rouge">tun</code> interface (viewable in <code class="highlighter-rouge">ifconfig</code>).</p>
+
+<p>On Windows, with the OpenVPN community GUI, you can just rename your <code class="highlighter-rouge">client.conf</code> to <code class="highlighter-rouge">client.ovpn</code> and import that into the tool, then connect.</p>
+
+<h4 id="full-conf-files">Full conf files</h4>
+
+<p><a href="https://gist.github.com/deargle/ce70b597645dc7c7c9eaec40875faaf5">Here’s my redacted server.conf and client.conf</a></p>
+
+<h3 id="make-a-vulnerable-virtual-image-then-export-it">Make a vulnerable virtual image, then export it</h3>
+
+<p>I skipped this step, but here you’d create a VM however you like, making it nice and vulnerable. Then you export your image into a format that AWS likes. There are <a href="http://docs.aws.amazon.com/vm-import/latest/userguide/export-vm-image.html">several acceptable formats for AWS mentioned in the docs</a>, OVA included. In VirtualBox, you can export a VM as an OVA using <code class="highlighter-rouge">File &gt; Export Appliance...</code>.</p>
+
+<p>The important thing to note here is that only certain OSes are compatible with AWS’s AMI format. <a href="http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Thankfully, the list is long.</a></p>
+
+<h4 id="letting-the-vulnerable-vms-talk-back-to-connected-vpn-clients">Letting the vulnerable VMs talk back to connected VPN clients</h4>
+
+<p>If you want to be able to run metasploit shell exploits, the vulnerable VMs need to have a route to the connected VPN clients (to the attack machines). This is because metasploit launches
+listeners, then executes payloads on victim machines that reach out to the listener. The solution I came up with for doing this is to put each of the vulnerable VMs on the VPN, too, but to
+change their client.conf a bit.</p>
+
+<ul>
+  <li>Install openvpn to your image.</li>
+  <li>Change client.conf <code class="highlighter-rouge">remote</code> directive to point to the <em>private ip address</em> of your openvpn instance, not the public one (remember, the instances in the private network don’t have internet connectivity)</li>
+  <li>Add two more lines to <code class="highlighter-rouge">client.conf</code> that goes on the vulnerable vms (do <em>not</em> put these in the client.conf that Kali uses!):
+    <ul>
+      <li><code class="highlighter-rouge">route-nopull</code> (this blocks the vpn connection from clobbering the private network route that already exists for your VPC via the ‘push route’ statements, in my case, 172.32.0.0/16.</li>
+      <li><code class="highlighter-rouge">route 10.8.0.0 255.255.255.0</code> (Set your vpn server’s <code class="highlighter-rouge">server</code> directive CIDR network here. This lets the vulnerable servers talk to clients on the VPN network, when combined with the <code class="highlighter-rouge">client-to-client</code> directive in server.conf)
+        <ul>
+          <li>This route statement is necessary because we said <code class="highlighter-rouge">route-nopull</code>, which otherwise would have set the <code class="highlighter-rouge">10.8.0.0</code> for us.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Edit <code class="highlighter-rouge">/etc/defaults/openvpn</code> on the vulnerable vms and add a line for <code class="highlighter-rouge">AUTOSTART="client"</code>, then put your edited client.conf in /etc/openvpn. With it there, it should be automatically started on boot.</p>
+
+<p>If you forgot to do this step before you imported your VM image into AWS, you can edit one of your launched images, then make a new AMI image based on that running instance. Faster than reuploading the whole thing to S3.</p>
+
+<h3 id="convert-your-image-to-an-ami">Convert your image to an AMI</h3>
+
+<p>You’ll need the <a href="https://aws.amazon.com/cli/">AWS CLI</a>. Download it, and then give it your root credentials by running <code class="highlighter-rouge">aws configure</code> so that you can follow the next steps.</p>
+
+<p>The process for creating an AMI involves:</p>
+
+<ul>
+  <li>uploading your <code class="highlighter-rouge">.ova</code> to an S3 bucket,</li>
+  <li>creating an IAM <code class="highlighter-rouge">VM Import Service Role</code>,</li>
+  <li>invoking the magic spells in the aws console to import the image from S3 into an AMI.</li>
+</ul>
+
+<p>Note: upload your <code class="highlighter-rouge">.ova</code> into the S3 bucket in the region where you want your <code class="highlighter-rouge">openvpn</code> server to run. When you run the commands to convert the <code class="highlighter-rouge">.ova</code> into an AMI, the bucket region will determine in which region the AMI ends up.
+If you import it into the wrong region, you can copy your AMI to a different region <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html#copying-an-ami">thusly</a></p>
+
+<p>Docs <a href="http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">here</a>. First follow <a href="http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#import-vm-image">these steps for creating a VM Import Service Role</a>. Then, upload the VM image file to S3 (I used the browser interface to upload). Then follow the last step to initiate the import transfer.</p>
+
+<p>Went smoothly for me, although the actual import (the last step) took 10+ minutes. When you create your own AMI, AWS launches a copy of your instance appliance and then takes a snapshot of it. That snapshot will be associated with your new AMI, and is not deletable unless you first unregister your AMI. So be aware, you’ll be paying for the storage of that snapshot as long as you have the AMI. Note that your AMI will
+only show up in the view for the region where you deployed it.</p>
+
+<p>Note: When you convert your <code class="highlighter-rouge">.ova</code> into an AMI, any network interface that it used to have are replaced with one that will work with EC2. The new network interface should
+automatically obtain a private ip in the subnet that it’s launched in when it starts up.</p>
+
+<p>Note 9/26/2017: When I used the aws cli on Linux, I had to run <code class="highlighter-rouge">sudo ntpdate time.nist.gov</code> before the s3 commands would work.</p>
+
+<h3 id="launch-a-gazillion-violators">Launch a gazillion Violators</h3>
+
+<p>Or whatever.</p>
+<ul>
+  <li>Launch them into the correct <code class="highlighter-rouge">Network</code>, and for the <code class="highlighter-rouge">Subnet</code>, into the <em>private</em> subnet so that they don’t get a public ip.</li>
+  <li>“Proceed without a keypair”</li>
+  <li>Change to a security group setting that allows “All Traffic” inbound.</li>
+  <li>You can launch multiple at once at “Step 3: Configure Instance Details” &gt; “Number of instances”</li>
+</ul>
+
+<p>Try pinging their ips from a client that’s connected to the VPN. Then try exploiting them. <strong>Important:</strong> In <code class="highlighter-rouge">msf</code>, for <code class="highlighter-rouge">LHOST</code>, use kali’s <em>vpn ip address</em> from <code class="highlighter-rouge">tun0</code>, 
+but you can target the private-ip address of the vulnerable vms (the <code class="highlighter-rouge">172.</code> addresses for me – you don’t need to target or know the vulnerable vm’s vpn tun0 
+ip address).</p>
+
+<p>Fist-pump <del>three</del> six times if great success.</p>
+
+<hr />
+
+<p>Note: Because <code class="highlighter-rouge">client-to-client</code> is enabled, students can theoretically attack other students’ kali instances if they’re both connected to the vpn at the same time. 
+Kali doesn’t have a listening ssh server by default, so known-password isn’t a vector. (They’ll likely not have changed the password from what it
+was when you distributed VM instances to them…)</p>
+
+    </div>
+
+    <div class="row mini-bio">
+  
+  
+  
+  <div class="col-sm-2">
+      <div class="alignright"><img class='avatar' src='https://avatars2.githubusercontent.com/u/1174653?v=3&s=460' width='100' height='100'></div>
+  </div>
+  <div class="col-sm-10">
+    
+<p>David Eargle is an Assistant Professor at the University of Colorado Boulder in the Leeds School of Business. He earned his Ph.D. degree in Information Systems from the University of Pittsburgh. His research interests include human-computer interaction and information security. He has coauthored several articles in these areas using neurophysiological and other methodologies in outlets such as the <em>Journal of the Association for Information Systems</em>, the <em>European Journal of Information Systems</em>, the <em>International Conference on Information Systems</em>, and the <em>Hawaii International Conference on System Sciences)</em>, along with the <em>Proceedings of the ACM Conference on Human Factors in Computing Systems (CHI)</em>. <a href="/about/">More about the author →</a></p>
+
+  </div>
+</div>
+
+
+    <div class="row improve-article-wrapper">
+  <div class="col-sm-4 col-sm-offset-1">
+     <a class="btn btn-primary btn-lg" href="http://github.com/deargle/deargle.github.io/edit/master/_posts/2017-03-28-Hosting vulnerable servers on AWS.md" title="Help improve article _posts/2017-03-28-Hosting vulnerable servers on AWS.md">Edit</a>
+   </div>
+   <div class="col-sm-6 col-sm-offset-1">
+   <p class="improve-article">This content is open source. <br />
+   Please <a href="http://github.com/deargle/deargle.github.io/edit/master/_posts/2017-03-28-Hosting vulnerable servers on AWS.md" title="Help improve article _posts/2017-03-28-Hosting vulnerable servers on AWS.md">help improve it</a>.</p>
+  </div>
+</div>
+
+
+    
+
+</article>
+
+  </div>
+</div>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2017/03/28/Hosting-vulnerable-servers-on-AWS/',
+		  'title': 'Hosting vulnerable servers on AWS'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-12-01 03:00:52 -0500 | Revision 5dfa51a8cc15d86409ab5174f3b35459292b115c -->
+

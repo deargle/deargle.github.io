@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=5dfa51a8cc15d86409ab5174f3b35459292b115c">
+
+  <link href="/assets/css/bootstrap-custom.css?v=5dfa51a8cc15d86409ab5174f3b35459292b115c" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=5dfa51a8cc15d86409ab5174f3b35459292b115c" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Encryption assignment | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Encryption assignment" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Students take on the role of a journalist as they watch and follow instructions in the voice-obfuscated video tutorial that Edward Snowden prepared for Glen Greenwald in an attempt to train him in how to encrypt email communications so that the NSA papers could be leaked. Students create their own key pair and then exchange encrypted and signed messages with the instructor." />
+<meta property="og:description" content="Students take on the role of a journalist as they watch and follow instructions in the voice-obfuscated video tutorial that Edward Snowden prepared for Glen Greenwald in an attempt to train him in how to encrypt email communications so that the NSA papers could be leaked. Students create their own key pair and then exchange encrypted and signed messages with the instructor." />
+<link rel="canonical" href="https://daveeargle.com/assignments/privacy-security/encryption/" />
+<meta property="og:url" content="https://daveeargle.com/assignments/privacy-security/encryption/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Encryption assignment","url":"https://daveeargle.com/assignments/privacy-security/encryption/","author":{"@type":"Person","name":"deargle"},"description":"Students take on the role of a journalist as they watch and follow instructions in the voice-obfuscated video tutorial that Edward Snowden prepared for Glen Greenwald in an attempt to train him in how to encrypt email communications so that the NSA papers could be leaked. Students create their own key pair and then exchange encrypted and signed messages with the instructor.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="page post" id="">
+
+<div class="container">
+
+  
+  
+  
+    
+        <nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://data-vocabulary.org/Person">
+    <meta itemprop="url" content="" />
+    <meta itemprop="title" content="" />
+    <meta itemprop="affiliation" content="" />
+    <meta itemprop="photo" content="http://www.gravatar.com/avatar/.png" />
+    <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+        <meta itemprop="locality" content="Pittsburgh" />
+        <meta itemprop="region" content="" />
+        <meta itemprop="country-name" content="" />
+    </span>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>    
+        <div>
+        <a class="navbar-brand" itemprop="name" href="/">Dave Eargle</a>
+        </div>
+    </div>
+    <div class='navbar-collapse collapse'>
+        <!--p class='navbar-text'>Information Systems Management Researcher</p-->
+        <ul class="nav navbar-nav navbar-right" >
+            <li>
+                <a href="/assets/Dave_Eargle_Vitae.pdf">Vita</a>
+            </li>
+            <li id="research">
+                <a href="https://scholar.google.com/citations?user=Nw7ibigAAAAJ&hl=en">Research</a>
+            </li>
+            <!--li id="portfolio">
+                <a href="/portfolio/">Portfolio</a>
+            </li-->
+            <li id="blog">
+                <a href="/blog/">Blog</a>
+            </li>
+            <li id="class">
+                <a href="/class/">Class</a>
+            </li>
+            <li id="about">
+                <a href="/about/" rel="author">About</a>
+            </li>
+            <li id="contact">
+                <a href="/contact/">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav><!-- navbar -->
+
+    
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+ <div class="page page">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+
+    <h2>Encryption assignment
+</h2>
+    <p class='date'>Last updated: 2016-04-13</p>
+
+<p>This assignment is a hands-on dive into encrypted communications. Students take on the role of a journalist as they watch and follow instructions in the <a href="https://vimeo.com/56881481">voice-obfuscated video tutorial</a> that Edward Snowden prepared for Glen Greenwald in an attempt to train him in how to encrypt email communications so that the NSA papers could be leaked. Students create their own key pair and then exchange encrypted and signed messages with the instructor. The assignment is complete once students demonstrate that they can encrypt and decrypt messages, and sign and verify signatures.</p>
+
+<p>When I did the assignment, I used class time to go through the video, pausing it so that I could give additional insights and to allow students to execute the steps. After class, I sent the below reminder message with assignment instructions.</p>
+
+<p>At the bottom of the page is the secret message that I encrypted with their key after I retrieved it from a keyserver.</p>
+
+<h3 id="student-instructions">Student instructions</h3>
+
+<div class="well">
+
+  <p>Basic steps by way of reminder:</p>
+
+  <ol>
+    <li>Install GPG (Mac users, see the note below. You’ll want to install GPGTools).</li>
+    <li>Create a key for yourself</li>
+    <li>Publish your public key. Verify that it published.</li>
+    <li>Import my public key from a key server (dave@daveeargle.com)</li>
+    <li>Send me your public key via email, or send me the name / email address you used to when you created your key pair. I will send you back a secure message with a secret code in it.</li>
+    <li>Follow the directions in my secret message and you will win a prize!</li>
+  </ol>
+
+  <h4 id="note-for-mac-users">Note for Mac users</h4>
+
+  <p>Hi yinz, I found out that if you installed GPGTools you got some neat tools you can use for encrypting text or files using your certificates / keys. You can encrypt any text you type if you highlight it then right-click it and select “Services &gt; OpenGPG: Encrypt.” That should give you encrypted text that I will be abe to decrypt if you select my key. Note: if you want to be able to decrypt your own message later, you should also select your key when you are encrypting.</p>
+
+  <p>Note: when you type the secret message, use something simple like TextEdit or Notes as opposed to Word. With a simple application you’ll get the right-click services menu, whereas you might not get that within Word.</p>
+
+  <p>See <a href="https://gpgtools.tenderapp.com/kb/gpgservices-faq/how-to-encrypt-and-sign-text-or-files-with-gpgservices">this link</a>.</p>
+
+</div>
+
+<h3 id="the-secret-message-i-used-in-plaintext">The secret message I used, in plaintext</h3>
+
+<div class="well">
+
+  <p>I found your public key, and I am using it to send you this very important encrypted instruction. Ciphertext below:</p>
+
+  <p>I found the following coordinates for the rebel base. The coordinates of the rebel base are:
+Latitude: 40.4424925
+Longitude: -79.94255279999999</p>
+
+  <p>Plug the coordinates into http://www.gps-coordinates.net/ and tell me, where is the rebel base?</p>
+
+  <p>Reply to me with an encrypted message. Use my public key to encrypt it. You can find me on the key servers under email address dave@daveeargle.com if you don’t already have my key.</p>
+
+  <p><em>Be sure to sign the message so I know you sent it.</em> If you’re using a Mac, there’s a “sign” checkbox to the left of the “encrypt” button. There’s a similar checkbox for Windows users.</p>
+
+  <p>If you reply to me with an encrypted message, I’ll deliver the goods to you. (The goods are a pass on one quiz.)</p>
+
+  <p>Yours,
+– Margaret Thatcher</p>
+
+</div>
+
+
+
+    <div class="row improve-article-wrapper">
+  <div class="col-sm-4 col-sm-offset-1">
+     <a class="btn btn-primary btn-lg" href="http://github.com/deargle/deargle.github.io/edit/master/assignments/privacy-security/encryption.md" title="Help improve article assignments/privacy-security/encryption.md">Edit</a>
+   </div>
+   <div class="col-sm-6 col-sm-offset-1">
+   <p class="improve-article">This content is open source. <br />
+   Please <a href="http://github.com/deargle/deargle.github.io/edit/master/assignments/privacy-security/encryption.md" title="Help improve article assignments/privacy-security/encryption.md">help improve it</a>.</p>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/assignments/privacy-security/encryption/',
+		  'title': 'Encryption assignment'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-12-01 03:00:52 -0500 | Revision 5dfa51a8cc15d86409ab5174f3b35459292b115c -->
+

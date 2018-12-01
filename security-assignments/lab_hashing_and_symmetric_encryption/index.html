@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=5dfa51a8cc15d86409ab5174f3b35459292b115c">
+
+  <link href="/assets/css/bootstrap-custom.css?v=5dfa51a8cc15d86409ab5174f3b35459292b115c" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=5dfa51a8cc15d86409ab5174f3b35459292b115c" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Lab – Symmetric Encryption and Hashing | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Lab – Symmetric Encryption and Hashing" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Fundamentals of symmetric encryption, cryptanalysis, and of hashing" />
+<meta property="og:description" content="Fundamentals of symmetric encryption, cryptanalysis, and of hashing" />
+<link rel="canonical" href="https://daveeargle.com/security-assignments/lab_hashing_and_symmetric_encryption/" />
+<meta property="og:url" content="https://daveeargle.com/security-assignments/lab_hashing_and_symmetric_encryption/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Lab – Symmetric Encryption and Hashing","url":"https://daveeargle.com/security-assignments/lab_hashing_and_symmetric_encryption/","author":{"@type":"Person","name":"deargle"},"description":"Fundamentals of symmetric encryption, cryptanalysis, and of hashing","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="tony-assignment post-security-assignments-lab_hashing_and_symmetric_encryption" id="/security-assignments/lab_hashing_and_symmetric_encryption">
+
+<div class="container">
+
+  
+  
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<h1 class='title'>Lab &ndash; Symmetric Encryption and Hashing</h1> 
+
+
+
+
+<h1 id="required-virtual-machine">Required virtual machine</h1>
+
+<h1 id="part-1">Part 1</h1>
+
+<h2 id="polyalphabetic-substitution-and-transposition-ciphers">Polyalphabetic substitution and Transposition Ciphers</h2>
+
+<ol>
+  <li>
+    <p>Using polyalphabetic substitution, with alphabet a–z (no caps) and a space (as the last character of the alphabet), use the private key <code class="highlighter-rouge">security</code> to encrypt the plaintext message:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> send money
+</code></pre></div>    </div>
+
+    <p>To help you, use the following formula:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Encryption: ciphertext = (plaintext + key) mod 27
+
+Decryption: plaintext = (ciphertext - key) mod 27
+</code></pre></div>    </div>
+
+    <p>Important: Number your alphabet so that it starts with zero, e.g., <code class="highlighter-rouge">A = 0, Z=25, [space] = 26</code>.</p>
+
+    <p>As a general rule for shift ciphers, <em>the modulus is always the size of the alphabet, but you must start your alphabet at 0</em>.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the ciphertext when encrypting "send money" with the key "security"?</div>
+  </li>
+  <li>
+    <p>Consider the transposition method discussed in class.  Assume the plaintext is</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>attack postponed until two am
+</code></pre></div>    </div>
+
+    <p>and the key is <code class="highlighter-rouge">{3421567}</code></p>
+
+    <p>Create the ciphertext as was demonstrated in class. Pad the message so that there is an even block of characters, meaning that each column will have the same number of characters. One way to do this is to pad the block by repeating the message a character at a time until the block is complete. Or, you can fill out the block with random letters from the alphabet. Show your result.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the ciphertext when encrypting "attack postponed until two am" with the key {4312567}? (Enter without spaces)</div>
+  </li>
+</ol>
+
+<h2 id="frequency-analysis">Frequency analysis</h2>
+
+<p><a href="https://www.cryptool.org/modules/mod_ctdownloads/assets/curversion.php">Download</a> and install CrypTool 2 (Windows only).</p>
+
+<p>Open CrypTool 2.0. Under Templates, select Cryptanalysis, then Classical, and double-click on Frequency Analysis. Paste the cipher text below into the Text Input box and hit the Play button. This will use CrypTool’s cryptanalysis function, “Frequency Test,” to analyze the following message. The results of the analysis will show up in the box on the right.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hvs Qosgof qwdvsf wg boasr othsf Xizwig Qosgof, kvc, oqqcfrwbu hc Gishcbwig, igsr wh kwhv o gvwth ct hvfss hc dfchsqh asggousg ct awzwhofm gwubwtwqobqs. Kvwzs Qosgof'g kog hvs twfgh fsqcfrsr igs ct hvwg gqvsas, chvsf gipghwhihwcb qwdvsfg ofs ybckb hc vojs pssb igsr sofzwsf.
+
+Wt vs vor obmhvwbu qcbtwrsbhwoz hc gom, vs kfchs wh wb qwdvsf, hvoh wg, pm gc qvobuwbu hvs cfrsf ct hvs zshhsfg ct hvs ozdvopsh, hvoh bch o kcfr qcizr ps aors cih. Wt obmcbs kwgvsg hc rsqwdvsf hvsgs, obr ush oh hvswf asobwbu, vs aigh gipghwhihs hvs tcifhv zshhsf ct hvs ozdvopsh, boaszm R, tcf O, obr gc kwhv hvs chvsfg.
+—Gishcbwig, Zwts ct Xizwig Qosgof 56
+
+Vwg bsdvsk, Oiuighig, ozgc igsr hvs qwdvsf, pih kwhv o fwuvh gvwth ct cbs, obr wh rwr bch kfod ofcibr hc hvs psuwbbwbu ct hvs ozdvopsh:
+Kvsbsjsf vs kfchs wb qwdvsf, vs kfchs P tcf O, Q tcf P, obr hvs fsgh ct hvs zshhsfg cb hvs goas dfwbqwdzs, igwbu OO tcf L.
+—Gishcbwig, Zwts ct Oiuighig 88
+
+Hvsfs wg sjwrsbqs hvoh Xizwig Qosgof igsr acfs qcadzwqohsr gmghsag og kszz, obr cbs kfwhsf, Oizig Uszzwig, fstsfg hc o (bck zcgh) hfsohwgs cb vwg qwdvsfg:
+Hvsfs wg sjsb o fohvsf wbusbwcigzm kfwhhsb hfsohwgs pm hvs ufoaaofwob Dfcpig qcbqsfbwbu hvs gsqfsh asobwbu ct zshhsfg wb hvs qcadcgwhwcb ct Qosgof'g sdwghzsg.
+—Oizig Uszzwig, Ohhwq Bwuvhg
+
+Wh wg ibybckb vck sttsqhwjs hvs Qosgof qwdvsf kog oh hvs hwas, pih wh wg zwyszm hc vojs pssb fsogcbopzm gsqifs, bch zsogh psqoigs acgh ct Qosgof'g sbsawsg kcizr vojs pssb wzzwhsfohs obr chvsfg kcizr vojs oggiasr hvoh hvs asggousg ksfs kfwhhsb wb ob ibybckb tcfswub zobuious. Hvsfs wg bc fsqcfr oh hvoh hwas ct obm hsqvbweisg tcf hvs gczihwcb ct gwadzs gipghwhihwcb qwdvsfg. Hvs sofzwsgh gifjwjwbu fsqcfrg rohs hc hvs 9hv qsbhifm kcfyg ct Oz-Ywbrw wb hvs Ofop kcfzr kwhv hvs rwgqcjsfm ct tfseisbqm obozmgwg.
+
+Qosgsf_qwdvsf, Kwywdsrwo
+</code></pre></div></div>
+
+<p><strong>Questions:</strong></p>
+
+<ol>
+  <li>
+    <p>Examine the frequency table in the Frequency Test component. What are the four most frequent characters, in descending order? Examine the frequency table chart at <a href="http://en.wikipedia.org/wiki/Frequency_analysis">http://en.wikipedia.org/wiki/Frequency_analysis</a>. What does this suggest the four letters identified correspond to?</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>According to CrypTool, what are the four most frequent characters?</div>
+  </li>
+  <li>
+    <p>Do the same analysis, but for character pairs (bigrams) or trigrams. You can either open up a new Frequency Test or hit the Stop button and modify the test you’re currently running.  Under the settings tab of the Frequency Test box, you can change the length of n-grams.  Hit Play and then view the Presentation tab for a graphical view of your results.  What are the three most frequent N-grams of length 2 in your analysis? Examine the frequency table chart at <a href="http://en.wikipedia.org/wiki/Bigram">http://en.wikipedia.org/wiki/Bigram</a>. What does this suggest the three 2-length N-grams identified correspond to? Also examine N-grams of length 3, and report the likely plaintext identities of the four 3-length N-grams reported (use <a href="http://en.wikipedia.org/wiki/Trigram">http://en.wikipedia.org/wiki/Trigram</a>).</p>
+
+    <p><img src="../images/lab_2/lab_2_1.png" alt="image_1" /></p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>According to CrypTool, what are the three most frequent trigrams?</div>
+  </li>
+  <li>
+    <p>Assume that a simple cipher that shifts all characters by a fixed number was used to create the cipertext. Given the above information, what is the key (the shift to go from plaintext to ciphertext)?  Don’t be proud; you can use your fingers to count.</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the key of the ciphertext, counting forwards?</div>
+  </li>
+  <li>
+    <p>What is the plaintext?  (Hint: Which cipher shifts all the characters by a fixed number?  It’s listed as one of the Classic Ciphers in this tool, so you can use this tool to perform the decryption.)</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What author is quoted in the plaintext?</div>
+  </li>
+</ol>
+
+<h2 id="one-time-pad">One-time Pad</h2>
+
+<p>Using Cryptool2, decrypt the following ciphertext using the following one-time pads. 
+<strong>Note:</strong> Click “New” &gt; “Workspace” to get started. You’ll need to use the XOR function under “Classic Ciphers” to do the encryption. You’ll also need to use the “String Decoder” to decode the string as hexadecimal before passing the stream to the XOR function (see screenshot below).
+I like to use the Tools tab on the bottom-left and its search bar to drag components such as XOR and “String Decoder” into my project.</p>
+
+<p>Use the screenshot below to see how to connect the components. Put the ciphertext into one text input box and the one-time pads in the other text input box, one at a time. 
+Click-and-drag the component arrow connectors over to an appropriate connector arrow on the next component 
+(it may not be the same one as shown in the screenshot – the CrypTool tooltip guides will help you).</p>
+
+<p><img src="../images/lab_2/lab_2_2.png" alt="image_1" /></p>
+
+<p>Ciphertext (hexadecimal): <code class="highlighter-rouge">E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57</code></p>
+
+<ol>
+  <li>
+    <p>One-time pad 1: <code class="highlighter-rouge">A1 B1 C1 D1 E1 F1 AA BB CC DD EE FF 10 34 76</code></p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the plaintext using the one-time pad 1?</div>
+  </li>
+  <li>
+    <p>One-time pad 2: <code class="highlighter-rouge">B2 A0 C1 C2 E7 FB FE FA D9 89 AA AF 56 6A 67</code></p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the plaintext using the one-time pad 2?</div>
+  </li>
+  <li>
+    <p>One-time pad 3: <code class="highlighter-rouge">B3 B0 C7 C2 E7 F4 EE BF CA DD EC F1 15 2E 76</code></p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the plaintext using the one-time pad 3?</div>
+  </li>
+  <li>
+    <p>One-time pad 4: <code class="highlighter-rouge">B4 AD D0 90 E1 FB FE FA D1 8E AA FA 02 3B 33</code></p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>What is the plaintext using the one-time pad 4?</div>
+  </li>
+</ol>
+
+<div class="alert alert-warning"><strong>Question: </strong>How many possible plaintexts exist for this one-time-pad ciphertext?</div>
+
+<h1 id="part-2">Part 2</h1>
+
+<h2 id="hashing">Hashing</h2>
+
+<p>Find a file and hash it with multiple hashing algorithms (e.g., using md5deep.exe, sha1deep.exe, and sha256deep.exe, command-line tools installed on the windows vm).</p>
+
+<ul>
+  <li>You can use “hash-me.txt” on the Windows vm desktop</li>
+  <li><code class="highlighter-rouge">Shift+Right-click</code> on the desktop <em>without having any file selected</em> and choose “Open PowerShell window here”</li>
+  <li>The command-line tools are available from this prompt, which means you can type their name followed by the filename to get a hash. E.g., “md5deep hash-me.txt”</li>
+</ul>
+
+<div class="alert alert-info">
+<p>If you're not using the lab VM, you can download the command-line tools yourself from <a href="https://github.com/jessek/hashdeep/releases/download/v4.4/md5deep-4.4.zip">here</a>.
+You'll unzip them and then open an command prompt (sorry, I have no idea how to open a command prompt from parallels, let me know if you know how.). Then you can either call the full path to the tools (e.g., c:\path\to\md5deep.exe), or you can
+Windows key &gt; "Edit the System environment variables" &gt; "Environment Variables" &gt; select "Path" &gt; "Edit" &gt; "New" &gt; "Browse" &gt; (Browse to the path where you unzipped your md5deep stuff, the folder where the .exe's are). Hit Ok &gt; Ok &gt; Ok (you have to do all three before it applies)
+then open a new command prompt / PowerShell window. Voila, you should have the tools avaialble on your path now.</p></div>
+
+<p><strong>Questions:</strong></p>
+
+<ol>
+  <li>
+    <p>What is the length of each algorithm hash in characters (MD5 sha1, sha256)? How many bits does each hash represent?</p>
+
+    <p>(hint: how many bits are in one hex digit – also called a ‘nibble’? How many nibbles in the key? Or, How many bits in a byte, and how many bytes in a two-digit hex number like ‘FA’? Review <a href="https://simple.wikipedia.org/wiki/Hexadecimal_numeral_system">this</a> if you’re still stuck)</p>
+
+    <div class="alert alert-warning"><strong>Question: </strong>How many bits are in an MD5 hash?</div>
+  </li>
+</ol>
+
+<p>Make a copy of your file and open the copy in HxD. (HxD is available on the desktop.) Use the hexeditor to change just a single bit (e.g, change an “A” — 1010 to a B — 1011. Use Windows Calculator in the “Programmer” mode to be sure that your hexcode change represents a change of only one bit.) 
+Save the modified file and hash it again. Since you only changed a single bit in a file of billions of bits, you might reason that the hashes would be nearly the same. Are they?</p>
+
+<div class="alert alert-warning"><strong>Question: </strong>If only one bit is changed on a 10 GB file how different will the hash be?</div>
+<div class="alert alert-warning"><strong>Question: </strong>Which property of cryptographic hash functions is most related to the previous question?</div>
+
+<p><strong>Optional:</strong> Use the MD5 function in CrypTool to hash a file. Look at the graphical depiction for how it works.</p>
+
+<p><img src="../images/lab_2/lab_2_4.png" alt="image_4" width="300px" /></p>
+
+<h2 id="symmetric-encryption-with-aes">Symmetric encryption with AES</h2>
+
+<p>Decrypt the message below using AES and the following parameters:
+Message (base64):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>K2NsjCqFlnNVFK1dTTm/opzc0Fq+qNj8UVg+nvIzeEgv5Y3GHATcnyROU6eg+6BAesm5qrtZe5vdjP+ffI/vYIEqIxZh9CSCbxBCo2HEYjbOFCIkx3OuoaomxGChwwbRS2lX37prQMR3VYKVXvQoLUPocPXn+oxnqqHXS/2JbLkTlOje6mrLhnjlI6VDkGDMZI3WqWRe5aHNyzQTEdhXbizHGcKrk/JpX7L1ODY0gdw6InhXew5c4EEcqQInONbYel8W5xwPYFojsKTbKRAOrNqIfI46vD9ziAFCbkG10aIRzLJmxQrkiX+DPwjuxC/p97C9Rm9DS2zn4Yy1mZCFalVDk2MLfgRtW2MBpHDHV1FGdhusnH1E0WNaOfTKlU5tyh3ImBEHS0VBlv3wEEm9f2MVyxK/0T6JdfHD/Szf1yj0GNNMGeKTpmPjP0lmwVdo5GkJJsVBPAWzGqeI+q9phUGw6YC7f4NvlT/RiyOoM8aFAwJxA7MsKTFxyv9ib47pYC8YfOJPpnuGiHw2GutS17KxiROs6fZX0xEx0Iw0fEKYVYNQwAAzskej6pMeUcnBMRBXKPZkHPFOvR4UXQymkf8NtToQrIM4ZYFBX6+TGoA=
+</code></pre></div></div>
+
+<ul>
+  <li>Algorithm: AES</li>
+  <li>Chaining mode: CBC</li>
+  <li>Padding mode: Zeros</li>
+  <li>IV (hexadecimal): <code class="highlighter-rouge">15 7F 14 FF DF D1 D4 25 D9 CB BD 12 ED 98 49 2F</code></li>
+  <li>Key (hexadecimal): <code class="highlighter-rouge">FA 71 7D 51 3F D7 32 7D D9 C7 13 84 43 47 C2 5B 2F 9C 1E 48 67 C6 81 32 85 5A 13 92 60 A8 79 44</code></li>
+  <li>Keysize (in bits): <code class="highlighter-rouge">?</code> (You have to count; see the hint in the hashing section above.)</li>
+  <li>Blocksize (in bits; IV block length): <code class="highlighter-rouge">?</code> (hint: count the IV above, just like you did the key)</li>
+</ul>
+
+<p><img src="../images/lab_2/lab_2_3.png" alt="image_1" /></p>
+
+<p>What is the plaintext of the message?</p>
+
+<div class="alert alert-warning"><strong>Question: </strong>What is the URL included in the plaintext you decrypted with AES?</div>
+
+<h2 id="message-sharing">Message Sharing</h2>
+
+<p>Use AES or another symmetric block cipher to encrypt/decrypt messages exchanged between you and another class member. (You could email encrypted messages to one another, and decrypt using CryptTool. You can copy-paste from the host into your VM if you enable the bidirectional clipboard)</p>
+
+<p><img src="../images/lab_2/lab_2_5.png" alt="image_1" style="border: 1px solid black;" /></p>
+
+<p>Questions:</p>
+
+<ol>
+  <li>
+    <div class="alert alert-warning"><strong>Question: </strong>How did you ensure that the key exchange was safe? How would you exchange keys if you were not in the same location?</div>
+  </li>
+  <li>
+    <div class="alert alert-warning"><strong>Question: </strong>Which of the parameters of a block cipher (e.g., algorithm name, mode of operation, IV (if any), key length) are <strong>essential</strong> to keep secret? Security through obscurity does not count as "essential".</div>
+  </li>
+</ol>
+
+
+
+
+<script type='text/javascript'>
+    var $ul = $('<ul></ul>').addClass('nav nav-pills');
+    $('h1:not(.title)').each(function() {
+        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
+        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
+        $li = $('<li></li>');
+        $li.append($a);
+        $ul.append($li);
+    });
+    $('#nav-bar').append($ul);
+    
+</script>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/security-assignments/lab_hashing_and_symmetric_encryption/',
+		  'title': 'Lab &ndash; Symmetric Encryption and Hashing'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-12-01 03:00:52 -0500 | Revision 5dfa51a8cc15d86409ab5174f3b35459292b115c -->
