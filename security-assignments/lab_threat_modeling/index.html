@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=2843d32b57be664504537cc9ef51db52cd4bf245">
+
+  <link href="/assets/css/bootstrap-custom.css?v=2843d32b57be664504537cc9ef51db52cd4bf245" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=2843d32b57be664504537cc9ef51db52cd4bf245" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Lab – Threat Modeling with Attack Trees | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Lab – Threat Modeling with Attack Trees" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Note: you can do this assignment alone or in groups of 2–3. In this lab, you will create attack trees for different attacker goals to help you systematically think through various attacks. You can represent your attack tree graphically (like those depicted in Schneier Chapter 21), or as a numbered list (e.g., 1, 1.1, 1.2, 1.2.1, 1.3, …). The below questions are in part from Cryptography Engineering, 2nd edition, by Ferguson, Schneier and Kohno (2010). Note: I recommend using Microsoft Word’s SmartArt function and the “hierarchy” template to quickly generate an attack tree from an outline. You can enter multiple lines into one box by using shift+enter. Minimum requirement for each attack tree: Has at least three different attacks (second-level nodes) Has at least one attack with a path at least three subnodes deep Has at least two attacks that have subtasks with at least two immediate children Answers all questions. Defends rankings and answers. e.g., “We think that ____ would be the easiest because _____, whereas _____ would not be as easy because _____.” Create an attack tree for stealing a car, and show your work. Which attack is easiest for the attacker? Which attack poses the least amount of risk for the attacker? Required metrics: each node has metrics for both “ease” and “risk” Create an attack tree for getting into a gym without paying. Which attack do you think is most likely? Required metrics: each node has metrics for “likelihood” Create an attack tree for reading someone else’s email. Assign a difficulty level to each attack node, per ‘Schneier Chapter 21’. Which attack requires the least sophistication on the part of the attacker? Which attack requires the greatest expertise? What types of attackers do you think would use each attack? Required metrics: each node has a metric for “difficulty”, “sophistication”, and “expertise” Create an attack tree for learning someone’s online banking account name and password. Assign dollar values to each attack node, per ‘Schneier Chapter 21’. Which attack is cheapest for the attacker? Which attack is most expensive? Required metrics: each node has a metric for “dollar value”. Deliverable: Submit a document on canvas with one page for each of the attack trees along with its answers to questions. If working on a team, form a “group” on Canvas, and make only one submission per team." />
+<meta property="og:description" content="Note: you can do this assignment alone or in groups of 2–3. In this lab, you will create attack trees for different attacker goals to help you systematically think through various attacks. You can represent your attack tree graphically (like those depicted in Schneier Chapter 21), or as a numbered list (e.g., 1, 1.1, 1.2, 1.2.1, 1.3, …). The below questions are in part from Cryptography Engineering, 2nd edition, by Ferguson, Schneier and Kohno (2010). Note: I recommend using Microsoft Word’s SmartArt function and the “hierarchy” template to quickly generate an attack tree from an outline. You can enter multiple lines into one box by using shift+enter. Minimum requirement for each attack tree: Has at least three different attacks (second-level nodes) Has at least one attack with a path at least three subnodes deep Has at least two attacks that have subtasks with at least two immediate children Answers all questions. Defends rankings and answers. e.g., “We think that ____ would be the easiest because _____, whereas _____ would not be as easy because _____.” Create an attack tree for stealing a car, and show your work. Which attack is easiest for the attacker? Which attack poses the least amount of risk for the attacker? Required metrics: each node has metrics for both “ease” and “risk” Create an attack tree for getting into a gym without paying. Which attack do you think is most likely? Required metrics: each node has metrics for “likelihood” Create an attack tree for reading someone else’s email. Assign a difficulty level to each attack node, per ‘Schneier Chapter 21’. Which attack requires the least sophistication on the part of the attacker? Which attack requires the greatest expertise? What types of attackers do you think would use each attack? Required metrics: each node has a metric for “difficulty”, “sophistication”, and “expertise” Create an attack tree for learning someone’s online banking account name and password. Assign dollar values to each attack node, per ‘Schneier Chapter 21’. Which attack is cheapest for the attacker? Which attack is most expensive? Required metrics: each node has a metric for “dollar value”. Deliverable: Submit a document on canvas with one page for each of the attack trees along with its answers to questions. If working on a team, form a “group” on Canvas, and make only one submission per team." />
+<link rel="canonical" href="https://daveeargle.com/security-assignments/lab_threat_modeling/" />
+<meta property="og:url" content="https://daveeargle.com/security-assignments/lab_threat_modeling/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Lab – Threat Modeling with Attack Trees","url":"https://daveeargle.com/security-assignments/lab_threat_modeling/","author":{"@type":"Person","name":"deargle"},"description":"Note: you can do this assignment alone or in groups of 2–3. In this lab, you will create attack trees for different attacker goals to help you systematically think through various attacks. You can represent your attack tree graphically (like those depicted in Schneier Chapter 21), or as a numbered list (e.g., 1, 1.1, 1.2, 1.2.1, 1.3, …). The below questions are in part from Cryptography Engineering, 2nd edition, by Ferguson, Schneier and Kohno (2010). Note: I recommend using Microsoft Word’s SmartArt function and the “hierarchy” template to quickly generate an attack tree from an outline. You can enter multiple lines into one box by using shift+enter. Minimum requirement for each attack tree: Has at least three different attacks (second-level nodes) Has at least one attack with a path at least three subnodes deep Has at least two attacks that have subtasks with at least two immediate children Answers all questions. Defends rankings and answers. e.g., “We think that ____ would be the easiest because _____, whereas _____ would not be as easy because _____.” Create an attack tree for stealing a car, and show your work. Which attack is easiest for the attacker? Which attack poses the least amount of risk for the attacker? Required metrics: each node has metrics for both “ease” and “risk” Create an attack tree for getting into a gym without paying. Which attack do you think is most likely? Required metrics: each node has metrics for “likelihood” Create an attack tree for reading someone else’s email. Assign a difficulty level to each attack node, per ‘Schneier Chapter 21’. Which attack requires the least sophistication on the part of the attacker? Which attack requires the greatest expertise? What types of attackers do you think would use each attack? Required metrics: each node has a metric for “difficulty”, “sophistication”, and “expertise” Create an attack tree for learning someone’s online banking account name and password. Assign dollar values to each attack node, per ‘Schneier Chapter 21’. Which attack is cheapest for the attacker? Which attack is most expensive? Required metrics: each node has a metric for “dollar value”. Deliverable: Submit a document on canvas with one page for each of the attack trees along with its answers to questions. If working on a team, form a “group” on Canvas, and make only one submission per team.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="tony-assignment post-security-assignments-lab_threat_modeling" id="/security-assignments/lab_threat_modeling">
+
+<div class="container">
+
+  
+  
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<h1 class='title'>Lab &ndash; Threat Modeling with Attack Trees</h1> 
+
+
+
+
+<p><strong>Note:</strong> you can do this assignment alone or in groups of 2–3.</p>
+
+<p>In this lab, you will create attack trees for different attacker goals to help you systematically think through various attacks. You can represent your attack tree graphically (like those depicted in Schneier Chapter 21), or as a numbered list (e.g., 1, 1.1, 1.2, 1.2.1, 1.3, …). The below questions are in part from Cryptography Engineering, 2nd edition, by Ferguson, Schneier and Kohno (2010).</p>
+
+<p>Note: I recommend using Microsoft Word’s SmartArt function and the “hierarchy” template to quickly generate an attack tree from an outline. You can enter multiple lines into one box by using <code class="highlighter-rouge">shift+enter</code>.</p>
+
+<p><img src="../images/lab_threatmodel_smartart.PNG" alt="image_4" width="500px" /></p>
+
+<p><strong>Minimum requirement for each attack tree:</strong></p>
+
+<ul>
+  <li>Has at least three different attacks (second-level nodes)</li>
+  <li>Has at least one attack with a path at least three subnodes deep</li>
+  <li>Has at least two attacks that have subtasks with at least two immediate children</li>
+  <li>Answers all questions. Defends rankings and answers. e.g., “We think that ____ would be the easiest because _____, whereas _____ would not be as easy because _____.”</li>
+</ul>
+
+<ol>
+  <li>
+    <p>Create an attack tree for stealing a car, and show your work. Which attack is easiest for the attacker? Which attack poses the least amount of risk for the attacker?</p>
+
+    <p><em>Required metrics</em>: each node has metrics for both “ease” and “risk”</p>
+  </li>
+  <li>
+    <p>Create an attack tree for getting into a gym without paying. Which attack do you think is most likely?</p>
+
+    <p><em>Required metrics</em>: each node has metrics for “likelihood”</p>
+  </li>
+  <li>
+    <p>Create an attack tree for reading someone else’s email. Assign a difficulty level to each attack node, per ‘Schneier Chapter 21’. Which attack requires the least sophistication on the part of the attacker? Which attack requires the greatest expertise? <strong>What types of attackers do you think would use each attack?</strong></p>
+
+    <p><em>Required metrics</em>: each node has a metric for “difficulty”, “sophistication”, and “expertise”</p>
+  </li>
+  <li>
+    <p>Create an attack tree for learning someone’s online banking account name and password. Assign dollar values to each attack node, per ‘Schneier Chapter 21’. Which attack is       cheapest for the attacker? Which attack is most expensive?</p>
+
+    <p><em>Required metrics</em>: each node has a metric for “dollar value”.</p>
+  </li>
+</ol>
+
+<h2 id="deliverable">Deliverable:</h2>
+
+<p>Submit a document on canvas with one page for each of the attack trees along with its answers to questions. If working on a team, form a “group” on Canvas, and make only one submission per team.</p>
+
+
+
+<script type='text/javascript'>
+    var $ul = $('<ul></ul>').addClass('nav nav-pills');
+    $('h1:not(.title)').each(function() {
+        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
+        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
+        $li = $('<li></li>');
+        $li.append($a);
+        $ul.append($li);
+    });
+    $('#nav-bar').append($ul);
+    
+</script>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/security-assignments/lab_threat_modeling/',
+		  'title': 'Lab &ndash; Threat Modeling with Attack Trees'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-12-01 02:51:21 -0500 | Revision 2843d32b57be664504537cc9ef51db52cd4bf245 -->

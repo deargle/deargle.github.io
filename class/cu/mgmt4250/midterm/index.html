@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=2843d32b57be664504537cc9ef51db52cd4bf245">
+
+  <link href="/assets/css/bootstrap-custom.css?v=2843d32b57be664504537cc9ef51db52cd4bf245" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=2843d32b57be664504537cc9ef51db52cd4bf245" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Midterm instructions | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Midterm instructions" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Information Systems Management Researcher" />
+<meta property="og:description" content="Information Systems Management Researcher" />
+<link rel="canonical" href="https://daveeargle.com/class/cu/mgmt4250/midterm/" />
+<meta property="og:url" content="https://daveeargle.com/class/cu/mgmt4250/midterm/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Midterm instructions","url":"https://daveeargle.com/class/cu/mgmt4250/midterm/","author":{"@type":"Person","name":"deargle"},"description":"Information Systems Management Researcher","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="assignment post" id="">
+
+<div class="container">
+
+  
+  
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<h1 class='title'>Midterm instructions</h1>
+
+<h2 id="assignment-description">Assignment Description</h2>
+
+<p>Your assignment is to write a
+security assessment report for the server belonging to the below IP
+address. You’ll need to submit your report on Learning Suite by the deadline listed in the syllabus.</p>
+
+<p>Your objectives are threefold:</p>
+
+<ol>
+  <li>
+    <p>Document vulnerabilities that you are able to successfully exploit on
+the server. Describe in detail what you did and what level of access you
+were able to obtain. If you obtain a user account with limited
+privileges, document whether you were able to escalate the privileges to
+root. Document each exploit that you are able to successfully launch.</p>
+  </li>
+  <li>
+    <p>Document potentially sensitive information that you are able to
+obtain from the server. These could include user files or web, database,
+or other server files.</p>
+  </li>
+  <li>
+    <p>For both 1 and 2 above, suggest ways that vulnerabilities exploited
+or sensitive information obtained could be protected.</p>
+  </li>
+</ol>
+
+<p><strong>The scope of your project is restricted to the computer belonging to the
+IP address I communicated to you via email.</strong></p>
+
+<p>The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN. Download <code class="highlighter-rouge">client.conf</code> to kali from canvas. Open a separate Terminal session, and run <code class="highlighter-rouge">openvpn client.conf</code>. 
+Leave this terminal running for as long as you need to connect to the midterm vm. Running this will give you an ip address on VPN in the <code class="highlighter-rouge">10.8.</code> network space. <strong>Use this new ip address as your LHOST whenever needed, not your <code class="highlighter-rouge">192.</code> one.</strong> As usual, you
+can view your ip address by running <code class="highlighter-rouge">ifconfig</code>. You will be able to connect to the private <code class="highlighter-rouge">172.32.0.0/16</code> address of your target server even though it is on a different network, because the VPN server passes traffic through for you.</p>
+
+<p>You should write the report for a managerial audience, one that isn’t
+versed in information security concepts. In other words, you need to
+explain the concepts in terms that can be easily understood by managers
+without technical experience. If you use technical or unfamiliar terms,
+include a glossary of the terms used.</p>
+
+<p>There is no length requirement for the report, but your report must not
+exceed 20 pages (not including appendices).</p>
+
+<p>In writing your report, organize for impact. This means you should
+discuss the most serious vulnerabilities first. Further, in your
+description, start by describing macro-level issues and then discuss
+micro-level details. This practice makes it easier for a readers to
+quickly process your report.</p>
+
+<p>You can think of this process like a pyramid, where at the top you have the one-page executive summary of your findings, and each successive section provides more granular detail. At the end of the main body of your report, the “supporting details” section should have sufficient details on how to replicate the exploits you found, including step-by-step commands run in Metasploit or other tools. This way, a manager can quickly get a sense of the report by reading the first page and then can choose to continue reading to get lower-level details.</p>
+
+<p>Continuing the pyramid analogy, appendices are at the very base. Appendices are for very technical information that would bog down the report if included in the main body. For example, a Nessus report or detailed output from NMAP do not belong in the report because the information is too technical for a managerial reader to process. Also, they tend to be lengthy and would interrupt the flow of your report. Instead, refer the reader to the appendices for very technical and lengthy information. (PS, I’m not interested in seeing a Nessus report, don’t give me one.)</p>
+
+<p>Finally, whenever you show a command or output from a command in the main body of your report, use excerpts or highlighting to point out the most relevant information, and explain what you show with accompanying text. Imagine you are writing to a manager or executive who doesn’t understand security and needs you to clearly explain your findings and their implications.</p>
+
+<p>Writing to a managerial audience is crucial skill in IS, especially in information security.</p>
+
+<p>Your report will be graded using the following rubric:</p>
+
+<table class="table table-condensed">
+  <tbody>
+    <tr>
+      <td>5%</td>
+      <td>One page executive summary that highlights the most important findings of your report.</td>
+    </tr>
+    <tr>
+      <td>5%</td>
+      <td>Description of the scope of the project, objectives, and your authorization to perform the assessment (i.e., my instructions to you in this document and in your email).</td>
+    </tr>
+    <tr>
+      <td>5%</td>
+      <td>Information about the server examined (OS, user accounts, applications installed, databases stored).</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>High-level description of vulnerabilities successfully exploited and sensitive data obtained.</td>
+    </tr>
+    <tr>
+      <td>30%</td>
+      <td>Supporting details of successful exploits and sensitive data obtained. The detail should be sufficient for another person to replicate the results of your main findings using your report.</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>Explanation for how to protect against vulnerabilities successfully exploited and sensitive data obtained. Provide concrete steps.</td>
+    </tr>
+    <tr>
+      <td>5%</td>
+      <td>Clarity of writing for a managerial audience.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Use <a href="/class/security/Midterm_template.docx">this report template</a> to create your report as a PDF file.
+For submission, have one person on your team submit the report on
+D2L.</p>
+
+<p>I look forward to reading your report. Let me know if you have any
+questions.</p>
+
+<h2 id="tips">Tips</h2>
+
+<ul>
+  <li>Did your scan show that the server is running something on port 80? It’s probably a web page! Try browsing to it by using kali’s firefox, and put your server’s ip address into the address bar.</li>
+  <li><code class="highlighter-rouge">hyrda</code> can try to bruteforce ssh logins. It has some nice flags for that task. Read the documentation for hydra’s <code class="highlighter-rouge">-e</code> flag. For example, to try the reverse of a username of a password, you would pass <code class="highlighter-rouge">-e r</code>. You can pass multiple values for <code class="highlighter-rouge">-e</code>, like it shows in the documentation.</li>
+</ul>
+
+<p>You can crack passwords with either John the Ripper (JtR) or with hashcat.</p>
+
+<ul>
+  <li>hashcat expects hashes to be fed to it in a certain format. See <a href="https://hashcat.net/wiki/doku.php?id=example_hashes">here</a> for guidance for that.</li>
+  <li>Remember that you need to tell hashcat what type of hash you are trying to crack (with the <code class="highlighter-rouge">-m</code> flag). It can sometimes be tricky to know what kind of hash you are dealing with. Try installing and using the package <code class="highlighter-rouge">hash-identifier</code>.</li>
+  <li>
+    <p>In your experience with hashcat, you passed it a hash, and then if it cracked it, it would by default match the plaintext with the hash. For example, if I had:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* user: foobar
+* password: dogman
+* hash: a8uf33kljufd88
+</code></pre></div>    </div>
+
+    <p>Then I would feed the following to hashcat:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a8uf33kljufd88
+</code></pre></div>    </div>
+
+    <p>And if it cracked it, it would output:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a8uf33kljufd88:dogman
+</code></pre></div>    </div>
+
+    <p>However, if you have several hashes you are trying to crack at once, it is convenient if hashcat also associates a hash with a username. You can do that as follows:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.  pass the username:hash to hashcat:
+    
+        foobar:a8uf33kljufd88
+        
+    ... and also set the `--username` flag in your hashcat call, so that hashcat knows that you are feeding in a prepended username.
+        
+    If you do this, hashcat will output the crack thusly:
+        
+        foobar:a8uf33kljufd88:dogman
+</code></pre></div>    </div>
+
+    <p>Remember that you can view cracked passwords that are saved in hashcat’s potfile by using the <code class="highlighter-rouge">--show</code> command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat --show a8uf33kljufd88
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>If you want to crack usernames and passwords at the same time, you can ‘unshadow’ the files first. This puts the usernames and passwords into the same file.</p>
+
+    <p>Example usage:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unshadow [passwd file] [shadow file] &gt; myunshadowed_file
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Just like in the password-cracking lab, if you want to take a crack at hashes in <code class="highlighter-rouge">/etc/shadow</code>, you need to put them into a format that hashcat can understand. Read <code class="highlighter-rouge">man shadow</code>, and then read <code class="highlighter-rouge">man crypt</code>, to understand
+how to interpret the values in <code class="highlighter-rouge">/etc/shadow</code>. <code class="highlighter-rouge">man crypt</code> will also help you figure out which hash type is being used.</p>
+
+    <ul>
+      <li>You have to manually edit the unshadowed file and remove everything except for the username and the hash. See <a href="https://samsclass.info/123/proj10/p12-hashcat.htm">here</a> (except, you can leave in the usernames, if you pass the <code class="highlighter-rouge">--username</code> flag)</li>
+    </ul>
+  </li>
+  <li>You will want to read up on using the following tools:
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">scp</code> - one way to copy files from one computer to another, including from your server to kali. You could also use a meterpreter shell to download files if you have one.</p>
+
+        <p>Example <code class="highlighter-rouge">scp</code> code (from Kali):</p>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp midterm-server-username@midterm-server-ip-address:/full/path/to/file/on/midterm/server .
+</code></pre></div>        </div>
+
+        <p>That will open an <code class="highlighter-rouge">ssh</code> connection to the midterm server as the specified user, and copy a file (that the user must have permission to read!) from the specified path down to the current directory 
+(<code class="highlighter-rouge">.</code> means ‘current directory that I’m in on Kali’).</p>
+
+        <p>Note that this must be run on Kali. Meaning it cannot be run from within an exploited shell on the midterm server or from within an ssh connection to the midterm server. You cannot scp a file <em>from</em> the midterm server <em>to</em> Kali, because you cannot open an ssh session from the midterm server to kali, because there is no 
+ssh server listening on Kali. (If there were, you all could ssh into each others’ Kali VMs while connected to the VPN, and we can’t have that!).</p>
+      </li>
+      <li><code class="highlighter-rouge">ssh</code> - for logging into remote servers</li>
+      <li><code class="highlighter-rouge">sudo</code> (including <code class="highlighter-rouge">sudo -l</code>)</li>
+      <li><code class="highlighter-rouge">id</code></li>
+      <li><code class="highlighter-rouge">hydra</code> to crack ssh logins</li>
+    </ul>
+  </li>
+</ul>
+
+
+<script type='text/javascript'>
+    var $ul = $('<ul></ul>').addClass('nav nav-pills');
+    $('h1:not(.title)').each(function() {
+        var anchor_location = $(this).text().toLowerCase().replace(/ /g, '-').replace(/,/g, '');
+        $a = $('<a></a>').attr('href', '#' + anchor_location).text($(this).text());
+        $li = $('<li></li>');
+        $li.append($a);
+        $ul.append($li);
+    });
+    $('#nav-bar').append($ul);
+    
+</script>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/class/cu/mgmt4250/midterm/',
+		  'title': 'Midterm instructions'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-12-01 02:51:21 -0500 | Revision 2843d32b57be664504537cc9ef51db52cd4bf245 -->

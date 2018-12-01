@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <link rel="shortcut icon" href="/favicon.ico?v=2843d32b57be664504537cc9ef51db52cd4bf245">
+
+  <link href="/assets/css/bootstrap-custom.css?v=2843d32b57be664504537cc9ef51db52cd4bf245" rel="stylesheet" media="screen">
+  <link href="/assets/css/style.css?v=2843d32b57be664504537cc9ef51db52cd4bf245" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+  
+      <link type="application/atom+xml" rel="alternate" href="https://daveeargle.com/feed.xml" title="Dave Eargle" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Interpreting dummy-coded parameter estimates with and without a model intercept | Dave Eargle</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Interpreting dummy-coded parameter estimates with and without a model intercept" />
+<meta name="author" content="deargle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This post is to illustrate the differences in model parameter estimates for dummy-coded factors when the model includes an intercept versus when it does not." />
+<meta property="og:description" content="This post is to illustrate the differences in model parameter estimates for dummy-coded factors when the model includes an intercept versus when it does not." />
+<link rel="canonical" href="https://daveeargle.com/2018/04/10/Reference-level-or-not/" />
+<meta property="og:url" content="https://daveeargle.com/2018/04/10/Reference-level-or-not/" />
+<meta property="og:site_name" content="Dave Eargle" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-10T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@deargle" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","dateModified":"2018-04-10T00:00:00-04:00","datePublished":"2018-04-10T00:00:00-04:00","headline":"Interpreting dummy-coded parameter estimates with and without a model intercept","mainEntityOfPage":{"@type":"WebPage","@id":"https://daveeargle.com/2018/04/10/Reference-level-or-not/"},"url":"https://daveeargle.com/2018/04/10/Reference-level-or-not/","author":{"@type":"Person","name":"deargle"},"description":"This post is to illustrate the differences in model parameter estimates for dummy-coded factors when the model includes an intercept versus when it does not.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+      
+  
+
+</head>
+<body class="post post-2018-04-10-Reference level or not" id="/2018/04/10/Reference level or not">
+
+<div class="container">
+
+  
+  
+  
+    
+        <nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://data-vocabulary.org/Person">
+    <meta itemprop="url" content="" />
+    <meta itemprop="title" content="" />
+    <meta itemprop="affiliation" content="" />
+    <meta itemprop="photo" content="http://www.gravatar.com/avatar/.png" />
+    <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+        <meta itemprop="locality" content="Pittsburgh" />
+        <meta itemprop="region" content="" />
+        <meta itemprop="country-name" content="" />
+    </span>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>    
+        <div>
+        <a class="navbar-brand" itemprop="name" href="/">Dave Eargle</a>
+        </div>
+    </div>
+    <div class='navbar-collapse collapse'>
+        <!--p class='navbar-text'>Information Systems Management Researcher</p-->
+        <ul class="nav navbar-nav navbar-right" >
+            <li>
+                <a href="/assets/Dave_Eargle_Vitae.pdf">Vita</a>
+            </li>
+            <li id="research">
+                <a href="https://scholar.google.com/citations?user=Nw7ibigAAAAJ&hl=en">Research</a>
+            </li>
+            <!--li id="portfolio">
+                <a href="/portfolio/">Portfolio</a>
+            </li-->
+            <li id="blog">
+                <a href="/blog/">Blog</a>
+            </li>
+            <li id="class">
+                <a href="/class/">Class</a>
+            </li>
+            <li id="about">
+                <a href="/about/" rel="author">About</a>
+            </li>
+            <li id="contact">
+                <a href="/contact/">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav><!-- navbar -->
+
+    
+  
+
+  
+  <div class="content" id="content" role="main">
+
+
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+
+<article id="post-2018-04-10-Reference level or not" class="post post-2018-04-10-Reference level or not" itemscope itemtype="http://schema.org/Article">
+
+  <h2 class="title"><a href="/2018/04/10/Reference-level-or-not/" itemprop="name">Interpreting dummy-coded parameter estimates with and without a model intercept
+</a></h2>
+
+  
+      
+      <meta itemprop="author" content="Dave Eargle" />
+      <meta itemprop="copyrightHolder" content="Dave Eargle" />
+      <meta itemprop="copyrightYear" content="2018" />
+      <meta itemprop="datePublished" content="2018-04-10" />
+      <meta itemprop="discussionUrl" content="/2018/04/10/Reference-level-or-not/" />
+    
+  <div class="post-meta">
+    <span class="entry-date">Posted April 10, 2018</span> |
+    <a class="revision-history" href="https://github.com/deargle/deargle.github.com/commits/master/_posts/2018-04-10-Reference level or not.md" target="_blank">View revision history</a>
+  </div>
+
+    <div class="entrybody" itemprop="articleBody">
+        <p>This post is to illustrate the differences in model parameter estimates for dummy-coded factors when the model includes an intercept versus when it does not.</p>
+
+<h2 id="data">Data</h2>
+
+<p><a href="/class/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv">Dataset</a> is 10k rows from Lending Club, years 2007-2014.</p>
+
+<dl>
+  <dt>loan_status</dt>
+  <dd>The target values are <code class="highlighter-rouge">0 = Fully Paid</code> and <code class="highlighter-rouge">1 = Charged off (default)</code>. The goal is to predict whether a
+loan will default.</dd>
+  <dt>dti</dt>
+  <dd>A ratio calculated using the borrower’s total monthly debt payments on the total debt obligations, excluding mortgage and the requested LC loan, divided by the borrower’s selfreported monthly income.</dd>
+  <dt>grade</dt>
+  <dd>Lending Club-assigned loan grade. “A” is good, “G” is bad, etc.</dd>
+</dl>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">lsmeans</span><span class="p">)</span><span class="w">
+
+</span><span class="n">my.data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"https://daveeargle.com/class/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv"</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="reference-level-with-an-intercept">Reference level with an intercept</h2>
+
+<p>If we fit a logistic regression model, by default, an intercept will be estimated. In R, by default,
+the first level is used as the reference level.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">m</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">glm</span><span class="p">(</span><span class="n">loan_status</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">grade</span><span class="p">,</span><span class="w"> </span><span class="n">family</span><span class="o">=</span><span class="s1">'binomial'</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">my.data</span><span class="p">)</span><span class="w">
+</span><span class="n">summary</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">## 
+## Call:
+## glm(formula = loan_status ~ grade, family = "binomial", data = my.data)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.5829  -0.6222  -0.4769  -0.3523   2.3710  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -2.74868    0.09153 -30.030  &lt; 2e-16 ***
+## gradeB       0.63193    0.10614   5.954 2.62e-09 ***
+## gradeC       1.20502    0.10544  11.429  &lt; 2e-16 ***
+## gradeD       1.53512    0.11264  13.629  &lt; 2e-16 ***
+## gradeE       1.83239    0.14778  12.399  &lt; 2e-16 ***
+## gradeF       1.95645    0.26251   7.453 9.14e-14 ***
+## gradeG       3.66497    0.84165   4.355 1.33e-05 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 8070.2  on 9999  degrees of freedom
+## Residual deviance: 7719.6  on 9993  degrees of freedom
+## AIC: 7733.6
+## 
+## Number of Fisher Scoring iterations: 5</code></pre></figure>
+
+<p>The logOdds model predictions for any given instance starts with a value equal to the intercept that the model estimated – in this case, -2.75. Then, if the instance has a grade anywhere between B..G, the logOdds is adjusted up or down (depending on the value of the estimate). If the instance has a grade
+equal to the reference level (grade A), then no modification is made. This is because <em>the intercept
+is the estimated prediction for the reference level, Grade A, and all other estimates are relative to
+Grade A.</em></p>
+
+<p>Using a reference level has the benefit of adding interpretabilty to the z-scores for each of the 
+parameter estimates. Because each of the estimates is <em>relative to the reference level</em>, we can answer
+the question “Are the average values for Grade B statisictally significantly different from those of Grade A?” The answer to that is found by looking at the z-score for the gradeB estimate – 5.954, which has
+a very small associated p-value, therefore we can reject the hypothesis that the means of gradeA and gradeB are the same. All other grade parameter estimates can likewise be interpreted as pairwise comparisons between each level and gradeA. Comparisons between other pairs can be obtained by contrasting 
+least-square means for each grade level.</p>
+
+<p>Least-square mean estimates:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">lsmeans</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s1">'grade'</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">##  grade     lsmean         SE df  asymp.LCL  asymp.UCL
+##  A     -2.7486832 0.09153079 NA -2.9280803 -2.5692861
+##  B     -2.1167522 0.05373719 NA -2.2220752 -2.0114293
+##  C     -1.5436646 0.05234020 NA -1.6462495 -1.4410797
+##  D     -1.2135612 0.06564622 NA -1.3422255 -1.0848970
+##  E     -0.9162907 0.11602387 NA -1.1436933 -0.6888881
+##  F     -0.7922381 0.24603778 NA -1.2744633 -0.3100129
+##  G      0.9162907 0.83666003 NA -0.7235328  2.5561143
+## 
+## Results are given on the logit scale. 
+## Confidence level used: 0.95</code></pre></figure>
+
+<p>And pairwise contrasts:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pairs</span><span class="p">(</span><span class="n">lsmeans</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s1">'grade'</span><span class="p">))</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">##  contrast   estimate         SE df     z.ratio p.value
+##  A - B    -0.6319310 0.10613940 NA  -5.9537833  &lt;.0001
+##  A - C    -1.2050186 0.10543900 NA -11.4285852  &lt;.0001
+##  A - D    -1.5351220 0.11263797 NA -13.6288143  &lt;.0001
+##  A - E    -1.8323925 0.14778168 NA -12.3993210  &lt;.0001
+##  A - F    -1.9564451 0.26251186 NA  -7.4527875  &lt;.0001
+##  A - G    -3.6649739 0.84165188 NA  -4.3545010  0.0003
+##  B - C    -0.5730876 0.07501455 NA  -7.6396863  &lt;.0001
+##  B - D    -0.9031910 0.08483579 NA -10.6463434  &lt;.0001
+##  B - E    -1.2004615 0.12786409 NA  -9.3885745  &lt;.0001
+##  B - F    -1.3245141 0.25183780 NA  -5.2593937  &lt;.0001
+##  B - G    -3.0330430 0.83838397 NA  -3.6177254  0.0055
+##  C - D    -0.3301034 0.08395786 NA  -3.9317745  0.0016
+##  C - E    -0.6273739 0.12728329 NA  -4.9289573  &lt;.0001
+##  C - F    -0.7514265 0.25154341 NA  -2.9872638  0.0447
+##  C - G    -2.4599554 0.83829559 NA  -2.9344725  0.0520
+##  D - E    -0.2972705 0.13330778 NA  -2.2299562  0.2793
+##  D - F    -0.4213232 0.25464488 NA  -1.6545518  0.6465
+##  D - G    -2.1298520 0.83923145 NA  -2.5378601  0.1458
+##  E - F    -0.1240526 0.27202230 NA  -0.4560385  0.9993
+##  E - G    -1.8325815 0.84466653 NA  -2.1695917  0.3122
+##  F - G    -1.7085288 0.87208634 NA  -1.9591280  0.4410
+## 
+## Results are given on the log scale. 
+## P value adjustment: tukey method for comparing a family of 7 estimates</code></pre></figure>
+
+<p>The z-score for the estimate of the intercept can be interpreted as “is the intercept significantly different from 0?”</p>
+
+<h2 id="no-intercept-no-reference-level">No intercept, no reference level</h2>
+
+<p>Now examine the parameter estimates for when we instruct our model to <em>not</em> estimate an intercept.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">m</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">glm</span><span class="p">(</span><span class="n">loan_status</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="m">-1</span><span class="p">,</span><span class="w"> </span><span class="n">family</span><span class="o">=</span><span class="s1">'binomial'</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">my.data</span><span class="p">)</span><span class="w">
+</span><span class="n">summary</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">## 
+## Call:
+## glm(formula = loan_status ~ grade - 1, family = "binomial", data = my.data)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.5829  -0.6222  -0.4769  -0.3523   2.3710  
+## 
+## Coefficients:
+##        Estimate Std. Error z value Pr(&gt;|z|)    
+## gradeA -2.74868    0.09153 -30.030  &lt; 2e-16 ***
+## gradeB -2.11675    0.05374 -39.391  &lt; 2e-16 ***
+## gradeC -1.54366    0.05234 -29.493  &lt; 2e-16 ***
+## gradeD -1.21356    0.06565 -18.486  &lt; 2e-16 ***
+## gradeE -0.91629    0.11602  -7.897 2.85e-15 ***
+## gradeF -0.79224    0.24604  -3.220  0.00128 ** 
+## gradeG  0.91629    0.83666   1.095  0.27344    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 13862.9  on 10000  degrees of freedom
+## Residual deviance:  7719.6  on  9993  degrees of freedom
+## AIC: 7733.6
+## 
+## Number of Fisher Scoring iterations: 5</code></pre></figure>
+
+<p>Take note that the estimate for grade A is equivalent to the previously-estimated intercept. However,
+the estimates for all other grade levels are no longer interpreted as being relative to any other level – but rather they are <em>each</em> interpreted as testing whether the weight is different from 0. So, while the estimates in isolation are much different from what they were previously, they are exactly equal to the previous relative estimates added to the previous intercept. The two models will lead
+to exactly the same predictions.</p>
+
+<p>Least-square means in this case are equivalent to what they were previously.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">lsmeans</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s1">'grade'</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">##  grade     lsmean         SE df  asymp.LCL  asymp.UCL
+##  A     -2.7486832 0.09153079 NA -2.9280803 -2.5692861
+##  B     -2.1167522 0.05373719 NA -2.2220752 -2.0114293
+##  C     -1.5436646 0.05234020 NA -1.6462495 -1.4410797
+##  D     -1.2135612 0.06564622 NA -1.3422255 -1.0848970
+##  E     -0.9162907 0.11602387 NA -1.1436933 -0.6888881
+##  F     -0.7922381 0.24603778 NA -1.2744633 -0.3100129
+##  G      0.9162907 0.83666003 NA -0.7235328  2.5561143
+## 
+## Results are given on the logit scale. 
+## Confidence level used: 0.95</code></pre></figure>
+
+<h1 id="more-than-one-predictor">More than one predictor</h1>
+
+<p>Note that least-square mean estimates are not reliable when interaction terms are present in the model. Also, when more than one predictor is used, least-square mean estimates are the mean effect for each level
+of the requested factor <em>holding all other predictors constant at their averages</em>. In other words, they
+are mean estimates “controlling for” the effect of other predictors.</p>
+
+
+    </div>
+
+    <div class="row mini-bio">
+  
+  
+  
+  <div class="col-sm-2">
+      <div class="alignright"><img class='avatar' src='https://avatars2.githubusercontent.com/u/1174653?v=3&s=460' width='100' height='100'></div>
+  </div>
+  <div class="col-sm-10">
+    
+<p>David Eargle is an Assistant Professor at the University of Colorado Boulder in the Leeds School of Business. He earned his Ph.D. degree in Information Systems from the University of Pittsburgh. His research interests include human-computer interaction and information security. He has coauthored several articles in these areas using neurophysiological and other methodologies in outlets such as the <em>Journal of the Association for Information Systems</em>, the <em>European Journal of Information Systems</em>, the <em>International Conference on Information Systems</em>, and the <em>Hawaii International Conference on System Sciences)</em>, along with the <em>Proceedings of the ACM Conference on Human Factors in Computing Systems (CHI)</em>. <a href="/about/">More about the author →</a></p>
+
+  </div>
+</div>
+
+
+    <div class="row improve-article-wrapper">
+  <div class="col-sm-4 col-sm-offset-1">
+     <a class="btn btn-primary btn-lg" href="http://github.com/deargle/deargle.github.io/edit/master/_posts/2018-04-10-Reference level or not.md" title="Help improve article _posts/2018-04-10-Reference level or not.md">Edit</a>
+   </div>
+   <div class="col-sm-6 col-sm-offset-1">
+   <p class="improve-article">This content is open source. <br />
+   Please <a href="http://github.com/deargle/deargle.github.io/edit/master/_posts/2018-04-10-Reference level or not.md" title="Help improve article _posts/2018-04-10-Reference level or not.md">help improve it</a>.</p>
+  </div>
+</div>
+
+
+    
+
+</article>
+
+  </div>
+</div>
+
+</div><!-- content -->
+<div class="row">
+	
+	<div class="col-sm-10 col-sm-offset-1 footer">
+	
+		<div class="fine-print">
+			<a href="/feed.xml">
+				<i class="fa fa-rss"></i>
+			</a>
+			<a href="/fine-print/">Fine Print</a>
+		</div>
+	</div>
+</div>
+
+</div><!--/.container-->
+
+
+<script src="/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-35065822-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2018/04/10/Reference-level-or-not/',
+		  'title': 'Interpreting dummy-coded parameter estimates with and without a model intercept'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
+<!-- Powered by GitHub | Generated 2018-12-01 02:51:21 -0500 | Revision 2843d32b57be664504537cc9ef51db52cd4bf245 -->
+
