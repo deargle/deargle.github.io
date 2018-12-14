@@ -2,6 +2,7 @@
 
 title: Lab &ndash; Web Privacy and Anonymity
 number: 13
+description: Overview of trackers, third party cookies, and Tor
 ---
 
 # Part 1: Visualize Web Trackers
@@ -30,7 +31,7 @@ Turn on Do Not Track in your web browser.
 
 While DNT politely asks web trackers not to track you, you can install software that blocks trackers. 
 
-1.	Visit [https://www.ghostery.com/our-solutions/ghostery-add-on/](https://www.ghostery.com/our-solutions/ghostery-add-on/) and install the Ghostery extension in your browser.
+1.	Visit [https://www.ghostery.com/products/](https://www.ghostery.com/products/) and install the Ghostery extension in your browser.
 2.	Choose whether you're going to allow Ghostery to sell your browsing information (I said "No Thanks")
 3. By default, Ghostery won't actually block _anything_ anymore. Let's change that.
     1. Click the Ghostery icon in your browser, and click the three vertical dots to open the settings menu.
@@ -93,9 +94,9 @@ While DNT politely asks web trackers not to track you, you can install software 
 
 5.	Reload [http://whatismyip.com/](http://whatismyip.com/) inside of the Tor Browser and verify that your IP address has changed. 
 
-6.	Determine your IP address using three different websites (e.g., [whatismyip.com](whatismyip.com), [http://www.whatsmyip.org](http://www.whatsmyip.org), and [whatismyipaddress.com](whatismyipaddress.com)). Note what IP addresses each site reports for your browser.
+6.	Determine your IP address using three different websites (e.g., [https://www.whatismyip.com/](https://www.whatismyip.com/), [http://www.whatsmyip.org](http://www.whatsmyip.org), and [https://whatismyipaddress.com/](https://whatismyipaddress.com/)). Note what IP addresses each site reports for your browser.
 
-7.	Look up the location of each IP address you noted in step 6 using a service like [wolframalpha.com](wolframalpha.com).
+7.	Look up the location of each IP address you noted in step 6 using a service like [https://www.wolframalpha.com/](https://www.wolframalpha.com/).
 
     **Question:** To which parts of the world do the IPs you noted in step 6 belong?
 
@@ -137,4 +138,3 @@ While DNT politely asks web trackers not to track you, you can install software 
     **Question:** What error message do you receive?
 
 **Question:** What do you think about the experience of accessing TOR services? 
-
