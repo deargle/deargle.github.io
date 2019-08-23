@@ -13,6 +13,11 @@ Hello family. I want to give you dogecoin. But you are technological luddites, s
 It is digital cryptocurrency with a vibrant community. It's comfy and easy to wear. You want it.
 [Here is a brief introduction](https://dogecoin.com/), and [here is the community subreddit](https://www.reddit.com/r/dogecoin).
 
+## It's money? How much is it worth?
+
+Use a site [like this](https://www.coingecko.com/en/price_charts/dogecoin/usd) to check. Currently though, the market rate is `1 Doge == 1 Doge`.
+
+
 ## Gimmie dat dogecoin
 
 You will need a "wallet" to store your dogecoin in. Once you have a wallet, I will send money to it.
