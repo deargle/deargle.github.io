@@ -10,3 +10,6 @@ git merge origin/master master -s ours -m 'merging...'
 git push origin master
 
 cd -
+
+# push up build-from-me branch, too
+git push
