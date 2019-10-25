@@ -2,6 +2,9 @@
 ---
 @import "highlighting";
 
+img {
+    max-width: 100%;
+}
 
 body { padding-top: 20px; font-weight: 200; }
 @media (max-width: 768px) {

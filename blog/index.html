@@ -5,7 +5,8 @@ published: true
 regenerate: true
 ---
 <ul class="posts">
-{% for page in site.posts %}
+{% assign posts = site.posts %}
+{% for page in posts %}
   <li class="post">
     <div class="row">
         <div class="col-sm-9">
