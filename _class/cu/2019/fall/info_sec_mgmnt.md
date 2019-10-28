@@ -189,7 +189,8 @@ Quizzes are typically due 30 minutes before class on the date due.
 
 ## Security Films
 
-Two films are required viewing for this course: "Zeros Days" and "Citizenfour." You can watch these films with the class on the announced screening days, or on your own. To receive credit, complete one security films report quiz for each film. Simply indicate that you watched the whole film and give your brief reaction to the film.
+Two films are required viewing for this course: "Zeros Days" and "Citizenfour." You must watch these films on your own. 
+To receive credit, complete one security films report quiz for each film. Simply indicate that you watched the whole film and give your brief reaction to the film.
 
 
 ## Extra Credit
