@@ -4,6 +4,8 @@ description: Notebook on how I configured an AWS VPC with an OpenVPN server for 
     intended for students to do vulnerability assessments with.
 ---
 
+<div class='alert alert-info'><strong>Update 11/7/2019</strong> see <a href='{% post_url 2019-11-07-gcp-vulnerable-servers %}'>this newer post</a> for an automation of the tedium of the steps in this post, albeit deployed on GCP instead of AWS.</div>
+
 I'll be starting a new job at CU Boulder soon. One of my responsibilities will be to teach an information security management class to business school students. I don't know whether there will be a lab available where I can host VMs for students to do vulnerability assessments on, and I can't just distribute OVAs for this because of how easy it would be to boot into root. So I want to host vulnerable servers on something like AWS. Obvious problem is that vulnerable servers are... vulnerable. I don't want the boxes to be pwned before the students can start playing with them. So for the last day or so I learned about taking vulnerable VMs and launching them into a VPN on AWS. This post documents what I learned. 
 
 Went like this:
