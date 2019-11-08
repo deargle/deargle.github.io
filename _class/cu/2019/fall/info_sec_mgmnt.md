@@ -168,6 +168,10 @@ To receive credit for the certification, a student must show evidence of having 
 
 Labs are hands-on learning activities that will be begun in class and completed outside of class. Labs are typically due one week after they are introduced in class.
 
+The labs can be found [here](https://daveeargle.com/security-assignments), but content is subject to change before a lab is officially assigned on the semester's Canvas page.
+
+<a class='btn btn-success' href='https://daveeargle.com/security-assignments'>Go to the Labs</a>
+
 
 ## Midterm vulnerability assessment project
 
