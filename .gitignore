@@ -11,3 +11,4 @@ comments.json
 .Rprofile
 yarn-error.log
 .token
+_config_local.yml

@@ -63,6 +63,8 @@ Class topics include the following:
 * Information Security in Different Levels of the Organization
 * Security and Society
 
+[Final Exam Topics Review](final-exam-review)
+
 
 ## Learning Outcomes
 
