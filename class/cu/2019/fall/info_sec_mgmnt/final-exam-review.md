@@ -6,11 +6,6 @@ title: Topics from the semester, Fall 2019
 This is a structure to help guide you in your study -- it is not an all-inclusive guide.
 
 
-If I make substantial updates to this guide, I will write about it on the #final_guide_changelog slack channel
-
-Let’s use the #final_exam_prep slack channel for q & a about things on this guide.
-
-
 # Introduction to the class
 
 * Kinds of Attackers
@@ -54,7 +49,7 @@ Let’s use the #final_exam_prep slack channel for q & a about things on this gu
    * Integrity
    * Authenticity
    * Non-repudiation
-* Cryptographic primitives for each of the above provisions: (See here)
+* Cryptographic primitives for each of the above provisions: (See [here](https://en.wikipedia.org/wiki/Cryptographic_primitive#Commonly_used_primitives))
 * History of crypto
    * Domain of spies and military
       * Telegram
@@ -75,15 +70,15 @@ Let’s use the #final_exam_prep slack channel for q & a about things on this gu
       * Steganography
    * Plaintext vs ciphertext
 * Building blocks:
-      * Transposition
-         * E.g., scytale
-      * Substitution
-         * ciphers:
-            * Caesar cipher
-            * Vignere cipher
-         * Attacks
-            * Brute force
-            * Frequency analysis
+  * Transposition
+     * E.g., scytale
+  * Substitution
+     * ciphers:
+        * Caesar cipher
+        * Vignere cipher
+     * Attacks
+        * Brute force
+        * Frequency analysis
 * Enigma machine
 * Claude shannon -- substitution and transposition, sufficiently combined, yield encrypted data that is indistinguishable from random data
 * Kerckhoff’s principle: the secret is in the key
@@ -258,7 +253,7 @@ Hardening
 * Some bugs are vulnerabilities
 * Some vulnerabilities are exploitable
 * That nation states find exploits and weaponize them without alerting vendors (e.g., microsoft), and that nation states get pwned by groups who sell their spoils to other nation states, that the NSA got its pet-tool Eternal Blue stolen and freaked and told Microsoft about it and that they should patch it, and Microsoft freaked and emergency-issued a patch even back for the we-swear-we-will-never-issue-another-patch-for-it Windows XP, yet of course few actually patched, and then North Korea said “hey this exploit looks cool” and made wannacry out of it, and the world got wrecked, and then Russia said “that was a cool thing you did North Korea, we’ll do it too” and months later ran NotPetya and wrecked the world again, and then finally years later anything that can be wrecked by eternal blue has already been wrecked, and you had the honor of running wannacry on your laptops, drawing the attention and panic and probably-ire of CU campus security.
-* Why is patching hard? -- Wendy Nather (It’s not just laziness, but it’s not not laziness either)
+* Why is patching hard? -- [Wendy Nather](https://duo.com/decipher/opinion-4-reasons-why-organizations-cant-just-patch) (It’s not just laziness, but it’s not not laziness either)
 * Management: Patch your dadgum systems
    * But assume that you’ll be compromised anyway
 
@@ -388,7 +383,10 @@ Hardening
    * Keylogger
    * Banking trojan
    * etc
-* James bond villain Evgeniy Bogachev, FBI wanted list, purported author and manager of infamous Zeus trojan
+* James bond villains 
+    * Evgeniy Bogachev, FBI wanted list, purported author and manager of infamous Zeus trojan
+    * [Maksim V. Yakubets, Kingpin of cybercrime game Evil Corp, distributor of Dridex banking trojan](https://arstechnica.com/information-technology/2019/12/members-of-evil-corp-the-cybercrime-group-that-lived-in-luxury-are-indicted/)
+
 * Ransomware and how to protect against it
    * Maybe pay ransom so keep cryptocurrency on hand?
    * Backups?
@@ -441,6 +439,7 @@ Hardening
    * Security solution -- Effectiveness for mitigating identified risks
    * security solution -- caused risks
    * Security solution -- tradeoffs
+* Human biases (from Bruce Schneier's _Beyond Fear_, quoted in [this article](https://www.schneier.com/essays/archives/2008/01/the_psychology_of_se.html), in "Conventional Wisdom About Risk" section)
 * Specious security-liberty tradeoff
 
 
@@ -453,10 +452,18 @@ Hardening
       * Btw this is a very good book. Law-professor-level stuffy, but compact and excellent: https://www.danielsolove.com/nothing-to-hide/ 
 * Vocab: PII and PHI because you’ll look silly if you don’t know what those stand for
 * Behavioral tracking business model
-   * How do advertisers track customers across websites -- Third-party cookies
+   * How do advertisers track customers across websites -- e.g., Third-party cookies
+* Three key events:
+    1. Cambridge Analytica
+    2. GDPR
+    3. California Consumer Privacy Act
 
-Number One Priorities if you are in charge of infosec in an organization
-1. Monitor first (NSM) <== most number 1
-1. Implement and manage patch management
-1. Implement and manage backup solution
-1. Remind yourself every day to not roll your own crypto (put picture of dvd john on your cubicle and in your wallet)
+# Other
+
+**Number One Priorities** if you are in charge of infosec in an organization
+<p>
+<div>1. <a href='https://www.schneier.com/crypto-gram/archives/2001/0715.html#5'>Monitor first</a> (NSM) <== most number 1</div>
+<div>1. Implement and manage patch management</div>
+<div>1. Implement and manage backup solution</div>
+<div>1. Remind yourself every day -- no security through obscurity! Do not roll your own crypto (put picture of dvd john on your cubicle and in your wallet)</div>
+</p>
