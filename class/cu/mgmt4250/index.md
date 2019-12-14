@@ -166,9 +166,9 @@ Two films are required viewing for this course: "Zeros Days" and "Citizenfour." 
 
 ## Extra Credit
 
-You can **replace your lowest quiz score** by watching a third _security film_ from the [Security Readings and Films list]({% link security-assignments/security-reading-and-film-list/index.md %}) submitting a few sentences about what you thought about it.
+You can **replace your lowest quiz score** by watching a third _security film_ from the [Security Readings and Films list](/security-assignments/security-reading-and-film-list/) submitting a few sentences about what you thought about it.
 
-Similarly, you can **replace your lowest lab score** by reading a _security book_ from the [Security Readings and Films list]({% link security-assignments/security-reading-and-film-list/index.md %}) and submitting a few sentences about what you thought about it.
+Similarly, you can **replace your lowest lab score** by reading a _security book_ from the [Security Readings and Films list](/security-assignments/security-reading-and-film-list/) and submitting a few sentences about what you thought about it.
 
 
 ## Team evaluation

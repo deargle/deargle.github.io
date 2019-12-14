@@ -28,9 +28,6 @@ social:
       
 # Collections
 collections:
-    security_assignments:
-        output: true
-        permalink: /security-assignments/:path/
     class:
         output: true
       

@@ -20,7 +20,7 @@
                 name: '<span class="label label-danger">Quiz:</span> Threat Modeling'
         assigned_today:
             -
-                name: "<a href='/security-assignments/lab_threat_modeling/'>Lab &ndash; Threat Modeling</a>"
+                name: "Lab &ndash; Threat Modeling"
 2:
     -
         date: 05-09-2017
@@ -45,7 +45,7 @@
             - name: '<span class="label label-danger">Quiz:</span> Anderson, Ch. 5, pp. 129-149'
             - name: "Submit screenshot of Cryptool 2.0 running on your computer"
         assigned_today:
-            - name: "<a href='/security-assignments/lab_hashing_and_symmetric_encryption/'>Lab &ndash; Symmetric</a>"
+            - name: "Lab &ndash; Symmetric"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Threat Modeling'
         
@@ -57,7 +57,7 @@
         title: "Cryptography &ndash; Asymmetric"
         assigned_today:
             -
-                name: "<a href='/security-assignments/lab_asymmetric_encryption/'>Lab &ndash; Asymmetric</a>"
+                name: "Lab &ndash; Asymmetric"
     -
         date: 13-09-2017
         due_tonight:
@@ -70,7 +70,7 @@
         title: "Cryptography &ndash; Digital Certificates and PKI"
         assigned_today:
             -
-                name: "<a href='/security-assignments/lab_digital_certificates/'>Lab &ndash; Digital Certificates</a>"
+                name: "Lab &ndash; Digital Certificates"
         readings:
             - "Online: Moxie Marlinspike: <a href='http://vimeo.com/32097738'>SSL And The Future Of Authenticity</a>"
         due_tonight:
@@ -94,7 +94,7 @@
                 name: '<span class="label label-danger">Quiz:</span> Anderson, Chapter 11'
         assigned_today:
             -
-                name: "<a href='/security-assignments/lab_physical_security_scavenger_hunt/'>Lab &ndash; Physical Security</a>"
+                name: "Lab &ndash; Physical Security"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Digital Certificates'
 5:
@@ -128,14 +128,14 @@
         title: Vulnerability Scanning
         assigned_today:
             -
-                name: "<a href='/security-assignments/lab_vulnerability_scanning/'>Lab &ndash; Vulnerability Scanning</a>"
+                name: "Lab &ndash; Vulnerability Scanning"
     -
         date: 05-10-2017
         class_num: 12
         title: Vulnerability Exploitation
         assigned_today:
             -
-                name: "<a href='/security-assignments/lab_exploitation/'>Lab &ndash; Exploitation</a>"
+                name: "Lab &ndash; Exploitation"
         
 7:
     -
@@ -145,7 +145,7 @@
 
         assigned_today:
             -
-                name: "<a href='/security-assignments/lab_system_hardening/'>Lab &ndash; Hardening</a>"
+                name: "Lab &ndash; Hardening"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Vulnerability Scanning'
     -
@@ -170,7 +170,7 @@
                 name: '<span class="label label-danger">Quiz:</span> Goodin, "Why passwords have never been weaker"'
         assigned_today:
             -
-                name: "<a href='/security-assignments/lab_password_cracking/'>Lab &ndash; Password Cracking</a>"
+                name: "Lab &ndash; Password Cracking"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Exploitation'
             - name: '<span class="label label-success">Lab:</span> Hardening'
@@ -247,7 +247,7 @@
                 name: '<span class="label label-danger">Quiz:</span> Bejtlich, Chapter 1'
         assigned_today:
             -
-                name: "<a href='/security-assignments/lab_security_onion/'>Lab &ndash; Network Security Monitoring</a>"
+                name: "Lab &ndash; Network Security Monitoring"
         activities: >
             - [Mid-course feedback survey](https://cuboulder.qualtrics.com/jfe/form/SV_0vXfwPyM1EF60RL)
     
@@ -267,7 +267,7 @@
                 name: '<span class="label label-danger">Quiz:</span> Schneier, "The Security Mirage"; Anderson, Chapter 2, pp. 17-30, 40-42; Honan, "Cosmo"'
         activities:
         assigned_today:
-            - name: "<a href='/security-assignments/lab_social_engineering/'>Lab &ndash; Social Engineering (Extra credit)</a>"
+            - name: "Lab &ndash; Social Engineering (Extra credit)"
         
     
     -
@@ -280,8 +280,8 @@
             -
                 name: '<span class="label label-danger">Quiz:</span> "The collapse of the US-EU Safe Harbor: Solving the new privacy Rubik''s Cube"'
         assigned_today:
-            - name: "<a href='/security-assignments/lab_web_privacy_and_anonymity/'>Lab &ndash; Privacy</a>"
-            - name: "<a href='/class/security/security-review/'>Threat assessment project, a.k.a 'Security Review'</a>"
+            - name: "Lab &ndash; Privacy"
+            - name: "Threat assessment project, a.k.a 'Security Review'"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Network Security Monitoring'
         activities: >
