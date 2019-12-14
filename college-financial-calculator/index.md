@@ -4,7 +4,6 @@ description: Calculator that helps plan how much needs to be invested now, using
 layout: master
 date: 8/9/2018
 ---
-
 <html>
 <head>
     <!-- Required meta tags -->
