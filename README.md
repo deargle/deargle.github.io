@@ -24,8 +24,12 @@ git push origin master
 
 use `script/production-build` and `script/production-push` for great success
 
-## Todo
-Shunt copying of files and whatnot to gulp. Then can make better use of node_modules, and abandon bower.
+
+## R markdown .Rmd
+
+[Blogdown jekyll](https://github.com/yihui/blogdown-jekyll) can be used to render .Rmd files in the `_posts` directory. A `.Rprofile` is included with this repository which provides a `serve_my_site()` function. Start an `R` session so that the `.Rprofile` is read, and then run the function. Running it will render the `.Rmd` files into `.md` files. 
+
+
 
 ## License
 
