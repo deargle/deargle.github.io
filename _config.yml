@@ -141,13 +141,6 @@ plugins:
   #- jekyll-seo-tag
   - jekyll-github-metadata
 
-sass:
-    style: compressed
-    load_paths:
-        - _sass
-        - assets/vendor/bootstrap-sass/assets
-        - assets/vendor/font-awesome/scss
-
 # markdown: redcarpet
 # redcarpet:
 #   extensions:

@@ -1,4 +1,4 @@
-$syllabus-font-size-base:          14px !default;
+$syllabus-font-size-base: 12px;
 $syllabus-font-size-large:         ceil(($syllabus-font-size-base * 1.25)) !default; // ~18px
 $syllabus-font-size-small:         ceil(($syllabus-font-size-base * 0.85)) !default; // ~12px
 
@@ -19,9 +19,6 @@ $syllabus-font-size-h6:            ceil(($syllabus-font-size-base * 0.85)) !defa
 }
 
 .syllabus {
-    table {
-        @extend .table;
-    }
     h1.title {
         font-size: ($syllabus-font-size-h1 * 1.25);
 		border-bottom: none;
