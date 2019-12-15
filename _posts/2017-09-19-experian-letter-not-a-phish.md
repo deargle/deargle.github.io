@@ -8,7 +8,6 @@ don't recall asking to have our names removed from receiving preapproved credit 
 dind't notice. Google searching
 for the P.O. box showed me it's legit. Go figure. At any rate, it's a good idea for a phishing scam with the credit bureaus in the news lately. Letter below.
 
-![the letter](/assets/img/experian-not-phish/img-2.jpg){: width="600px" }
+{% include image.html image='experian-not-phish/img-2.jpg' alt='the letter' width="600px" %}
 
-![the envelope](/assets/img/experian-not-phish/img-1.jpg){: width="600px" }
-
+{% include image.html image='experian-not-phish/img-1.jpg' alt='the envelope' width="600px" %}

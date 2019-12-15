@@ -79,7 +79,7 @@ The other thing is that before, I got a letter postmarked from my local city (wh
 
 **Update 11/2/2017**: By now, over two dozen people have contacted me. Thought it would be interesting to share the Google Analytics traffic to this blog post. I typically get ~3-5 visits a day, but since Oct 25th I've had an explosion. I've had 1,300 visits to the page in the past week, 960 of those being unique visits. If that's any indication of the number of victims, that's huge.
 
-![google-analytics-traffic](/assets/img/blackmail/2017-blackmail-traffic.png){: width="100%"}
+{% include image.html image='blackmail/2017-blackmail-traffic.png' alt='google-analytics-traffic' %}
 
 <br/>
 
@@ -141,9 +141,7 @@ Interesting because you can clearly see the waves of letters in my traffic spike
 
 Posted: 1/26/2018
 
-![google-analytics-traffic](/assets/img/blackmail/2018-jan-26-blackmail-traffic.png){: width="100%"}
-
-
+{% include image.html image='blackmail/2018-jan-26-blackmail-traffic.png' alt='google-analytics-traffic' %}
 
 <hr>
 
@@ -151,15 +149,15 @@ Posted: 1/26/2018
 
 My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyway.): 
 
-![blackmail page 1](/assets/img/blackmail/page-1.jpg){: width="50%"} 
+{% include image.html image='blackmail/page-1.jpg' alt='blackmail page 1' %}
 
-![blackmail page 2](/assets/img/blackmail/page-2.jpg){: width="50%"} 
+{% include image.html image='blackmail/page-2.jpg' alt='blackmail page 2' %}
 
-![blackmail how-to page 1](/assets/img/blackmail/how-to-page-1.jpg){: width="50%"} 
+{% include image.html image='blackmail/how-to-page-1.jpg' alt='how-to page 1' %}
 
-![blackmail how-to page 2](/assets/img/blackmail/how-to-page-2.jpg){: width="50%"} 
+{% include image.html image='blackmail/how-to-page-2.jpg' alt='how-to page 2' %}
 
-![envelope](/assets/img/blackmail/envelope.jpg){: width="50%"} 
+{% include image.html image='blackmail/envelope.jpg' alt='envelope' %}
 
 <hr>
 

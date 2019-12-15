@@ -4,8 +4,11 @@ description:
 ---
 
 I read [Countdown to Zero Day](https://www.amazon.com/Countdown-Zero-Day-Stuxnet-Digital/dp/0770436196) (and really enjoyed it!) but I still didn't have a firm grasp 
-on why the NSA needed to forge their own certificate when they already had a valid code-signing certificate from Microsoft. [These](https://crypto.stackexchange.com/questions/44151/how-does-the-flame-malware-take-advantage-of-md5-collision) [two](https://trailofbits.files.wordpress.com/2012/06/flame-md5.pdf) sources were the most
-helpful for me to finally understand why.
+on why the NSA needed to forge their own certificate when they already had a valid code-signing certificate from Microsoft. 
+[This crypto stackexchange page](https://crypto.stackexchange.com/questions/44151/how-does-the-flame-malware-take-advantage-of-md5-collision) 
+and 
+[this TrailOfBits slide deck](https://trailofbits.files.wordpress.com/2012/06/flame-md5.pdf) 
+were the most helpful resources for me to finally understand why.
 
 * 	They got their hands on a signed windows certificate that could sign code. But the problem was that it could only sign code for Window XP -- it had an extension in it that 
 	blocked it from signing Vista or Windows 7 code. So _that's_ why they needed to make a forged certificate -- one that had the signature stolen from the legit cert, but the extension disabled, 
@@ -19,8 +22,6 @@ helpful for me to finally understand why.
 	
 This slide from the second link, a TrailOfBits slide deck, is what helped me the most:
 
-![](/assets/img/md5-flame-cert-comparison.png)
+{% include image.html image='md5-flame-cert-comparison.png' %}
 
 The whole slide deck is worth a read-over. I admit I'm too novice to understand the importance of near collision blocks and birthday bits.
-
-

@@ -3,7 +3,7 @@ title: Merry Christmas Dogecoin
 description: Instructions to my family for how to get gift of dogecoin from me
 ---
 
-![img](/assets/img/dogecoin-300.png){: style="width:200px" }
+![](/assets/img/dogecoin-300.png){: width="200px" }
 
 Hello family. I want to give you dogecoin. But you are technological luddites, so I'm writing these instructions.
 
@@ -54,15 +54,6 @@ You will need a "wallet" to store your dogecoin in. Once you have a wallet, I wi
     
 Once I know your address, I will send you dogecoin. <span class='label label-warning'>Much wow!</span>
 
-![img](/assets/img/dogecoin-logo.jpg){: style="height:200px" }
+![](/assets/img/dogecoin-logo.jpg){: width="200px" }
 
 _All images stolen from the internet._
-
-
-
-
-
-
-
-
-

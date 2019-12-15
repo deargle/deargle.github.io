@@ -55,12 +55,12 @@ Edit: I might be wrong about this, but if I am, shame on my credit union partner
 * [CSF Servicing](https://csfservicing.com/) -- but I mean, who includes an "update your insurance info" on their homepage?
 * [Amplify CU](https://www.goamplify.com/tools-and-maintenance/loan-info.aspx) -- different phone number, but also links www.myinsuranceinfo.com
 
-Edit 2: My credit union says they contacted their Allied rep, who confirms that they manage www.myinsuranceinfo.com, and who runs that phone number. However, they have not yet explained why they sent a letter with an incorrect loan number. I'm not embarrassed that I mistook this for a scam -- it's remarkably tacky for Allied to send a letter as if they were my CU (with CU letterhead!), and to identify themselves simply as "Insurance Service Center." Shame on you, Allied.
+Edit 2: My credit union says they contacted their Allied rep, who confirms that they manage www.myinsuranceinfo.com, and who runs that phone number. However, they have not yet explained why they sent a letter with an incorrect loan number. I'm not embarrassed that I mistook this for a scam -- it's remarkably tacky for Allied to send a letter as if they were my credit untion (with half-good credit union letterhead!), and to identify themselves simply as "Insurance Service Center." Shame on you, Allied.
 
 I have shared my experience on that reddit post, which, interestingly, contradicts the experience of that OP with his bank.
 
 And here's what I sent to my credit union:
 
-> Please also pass this along: It's really tacky of Allied to use your letterhead (which looks like a poor imitation at that) and to claim to be you, and then to link to a non-Alliant site, and to only call themselves "Insurance Service Center." Insurance fraud is a big concern, and letters like this would be a great way to harvest information. VIN information is easy to get (I think). There's no indicator of legitimacy in their letter -- the post office box isn't even linked to [the credit union] on your website from what I can tell. Perhaps [the credit union] could leave a note on your site explaining that Allied is your external partner who manages these kinds of things?
+> Please also pass this along: It's really tacky of Allied to use your letterhead (which looks like a poor imitation at that) and to claim to be you, and then to link to a non-credit-union site, and to only call themselves "Insurance Service Center." Insurance fraud is a big concern, and letters like this would be a great way to harvest information. VIN information is easy to get (I think). There's no indicator of legitimacy in their letter -- the post office box isn't even linked to [the credit union] on your website from what I can tell. Perhaps [the credit union] could leave a note on your site explaining that Allied is your external partner who manages these kinds of things?
 
-![scam letter page 1](/assets/img/myinsuranceinfo-scam-letter.png){: width="50%"}
+{% include image.html image='myinsuranceinfo-scam-letter.png' alt='scam letter page 1' width="50%" %}
