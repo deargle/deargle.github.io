@@ -6,7 +6,7 @@ semester: spring
 coursenum:
  - BAIM-4250-001
  - MSBX-5480-002
-slack: https://infosecmanagementf19.slack.com
+slack: https://securityanalyticss20.slack.com
 ---
 
 _{{ page.semester | capitalize }} {{ page.year }}_ 
