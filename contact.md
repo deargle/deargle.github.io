@@ -7,6 +7,6 @@ icons: true
 ---
 
 {: .center }
-Feel free to e-mail me at <strong>{% include email-encoded.html %}</strong> or you can find me on these social networks:
+Feel free to e-mail me at <\{{site.email}}> or you can find me on these social networks:
 
 {% include contact-links.html %}

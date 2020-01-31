@@ -39,11 +39,13 @@ This class explores the application of data analytics to the domain of informati
 
 Consider this sage prediction:
 
->   "The year 2020 expects to see an increase in the preventative approach of deep learning environments, which will become outdated and dangerous. TTPs will continue to evolve cyber threats; we’ll fight AI with AI. Drones hovering outside office windows will discuss ML and AI to combat the threat landscape. These AI will announce a strike over Twitter, the first monumental disruption in 2020.
->
->   "Real-time data and analytics and machine learning and AI creates unpreparedness by corporations and Big Tech companies. Managed detection engines are built on human made logic, but keeping this up-to-date against the latest studies costs almost three million cyber security. Perhaps the most attention raised by increasingly employed AI-based solutions is our need to reconsider our notions of what makes a mistake."
->
->    _-- Kelly Shortridge, VP of product strategy at Capsule8's, [bot](https://www.cyberscoop.com/2020-cyber-predictions-kelly-shortridge/)._
+<blockquote class='blockquote' markdown='1'>
+"The year 2020 expects to see an increase in the preventative approach of deep learning environments, which will become outdated and dangerous. TTPs will continue to evolve cyber threats; we’ll fight AI with AI. Drones hovering outside office windows will discuss ML and AI to combat the threat landscape. These AI will announce a strike over Twitter, the first monumental disruption in 2020.
+
+"Real-time data and analytics and machine learning and AI creates unpreparedness by corporations and Big Tech companies. Managed detection engines are built on human made logic, but keeping this up-to-date against the latest studies costs almost three million cyber security. Perhaps the most attention raised by increasingly employed AI-based solutions is our need to reconsider our notions of what makes a mistake."
+
+_-- Kelly Shortridge, VP of product strategy at Capsule8's, [bot](https://www.cyberscoop.com/2020-cyber-predictions-kelly-shortridge/)._
+</blockquote>
 
 
 ## Learning Outcomes

@@ -1,4 +1,5 @@
 ---
+title: Class
 layout: default
 permalink: /class/
 published: true

@@ -11,8 +11,6 @@ This is my personal website. The opinions expressed herein represent my own, and
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class='aligncenter' alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 
-All original content on DaveEargle.com is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, attributable to <a rel="cc:attributionURL" href="{{ site.url }}">{{ site.name }}</a>.
+All original content on {{ site.url }} is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, attributable to <a rel="cc:attributionURL" href="{{ site.url }}">{{ site.name }}</a>.
 
 All code available [on GitHub](http://github.com/{{ site.repository }}) and licensed under the MIT license. 
-
-Thanks to [Ben Balter](http://Ben.Balter.com), whose [personal website theme](https://github.com/benbalter/benbalter.github.com) I forked.

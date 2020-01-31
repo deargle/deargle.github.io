@@ -1,62 +1,52 @@
-#Jekyll config file
+# Jekyll config file
+remote_theme: deargle/retlab
 
-# Basics
-name: Dave Eargle
 title: Dave Eargle
 description: Information Systems Management Researcher
-author: deargle
+github_username: deargle
+pgp_key: 3DE8 E078 BDB7 C6E6 EDFA 2829 E96E 4A42 8DC0 1F3A
+
+lang: en-US
+
+nav_pages:
+    - index.md
+    - vita.md
+    - research.md
+    - class/index.md
+    - about.md
+    - contact.md
+
+footer_pages:
+    - fine-print.md
+
+contact_links:
+   - name: Twitter
+     url: https://twitter.com/DavidEargle
+     icon: twitter
+   - name: GitHub
+     url: https://github.com/deargle
+     icon: github
+
+url: 'https://daveeargle.com'
 repository: 'deargle/deargle.github.io'
 
-# Images
-avatar: 'https://avatars2.githubusercontent.com/u/1174653?v=3&s=460'
-gravatar_id: 
+ga_username: 'UA-35065822-1'
 
-# RDFa structured data
-job_title: 
-employer: 
-url: 'https://daveeargle.com'
-baseurl: ''
-location: 
-  city: 'Pittsburgh'
-  state: 
-  country: 
+# JSON-LD
+email: dave@daveeargle.com
+gender: male
+employer:
+  name: CU Boulder
+  url: https://www.colorado.edu/business/david-eargle
+job_title: Assistant Professor, Organizational Leadership and Information Analytics
 
-# Social metadata (JSON-LD)
-social:
-  name: 
-  links:
-      
+     
 # Collections
 collections:
     class:
         output: true
-      
-# Includes an icon in the footer for each username you enter
-footer-links:
-  dribbble:
-  email: 
-  facebook: 
-  flickr:
-  github: deargle
-  instagram:
-  linkedin: dave-eargle-097a2925
-  pinterest:
-  rss: # just type anything here for a working RSS icon
-  twitter: DavidEargle
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
-
-logo: 
-     
-# Misc
-twitter:
-  username: 
-google_plus_id: 
-google_analytics: 'UA-35065822-1'
-
+    
 #files to exclude, array
-
 exclude:
   - CONTRIBUTING.md
   - README.md
@@ -97,7 +87,7 @@ rss_limit: 10
 #permalink structure, see http://jekyllrb.com/docs/permalinks/
 permalink: /:year/:month/:day/:title/
 
-# Frontmatter defaults
+# Front matter defaults
 defaults:
   -
     scope:
@@ -106,13 +96,13 @@ defaults:
     values:
       layout: post
       comments: true
-      author:
   -
     scope:
       path: ""
-      type: security_assignments
+      type: "pages"
     values:
-      layout: tony-assignment
+      layout: page
+      comments: false
   -
     scope:
         path: ""
@@ -120,38 +110,18 @@ defaults:
     values:
         layout: "syllabus"
         
-
-#disqus widget
-disqus:
-  shortname: 
-  count: 
-  api_key:
-
-#build config
-timezone: America/New_York
-encoding: UTF-8
-branch: master
-
+# Plugins
 plugins:
   - jemoji
-  #- jekyll-mentions
-  #- jekyll-redirect-from
-  #- jekyll-sitemap
-  #- jekyll-feed
-  #- jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-avatar
   - jekyll-github-metadata
-
-# markdown: redcarpet
-# redcarpet:
-#   extensions:
-#     - no_intra_emphasis
-#     - fenced_code_blocks
-#     - autolink
-#     - tables
-#     - strikethrough
-#     - superscript
-#     - with_to_data
-
+  - jekyll-remote-theme
+  - jekyll-include-cache
+  
 kramdown:
  input: GFM
  hard_wrap: false
@@ -161,8 +131,8 @@ kramdown:
 
 highlighter: rouge
 gist:
- noscript: false
+    noscript: false
 future: true
 
-host: 0.0.0.0
+host: localhost
 port: 3000

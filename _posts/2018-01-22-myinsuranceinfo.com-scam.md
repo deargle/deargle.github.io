@@ -12,27 +12,29 @@ blockquote p {margin-top: 0px; }
 
 Got the below letter in the mail Saturday night. It claims to be from the credit union that services our vehicle loan. It says that our insurance information is not current, and if we do not quickly provide our up-to-date insurance information to them, they may purchase insurance on our behalf. 
 
-> Dear [Me]:
+<blockquote class='blockquote' markdown='1'>
+Dear [Me]:
 
-> A recent review of your loan file indicates that [my credit union] does not have a current copy of your physical damage insurance for the collateral listed below. The terms of your loan agreement require you to maintain this coverage on your collateral at all times.
+A recent review of your loan file indicates that [my credit union] does not have a current copy of your physical damage insurance for the collateral listed below. The terms of your loan agreement require you to maintain this coverage on your collateral at all times.
 
-> Please furnish evidence of insurance that meets the following conditions. We will be unable to accept insurance information that does not meet all of these conditions.
+Please furnish evidence of insurance that meets the following conditions. We will be unable to accept insurance information that does not meet all of these conditions.
 
-> * [uninteresting conditions]
+* [uninteresting conditions]
 
-> For your convenience, you or your insurance agent may furnish evidence of insurance in the following ways:
+For your convenience, you or your insurance agent may furnish evidence of insurance in the following ways:
 
-> * [uninteresting ways]
+* [uninteresting ways]
 
-> In the event we do not receive evidence of your insurance coverage, we may purchase insurance on your behalf. You may want to avoid this action by providing proof of coverage.
+In the event we do not receive evidence of your insurance coverage, we may purchase insurance on your behalf. You may want to avoid this action by providing proof of coverage.
 
-> If you have any questions about this notice, please call our Insurance Service Center at 1(800)998-0763. Thank you for allowing us to serve you.
+If you have any questions about this notice, please call our Insurance Service Center at 1(800)998-0763. Thank you for allowing us to serve you.
 
-> Sincerely,
+Sincerely,
 
-> Insurance Service Center
+Insurance Service Center
+</blockquote>
 
-<br/>
+___
 
 I was a bit distracted at the time of opening the letter, and it stressed me out -- another thing on my todo list. I admit that at first, I intended to respond and submit our
 insurance information, but I was still hesitant. Why would my credit union be using an external company to process insurance information?
@@ -40,7 +42,7 @@ insurance information, but I was still hesitant. Why would my credit union be us
 Thankfully I put it off until Monday, when I was fresher. Googled the name of the website and came
 across [this reddit post](https://www.reddit.com/r/Insurance/comments/6vkatb/myinsuranceinfocom/), tipping me off to check out the loan number. The loan number was incorrect. The VIN is correct, though. (Redacted, although hey, you could likely find it too.) Phone number didn't match up with our credit union. Phone number is also posted to some site called [GoSafco](http://www.gosafco.com/customers/automobile-insurance/), supposedly for some automotive insurance company called Safco. web.archive.org says the site has been online since 2012. They helpfully offer this advice on their website:
 
-> If you have received a notice regarding your insurance policy cancellation, a letter stating we need proof of insurance, or a non-renewal letter, please provide us with a copy of your insurance policy. You can FAX it to: 1-866-319-1597 or call 1-800-998-0763.  You may also email the information to MyInsurance@GoSAFCO.com
+<blockquote class='blockquote' markdown='1'>If you have received a notice regarding your insurance policy cancellation, a letter stating we need proof of insurance, or a non-renewal letter, please provide us with a copy of your insurance policy. You can FAX it to: 1-866-319-1597 or call 1-800-998-0763.  You may also email the information to MyInsurance@GoSAFCO.com</blockquote>
 
 No thanks.
 
@@ -61,6 +63,6 @@ I have shared my experience on that reddit post, which, interestingly, contradic
 
 And here's what I sent to my credit union:
 
-> Please also pass this along: It's really tacky of Allied to use your letterhead (which looks like a poor imitation at that) and to claim to be you, and then to link to a non-credit-union site, and to only call themselves "Insurance Service Center." Insurance fraud is a big concern, and letters like this would be a great way to harvest information. VIN information is easy to get (I think). There's no indicator of legitimacy in their letter -- the post office box isn't even linked to [the credit union] on your website from what I can tell. Perhaps [the credit union] could leave a note on your site explaining that Allied is your external partner who manages these kinds of things?
+<blockquote class='blockquote' markdown='1'>Please also pass this along: It's really tacky of Allied to use your letterhead (which looks like a poor imitation at that) and to claim to be you, and then to link to a non-credit-union site, and to only call themselves "Insurance Service Center." Insurance fraud is a big concern, and letters like this would be a great way to harvest information. VIN information is easy to get (I think). There's no indicator of legitimacy in their letter -- the post office box isn't even linked to [the credit union] on your website from what I can tell. Perhaps [the credit union] could leave a note on your site explaining that Allied is your external partner who manages these kinds of things?</blockquote>
 
 {% include image.html image='myinsuranceinfo-scam-letter.png' alt='scam letter page 1' width="50%" %}
