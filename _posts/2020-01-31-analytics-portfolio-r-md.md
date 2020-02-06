@@ -33,9 +33,7 @@ So that explains my heavy use of R in my phd program -- I used it for hypothesis
 
 So I'll show how to do both -- how to get R stuff online and also Python, for more machine-learning-type stuff.
 
-
-How to get R to Markdown
-------------------------
+## How to get R to Markdown
 
 I use [jekyll on github pages](https://help.github.com/en/github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll), which means that if I can get markdown, I can throw it in a post. 
 Knitr and R-Studio makes that easy.
@@ -179,34 +177,8 @@ summary(m)
 
 ---
 
-The markdown output can be saved as its own file, with a `.md` extension. This file can be hosted anywhere that renders markdown,
-such as a separate jekyll page, or even as a stand-alone github gist ([example](https://gist.github.com/deargle/ed95ed22574d4985d4339f6aebe5969d)) 
-if you don't want to do the blog thing.
-
-
-
-A better way, with Jupyter Notebooks (`.ipynb`)
----------------------------------------------
-
-Been reading more about jupyter notebooks (`.ipynb` files). 
-* They are not limited to python kernels -- they can also run R.
-* The `ipython` tool `nbconvert` can convert them to a number of formats, including markdown and html. 
-* Several places will `nbconvert`-them to html for you, including [https://nbviewer.jupyter.org/](https://nbviewer.jupyter.org/) and github, gists, etc.
-* Under the hood, they are `json`. They save the results from when their code cells are run. Therefore, `nbconvert` does _not_ need to execute the code cells. This means
-  that notebooks that run specialized kernels or that need access to specialized environments such as ones from Amazon Sagemaker can be rendered using `nbconvert` _anywhere_.
-* jupyter notebooks can, obviously, be opened and run by jupyter, as long as jupyter has access to a compatible kernel and environment. 
-* Several sites offer free cloud-based JupyterHub, which can let other people view _and_ run jupyter notebooks, as long as the rendering service has a compatible kernel. These include but
-  are not limited to:
-    * [Google Colab](https://colab.research.google.com/)
-        - `.ipynb` are saved to your google drive, and you can share them as you would other Google Drive documents
-    * [mybinder.org](https://mybinder.org/)
-        - benefit is that you can point to a `.ipynb` that you have in Github, a Gist, or another git-like location
-    * [Kaggle](https://www.kaggle.com/kernels)
-        - Notebooks live on Kaggle, and run Kaggle jupyter kernels.
-        
-    
-
+Tada!
 
 In a future post, I'll figure out how to render the above dynamically. I see that jupyter notebooks can render R,
 which means that sites like [mybinder.org](https://mybinder.org) can render jupyter notebooks with R in them, but the flow from RStudio to
-jupyter notebooks is not yet clear to me.
+jupyter notebooks is not yet clear to me.,,
