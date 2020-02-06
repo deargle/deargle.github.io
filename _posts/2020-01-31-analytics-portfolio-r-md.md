@@ -179,6 +179,10 @@ summary(m)
 
 Tada!
 
+The markdown output can be saved as its own file, with a `.md` extension. This file can be hosted anywhere that renders markdown,
+such as a separate jekyll page, or even as a stand-alone github gist ([example](https://gist.github.com/deargle/ed95ed22574d4985d4339f6aebe5969d)) 
+if you don't want to do the blog thing.
+
 In a future post, I'll figure out how to render the above dynamically. I see that jupyter notebooks can render R,
 which means that sites like [mybinder.org](https://mybinder.org) can render jupyter notebooks with R in them, but the flow from RStudio to
-jupyter notebooks is not yet clear to me.,,
+jupyter notebooks is not yet clear to me.
