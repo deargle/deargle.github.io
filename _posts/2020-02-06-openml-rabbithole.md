@@ -12,6 +12,9 @@ portfolio piece, but, again, this is distracting if data munging and feature eng
 
 Fortunately, this is a common problem, and therefore, there exist standardized ways of fetching data.
 
+Please see {% include source-link.html name='this jupyter notebook' path='/notebooks/ml_datasets_examples.ipynb' %}
+for some examples of good security-related datasets, as well as some examples of loading them.
+
 The rest of this post documents a rabbit hole related to datasources for a machine learning assignment using scikit-learn that I am building.
 The problems in the domain are often binomial targets, so logistic regression as a starter algorithm.
 
