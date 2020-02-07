@@ -4,7 +4,15 @@ tags: analytics
 categories: analytics
 ---
 
-Documenting a rabbit hole related to datasources for a machine learning assignment using scikit-learn that I am building.
+If the goal is to post a sample jupyter notebook online as a portfolio demonstration piece, then one of the first "problems" one encounters is, 
+what dataset to use. If the goal of the portfolio piece is moreso to demonstrate model-building skills, and less-so domain knowledge of the dataset 
+or associated feature-engineering skills, then starting with raw data would be tedious and distracting to a lean demonstration. 
+One could theoretically prepare the data in a separate analysis, and then host a prepared dataset on e.g. github and fetch it using a url in the 
+portfolio piece, but, again, this is distracting if data munging and feature engineering is not the primary goal for the demo.
+
+Fortunately, this is a common problem, and therefore, there exist standardized ways of fetching data.
+
+The rest of this post documents a rabbit hole related to datasources for a machine learning assignment using scikit-learn that I am building.
 The problems in the domain are often binomial targets, so logistic regression as a starter algorithm.
 
 Scikit-learn `fetch_openml`
