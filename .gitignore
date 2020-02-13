@@ -13,3 +13,4 @@ yarn-error.log
 .token
 _config_local.yml
 notebooks/.ipynb_checkpoints
+.ipynb_checkpoints
