@@ -14,7 +14,7 @@
     "@bower_components/vue": "vuejs/vue#^2.5.17",
     "Font-Awesome": "git://github.com/FortAwesome/Font-Awesome.git#*",
     "anchor-js": "git://github.com/bryanbraun/anchorjs.git#*",
-    "bootstrap": "4.1.3",
+    "bootstrap": "4.3.1",
     "bootstrap-sass": "^3.4.1",
     "d3-bower": "mbostock-bower/d3-bower#^5.5.0",
     "financejs": "essamjoubori/finance.js#^4.1.0",
