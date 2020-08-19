@@ -26,7 +26,7 @@
   version "0.0.0"
   resolved "https://codeload.github.com/adam-hanna/goalSeek.js/tar.gz/b0e8a8560811e95e8c1c01ebd994cc6214911138"
 
-"@bower_components/jquery@git://github.com/jquery/jquery-dist.git#>= 1.9.0", "jquery@git://github.com/jquery/jquery-dist.git#>= 1.9.0":
+"@bower_components/jquery@git://github.com/jquery/jquery-dist.git#>= 1.9.0":
   version "3.3.1"
   resolved "git://github.com/jquery/jquery-dist.git#9e8ec3d10fad04748176144f108d7355662ae75e"
 
@@ -40,7 +40,7 @@ abbrev@1:
 
 ansi-escapes@^1.0.0:
   version "1.4.0"
-  resolved "http://registry.npmjs.org/ansi-escapes/-/ansi-escapes-1.4.0.tgz#d3a8a83b319aa67793662b13e761c7911422306e"
+  resolved "https://registry.npmjs.org/ansi-escapes/-/ansi-escapes-1.4.0.tgz#d3a8a83b319aa67793662b13e761c7911422306e"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -233,7 +233,7 @@ ccount@^1.0.0:
 
 chalk@^1.0.0, chalk@^1.1.0:
   version "1.1.3"
-  resolved "http://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
   dependencies:
     ansi-styles "^2.2.1"
     escape-string-regexp "^1.0.2"
@@ -428,7 +428,7 @@ expand-brackets@^2.1.4:
 
 expand-range@^1.8.1:
   version "1.8.2"
-  resolved "http://registry.npmjs.org/expand-range/-/expand-range-1.8.2.tgz#a299effd335fe2721ebae8e257ec79644fc85337"
+  resolved "https://registry.npmjs.org/expand-range/-/expand-range-1.8.2.tgz#a299effd335fe2721ebae8e257ec79644fc85337"
   dependencies:
     fill-range "^2.1.0"
 
@@ -597,7 +597,7 @@ glob@^7.0.0, glob@^7.0.5:
 
 globby@^4.0.0:
   version "4.1.0"
-  resolved "http://registry.npmjs.org/globby/-/globby-4.1.0.tgz#080f54549ec1b82a6c60e631fc82e1211dbe95f8"
+  resolved "https://registry.npmjs.org/globby/-/globby-4.1.0.tgz#080f54549ec1b82a6c60e631fc82e1211dbe95f8"
   dependencies:
     array-union "^1.0.1"
     arrify "^1.0.0"
@@ -649,7 +649,7 @@ has-values@^1.0.0:
 
 he@^0.5.0:
   version "0.5.0"
-  resolved "http://registry.npmjs.org/he/-/he-0.5.0.tgz#2c05ffaef90b68e860f3fd2b54ef580989277ee2"
+  resolved "https://registry.npmjs.org/he/-/he-0.5.0.tgz#2c05ffaef90b68e860f3fd2b54ef580989277ee2"
 
 iconv-lite@^0.4.4:
   version "0.4.24"
@@ -843,6 +843,11 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
+"jquery@git://github.com/jquery/jquery-dist.git#>= 3.5.0":
+  version "3.5.1"
+  uid "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
+  resolved "git://github.com/jquery/jquery-dist.git#4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
+
 js-yaml@^3.2.0:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.12.0.tgz#eaed656ec8344f10f527c6bfa1b6e2244de167d1"
@@ -872,7 +877,7 @@ kind-of@^6.0.0, kind-of@^6.0.2:
 
 levenshtein-edit-distance@^1.0.0:
   version "1.0.0"
-  resolved "http://registry.npmjs.org/levenshtein-edit-distance/-/levenshtein-edit-distance-1.0.0.tgz#895baf478cce8b5c1a0d27e45d7c1d978a661e49"
+  resolved "https://registry.npmjs.org/levenshtein-edit-distance/-/levenshtein-edit-distance-1.0.0.tgz#895baf478cce8b5c1a0d27e45d7c1d978a661e49"
 
 log-symbols@^1.0.2:
   version "1.0.2"
@@ -1029,11 +1034,11 @@ micromatch@^3.1.10:
 
 minimist@0.0.8:
   version "0.0.8"
-  resolved "http://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
+  resolved "https://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
 
 minimist@^1.2.0:
   version "1.2.0"
-  resolved "http://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
+  resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
 minipass@^2.2.1, minipass@^2.3.4:
   version "2.3.5"
@@ -1057,7 +1062,7 @@ mixin-deep@^1.2.0:
 
 mkdirp@^0.5.0, mkdirp@^0.5.1:
   version "0.5.1"
-  resolved "http://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
+  resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
 
@@ -1192,15 +1197,15 @@ once@^1.3.0:
 
 onetime@^1.0.0:
   version "1.1.0"
-  resolved "http://registry.npmjs.org/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
+  resolved "https://registry.npmjs.org/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
 
 os-homedir@^1.0.0:
   version "1.0.2"
-  resolved "http://registry.npmjs.org/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
+  resolved "https://registry.npmjs.org/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
 
 os-tmpdir@^1.0.0:
   version "1.0.2"
-  resolved "http://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
+  resolved "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
 osenv@^0.1.4:
   version "0.1.5"
@@ -1235,11 +1240,11 @@ pascalcase@^0.1.1:
 
 path-is-absolute@^1.0.0:
   version "1.0.1"
-  resolved "http://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
+  resolved "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
 pify@^2.0.0:
   version "2.3.0"
-  resolved "http://registry.npmjs.org/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
+  resolved "https://registry.npmjs.org/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
@@ -1294,7 +1299,7 @@ rc@^1.1.0, rc@^1.2.7:
 
 readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.2.2:
   version "2.3.6"
-  resolved "http://registry.npmjs.org/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
+  resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.3"
@@ -1351,7 +1356,7 @@ remark-lint-no-empty-sections@^1.0.0:
 
 remark-lint@^3.0.0:
   version "3.2.1"
-  resolved "http://registry.npmjs.org/remark-lint/-/remark-lint-3.2.1.tgz#0f3bb5d1c3a5c7173d97e958f867186249d56fec"
+  resolved "https://registry.npmjs.org/remark-lint/-/remark-lint-3.2.1.tgz#0f3bb5d1c3a5c7173d97e958f867186249d56fec"
   dependencies:
     decamelize "^1.0.0"
     mdast-util-heading-style "^1.0.0"
@@ -1366,7 +1371,7 @@ remark-lint@^3.0.0:
 
 remark-message-control@^2.0.0:
   version "2.0.3"
-  resolved "http://registry.npmjs.org/remark-message-control/-/remark-message-control-2.0.3.tgz#b9278fae0b118ee24679821c7c02ea9ba2a682c4"
+  resolved "https://registry.npmjs.org/remark-message-control/-/remark-message-control-2.0.3.tgz#b9278fae0b118ee24679821c7c02ea9ba2a682c4"
   dependencies:
     mdast-comment-marker "^1.0.0"
     trim "0.0.1"
@@ -1375,13 +1380,13 @@ remark-message-control@^2.0.0:
 
 remark-normalize-headings@^0.3.0:
   version "0.3.0"
-  resolved "http://registry.npmjs.org/remark-normalize-headings/-/remark-normalize-headings-0.3.0.tgz#a386d5de4a295356f193d4120c05f197c5a16616"
+  resolved "https://registry.npmjs.org/remark-normalize-headings/-/remark-normalize-headings-0.3.0.tgz#a386d5de4a295356f193d4120c05f197c5a16616"
   dependencies:
     mdast-normalize-headings "^0.3.0"
 
 remark-slug@^3.0.0:
   version "3.0.2"
-  resolved "http://registry.npmjs.org/remark-slug/-/remark-slug-3.0.2.tgz#e51c5004336e4aea6ccf7cec46af85a1a689bed3"
+  resolved "https://registry.npmjs.org/remark-slug/-/remark-slug-3.0.2.tgz#e51c5004336e4aea6ccf7cec46af85a1a689bed3"
   dependencies:
     mdast-util-to-string "^1.0.0"
     repeat-string "^1.5.0"
@@ -1411,7 +1416,7 @@ remark-textr@^2.0.1:
 
 remark-validate-links@^2.0.2:
   version "2.0.2"
-  resolved "http://registry.npmjs.org/remark-validate-links/-/remark-validate-links-2.0.2.tgz#342e87a66ad91c4e9a6da9afd6332d87b1e786a5"
+  resolved "https://registry.npmjs.org/remark-validate-links/-/remark-validate-links-2.0.2.tgz#342e87a66ad91c4e9a6da9afd6332d87b1e786a5"
   dependencies:
     github-url-to-object "^2.1.0"
     mdast-util-definitions "^1.0.0"
@@ -1429,7 +1434,7 @@ remark-yaml@2.0.1:
 
 remark@^4.1.1:
   version "4.2.2"
-  resolved "http://registry.npmjs.org/remark/-/remark-4.2.2.tgz#42dc5d0b3a6a2d5443e7cbdbb2a3202854be698f"
+  resolved "https://registry.npmjs.org/remark/-/remark-4.2.2.tgz#42dc5d0b3a6a2d5443e7cbdbb2a3202854be698f"
   dependencies:
     camelcase "^2.0.0"
     ccount "^1.0.0"
@@ -1503,7 +1508,7 @@ safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
 
 safe-regex@^1.1.0:
   version "1.1.0"
-  resolved "http://registry.npmjs.org/safe-regex/-/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
+  resolved "https://registry.npmjs.org/safe-regex/-/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
   dependencies:
     ret "~0.1.10"
 
@@ -1632,7 +1637,7 @@ string-width@^1.0.0, string-width@^1.0.1:
 
 string_decoder@~1.1.1:
   version "1.1.1"
-  resolved "http://registry.npmjs.org/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
+  resolved "https://registry.npmjs.org/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
   dependencies:
     safe-buffer "~5.1.0"
 
@@ -1647,7 +1652,7 @@ stringify-entities@^1.0.0:
 
 strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
-  resolved "http://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz#6a385fb8853d952d5ff05d0e8aaf94278dc63dcf"
+  resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz#6a385fb8853d952d5ff05d0e8aaf94278dc63dcf"
   dependencies:
     ansi-regex "^2.0.0"
 
@@ -1709,7 +1714,7 @@ to-regex@^3.0.1, to-regex@^3.0.2:
 
 to-vfile@^1.0.0:
   version "1.0.0"
-  resolved "http://registry.npmjs.org/to-vfile/-/to-vfile-1.0.0.tgz#88defecd43adb2ef598625f0e3d59f7f342941ba"
+  resolved "https://registry.npmjs.org/to-vfile/-/to-vfile-1.0.0.tgz#88defecd43adb2ef598625f0e3d59f7f342941ba"
   dependencies:
     vfile "^1.0.0"
 
@@ -1835,7 +1840,7 @@ unherit@^1.0.0, unherit@^1.0.4:
 
 unified@^2.0.0:
   version "2.1.4"
-  resolved "http://registry.npmjs.org/unified/-/unified-2.1.4.tgz#14bc6cd40d98ffff75b405506bad873ecbbac3ba"
+  resolved "https://registry.npmjs.org/unified/-/unified-2.1.4.tgz#14bc6cd40d98ffff75b405506bad873ecbbac3ba"
   dependencies:
     attach-ware "^1.0.0"
     bail "^1.0.0"
@@ -1846,7 +1851,7 @@ unified@^2.0.0:
 
 unified@^3.0.0:
   version "3.0.0"
-  resolved "http://registry.npmjs.org/unified/-/unified-3.0.0.tgz#85ce4169b09ee9f084d07f4d0a1fbe3939518712"
+  resolved "https://registry.npmjs.org/unified/-/unified-3.0.0.tgz#85ce4169b09ee9f084d07f4d0a1fbe3939518712"
   dependencies:
     attach-ware "^2.0.0"
     bail "^1.0.0"
@@ -1931,13 +1936,13 @@ util-deprecate@~1.0.1:
 
 vfile-find-down@^1.0.0:
   version "1.0.0"
-  resolved "http://registry.npmjs.org/vfile-find-down/-/vfile-find-down-1.0.0.tgz#84a4d66d03513f6140a84e0776ef0848d4f0ad95"
+  resolved "https://registry.npmjs.org/vfile-find-down/-/vfile-find-down-1.0.0.tgz#84a4d66d03513f6140a84e0776ef0848d4f0ad95"
   dependencies:
     to-vfile "^1.0.0"
 
 vfile-find-up@^1.0.0:
   version "1.0.0"
-  resolved "http://registry.npmjs.org/vfile-find-up/-/vfile-find-up-1.0.0.tgz#5604da6fe453b34350637984eb5fe4909e280390"
+  resolved "https://registry.npmjs.org/vfile-find-up/-/vfile-find-up-1.0.0.tgz#5604da6fe453b34350637984eb5fe4909e280390"
   dependencies:
     to-vfile "^1.0.0"
 
@@ -1947,7 +1952,7 @@ vfile-location@^2.0.0:
 
 vfile-reporter@^1.5.0:
   version "1.5.0"
-  resolved "http://registry.npmjs.org/vfile-reporter/-/vfile-reporter-1.5.0.tgz#21a7009bfe55e24df8ff432aa5bf6f6efa74e418"
+  resolved "https://registry.npmjs.org/vfile-reporter/-/vfile-reporter-1.5.0.tgz#21a7009bfe55e24df8ff432aa5bf6f6efa74e418"
   dependencies:
     chalk "^1.1.0"
     log-symbols "^1.0.2"
@@ -1959,11 +1964,11 @@ vfile-reporter@^1.5.0:
 
 vfile-sort@^1.0.0:
   version "1.0.0"
-  resolved "http://registry.npmjs.org/vfile-sort/-/vfile-sort-1.0.0.tgz#17ee491ba43e8951bb22913fcff32a7dc4d234d4"
+  resolved "https://registry.npmjs.org/vfile-sort/-/vfile-sort-1.0.0.tgz#17ee491ba43e8951bb22913fcff32a7dc4d234d4"
 
 vfile@^1.0.0, vfile@^1.1.0:
   version "1.4.0"
-  resolved "http://registry.npmjs.org/vfile/-/vfile-1.4.0.tgz#c0fd6fa484f8debdb771f68c31ed75d88da97fe7"
+  resolved "https://registry.npmjs.org/vfile/-/vfile-1.4.0.tgz#c0fd6fa484f8debdb771f68c31ed75d88da97fe7"
 
 ware@^1.3.0:
   version "1.3.0"
