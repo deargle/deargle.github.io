@@ -62,7 +62,39 @@ Apply principles of machine learning to the domain of information security
 : This includes supervied machine learning tasks (such as spam/ham classifications, malware classifications), and unsupervied anomaly detection
 (e.g., time-series predictions of botnet enslavement, network anomaly detection on flow logs grouping by day, hour, protocol, IP, credit card fraud detection, mobile phone theft detection based on sensor data)
 
+### Update Post-Semester -- What We Actually Learned (a lot!)
 
+**Learning objectives and Topics**
+*	Be conversant in and understand the workings of the following:
+    * induction of supervised machine learning models for classification tasks
+        *	understand over- and under-fitting, and strategies for dealing with overfitting (X-fold cross-validation)
+        *	understand how models can actually fit models (information gain, loss-functions minimization, etc), and how certain models (e.g., logistic regressions, decision trees) actually make probability predictions
+    *	differences between supervised vs unsupervised machine learning
+    *	induction of models versus the use of models
+    *	converting model probability predictions to binary predictions; choosing a  decision boundary (cutoff threshold)
+    *	model evaluation, including ROC curves and precision-recall curves, confusion   matrices and attendant metrics, F1, PPV, TPR, business-context application of   evaluation metrics
+    *	containerized app development (e.g., Docker)
+*	Deployment and use of fitted models
+    *	considerations for deployment of models (e.g., speed of prediction? Update-ability? data storage size of model?
+    *	serializing fit models from e.g. a jupyter notebook flow, and unserializing them for usage in an API to obtain predictions
+        *	serializing entire data-preparation workflow objects ('pipelines') for simplification of the "use of model" step
+        *	Different modes of using serialized models, including storing python "pickled" models as files, or saving serialized models to a bytes field in a database
+    *	environment variables and their use in local development of models, and deployment of the same to cloud platforms such as heroku
+    *	containerized app development to simplify and modularize the development of apps which use models (e.g., Docker, with local containers versus deploying docker containers to Heroku)
+    *	use of GCP container-ready operating system to run Docker
+    *	Integration of models into a web environment, including storing output of model predictions into a SQL database for later retrieval, and also parallel use of key-value datastores (mongo).
+*	Sharing of analysis and results
+    *	use of jupyter notebooks on various popular jupyterhub providers -- e.g., AWS Sagemaker, GCP colab, Kaggle, local Anaconda installation, mybinder.org
+        *	rendering of jupyter notebooks via nbviewer services provided either locally, or on github, github gists, etc
+    *	understand conceptually and demonstrate competence with source-code management tools (e.g., Git and GitHub), for personal use and for team work.
+    *	markdown text formatting language to simplify the sharing of writeups on the internet
+        *	rendering of markdown via GiHub Pages websites (Jekyll)
+    *	Understand and practice using the CRISP-DM, both for performing a datamining workflow, as well as for documenting and sharing process and findings
+*	Competence with Linux scripting and all attendant things, including SSH and SCP and console text-editing (e.g., Vim).
+*	Experience self-solving coding challenges via navigating code library documentation, and via attaching a debugger and stepping through code
+*	Apply all of the above to an information security analytics context
+    *	Explore information security-related applications of machine learning approaches, such as for malicious network traffic flagging, malware identification, network anomaly detection, atypical user behavior flagging. Projects with several of the aforementioned. Discuss uses of combinations of machine learning with modern tool suites, including Windows Defender, and Hybrid Analysis.
+*	Conceptual discussion and demonstration of AWS services for data lakes, including posting JSON data to Gateway API -> AWS Firehose -> S3 buckets, crawl with AWS glue, query with AWS Athena.
 
 
 
@@ -131,39 +163,7 @@ The labs can be found here (TBA).
 You will complete several security-domain-based projects. These projects will be improved through iterative feedback, and will follow the form of CRISP-DM.
 
 
-# Update Post-Semester -- What We Actually Learned (a lot!)
 
-**Learning objectives and Topics**
-*	Be conversant in and understand the workings of the following:
-    * induction of supervised machine learning models for classification tasks
-        *	understand over- and under-fitting, and strategies for dealing with overfitting (X-fold cross-validation)
-        *	understand how models can actually fit models (information gain, loss-functions minimization, etc), and how certain models (e.g., logistic regressions, decision trees) actually make probability predictions
-    *	differences between supervised vs unsupervised machine learning
-    *	induction of models versus the use of models
-    *	converting model probability predictions to binary predictions; choosing a  decision boundary (cutoff threshold)
-    *	model evaluation, including ROC curves and precision-recall curves, confusion   matrices and attendant metrics, F1, PPV, TPR, business-context application of   evaluation metrics
-    *	containerized app development (e.g., Docker)
-*	Deployment and use of fitted models
-    *	considerations for deployment of models (e.g., speed of prediction? Update-ability? data storage size of model?
-    *	serializing fit models from e.g. a jupyter notebook flow, and unserializing them for usage in an API to obtain predictions
-        *	serializing entire data-preparation workflow objects ('pipelines') for simplification of the "use of model" step
-        *	Different modes of using serialized models, including storing python "pickled" models as files, or saving serialized models to a bytes field in a database
-    *	environment variables and their use in local development of models, and deployment of the same to cloud platforms such as heroku
-    *	containerized app development to simplify and modularize the development of apps which use models (e.g., Docker, with local containers versus deploying docker containers to Heroku)
-    *	use of GCP container-ready operating system to run Docker
-    *	Integration of models into a web environment, including storing output of model predictions into a SQL database for later retrieval, and also parallel use of key-value datastores (mongo).
-*	Sharing of analysis and results
-    *	use of jupyter notebooks on various popular jupyterhub providers -- e.g., AWS Sagemaker, GCP colab, Kaggle, local Anaconda installation, mybinder.org
-        *	rendering of jupyter notebooks via nbviewer services provided either locally, or on github, github gists, etc
-    *	understand conceptually and demonstrate competence with source-code management tools (e.g., Git and GitHub), for personal use and for team work.
-    *	markdown text formatting language to simplify the sharing of writeups on the internet
-        *	rendering of markdown via GiHub Pages websites (Jekyll)
-    *	Understand and practice using the CRISP-DM, both for performing a datamining workflow, as well as for documenting and sharing process and findings
-*	Competence with Linux scripting and all attendant things, including SSH and SCP and console text-editing (e.g., Vim).
-*	Experience self-solving coding challenges via navigating code library documentation, and via attaching a debugger and stepping through code
-*	Apply all of the above to an information security analytics context
-    *	Explore information security-related applications of machine learning approaches, such as for malicious network traffic flagging, malware identification, network anomaly detection, atypical user behavior flagging. Projects with several of the aforementioned. Discuss uses of combinations of machine learning with modern tool suites, including Windows Defender, and Hybrid Analysis.
-*	Conceptual discussion and demonstration of AWS services for data lakes, including posting JSON data to Gateway API -> AWS Firehose -> S3 buckets, crawl with AWS glue, query with AWS Athena.
 
 
 # Classroom Policies
