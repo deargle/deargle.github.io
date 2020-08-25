@@ -21,11 +21,13 @@ Instructor
 : Dave Eargle  ([contact](<mailto:David.Eargle@colorado.edu>))
 
 Class
-: See [my.cu.edu](https://my.cu.edu), and find Zoom links on [canvas](https://canvas.colorado.edu)
+: See [my.cu.edu](https://my.cu.edu) for schedule
+: [Grad student class meeting zoom link](https://canvas.colorado.edu/courses/66302/modules/items/2232861)
+: [Ugrad class meeting zoom link](https://canvas.colorado.edu/courses/66302/modules/items/2232862)
 
 Office Hours
-: Location: internets 	
-: Hours: not sure yet
+: See [this canvas page](https://canvas.colorado.edu/courses/66302/pages/office-hours)
+
 
 Slack
 : [{{page.slack}}]({{page.slack}})
@@ -283,7 +285,15 @@ It occasionally happens in class and enterprise settings that someone in a group
 
 ## Classroom Procedures
 
-Students are welcome to use laptops in class for note taking and completing class exercises, exclusively.
+For virtual class meetings:
+
+* cameras enabled. Please, I need the human connection.
+* mics muted by default
+* preferably [you're not in a bed](https://www.thedailybeast.com/florida-judge-asks-attorneys-to-get-out-of-bed-and-put-on-clothes-for-zoom-hearings) wear clothes that would be okay for wearing on campus
+
+For either virtual or in-person:
+* close other distractions on your laptop / devices - stay focused on the class
+  meeting please!
 
 
 ## Late Work
