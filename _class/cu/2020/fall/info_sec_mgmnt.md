@@ -21,7 +21,7 @@ Instructor
 : Dave Eargle  ([contact](<mailto:David.Eargle@colorado.edu>))
 
 Class
-: See [my.cu.edu](https://my.cu.edu)
+: See [my.cu.edu](https://my.cu.edu), and find Zoom links on [canvas](https://canvas.colorado.edu)
 
 Office Hours
 : Location: internets 	
@@ -141,24 +141,68 @@ To receive credit for the certification, a student must show evidence of having 
 
 ## Grading
 
-<div markdown='1' style='width:40%' class='small'>
+<div style='width:40%'>
 
-|                Item                | Percent |
-|------------------------------------|--------|
-| Labs | 20 |
-| Midterm project |  15 |
-| Current event threat assessment | 15 |
-| Reading quizzes  | 4 |
-| Participation | 5 |
-| Security Films | 1 |
-| Final Exam | 40 |
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Labs</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Midterm project</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Risk assessment project</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Reading quizzes</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Participation</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Security Films</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Final Exam</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
+<div style='width:40%'>
 
-| Extra Credit | Value |
-|-|-|
-| Third security movie | Replace 1 quiz |
-| Security book -- book report | Replace 1 lab |
-|=|=|
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Extra Credit</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Third security movie</td>
+      <td>Replace 1 quiz</td>
+    </tr>
+    <tr>
+      <td>Security book – book report</td>
+      <td>Replace 1 lab</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
@@ -180,16 +224,21 @@ The labs can be found [here](https://daveeargle.com/security-assignments), but c
 This is a group project. The midterm will be a vulnerability and penetration assessment report of a server. The report will be written for an upper management audience. Teams of students will be given an IP address of a server to assess for security weaknesses. The midterm report will be due two weeks later.
 
 
-## Current event threat assessment
+## Risk assessment project
 
-This is a group project. Teams will choose a recent security breach incident and report on it as if it just occurred. The report will summarize the incident and give recommendations for how to manage the threat. The report will also include a risk assessment of other potential threats the chosen organization faces, along with recommendations for mitigating each identified threat. Deliverables include a written report and a presentation.
+This is a group project. Details forthcoming, but it will be related to applying
+the NIST Cybersecurity framework action verbs to a public company, to perform
+a risk assessment. It will potentially incorporate current events. The report
+would also propose several specific controls which could mitigate specific identified
+vulnerabilities against organizational assets. Deliverables include a written
+report and a presentation.
 
 
 ## Readings Quizzes
 
 Most readings and videos on the schedule have associated quizzes. Quizzes are open book, open Internet and must be completed within 20 minutes. Quizzes are administered on the course LMS (Canvas).
 
-Quizzes are typically due 30 minutes before class on the date due.
+Quizzes are typically due the night after the material is covered in class.
 
 
 
