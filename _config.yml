@@ -1,5 +1,5 @@
 # Jekyll config file
-remote_theme: deargle/retlab
+remote_theme: benbalter/retlab
 
 title: Dave Eargle
 description: Information Systems Management Researcher
@@ -40,12 +40,12 @@ employer:
   url: https://www.colorado.edu/business/david-eargle
 job_title: Assistant Professor, Organizational Leadership and Information Analytics
 
-     
+
 # Collections
 collections:
     class:
         output: true
-    
+
 #files to exclude, array
 exclude:
   - CONTRIBUTING.md
@@ -79,8 +79,8 @@ exclude:
   - R
   - yarn.lock
   - yarn-error.log
-    
-  
+
+
 #number of items in RSS feed
 rss_limit: 10
 
@@ -109,7 +109,7 @@ defaults:
         type: "class"
     values:
         layout: "syllabus"
-        
+
 # Plugins
 plugins:
   - jemoji
@@ -121,7 +121,7 @@ plugins:
   - jekyll-github-metadata
   - jekyll-remote-theme
   - jekyll-include-cache
-  
+
 kramdown:
  input: GFM
  hard_wrap: false
