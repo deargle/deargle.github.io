@@ -3,22 +3,21 @@ title: Class
 layout: default
 permalink: /class/
 published: true
-#regenerate: true
+regenerate: true
 
 ---
 <div>
 {% assign schools = site.class | group_by: "school" %}
-{% for school in schools %} 
+{% for school in schools %}
 <h1>{{ school.name }}</h1>
-    {% assign years = school.items | group_by: "year" | sort:"name" | reverse %}
-    {% for year in years %}
-        <h2>{{year.name}}</h2>
-        {% assign semesters = year.items | group_by: "semester" %}
-        {% for semester in semesters %}
-            <h3>{{semester.name | capitalize }}</h3>
-            {% for class in semester.items %}
-                <div><a href='{{ site.baseurl }}{{ class.url }}'>{% include smartify text=class.title %}</a></div>
-            {% endfor %} 
+    {% assign school_class_groups = school.items | group_by: "title" | sort:"name" | reverse %}
+    {% for class_group in school_class_groups %}
+        <h2>{{class_group.name}}</h2>
+        {% assign sections = class_group.items | sort: "year" | reverse %}
+        {% for section in sections %}
+        <div>
+          <a href='{{ site.baseurl }}{{ section.url }}'>{{section.year }} {{ section.semester | capitalize}}</a>
+        </div>
         {% endfor %}
     {% endfor %}
 {% endfor %}
