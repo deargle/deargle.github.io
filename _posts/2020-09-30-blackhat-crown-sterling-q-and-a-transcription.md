@@ -15,6 +15,7 @@ BlackHat 2019 presentation about Time AI. Read [Bruce Schneier's coverage](https
 All not-italicized text is Robert Grant.
 
 Please submit a PR if you can make out the parts that were unintelligible to me!
+
 ---
 
 [[Part 1][] 26:22, start of Q&A session]
