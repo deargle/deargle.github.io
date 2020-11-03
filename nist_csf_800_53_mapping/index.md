@@ -19,6 +19,11 @@ layout: page
 
 <style media="screen">
   [v-cloak] { display: none; }
+  .table-purple { background-color: #6f42c1 }
+  .table-blue { background-color: #007bff }
+  .table-orange { background-color: #fd7e14 }
+  .table-red { background-color: #dc3545 }
+  .table-green { background-color: #28a745 }
 </style>
 
 <!-- Load polyfills to support older browsers -->
@@ -71,7 +76,7 @@ layout: page
       :filter="filter"
       :filter-included-fields="filterOn"
     >
-      <template #cell(800-53_NAME)="data">
+      <template #cell(800-53_name)="data">
         <a :href="`https://nvd.nist.gov/800-53/Rev4/control/${data.value}`">{{ data.value }}</a>
       </template>
 
@@ -84,12 +89,32 @@ layout: page
       <template #row-details="row">
         <b-card>
           <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right"><b>Control Description:</b></b-col>
-            <b-col><p style='white-space: pre-line'>{{ row.item['800-53_extended_description'] }}</p></b-col>
+            <b-col sm="3" class="text-sm-right"><b>CSF Function:</b></b-col>
+            <b-col>{{ row.item['nist_csf_function'] }}</b-col>
           </b-row>
           <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right"><b>Source:</b></b-col>
-            <b-col><a :href="`https://nvd.nist.gov/800-53/Rev4/control/${row.item['800-53_NAME']}`">{{ row.item['800-53_NAME'] }}</a></b-col>
+            <b-col sm="3" class="text-sm-right"><b>CSF Category:</b></b-col>
+            <b-col>{{ row.item['nist_csf_category'] }}</b-col>
+          </b-row>
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right"><b>CSF Subcategory:</b></b-col>
+            <b-col>{{ row.item['nist_csf_subcategory'] }}</b-col>
+          </b-row>
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right"><b>Control Title:</b></b-col>
+            <b-col>{{ row.item['800-53_title'] }}</b-col>
+          </b-row>
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right"><b>Control Family:</b></b-col>
+            <b-col>{{ row.item['800-53_family'] }}</b-col>
+          </b-row>
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right"><b>Control Description:</b></b-col>
+            <b-col><p style='white-space: pre-line'>{{ row.item['800-53_extended_description'] }}</p><p>(Excludes supplemental guidance, if any.)</p></b-col>
+          </b-row>
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right"><b>Control Source:</b></b-col>
+            <b-col><a :href="`https://nvd.nist.gov/800-53/Rev4/control/${row.item['800-53_name']}`">{{ row.item['800-53_name'] }}</a></b-col>
           </b-row>
           <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
         </b-card>
@@ -105,34 +130,57 @@ layout: page
 
 let _items = null;
 
+csf_function_color_map = {
+  // function_name : table-<variant>
+  'Identify (ID)' : 'blue',
+  'Protect (PR)'  : 'purple',
+  'Detect (DE)'   : 'orange',
+  'Respond (RS)'  : 'red',
+  'Recover (RC)'  : 'green'
+}
+
 d3.csv("joined-condensed.csv").then(function(items) {
-  // controlsBySubcategory = d3.group(data, d => d.nsf_Subcategory)
-  _items = items;
+  let new_items = items.map(item => {
+    item['_cellVariants'] = { nist_csf_function_name: csf_function_color_map[item['nist_csf_function']] }
+    return item
+  })
+  // controlsBySubcategory = d3.group(data, d => d.nist_Subcategory)
+  _items = new_items;
   window.app = new Vue({
     el: '#app',
     data: {
       fields: [
         {
-          key: 'nsf_csf_Subcategory',
-          label: 'NSF CSF Core Subcategory',
+          key: 'nist_csf_function_name',
+          label: 'CSF Function',
           sortable: true,
         },
         {
-          key: '800-53_NAME',
-          label: 'Control',
+          key: 'nist_csf_category_name',
+          label: 'CSF Category',
           sortable: true,
         },
         {
-          key: '800-53_TITLE',
-          label: 'Title',
+          key: 'nist_csf_subcategory',
+          label: 'CSF Subcategory',
+          sortable: true,
+        },
+        {
+          key: '800-53_title',
+          label: 'Control Title',
           formatter: value => { return value.toLowerCase() },
           tdClass: 'text-capitalize'
         },
+        {
+          key: '800-53_family',
+          label: 'Control Family',
+          sortable: true,
+        },
         'show_details'],
-      items: items,
+      items: new_items,
       filter: null,
       filterOn: []
-      // filterOn: ['nsf_Subcategory', 'nsf_Control', '800-53_TITLE']
+      // filterOn: ['nist_Subcategory', 'nist_Control', '800-53_TITLE']
     },
     computed: {
       showAlert() {
