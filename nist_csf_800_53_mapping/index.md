@@ -36,7 +36,13 @@ layout: page
 <script src="https://d3js.org/d3-dsv.v2.min.js"></script>
 <script src="https://d3js.org/d3-fetch.v2.min.js"></script>
 
+
 <!-- Our application root element -->
+<p class='meta'>11/3/2020 by <a href='https://daveeargle.com'>Dave Eargle</a></p>
+<p>Shows details and permits text-searching of the <a href='https://nvd.nist.gov/800-53/Rev4'>NIST Special Publication 800-53 (Rev. 4)</a> security and privacy controls
+  <a href='https://www.nist.gov/document/csfsubcategories-sp80053mappingxlsx'>mapped</a> to the <a href='https://www.nist.gov/cyberframework'>NIST Cybersecurity Framework</a> Core.</p>
+  <p>Associated blog post <a href='{{ site.baseurl }}{% post_url 2020-11-03-NIST-CSF-800-53-Mapping %}'>here</a>.</p>
+  <hr/>
 {::nomarkdown}
 {% raw %}
 <div id="app" markdown="0" v-cloak>
@@ -82,7 +88,7 @@ layout: page
           </b-form-checkbox-group>
         </b-form-group>
       </b-col>
-    
+
       <b-col lg="6" class="my-1">
         <b-form-group
           label="Only Show These Core Functions"
@@ -167,7 +173,7 @@ layout: page
 <!-- Start running your app -->
 <script>
 
-let _items = null;
+let debug_items = null;
 
 csf_function_color_map = {
   // function_name : table-<variant>
@@ -178,7 +184,7 @@ csf_function_color_map = {
   'Recover (RC)'  : 'green'
 }
 
-d3.csv("joined-condensed.csv").then(function(items) {
+d3.csv("https://raw.githubusercontent.com/deargle/nist_csf_800_53_mapping/master/data/joined-condensed.csv").then(function(items) {
   let new_items = items.map(item => {
     item['_cellVariants'] = { nist_csf_function_name: csf_function_color_map[item['nist_csf_function']] }
     return item
