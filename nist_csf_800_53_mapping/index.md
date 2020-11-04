@@ -1,5 +1,5 @@
 ---
-title: NIST Cybersecurity Framework &#11108;&nbsp;&nbsp;800-53 Controls Mapping
+title: NIST Cybersecurity Framework &#11108;&nbsp;&nbsp;800&#8209;53 Controls Mapping
 description: The NIST CSF Core maps controls from 800-53 (and other) informative
   references, but only by code, which makes text-searching impossible. Mashup!
 date: 2020-10-27
@@ -44,12 +44,12 @@ layout: page
     <b-row>
       <b-col lg="6" class="my-1">
         <b-form-group
-          label="Filter"
-          label-cols-sm="3"
-          label-align-sm="right"
-          label-size="sm"
-          label-for="filterInput"
-          class="mb-0"
+        label="Filter"
+        label-cols-sm="3"
+        label-align-sm="right"
+        label-size="sm"
+        label-for="filterInput"
+        class="mb-0"
         >
           <b-input-group size="sm">
             <b-form-input
@@ -63,17 +63,35 @@ layout: page
             </b-input-group-append>
           </b-input-group>
         </b-form-group>
+
+        <b-form-group
+          label="Filter On"
+          label-cols-sm="3"
+          label-align-sm="right"
+          label-size="sm"
+          description="Leave all unchecked to filter on all fields"
+          class="mb-0">
+          <b-form-checkbox-group v-model="filterOn" class="mt-1" stacked>
+            <b-form-checkbox value="nist_csf_function_name">CSF Function</b-form-checkbox>
+            <b-form-checkbox value="nist_csf_category_name">CSF Category Name</b-form-checkbox>
+            <b-form-checkbox value="nist_csf_category">CSF Category Description</b-form-checkbox>
+            <b-form-checkbox value="nist_csf_subcategory">CSF Subcategory</b-form-checkbox>
+            <b-form-checkbox value="800-53_title">Control Title</b-form-checkbox>
+            <b-form-checkbox value="800-53_family">Control Family</b-form-checkbox>
+            <b-form-checkbox value="800-53_extended_description">Control Description</b-form-checkbox>
+          </b-form-checkbox-group>
+        </b-form-group>
       </b-col>
-      
+    
       <b-col lg="6" class="my-1">
         <b-form-group
-          label="Only These Core Functions"
+          label="Only Show These Core Functions"
           label-cols-sm="3"
           label-align-sm="right"
           label-size="sm"
           description="Leave all unchecked to inlcude all core functions"
           class="mb-0">
-          <b-form-checkbox-group v-model="onlyTheseCoreFunctions" class="mt-1">
+          <b-form-checkbox-group v-model="onlyTheseCoreFunctions" class="mt-1" stacked>
             <b-form-checkbox value="Identify (ID)">Identify (ID)</b-form-checkbox>
             <b-form-checkbox value="Protect (PR)">Protect (PR)</b-form-checkbox>
             <b-form-checkbox value="Detect (DE)">Detect (DE)</b-form-checkbox>
@@ -82,6 +100,9 @@ layout: page
           </b-form-checkbox-group>
         </b-form-group>
       </b-col>
+
+
+
     </b-row>
 
     <!-- https://bootstrap-vue.org/docs/components/table -->
