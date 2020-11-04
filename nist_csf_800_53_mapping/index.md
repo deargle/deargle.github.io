@@ -64,6 +64,24 @@ layout: page
           </b-input-group>
         </b-form-group>
       </b-col>
+      
+      <b-col lg="6" class="my-1">
+        <b-form-group
+          label="Only These Core Functions"
+          label-cols-sm="3"
+          label-align-sm="right"
+          label-size="sm"
+          description="Leave all unchecked to inlcude all core functions"
+          class="mb-0">
+          <b-form-checkbox-group v-model="onlyTheseCoreFunctions" class="mt-1">
+            <b-form-checkbox value="Identify (ID)">Identify (ID)</b-form-checkbox>
+            <b-form-checkbox value="Protect (PR)">Protect (PR)</b-form-checkbox>
+            <b-form-checkbox value="Detect (DE)">Detect (DE)</b-form-checkbox>
+            <b-form-checkbox value="Respond (RS)">Respond (RS)</b-form-checkbox>
+            <b-form-checkbox value="Recover (RC)">Recover (RC)</b-form-checkbox>
+          </b-form-checkbox-group>
+        </b-form-group>
+      </b-col>
     </b-row>
 
     <!-- https://bootstrap-vue.org/docs/components/table -->
@@ -71,7 +89,7 @@ layout: page
       striped
       hover
       small
-      :items="items"
+      :items="filteredItems"
       :fields="fields"
       :filter="filter"
       :filter-included-fields="filterOn"
@@ -179,12 +197,18 @@ d3.csv("joined-condensed.csv").then(function(items) {
         'show_details'],
       items: new_items,
       filter: null,
-      filterOn: []
+      filterOn: [],
+      onlyTheseCoreFunctions: [],
       // filterOn: ['nist_Subcategory', 'nist_Control', '800-53_TITLE']
     },
     computed: {
-      showAlert() {
-        return this.name.length > 4 ? true : false
+      filteredItems: function() {
+        let items = this.items
+        if (!this.onlyTheseCoreFunctions.length) {
+          return items
+        }
+        const filter = item => this.onlyTheseCoreFunctions.includes(item['nist_csf_function'])
+        return items.filter(filter)
       }
     }
   })
