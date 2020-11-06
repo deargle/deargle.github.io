@@ -78,11 +78,11 @@ layout: page
           description="Leave all unchecked to filter on all fields"
           class="mb-0">
           <b-form-checkbox-group v-model="filterOn" class="mt-1" stacked>
-            <b-form-checkbox value="nist_csf_function_name">CSF Function</b-form-checkbox>
-            <b-form-checkbox value="nist_csf_category_name">CSF Category Name</b-form-checkbox>
+            <b-form-checkbox value="nist_csf_function">CSF Function</b-form-checkbox>
+            <b-form-checkbox value="nist_csf_category_name_and_code">CSF Category Name</b-form-checkbox>
             <b-form-checkbox value="nist_csf_category">CSF Category Description</b-form-checkbox>
             <b-form-checkbox value="nist_csf_subcategory">CSF Subcategory</b-form-checkbox>
-            <b-form-checkbox value="800-53_title">Control Title</b-form-checkbox>
+            <b-form-checkbox value="800-53_code_and_title">Control Title</b-form-checkbox>
             <b-form-checkbox value="800-53_family">Control Family</b-form-checkbox>
             <b-form-checkbox value="800-53_extended_description">Control Description</b-form-checkbox>
           </b-form-checkbox-group>
@@ -120,7 +120,17 @@ layout: page
       :fields="fields"
       :filter="filter"
       :filter-included-fields="filterOn"
+      :filter-debounce="150"
     >
+
+      <template #thead-top="data">
+        <b-tr>
+          <b-th variant='secondary' colspan="3">Cybersecurity Framework Core</b-th>
+          <b-th variant='' colspan="2">800-53 Controls</b-th>
+          <b-th colspan="1"><span class='sr-only'>Show Details</span></b-th>
+        </b-tr>
+      </template>
+
       <template #cell(800-53_name)="data">
         <a :href="`https://nvd.nist.gov/800-53/Rev4/control/${data.value}`">{{ data.value }}</a>
       </template>
@@ -135,7 +145,7 @@ layout: page
         <b-card>
           <b-row class="mb-2">
             <b-col sm="3" class="text-sm-right"><b>CSF Function:</b></b-col>
-            <b-col>{{ row.item['nist_csf_function'] }}</b-col>
+            <b-col>{{ row.item['nist_csf_function_name'] }}</b-col>
           </b-row>
           <b-row class="mb-2">
             <b-col sm="3" class="text-sm-right"><b>CSF Category:</b></b-col>
@@ -186,7 +196,7 @@ csf_function_color_map = {
 
 d3.csv("https://raw.githubusercontent.com/deargle/nist_csf_800_53_mapping/master/data/joined-condensed.csv").then(function(items) {
   let new_items = items.map(item => {
-    item['_cellVariants'] = { nist_csf_function_name: csf_function_color_map[item['nist_csf_function']] }
+    item['_cellVariants'] = { nist_csf_function: csf_function_color_map[item['nist_csf_function']] }
     return item
   })
   // controlsBySubcategory = d3.group(data, d => d.nist_Subcategory)
@@ -196,12 +206,12 @@ d3.csv("https://raw.githubusercontent.com/deargle/nist_csf_800_53_mapping/master
     data: {
       fields: [
         {
-          key: 'nist_csf_function_name',
+          key: 'nist_csf_function',
           label: 'CSF Function',
           sortable: true,
         },
         {
-          key: 'nist_csf_category_name',
+          key: 'nist_csf_category_name_and_code',
           label: 'CSF Category',
           sortable: true,
         },
@@ -211,9 +221,10 @@ d3.csv("https://raw.githubusercontent.com/deargle/nist_csf_800_53_mapping/master
           sortable: true,
         },
         {
-          key: '800-53_title',
+          key: '800-53_code_and_title',
           label: 'Control Title',
-          formatter: value => { return value.toLowerCase() },
+          formatter: 'controlCodeAndTitle',
+          filterByFormatted: true,
           tdClass: 'text-capitalize'
         },
         {
@@ -227,6 +238,11 @@ d3.csv("https://raw.githubusercontent.com/deargle/nist_csf_800_53_mapping/master
       filterOn: [],
       onlyTheseCoreFunctions: [],
       // filterOn: ['nist_Subcategory', 'nist_Control', '800-53_TITLE']
+    },
+    methods: {
+      controlCodeAndTitle: function(value, key, item) {
+        return `${ item['800-53_name'] }: ${ item['800-53_title'] }`
+      }
     },
     computed: {
       filteredItems: function() {
