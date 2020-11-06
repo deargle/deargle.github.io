@@ -165,7 +165,14 @@ layout: page
           </b-row>
           <b-row class="mb-2">
             <b-col sm="3" class="text-sm-right"><b>Control Description:</b></b-col>
-            <b-col><p style='white-space: pre-line'>{{ row.item['800-53_extended_description'] }}</p><p>(Excludes supplemental guidance, if any.)</p></b-col>
+            <b-col>
+              <ul>
+                <li v-for="statement in row.item['800-53_extended_description']">
+                  {{ statement }}
+                </li>
+              </ul>
+              <p>(Excludes supplemental guidance, if any.)</p>
+            </b-col>
           </b-row>
           <b-row class="mb-2">
             <b-col sm="3" class="text-sm-right"><b>Control Source:</b></b-col>
@@ -194,7 +201,12 @@ csf_function_color_map = {
   'Recover (RC)'  : 'green'
 }
 
-d3.csv("https://raw.githubusercontent.com/deargle/nist_csf_800_53_mapping/master/data/joined-condensed.csv").then(function(items) {
+d3.csv("https://raw.githubusercontent.com/deargle/nist_csf_800_53_mapping/master/data/joined-condensed.csv", function(d) {
+  if (d['800-53_extended_description']) {
+    d['800-53_extended_description'] = JSON.parse(d['800-53_extended_description'])
+  }
+  return d
+}).then(function(items) {
   let new_items = items.map(item => {
     item['_cellVariants'] = { nist_csf_function: csf_function_color_map[item['nist_csf_function']] }
     return item
