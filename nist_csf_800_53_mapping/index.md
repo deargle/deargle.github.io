@@ -30,8 +30,8 @@ layout: page
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
 
 <!-- Required scripts -->
-<script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
-<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<script src="https://unpkg.com/bootstrap-vue@2.19.0/dist/bootstrap-vue.js"></script>
 
 <script src="https://d3js.org/d3-dsv.v2.min.js"></script>
 <script src="https://d3js.org/d3-fetch.v2.min.js"></script>
@@ -63,6 +63,7 @@ layout: page
               type="search"
               id="filterInput"
               placeholder="Type to Search"
+              debounce="150"
             ></b-form-input>
             <b-input-group-append>
               <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
@@ -120,7 +121,6 @@ layout: page
       :fields="fields"
       :filter="filter"
       :filter-included-fields="filterOn"
-      :filter-debounce="150"
     >
 
       <template #thead-top="data">
