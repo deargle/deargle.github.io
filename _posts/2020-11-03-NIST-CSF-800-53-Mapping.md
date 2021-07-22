@@ -6,7 +6,7 @@ description: Announcing the creation of a tool that Shows details and permits
 ---
 
 <div class='page-header text-center well'><h2>
-<a class='btn btn-primary' href='{{ site.baseurl }}{% link nist_csf_800_53_mapping/index.md %}'>Go to the tool</a></h2></div>
+<a class='btn btn-primary' href='https://daveeargle.com/nist_csf_800_53_mapping/'>Go to the tool</a></h2></div>
 
 I rent my cloak asunder in frustration when I realized I couldn't ctrl+f the
 NSF CSF core for "penetration testing" or "encryption" or for anything, really,
