@@ -3,7 +3,7 @@ title: I made a college financial calculator
 description: Calculator to assist in optimizing investment strategies for future expenses.
 ---
 
-<div class='page-header text-center well'><h2>Find the calculator <a href='{{ site.baseurl }}/college-financial-calculator/'>here</a>.</h2></div> 
+<div class='page-header text-center well'><h2>Find the calculator <a href='https://daveeargle.com/college-financial-calculator/'>here</a>.</h2></div> 
 
 I was in school for a long time. When I finally got my first "real" job last year, I scheduled a meeting with my university's contracted financial counselors to ask them for help in savings goals.
 I told them in advance that I was especially interested in figuring out how much I would need to save each month (or year or whatever) in order to have enough to help my children with college. My wife and I still haven't decided whether or how much we're going to assist our children with college versus letting them pay on their own for the life experience points -- but I still wanted to know theoretically how much we would need to save to reach some arbitrary goal.
