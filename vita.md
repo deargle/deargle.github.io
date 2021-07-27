@@ -34,14 +34,14 @@ Department of Information Science\
 at the University of Colorado Boulder
 
 ## Research Interests
-` `
+
 - Human side of Information Systems Security (Behavioral InfoSec)
 - Dark Side of Information Technology, including online group polarization
 - Design science -- tools for research and for mitigating information security risks
 - Neuroscience applications to Human-Computer Interaction and Information Security
 
 ## Teaching Interests
-` `
+
 - Information security management
 - Descriptive, Predictive, and Prescriptive Business Analytics
 - Programming for business majors (Python, R); Databases; Cloud Computing, Web and app development
@@ -84,7 +84,6 @@ __Web Developer__\
 - Core developer for syllabus section of _Learning Suite_, BYU's Learning Management System
 
 ## Scholarship metrics
-`&nbsp;`
 * <i class="ai ai-google-scholar"></i> <a href="{{ page.google_scholar }}">My Google scholar profile</a>
 * <i class="ai ai-orcid"></i> <a href="">ORCiD</a>
 * 728 citations per Google Scholar (641 citations since 2016)
@@ -117,7 +116,6 @@ Links:
 
 
 ### 2.
-` `
 __The Fog of Warnings: How Non-essential Notifications Blur with Security Warnings__\
 *with: Anthony Vance, Bonnie Anderson, Brock Kirwan, Jeff Jenkins*
 
