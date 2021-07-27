@@ -396,7 +396,6 @@ legitimate websites: A NeuroIS study." In *IFIP WG8.11/WG11.13*, Provo, UT: (201
 In four years:
 - Taught 4 unique courses
 - Taught at 3000, 4000 (including honors students), and 5000 (graduate, including MBAs) levels
-- Got reported to the dean 4 times (a new school record)
 
 __Courses:__
 
