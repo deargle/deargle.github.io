@@ -122,6 +122,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
 
+markdown: kramdown
 kramdown:
  input: GFM
  hard_wrap: false
