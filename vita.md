@@ -84,7 +84,7 @@ __Web Developer__\
 - Core developer for syllabus section of _Learning Suite_, BYU's Learning Management System
 
 ## Scholarship metrics
-` `
+`&nbsp;`
 * <i class="ai ai-google-scholar"></i> <a href="{{ page.google_scholar }}">My Google scholar profile</a>
 * <i class="ai ai-orcid"></i> <a href="">ORCiD</a>
 * 728 citations per Google Scholar (641 citations since 2016)
