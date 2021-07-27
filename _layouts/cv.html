@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <!-- https://raw.githubusercontent.com/elipapa/markdown-cv/master/_layouts/cv.html -->
+  <meta charset=utf-8 />
+  <title> {% if page.title %} {{ page.title }} | {% endif %} CV</title>
+  <link href="{{ site.baseurl }}/assets/css/cv/davewhipp-screen.css" type="text/css" rel="stylesheet" media="screen">
+  <link href="{{ site.baseurl }}/assets/css/cv/davewhipp-print.css" type="text/css" rel="stylesheet" media="print">
+  <link href="{{ site.baseurl }}/assets/css/bootstrap-tables-only.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/assets/css/cv/courses-table.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/assets/css/academicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <style>
+    h2+ul {
+      margin-top: 2px;
+    }
+
+    p.reference {
+      margin-left: 2em;
+      text-indent: -2em;
+    }
+
+    h3 {
+      line-height: 1.4em;
+      margin-top: 2em;
+    }
+
+    .table {
+      position: relative;
+      left: 25%;
+      width: 55% !important;
+      margin-bottom: 1.5em;
+      margin-top: -0.5em;
+    }
+
+    ul.no-list-style li:before {
+    	content: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div id="content">
+    {{ content }}
+    </div>
+  </div>
+</body>
+</html>
