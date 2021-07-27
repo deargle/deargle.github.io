@@ -563,11 +563,14 @@ departments of the University of Pittsburgh’s College of Business Administrati
 
 `2013-2015`
 __Microsoft Excel workshops for Katz Graduate students__
+
 Taught four beginner-to-advanced-level Microsoft Excel workshops to part-time Katz
 MBA students
 
 ### Department of Information Systems, Marriott School of Management, Brigham Young University
 `2013`
+__Spreadsheets for Business Majors__
+
 Full responsibility for four college-level class sections on computer spreadsheet skills,
 with total enrollment of over 270 across four sections. Mix of online plus in-class
 teaching. Oversight of three teaching assistants.
