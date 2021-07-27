@@ -11,8 +11,16 @@
   <link href="{{ site.baseurl }}/assets/css/academicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <style>
+    h2 {
+      margin-top: 1em;
+    }
+
     h2+ul {
       margin-top: 2px;
+    }
+
+    h2+p {
+      margin-top: 1px;
     }
 
     p.reference {
@@ -20,9 +28,22 @@
       text-indent: -2em;
     }
 
+    p.reference code {
+      right: -16%; /* fallback if needed */
+      right: calc(-20% + 2em);
+    }
+
     h3 {
       line-height: 1.4em;
       margin-top: 2em;
+    }
+
+    h3+p {
+      margin-top: 4px;
+    }
+
+    h3+ul {
+      margin-top: 4px;
     }
 
     .table {
@@ -31,6 +52,10 @@
       width: 55% !important;
       margin-bottom: 1.5em;
       margin-top: -0.5em;
+    }
+
+    ul {
+      width: 55%;
     }
 
     ul.no-list-style li:before {

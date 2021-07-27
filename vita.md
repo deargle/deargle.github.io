@@ -166,70 +166,60 @@ Links:
 
 
 ## Journal Publications
-
-`Forthcoming`
-
 {: .reference }
+`Forthcoming`
 Vance, A., __Eargle, D.__, Eggett, D., Straub, D., Ouimet, K. “Do Security Fear Appeals
 Work When They Interrupt Tasks? A Multi-Method Examination of Password Strength,”
 *MIS Quarterly*, forthcoming.
 
-`2020`
-
 {: .reference }
+`2020`
 Kirwan, C., Bjornn, D., Anderson, B., Vance, A., __Eargle, D.__, Jenkins, J.2020. “Repetition
 of Computer Security Warnings Results in Differential Repetition Suppression Effects as
 Revealed With Functional MRI,” *Frontiers in Psychology*, 11, pp. 1–10.
 
-`2019`
-
 {: .reference }
+`2019`
 Veen, Hendrik van, Nathaniel Saul, __David Eargle__, and Sam Mangham. “Kepler Mapper:
 A Flexible Python Implementation of the Mapper Algorithm.”
 *Journal of Open Source Software* 4, no. 42 (2019): 1315.
 
-`2016`
-
 {: .reference }
+`2016`
 Anderson, B.B., Vance, A., Kirwan, C.B., Jenkins, J. and __Eargle, D.__ "From warnings to
 wallpaper: Why the brain habituates to security warnings and what can be done about
 it." *Journal of Management Information Systems*, 33, 3 (2016), 713-743.
 doi: 10.1080/07421222.2016.1243947
 
-`2016`
-
 {: .reference }
+`2016`
 Anderson, B.B., Jenkins, J., Vance, A., Kirwan, C.B. and __Eargle, D.__ "Your memory is
 working against you: How eye tracking and memory explain habituation to security
 warnings." *Decision Support Systems*, 92 (2016), 3-13. doi: 10.1016/j.dss.2016.09.010
 
-`2016`
-
 {: .reference }
+`2016`
 Jenkins, J., Anderson, B., Vance, A., Kirwan, B. and __Eargle, D.__ "More harm than good?
 How security messages that interupt make us vulnerable."
 *Information Systems Research*, 27, 4 (2016), 880-896. __Awarded ISR’s “Best Published Paper” for 2016__.
 doi: 10.1287/isre.2016.0644
 
-`2016`
-
 {: .reference }
+`2016`
 Anderson, B., Vance, A., Kirwan, B., __Eargle, D.__ and Jenkins, J. "How users perceive and
 respond to security messages: A NeuroIS research agenda and empirical study."
 *European Journal of Information Systems*, 25, 4 (2016), 364-390.
 doi: 10.1057/ejis.2015.21
 
-`2015`
-
 {: .reference }
+`2015`
 Anderson, B., Kirwan, B., __Eargle, D.__, Jensen, S. and Vance, A. "Neural correlates of
 gender differences and color in distinguishing security warnings and legitimate websites:
 A neurosecurity study." *Journal of Cybersecurity*, 1, 1 (2015), 109-120.
 doi: 10.1093/cybsec/tyv005
 
-`2014`
-
 {: .reference }
+`2014`
 Vance, A., Anderson, B.B., Kirwan, C.B. and __Eargle, D__. "Using measures of risk
 perception to predict information security behavior: Insights from
 electroencephalography (EEG)." *Journal of the Association for Information Systems*,
@@ -237,188 +227,163 @@ electroencephalography (EEG)." *Journal of the Association for Information Syste
 
 ## Conference Publications
 
-`2020`
-
 {: .reference }
+`2020`
 Larsen KR, Gefen D, Petter S, __Eargle D.__ (2020) “Creating Construct Distance Maps
 with Machine Learning: Stargazing Trust.” In
 *Conference of the Association for Information Systems (AMCIS 2020)*. Online.
 Awarded AMCIS’ __“Best Completed Paper” for 2020.__ 60% acceptance rate.
 
-`2019`
-
 {: .reference }
+`2019`
 A Vance, __D Eargle__, JL Jenkins, CB Kirwan, BB Anderson. (2019) “The Fog of
 Warnings: How Non-Essential Notifications Blur with Security Warnings.”
 In *Fifteenth Symposium on Usable Privacy and Security (SOUPS 2019)*. Santa Clara, CA: USENIX
 Association, 2019. https://www.usenix.org/conference/soups2019/presentation/vance
 
-`2019`
-
 {: .reference }
+`2019`
 Kirwan, C.B., Anderson, B., __Eargle, D.__, Jenkins, J., and Vance, A. (2019, October).
 Attentional habituation to non-essential computer notifications generalizes to security
 warnings: an fMRI study. *Program No. 665.##. Neuroscience 2019 Abstracts.*
 Washington, DC: Society for Neuroscience, 2019. Online.
 
-`2019`
-
 {: .reference }
+`2019`
 Anderson, B., Kirwan, B., __Eargle, D.__, Jenkins, J., Vance, A., “Neural Evidence of
 Generalization of Software Notifications to Security Warnings,”
 *Security and Human Behavior Workshop*, Harvard University, June 2019
 
-`2019`
-
 {: .reference }
+`2019`
 Kirwan, C.B., Anderson, B., __Eargle, D.__, Jenkins, J., and Vance, A. (2019, June). Using
 fMRI to Measure Stimulus Generalization of Software Notification to Security Warnings.
 Retreat on NeuroIS, Vienna, Austria. *Information Systems and Neuroscience*, 93-99.
 
-`2017`
-
 {: .reference }
+`2017`
 __Eargle, D.__, Galletta, D., Shadi, J., Dimitar, K., and Shivendu, S. "The Chaos of Order:
 Sequence and Mindlessness Effects in Obtaining Successive App Permissions." In
 *Workshop on Information Security & Privacy*. Seoul, South Korea: AIS SIGSEC and IFIP
 TC11.1. (2017).
 
-`2016`
-
 {: .reference }
+`2016`
 __Eargle, D.__, Galletta, D. and Jenkins, J. "How much is your security worth? Applying a
 risk tradeoff paradigm to explain the bimodal nature of user elaboration over interruptive
 security messages." In *Workshop on Information Security & Privacy*, Dublin, Ireland: AIS
 SIGSEC and IFIP TC11.1 (2016).
 
-`2016`
-
 {: .reference }
+`2016`
 __Eargle, D.__, Galletta, D. and Cranor, L. "On the use of motivational components as
 attention hooks in security message interface design: Avoiding "tl;dr"." In
 *Dewald Roode Workshop on Information Systems Security Research*, Albuquerque, New Mexico: IFIP
 WG8.11/WG11.13 (2016).
 
-`2016`
-
 {: .reference }
+`2016`
 __Eargle, D.__, Galletta, D., Kirwan, C. B., Vance, A., and Jenkins, J. 2016. "Integrating
 Facial Cues of Threat into Security Warnings – an fMRI and Field Study." Paper
 presented at the *Americas Conference on Information Systems (AMCIS)*, San Diego,
 California.
 
-`2015`
-
 {: .reference }
+`2015`
 Galletta, D., __Eargle, D.__, Shadi, J., Kunev, D. and Singh, S. "Integrating social and
 economic models of responding to privacy messages in mobile computing: A research
 agenda." In *Workshop on Information Security & Privacy*, Fort Worth, Texas: AIS
 SIGSEC and IFIP TC11.1 (2015).
 
-`2015`
-
 {: .reference }
+`2015`
 __Eargle, D.__, Godfrey, J., Miao, H., Stevenson, S., Shay, R., Ur, B. and Cranor, L. "Poster:
 You can do better – motivational statements in password-meter feedback." In
 *Symposium on Usable Privacy and Security (SOUPS '15)*, Ottawa, CA: (2015).
 
-`2015`
-
 {: .reference }
+`2015`
 __Eargle, D.__, Galletta, D., Kirwan, C.B. and Vance, A. "Integrating facial threat signals into
 security messages: An extension of media naturalness theory to an information security
 context." In *Dewald Roode Workshop on Information Systems Security Research*,
 Newark, Delaware: IFIP WG8.11/WG11.13 (2015).
 
-`2015`
-
 {: .reference }
+`2015`
 Anderson, B., Kirwan, B., Jenkins, J., __Eargle, D.__, Howard, S. and Vance, A. "How
 polymorphic warnings reduce habituation in the brain: Insights from an fMRI study." In
 *Proceedings of the ACM Conference on Human Factors in Computing Systems (CHI)*,
 Seoul, South Korea: ACM (2015).
 
-`2014`
-
 {: .reference }
+`2014`
 __Eargle, D.__, Taylor, R., Sawyer, L. and Gaskin, J. "Acquiring IS skill through habitual
 use." In *2014 47th Hawaii International Conference on System Sciences (HICSS)*:
 (2014), pp. 3-12.
 
-`2014`
-
 {: .reference }
+`2014`
 __Eargle, D.__, Galletta, D. and Siegle, G. "Using fearful facial facial expressions to increase
 the effectiveness of protective security messages: Proposing an fMRI and field study." In
 *The Dewald Roode Workshop on Information Systems Security Research, IFIP WG8.11/WG11.13*, Newcastle, UK: (2014).
 
-`2014`
-
 {: .reference }
+`2014`
 Anderson, B., Vance, A., Kirwan, B., __Eargle, D.__ and Howard, S. "Why users habituate to
 security warnings: Insights from fMRI." In
 *The Dewald Roode Workshop on Information Systems Security Research, IFIP WG8.11/WG11.13*, Newcastle, UK: (2014).
 
-`2014`
-
 {: .reference }
+`2014`
 Anderson, B., Vance, A., Kirwan, B., __Eargle, D.__ and Howard, S. "Users aren’t
 (necessarily) lazy: Using NeuroIS to explain habituation to security warnings." In
 *International Conference on Information Systems*, Auckland, New Zealand: AIS (2014).
 
-`2013`
-
 {: .reference }
+`2013`
 Vance, A., __Eargle, D.__, Ouimet, K. and Straub, D. "Enhancing password security through
 interactive fear appeals: A web-based field experiment." In
 *2013 46th Hawaii International Conference on System Sciences (HICSS)*: (2013), pp. 2988-2997.
 
-`2013`
-
 {: .reference }
+`2013`
 Vance, A., Anderson, B., Brock, K. and __Eargle, D.__ "Using measures of risk perception to
 predict information security behavior: Insights from electroencephalography (EEG)." In
 *JAIS workshop, Gmunden Retreat on NeuroIS*, Gmunden, Austria: (2013).
 
-`2013`
-
 {: .reference }
+`2013`
 __Eargle, D.__, Vance, A.O. and Lowry, P.B. "How moral intensity and impulsivity moderate
 the influence of accountability on access policy violations in information systems." In
 *Proceedings of the Eighth Pre-ICIS Workshop on Information Security and Privacy*:
 (2013).
 
-`2013`
-
 {: .reference }
+`2013`
 Anderson, B., Vance, A., __Eargle, D.__ and Kirwan, C.B. "Your memory is working against
 you: How eye tracking and memory explain susceptibility to phishing." In
 *The Dewald Roode Workshop on Information Systems Security Research, IFIP WG8.11/WG11.13*:
 (2013).
 
-`2013`
-
 {: .reference }
+`2013`
 Anderson, B., Vance, A. and __Eargle, D.__ "Is your susceptibility to phishing dependent on
 your memory?" In *Proceedings of the Eighth Pre-ICIS Workshop on Information Security and Privacy*, Milan, Italy: (2013).
 
-`2012`
-
 {: .reference }
+`2012`
 Vance, A., __Eargle, D.__, Ouimet, K. and Straub, D. "How interactivity can enhance the
 effectiveness of fear appeals: A web-based field experiment of password security." In
 *The Dewald Roode Workshop on Information Systems Security Research, IFIP WG8.11/WG11.13*, Provo, UT: (2012).
 
-`2012`
-
 {: .reference }
+`2012`
 __Eargle, D.__, Vance, A., Allen, G., Barrick, D., Bearnson, T. and Tialin, T. "Justifying
 breaking the glass: How accountability can deter unauthorized access." In *WISP 2012
 Proceedings*, Orlando, Florida: AIS SIGSEC and IFIP TC11.1 (2012).
 
-`2012`
-
 {: .reference }
+`2012`
 Anderson, B., Vance, A., Hansen, J., Kirwan, B., __Eargle, D.__, Hinkle, L. and Weagel, A.
 "Neural correlates of gender differences in distinguishing malware warnings and
 legitimate websites: A NeuroIS study." In *IFIP WG8.11/WG11.13*, Provo, UT: (2012).
@@ -428,7 +393,6 @@ legitimate websites: A NeuroIS study." In *IFIP WG8.11/WG11.13*, Provo, UT: (201
 
 ### Leeds School of Business, University of Colorado
 `2017-Present`
-
 In four years:
 - Taught 4 unique courses
 - Taught at 3000, 4000 (including honors students), and 5000 (graduate, including MBAs) levels
