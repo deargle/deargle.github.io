@@ -11,8 +11,8 @@ Except apparently I didn't document anything about how I made a libvirt vagrant 
 too fragile -- too far removed from the origin. And why take the easy road when you can spend 10x as long
 doing it yourself!
 
-There are some show-stoppers that need addressed. The interesting part is that when
-I hit the gotchas, I had no recollection of hitting them before. But I _did_ have my
+There were some show-stopper problems. The interesting part is that when
+I hit these gotchas, I had no recollection of hitting them before. But I _did_ have my
 already-working Metasploitable2 libvirt box to reference. It was basically my own golden image on top of the Rapid7
 golden image --
 a disk that I got working at one point, but couldn't replicate the steps. It "just worked." That's
