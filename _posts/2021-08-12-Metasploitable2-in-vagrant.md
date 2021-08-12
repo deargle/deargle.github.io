@@ -3,6 +3,12 @@ title: Metasploitable2 in vagrant
 description: Preparing a Metasploitable2 base box (libvirt provider) that will work with vagrant
 ---
 
+<div class='page-header text-center well'>
+  <h2>
+    <a class='btn btn-primary' href='https://github.com/deargle/lab-metasploitable2'>Go to the repo</a>
+  </h2>
+</div>
+
 It's interesting to me how much time I just spent figuring out how to do something I just did two (three?) years ago.
 Back then, I started working on a "devops" approach to a virtual machine kali pentest lab. That meant documenting
 -- and scripting, as far as possible -- each step. DevOps starts from as early in the chain as possible -- from an installation iso (starting with `packer` in that case), a vagrant base box, or for Metasploitable2, the Rapid-7 "golden-image" vmdk file. And ending with the deployed vagrant images that I have students use.
