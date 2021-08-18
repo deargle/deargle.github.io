@@ -4,16 +4,24 @@ tags: analytics
 categories: analytics
 ---
 
-If the goal is to post a sample jupyter notebook online as a portfolio demonstration piece, then one of the first "problems" one encounters is, 
-what dataset to use. If the goal of the portfolio piece is moreso to demonstrate model-building skills, and less-so domain knowledge of the dataset 
-or associated feature-engineering skills, then starting with raw data would be tedious and distracting to a lean demonstration. 
-One could theoretically prepare the data in a separate analysis, and then host a prepared dataset on e.g. github and fetch it using a url in the 
+
+
+If the goal is to post a sample jupyter notebook online as a portfolio demonstration piece, then one of the first "problems" one encounters is,
+what dataset to use. If the goal of the portfolio piece is moreso to demonstrate model-building skills, and less-so domain knowledge of the dataset
+or associated feature-engineering skills, then starting with raw data would be tedious and distracting to a lean demonstration.
+One could theoretically prepare the data in a separate analysis, and then host a prepared dataset on e.g. github and fetch it using a url in the
 portfolio piece, but, again, this is distracting if data munging and feature engineering is not the primary goal for the demo.
 
 Fortunately, this is a common problem, and therefore, there exist standardized ways of fetching data.
 
-Please see {% include source-link.html name='this jupyter notebook' path='/notebooks/ml_datasets_examples.ipynb' %}
-for some examples of good security-related datasets, as well as some examples of loading them.
+I wrote a jupyter notebook showing loading ML datasets. Look at it for some examples of good security-related datasets, as well as some examples of loading them.
+
+<p>
+  <a
+    class='btn btn-info'
+    href='https://github.com/deargle/deargle.github.io/blob/master/notebooks/ml_datasets_examples.ipynb'
+    >Jupyter notebook showing loading open security-related datasets</a>
+</p>
 
 The rest of this post documents a rabbit hole related to datasources for a machine learning assignment using scikit-learn that I am building.
 The problems in the domain are often binomial targets, so logistic regression as a starter algorithm.
@@ -32,7 +40,7 @@ from sklearn.datasets import fetch_openml
 ```
 
 Rabbit hole begins
-  
+
 
 www.openml.org
 --------------
@@ -68,11 +76,11 @@ it and parse it.
 OpenML datasets
 ---------------
 
-The datasets on OpenML are in ARFF format. The format specifies data attributes at the top, and the data at the bottom. Scikit-learn's `fetch_openml` can, 
-you guessed it, fetch and load an openml dataset into a numpy array. 
+The datasets on OpenML are in ARFF format. The format specifies data attributes at the top, and the data at the bottom. Scikit-learn's `fetch_openml` can,
+you guessed it, fetch and load an openml dataset into a numpy array.
 
 There exists a New Standard (tm) called Frictionless Data which seeks to be the de facto standard for formatting datsets. OpenML [had said it is maybe possibly
-is going to support the frictionless data format](https://frictionlessdata.io/articles/openml/), 
+is going to support the frictionless data format](https://frictionlessdata.io/articles/openml/),
 but [not yet](https://github.com/openml/OpenML/issues/482#issuecomment-378565567).
 
 
@@ -83,5 +91,5 @@ DataHub.io datapackages
 So yay, along comes another dataset-hosting site, [datahub.io](https://datahub.io), which, um, [extracted datasets from OpenML](https://datahub.io/blog/new-machine-learning-datasets).
 These packages can be fetched using the python package [`datapackage`](https://pypi.org/project/datapackage/).
 
-So there's an internet "I made this" regurgitation cycle for you: many of the datasets on OpenML come from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php), 
+So there's an internet "I made this" regurgitation cycle for you: many of the datasets on OpenML come from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php),
 and datahub.io now hosts OpenML datasets.
