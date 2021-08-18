@@ -4,6 +4,20 @@ tags: analytics
 description: Classical statistics vs Machine Learning; Model interpretation vs evaluation; Fitting a model vs Using it; R vs Python for analytics.
 ---
 
+Dropping a link at the top: I wrote a python jupyter notebook showing using scikit-learn pipelines to loop over a number
+of classifiers, and plot model evaluation performances of each, on (1) a cumulative ROC curve and (2) a Precision-Recall plot.
+The notebook was so good, that some of my students stole it, edited it slightly, and turned it in as their own for another class.
+I'm honored. :heart: u, class of 2019-2020.
+
+<p>
+  <a
+    href='https://github.com/deargle/deargle.github.io/blob/master/notebooks/ml_model_evaluation.ipynb'
+    class='btn btn-info'
+    >Jupyter notebook showing scikit-learn pipeline model evaluation plots (ROC and PR-curve)</a>
+</p>
+
+---
+
 This post is a first-pass attempt to organize my thoughts for_evaluating machine learning models, for my security analytics class. When I wrote this post,
 the program curriculum was such that my class was students' first exposure to machine learning. This post is sprawling and ungainly, abandon all hope etc etc.
 
