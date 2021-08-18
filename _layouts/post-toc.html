@@ -1,0 +1,33 @@
+---
+layout: default
+include_toc: true
+---
+
+<div class="row">
+  <div class="col-md-9 offset-md-1">
+      <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
+
+      <h1 class="display-4 text-primary">{{ page.title | smartify }}</h1>
+
+      <div class="mb-2">
+        <small>
+          <span class="fst-italic">Posted {{ page.date | date: '%B %-d, %Y' }}</span> |
+          <a class="text-muted fst-italic" href="{{ site.github.repository_url }}/commits/{{ site.github.source.branch }}/{{ page.path }}" target="_blank" rel="noopener">View revision history</a>
+        </small>
+      </div>
+
+      <div class="entrybody js-toc-content">
+        {{ content }}
+      </div>
+
+      {% if site.data.related_posts[page.relative_path] %}
+        {% include related_posts.html %}
+      {% endif %}
+
+      {% include mini-bio.html %}
+    </article>
+  </div>
+  <div class="col-sm-2">
+    <nav id="toc" data-toggle="toc" class='sticky-top'></nav>
+  </div>
+</div>
