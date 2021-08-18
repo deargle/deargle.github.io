@@ -40,7 +40,7 @@
   </head>
   <body
     class="{{ page.layout }} post{{ page.id | slugify | prepend: "-"}} mt-2"
-    {% if layout.include_toc %}
+    {% if page.include_toc %}
     data-spy="scroll"
     data-target="#toc"
     {% endif %}
@@ -65,7 +65,7 @@
     <script type="text/javascript">twttr.conversion.trackPid('{{ site.twitter.property_id }}', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
     {% endif %}
 
-    {% if layout.include_toc %}
+    {% if page.include_toc %}
     <!-- add after bootstrap.min.css -->
     <link
     rel="stylesheet"
