@@ -15,7 +15,6 @@ lang: en-US
 nav_pages:
     - index.md
     - vita.md
-    - research.md
     - class/index.md
     - about.md
     - contact.md
