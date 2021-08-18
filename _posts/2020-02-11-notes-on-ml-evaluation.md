@@ -2,7 +2,8 @@
 title: Notes on ML model evaluation
 tags: analytics
 description: Classical statistics vs Machine Learning; Model interpretation vs evaluation; Fitting a model vs Using it; R vs Python for analytics.
-layout: post-toc
+last_modified_at: 2021-08-18 23:30:00 +0000
+include_toc: true
 ---
 
 Dropping a link at the top: I wrote a python jupyter notebook showing using scikit-learn pipelines to loop over a number
