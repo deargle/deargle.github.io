@@ -19,6 +19,7 @@ nav_pages:
     - class/index.md
     - about.md
     - contact.md
+    - projects.md
 
 footer_pages:
     - fine-print.md
@@ -44,11 +45,11 @@ employer:
   url: https://www.colorado.edu/business/david-eargle
 job_title: Assistant Professor, Organizational Leadership and Information Analytics
 
-
 # Collections
 collections:
     class:
         output: true
+    projects:
 
 #files to exclude, array
 exclude:
