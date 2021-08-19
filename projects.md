@@ -6,6 +6,7 @@ permalink: /projects/
 include_toc: true
 ---
 
+{: .lead }
 Some things I've made; some research I'm working on.
 
 ## Tools
