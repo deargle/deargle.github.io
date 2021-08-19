@@ -136,7 +136,7 @@ The following list is not comprehensive, but rather an example of items weighted
 
 ### Team work
 
-In this class, you will work in teams. As a result, consider reviewing a short report on [team effectiveness]({{site.baseurl}}/class/general/team_effectiveness.pdf) and establishing a team agreement [(sample agreement)]({{ site.baseurl }}/class/general/sample_team_agreement.docx).
+In this class, you will work in teams. As a result, consider reviewing a short report on [team effectiveness]({{site.baseurl}}/classes/general/team_effectiveness.pdf) and establishing a team agreement [(sample agreement)]({{ site.baseurl }}/classes/general/sample_team_agreement.docx).
 
 
 ### Freeloader policy

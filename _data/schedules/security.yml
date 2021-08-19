@@ -119,7 +119,7 @@
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Physical Security'
         activities: >
-            See [this page](/class/security/intro-to-linux) for the material
+            See [this page](/classes/security/intro-to-linux) for the material
                 
 6:
     -
@@ -185,7 +185,7 @@
         title: Midterm &ndash; no class
         assigned_today:
             -
-                name: "<span class='label label-danger'><a href='/class/cu/mgmt4250/midterm/'>Midterm</a></span>"
+                name: "<span class='label label-danger'><a href='/classes/cu/mgmt4250/midterm/'>Midterm</a></span>"
         due_tonight:
             - name: '<span class="label label-success">Lab:</span> Password Cracking'
             
@@ -365,10 +365,10 @@
         title: Final exam
         custom_css: danger
         due_before:
-            - name: Submit <a href='/class/general/Peereval-security.docx'>this peer evaluation form</a> to D2L dropbox
+            - name: Submit <a href='/classes/general/Peereval-security.docx'>this peer evaluation form</a> to D2L dropbox
         activities: > 
             - 4:30PM &ndash; 7:00PM, KOBL 302
             
-            - [Final exam study guide](/class/security/final-exam-review/)
+            - [Final exam study guide](/classes/security/final-exam-review/)
 
        

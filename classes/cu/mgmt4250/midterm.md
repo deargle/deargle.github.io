@@ -66,7 +66,7 @@ Your report will be graded using the following rubric:
 | 25% | Explanation for how to protect against vulnerabilities successfully exploited and sensitive data obtained. Provide concrete steps. |
 | 5% | Clarity of writing for a managerial audience. |
 
-Use [this report template](/class/security/Midterm_template.docx) to create your report as a PDF file.
+Use [this report template](/classes/security/Midterm_template.docx) to create your report as a PDF file.
 For submission, have one person on your team submit the report on
 D2L.
 

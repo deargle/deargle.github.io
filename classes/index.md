@@ -10,7 +10,7 @@ include_toc: true
 This page lists some classes that I've taught at different universities.
 
 See [/vita/]({{ site.baseurl }}/vita/) for student course- and instructor-evaluation metrics for classes
-I've taught at CU Boulder.
+I've taught at CU Boulder. 
 
 {% assign schools_ordered = 'cu, pitt, byu' | split: ', ' %}
 {% for school_short in schools_ordered %}

@@ -21,4 +21,4 @@ install.packages(c("reshape2","stringr","plyr","caTools"))
 
 * Browse to the downloaded file using RStudio's package installer, and install it.
 
-![rstudio package installer]({{site.baseurl}}/class/images/rstudio_package_install.png)
+![rstudio package installer]({{site.baseurl}}/classes/images/rstudio_package_install.png)

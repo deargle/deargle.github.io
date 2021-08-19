@@ -9,7 +9,7 @@ This post is to illustrate the differences in model parameter estimates for dumm
 
 ## Data
 
-[Dataset](/class/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv) is 10k rows from Lending Club, years 2007-2014.
+[Dataset](/classes/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv) is 10k rows from Lending Club, years 2007-2014.
 
 
 loan_status
@@ -26,7 +26,7 @@ grade
 library(readr)
 library(lsmeans)
 
-my.data <- read_csv("https://daveeargle.com/class/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv")
+my.data <- read_csv("https://daveeargle.com/classes/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv")
 ```
 
 ## Reference level with an intercept

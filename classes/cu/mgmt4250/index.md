@@ -1,6 +1,6 @@
 ---
 layout: syllabus
-#permalink: /class/cu/mgmt4250/
+#permalink: /classes/cu/mgmt4250/
 title: MGMT 4250 Sec 001 &ndash; Information Security Management
 ---
 
@@ -114,12 +114,12 @@ The following list is not comprehensive, but rather an example of items weighted
 
 ### Team work
 
-In this class, you will work in teams. As a result, review a short report on [team effectiveness]({{site.baseurl}}/class/general/team_effectiveness.pdf) and establish a team agreement [(sample agreement)]({{ site.baseurl }}/class/general/sample_team_agreement.docx). Give the instructor a copy of your team agreement by the end of the second week of classes.
+In this class, you will work in teams. As a result, review a short report on [team effectiveness]({{site.baseurl}}/classes/general/team_effectiveness.pdf) and establish a team agreement [(sample agreement)]({{ site.baseurl }}/classes/general/sample_team_agreement.docx). Give the instructor a copy of your team agreement by the end of the second week of classes.
 
 
 ### Freeloader policy
 
-It occasionally happens in class and enterprise settings that someone in a group is not prepared to do his/her share. In the case of my classes, I recommend that the team give the freeloader one warning and then fire that person from the team. That person will then do group assignments individually or find another team to join. The team should notify me of the change in team composition immediately. I distribute a [form]({{site.baseurl}}/class/general/Peereval.docx) to assess team participation at the end of the semester. If a major disparity in team contribution is reported, I will adjust team project grades.
+It occasionally happens in class and enterprise settings that someone in a group is not prepared to do his/her share. In the case of my classes, I recommend that the team give the freeloader one warning and then fire that person from the team. That person will then do group assignments individually or find another team to join. The team should notify me of the change in team composition immediately. I distribute a [form]({{site.baseurl}}/classes/general/Peereval.docx) to assess team participation at the end of the semester. If a major disparity in team contribution is reported, I will adjust team project grades.
 
 
 ### Classroom Procedures
@@ -173,7 +173,7 @@ Similarly, you can **replace your lowest lab score** by reading a _security book
 
 ## Team evaluation
 
-[This form](/{{ site.baseurl }}class/general/Peereval-security.docx) should be submitted **before the final exam.**
+[This form](/{{ site.baseurl }}classes/general/Peereval-security.docx) should be submitted **before the final exam.**
 
 
 

@@ -1,7 +1,7 @@
 ---
 layout: syllabus
 published: true
-permalink: /class/pitt/busbis1605/
+permalink: /classes/pitt/busbis1605/
 title: BUSBIS 1605 Sec 1210 &ndash; Database Management
 ---
 
@@ -94,11 +94,11 @@ I will send messages via CourseWeb. Feel free to [contact me]({% link contact.md
 Students in this course will be expected to comply with the [University of Pittsburgh's Policy on Academic Integrity](http://www.cfo.pitt.edu/policies/policy/02/02-03-02.html). Any student suspected of violating this obligation for any reason during the semester will be required to participate in the procedural process, initiated at the instructor level, as outlined in the University Guidelines on Academic Integrity. This may include, but is not limited to, the confiscation of the examination of any individual suspected of violating University Policy. Furthermore, no student may bring any unauthorized materials to an exam, including dictionaries and programmable calculators.
 
 ### Team work
-In this class, you will work in teams. As a result, review a short report on [team effectiveness]({{site.baseurl}}/class/general/team_effectiveness.pdf) and establish a team agreement [(sample agreement)]({{ site.baseurl }}/class/general/sample_team_agreement.docx). Give the instructor a copy of your team agreement by the end of the second week of classes.
+In this class, you will work in teams. As a result, review a short report on [team effectiveness]({{site.baseurl}}/classes/general/team_effectiveness.pdf) and establish a team agreement [(sample agreement)]({{ site.baseurl }}/classes/general/sample_team_agreement.docx). Give the instructor a copy of your team agreement by the end of the second week of classes.
 
 
 ### Freeloader policy
-It occasionally happens in class and enterprise settings that someone in a group is not prepared to do his/her share. In the case of my classes, I recommend that the team give the freeloader one warning and then fire that person from the team. That person will then do group assignments individually or find another team to join. The team should notify me of the change in team composition immediately. I distribute a [form]({{site.baseurl}}/class/general/Peereval.docx) to assess team participation at the end of the semester. If a major disparity in team contribution is reported, I will adjust team project grades.
+It occasionally happens in class and enterprise settings that someone in a group is not prepared to do his/her share. In the case of my classes, I recommend that the team give the freeloader one warning and then fire that person from the team. That person will then do group assignments individually or find another team to join. The team should notify me of the change in team composition immediately. I distribute a [form]({{site.baseurl}}/classes/general/Peereval.docx) to assess team participation at the end of the semester. If a major disparity in team contribution is reported, I will adjust team project grades.
 
 ### Laptop policy 
 Students are welcome to use laptops in class for note taking and completing class exercises, exclusively. If you plan to take notes, please advise and email a copy of the notes at the end of each class.
@@ -115,7 +115,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
 * SQL exercises are based on the [ClassicModels database](http://richardtwatson.com/dm6e/Reader/ClassicModels.html).
 * Please use the assignment identifier so I can keep track of your submissions. As I have many assignments to grade, help me to be efficient.
 * **Resubmission**: If you receive less than full points for an exercise, you can make one resubmission up to one week after the intital due date for the first three assignments.
-* Please submit via CourseWeb and **follow the specificied [assignment guidelines]({{ site.baseurl }}/class/general/assignment_guidelines/)**.
+* Please submit via CourseWeb and **follow the specificied [assignment guidelines]({{ site.baseurl }}/classes/general/assignment_guidelines/)**.
 
 <table class='table table-hover'>
 <thead>
@@ -192,7 +192,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
     <td>A6</td>
     <td>Introduction to R</td>
     <td>
-        A <a href='/{{site.baseurl}}class/data/co2percapita.csv'>file</a> contains details of CO2 emissions per capita for the four largest economies in North America. Write an R script to read the file, convert it into a format suitable for use with R and report the average CO2 per capita for each country in descending order.
+        A <a href='/{{site.baseurl}}classes/data/co2percapita.csv'>file</a> contains details of CO2 emissions per capita for the four largest economies in North America. Write an R script to read the file, convert it into a format suitable for use with R and report the average CO2 per capita for each country in descending order.
     </td>
 </tr>
 <tr>
@@ -203,7 +203,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
 <tr>
     <td>A8</td>
     <td>HDFS and MapReduce</td>
-    <td>Using Delta’s <a href='/{{ site.baseurl }}class/data/Delta_2013_2.csv'>performance data for February 2013</a> do the following:
+    <td>Using Delta’s <a href='/{{ site.baseurl }}classes/data/Delta_2013_2.csv'>performance data for February 2013</a> do the following:
         <ol type='a'>
             <li>Using regular R commands, compute the minimum, average, and maximum departure delay in minutes (DepDelayMinutes) for each origin airport. Use head() to show the first six rows.</li>
             <li>Use MapReduce to undertake the same computations. Use head() to show the first six rows.
@@ -330,7 +330,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 
 Cell phones have replaced landlines in many situations, except hotels, yet the guests of most hotels have a cell phone. Design the database for an app to replace a room's <a href='https://docs.google.com/document/d/1iKqusrW1mp-yhRWcFXtYy0_5P0UfMBI_2ZoGZH8sAOE/edit?usp=sharing' target='_blank'>landline and the various paper documentation you find in a hotel room</a>. Convert the data model to a relational database and write 10 queries to access the database. The queries should demonstrate your breadth of understanding of SQL (i.e., 10 simple queries will not score as well as say 4 simple queries and 6 nontrivial queries).
 
-Follow the [guidelines for database project submissions]({{ site.baseurl }}/class/general/dbguidelines/).
+Follow the [guidelines for database project submissions]({{ site.baseurl }}/classes/general/dbguidelines/).
 
 Data modeling is difficult and to facilitate learning an initial model must be submitted previous to the due date (see the schedule).
 
@@ -341,7 +341,7 @@ Develop a data model for an application of your choice. The problem must be at l
 
 An initial model must be submitted previous to the due date (see the schedule).
 
-Follow the [guidelines for database project submissions]({{ site.baseurl }}/class/general/dbguidelines/) .
+Follow the [guidelines for database project submissions]({{ site.baseurl }}/classes/general/dbguidelines/) .
 
 
 ## Grading
@@ -368,7 +368,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
 
 ## Team evaluation
 
-[This form](/{{ site.baseurl }}class/general/Peereval.docx) should be submitted **before the final exam.**
+[This form](/{{ site.baseurl }}classes/general/Peereval.docx) should be submitted **before the final exam.**
 
 # Quick Links
 <ul>
@@ -670,7 +670,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>&nbsp;</td>
       <td>
       <ul>
-         <li><a href='{{ site.baseurl }}/class/general/rmr2/'>Install rmr2</a></li>
+         <li><a href='{{ site.baseurl }}/classes/general/rmr2/'>Install rmr2</a></li>
          <li><a href='https://goo.gl/forms/ijhRWrdwC2NR7wgi1'>In-class survey</a></li>
       </ul>
       </td>

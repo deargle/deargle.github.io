@@ -1,6 +1,6 @@
 ---
 layout: syllabus
-permalink: /class/cu/mgmt3200/
+permalink: /classes/cu/mgmt3200/
 title: MGMT 3200 &ndash; Business Analytics
 ---
 

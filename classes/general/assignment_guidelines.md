@@ -20,7 +20,7 @@ Create your submission in your favorite word processor and **convert it to pdf**
 
 ### A sample document
 
-![share table]({{site.baseurl}}/class/images/shr.png)
+![share table]({{site.baseurl}}/classes/images/shr.png)
 
 ```
 
