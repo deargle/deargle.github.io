@@ -1,5 +1,6 @@
 ---
-title: Gardening Questions
+title: Gardening Notes
+permalink: /gardening/
 ---
 
 Sometimes when I'm burned out from writing final exam questions and having fever
