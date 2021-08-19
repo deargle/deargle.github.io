@@ -7,24 +7,7 @@ include_toc: true
 ---
 
 {: .lead }
-Some things I've made; some research I'm working on.
-
-## Tools
-
-Some things I've made. Links are scattered throughout blog posts, so I'm gathering them here.
-
-
-{% assign tools = site.projects | where: 'type', 'tool' %}
-{% for tool in tools %}
-### {{ tool.title }}
-
-{% if tool.link %}
-<{{tool.link}}>
-{% endif %}
-
-{{tool.content | markdownify }}
-
-{% endfor %}
+Some research I'm working on; some things I've made.
 
 
 ## Research | Works in Progress
@@ -73,6 +56,14 @@ I am involved more heavily with development of a few open-source repositories, s
 
 ### Psiturk
 
+_An open platform for science on Amazon Mechanical Turk._
+
+Psiturk is a python Flask app bundled with a javascript library to facilitate interacting with
+mturkers through all stages of the AMT process -- posting HITs, serving an experiment
+website, approving work, analyzing data.
+
+I have been a core developer for psiTurk since during my phd in ~2016.
+
 Repo
 : <https://github.com/NYUCCL/psiturk>
 
@@ -85,6 +76,15 @@ Paper
 
 ### Kepler-mapper
 
+_Kepler-mapper is a library implementing the Mapper algorithm in Python. KeplerMapper can be used for visualization of high-dimensional data and 3D point cloud data. KeplerMapper can make use of Scikit-Learn API compatible cluster and scaling algorithms._
+
+_KeplerMapper employs approaches based on the MAPPER algorithm (Singh et al.) as first described in the paper “Topological Methods for the Analysis of High Dimensional Data Sets and 3D Object Recognition”._
+
+I became a somewhat-major contributor to Kepler-Mapper for a few years now. I do work both on the python side
+and also the javascript / html d3 visualization side. I've done work on the psiturk command-line shell,
+a web interface, python unit testing, database optimizations, and bug fixes and features-adds throughout
+the python code.
+
 Repo
 : <https://github.com/scikit-tda/kepler-mapper>
 
@@ -93,3 +93,22 @@ Docs
 
 Paper
 : <https://joss.theoj.org/papers/10.21105/joss.01315>
+
+
+
+## Tools
+
+Some things I've made. Links are scattered throughout blog posts, so I'm gathering them here.
+
+
+{% assign tools = site.projects | where: 'type', 'tool' %}
+{% for tool in tools %}
+### {{ tool.title }}
+
+{% if tool.link %}
+<{{tool.link}}>
+{% endif %}
+
+{{tool.content | markdownify }}
+
+{% endfor %}
