@@ -45,6 +45,8 @@ I've taught at CU Boulder.
 
 ## Syllabi
 
+Not all syllabi are shown below -- some syllabi have been lost to the sands of time.
+
 <div>
 {% assign schools = site.classes | group_by: "school" %}
 {% for school in schools %}
