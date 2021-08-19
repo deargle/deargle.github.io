@@ -18,8 +18,8 @@ I've taught at CU Boulder.
   {% assign school = site.schools | where: "name_short", school_short | first %}
     <h2>{{ school.uni }}</h2>
     {{ school }}
-    <p class='lead'>
-      {{ school.department }}, {{ school.college }}
+    <p class=''>
+      <em>{{ school.department }}, {{ school.college }}</em>
     </p>
 
     {% assign class_summaries = site.class_summaries | where: "school_short", school_short | sort: 'priority' %}
