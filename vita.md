@@ -486,7 +486,7 @@ __Courses:__
   </tbody>
 </table>
 
-_* Average of all available metrics. Typical course and instructor evaluation metrics not collected by CU because of Covid._
+_* Average of all available metrics. Typical course and instructor overall evaluation metrics not collected by CU during these semesters because of Covid._
 
 
 
@@ -614,6 +614,9 @@ partners, including Webroot, IBM, and Crowdstrike.
 The below narratives illustrate how I have used the above technologies within
 the stated areas of expertise.
 
+Check out my [github activity]({{ github_profile_url }}) for more! Not all of my activity is "open," though --
+current research projects are typically marked as "private"
+
 ### Habituation and Generalization Studies
 
 Describes full "academic stack" development for web-based field experiments,
@@ -675,9 +678,6 @@ I moved everything from usb-based "golden image" virtualbox ISOs, to full code-a
   students download and rerun the script to get fixed VM images, if needed. I used chef because that's what metasploitable3 uses, and I wanted to be able to contribute back to metasploitable3.
 * I used terraform to launch a vpn server and a vulnerable midterm assessment server for _each student team_.
   The vulnerable servers are only accessible via a connection to the given vpn server, _except_ that ssh is open to the world so that I can ssh in and fix images if needed, via ansible.
-
-Check out my [github activity]({{ github_profile_url }}) for more! Not all of my activity is "open," though --
-current research projects are typically marked as "private"
 
 
 ## Professional Affiliations
