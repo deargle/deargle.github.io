@@ -15,10 +15,10 @@ lang: en-US
 nav_pages:
     - index.md
     - vita.md
-    - class/index.md
+    - classes/index.md
+    - projects.md
     - about.md
     - contact.md
-    - projects.md
 
 footer_pages:
     - fine-print.md
@@ -46,8 +46,10 @@ job_title: Assistant Professor, Organizational Leadership and Information Analyt
 
 # Collections
 collections:
-    class:
+    classes:
         output: true
+    class_summaries: # This exists because this repo currently has classes within it which I'll eventually move out into their own repos.
+    schools:
     projects:
 
 #files to exclude, array
