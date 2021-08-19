@@ -1,5 +1,6 @@
 # Jekyll config file
-remote_theme: benbalter/retlab
+remote_theme: deargle/retlab
+# theme: retlab
 
 title: Dave Eargle
 description: Information Systems Management Researcher
@@ -112,7 +113,7 @@ defaults:
   -
     scope:
         path: ""
-        type: "class"
+        type: "classes"
     values:
         layout: "syllabus"
 

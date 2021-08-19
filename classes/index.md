@@ -10,7 +10,7 @@ include_toc: true
 This page lists some classes that I've taught at different universities.
 
 See [/vita/]({{ site.baseurl }}/vita/) for student course- and instructor-evaluation metrics for classes
-I've taught at CU Boulder. 
+I've taught at CU Boulder.
 
 {% assign schools_ordered = 'cu, pitt, byu' | split: ', ' %}
 {% for school_short in schools_ordered %}
@@ -48,8 +48,7 @@ I've taught at CU Boulder.
 <div>
 {% assign schools = site.classes | group_by: "school" %}
 {% for school in schools %}
-Syllabi for the CU courses shown below.
-<!-- <h3>{{ school.name }}</h3> -->
+<h3>{{ school.name }}</h3>
     {% assign school_class_groups = school.items | group_by: "title" | sort:"name" | reverse %}
     {% for class_group in school_class_groups %}
         <h4>{{class_group.name}}</h4>
