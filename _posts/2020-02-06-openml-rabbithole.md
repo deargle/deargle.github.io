@@ -1,7 +1,6 @@
 ---
 title: OpenML rabbithole
 tags: analytics
-categories: analytics
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Interpreting dummy-coded parameter estimates with and without a model intercept"
 description: null
-tags: R logistic-regression
+tags: R analytics
 ---
 
 This post is to illustrate the differences in model parameter estimates for dummy-coded factors when the model includes an intercept versus when it does not.
@@ -33,7 +33,7 @@ my.data <- read_csv("https://daveeargle.com/classes/data/LendingClub_2007_2014_C
 ## Reference level with an intercept
 
 If we fit a logistic regression model, by default, an intercept will be estimated. In R, by default,
-the first level is used as the reference level. 
+the first level is used as the reference level.
 
 
 
@@ -45,14 +45,14 @@ summary(m)
 
 
 {% highlight text %}
-## 
+##
 ## Call:
 ## glm(formula = loan_status ~ grade, family = "binomial", data = my.data)
-## 
-## Deviance Residuals: 
+##
+## Deviance Residuals:
 ##     Min       1Q   Median       3Q      Max  
 ## -1.5829  -0.6222  -0.4769  -0.3523   2.3710  
-## 
+##
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(>|z|)    
 ## (Intercept) -2.74868    0.09153 -30.030  < 2e-16 ***
@@ -64,13 +64,13 @@ summary(m)
 ## gradeG       3.66497    0.84165   4.355 1.33e-05 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
+##
 ## (Dispersion parameter for binomial family taken to be 1)
-## 
+##
 ##     Null deviance: 8070.2  on 9999  degrees of freedom
 ## Residual deviance: 7719.6  on 9993  degrees of freedom
 ## AIC: 7733.6
-## 
+##
 ## Number of Fisher Scoring iterations: 5
 {% endhighlight %}
 
@@ -79,10 +79,10 @@ equal to the reference level (grade A), then no modification is made. This is be
 is the estimated prediction for the reference level, Grade A, and all other estimates are relative to
 Grade A._
 
-Using a reference level has the benefit of adding interpretabilty to the z-scores for each of the 
+Using a reference level has the benefit of adding interpretabilty to the z-scores for each of the
 parameter estimates. Because each of the estimates is _relative to the reference level_, we can answer
 the question "Are the average values for Grade B statisictally significantly different from those of Grade A?" The answer to that is found by looking at the z-score for the gradeB estimate -- 5.954, which has
-a very small associated p-value, therefore we can reject the hypothesis that the means of gradeA and gradeB are the same. All other grade parameter estimates can likewise be interpreted as pairwise comparisons between each level and gradeA. Comparisons between other pairs can be obtained by contrasting 
+a very small associated p-value, therefore we can reject the hypothesis that the means of gradeA and gradeB are the same. All other grade parameter estimates can likewise be interpreted as pairwise comparisons between each level and gradeA. Comparisons between other pairs can be obtained by contrasting
 least-square means for each grade level.
 
 Least-square mean estimates:
@@ -103,8 +103,8 @@ lsmeans(m, 'grade')
 ##  E     -0.9162907 0.11602387 NA -1.1436933 -0.6888881
 ##  F     -0.7922381 0.24603778 NA -1.2744633 -0.3100129
 ##  G      0.9162907 0.83666003 NA -0.7235328  2.5561143
-## 
-## Results are given on the logit scale. 
+##
+## Results are given on the logit scale.
 ## Confidence level used: 0.95
 {% endhighlight %}
 And pairwise contrasts:
@@ -139,8 +139,8 @@ pairs(lsmeans(m, 'grade'))
 ##  E - F    -0.1240526 0.27202230 NA  -0.4560385  0.9993
 ##  E - G    -1.8325815 0.84466653 NA  -2.1695917  0.3122
 ##  F - G    -1.7085288 0.87208634 NA  -1.9591280  0.4410
-## 
-## Results are given on the log scale. 
+##
+## Results are given on the log scale.
 ## P value adjustment: tukey method for comparing a family of 7 estimates
 {% endhighlight %}
 
@@ -161,14 +161,14 @@ summary(m)
 
 
 {% highlight text %}
-## 
+##
 ## Call:
 ## glm(formula = loan_status ~ grade - 1, family = "binomial", data = my.data)
-## 
-## Deviance Residuals: 
+##
+## Deviance Residuals:
 ##     Min       1Q   Median       3Q      Max  
 ## -1.5829  -0.6222  -0.4769  -0.3523   2.3710  
-## 
+##
 ## Coefficients:
 ##        Estimate Std. Error z value Pr(>|z|)    
 ## gradeA -2.74868    0.09153 -30.030  < 2e-16 ***
@@ -176,17 +176,17 @@ summary(m)
 ## gradeC -1.54366    0.05234 -29.493  < 2e-16 ***
 ## gradeD -1.21356    0.06565 -18.486  < 2e-16 ***
 ## gradeE -0.91629    0.11602  -7.897 2.85e-15 ***
-## gradeF -0.79224    0.24604  -3.220  0.00128 ** 
+## gradeF -0.79224    0.24604  -3.220  0.00128 **
 ## gradeG  0.91629    0.83666   1.095  0.27344    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
+##
 ## (Dispersion parameter for binomial family taken to be 1)
-## 
+##
 ##     Null deviance: 13862.9  on 10000  degrees of freedom
 ## Residual deviance:  7719.6  on  9993  degrees of freedom
 ## AIC: 7733.6
-## 
+##
 ## Number of Fisher Scoring iterations: 5
 {% endhighlight %}
 
@@ -212,15 +212,13 @@ lsmeans(m, 'grade')
 ##  E     -0.9162907 0.11602387 NA -1.1436933 -0.6888881
 ##  F     -0.7922381 0.24603778 NA -1.2744633 -0.3100129
 ##  G      0.9162907 0.83666003 NA -0.7235328  2.5561143
-## 
-## Results are given on the logit scale. 
+##
+## Results are given on the logit scale.
 ## Confidence level used: 0.95
 {% endhighlight %}
 
-# More than one predictor 
+# More than one predictor
 
 Note that least-square mean estimates are not reliable when interaction terms are present in the model. Also, when more than one predictor is used, least-square mean estimates are the mean effect for each level
 of the requested factor _holding all other predictors constant at their averages_. In other words, they
-are mean estimates "controlling for" the effect of other predictors. 
-
-
+are mean estimates "controlling for" the effect of other predictors.

@@ -1,6 +1,7 @@
 ---
 title: myinsuranceinfo.com Legit-yet-scammy Letter
 description:
+tags: security
 ---
 
 <style>
@@ -10,7 +11,7 @@ blockquote p {margin-top: 0px; }
 
 <div class='alert alert-info'>Please read all the way to the bottom. This turned out to be a legit, albeit incredibly tacky, letter from a partner of my credit union. Call your credit union to confirm.</div>
 
-Got the below letter in the mail Saturday night. It claims to be from the credit union that services our vehicle loan. It says that our insurance information is not current, and if we do not quickly provide our up-to-date insurance information to them, they may purchase insurance on our behalf. 
+Got the below letter in the mail Saturday night. It claims to be from the credit union that services our vehicle loan. It says that our insurance information is not current, and if we do not quickly provide our up-to-date insurance information to them, they may purchase insurance on our behalf.
 
 <blockquote class='blockquote' markdown='1'>
 Dear [Me]:
@@ -50,7 +51,7 @@ The site ([gosafco.com](gosafco.com)) is pretty thorough for a scam site, and fr
 
 Be careful out there, it's a scammy world. (But most people are good.)
 
-Edit: I might be wrong about this, but if I am, shame on my credit union partner for the terribly scammy-feeling letter. I found several other sites that have been around for almost two decades that link that website and phone number: 
+Edit: I might be wrong about this, but if I am, shame on my credit union partner for the terribly scammy-feeling letter. I found several other sites that have been around for almost two decades that link that website and phone number:
 
 * [Nicholas Financial Inc](https://nicholasfinancial.com/?page_id=6809%3E) -- which has a [glassdoor](https://www.glassdoor.com/Salary/Nicholas-Financial-Salaries-E7603.htm) profile with 29 reviews, which links back to that website. But the reviews themselves follow a pattern, as if the same person wrote many of them. But why would scammers need to establish the legitimacy of a company that the victims already believe exists, because they are legitimate customers of the company? That's what I don't get.
 * [Gosafco](http://www.gosafco.com/customers/automobile-insurance/) -- feels phishy, and there's an entirely separate company by the name Safco that sells home office products.

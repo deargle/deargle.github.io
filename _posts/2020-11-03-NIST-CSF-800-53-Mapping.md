@@ -3,6 +3,7 @@ title: Text-searchable mapping of NIST Cybersecurity Framework Core to 800-53 Co
 description: Announcing the creation of a tool that Shows details and permits
   text-searching of the NIST Special Publication 800-53 (Rev. 4) security and privacy
   controls mapped to the NIST Cybersecurity Framework Core.
+tags: security tools
 ---
 
 <div class='page-header text-center well'><h2>

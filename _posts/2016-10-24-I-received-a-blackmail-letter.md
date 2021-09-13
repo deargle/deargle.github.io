@@ -1,6 +1,7 @@
 ---
 title: I received a blackmail letter
 description: Original report of receiving a blackmail letter in the mail in 2016. Includes ongoing analysis as wave after wave of new letters have gone out over the following years. Includes contact information to USPIS inspector covering the case.
+tags: security
 ---
 
 
@@ -8,12 +9,12 @@ Got something very interesting in the mail a few days ago -- a blackmail letter!
 
 Compare the letter I received (below) to the Ashley Madison one linked above.
 
-* The line spacing within-paragraph is the same, 
-* the font face is the same, 
-* the spacing between paragraphs is the same (which is noteworthy since it's rather large spacing), 
-* the requested amount ($2k) is exactly the same except that my version includes a comma in the number figure, 
-* the language and font styling describing the "Receiving Bitcoin Address" is exactly the same, as is the wording from that point onward about things like "payment must be received by..." 
-* the "THIS DOCUMENT IS TWO-SIDED" language on the bottom is also identical, although mine is right-aligned. Etcetera. 
+* The line spacing within-paragraph is the same,
+* the font face is the same,
+* the spacing between paragraphs is the same (which is noteworthy since it's rather large spacing),
+* the requested amount ($2k) is exactly the same except that my version includes a comma in the number figure,
+* the language and font styling describing the "Receiving Bitcoin Address" is exactly the same, as is the wording from that point onward about things like "payment must be received by..."
+* the "THIS DOCUMENT IS TWO-SIDED" language on the bottom is also identical, although mine is right-aligned. Etcetera.
 
 It's such a close match that it's obviously related to AM, but who would have taken the time to start with a physical letter and then match the formatting exactly in their own word template? Doesn't make sense, unless there's just one guy doing all this, which I doubt. I suspect that the digital file template that was used in the original AM blackmails is being shared on the darkwebs, although I haven't ventured out to confirm. Sharing of source material is common, especially when the originator is feeling the heat and needs plausible deniability. [Happened with the Mirai IoT Botnet source code](https://krebsonsecurity.com/2016/10/source-code-for-iot-botnet-mirai-released/).
 
@@ -32,7 +33,7 @@ _This is still current as of 8/11/2018. Kyle is still leading the investigation.
 
 ## There is a somewhat-copycat blackmail email floating around (First reported July 2018-ish)
 
-It is an email that reports that the blackmailer has compromised your computer camera and recorded you doing embarrassing things. To "prove" the claim, the attacker shows you one of your legitimate passwords. Don't worry, this is also a ruse. Your passwords have been compromised and leaked by a plethora of sites over the last decade or so, over and over again. Your personal information has likely also been available for sale on the black market for years, too. Best advice, *do not reuse passwords across sites*. Easy way to get pwned. Say you use the same password on linkedin as you do for your online banking portal. Bad move, linkedin got breached in 2012. Sites get breached every day. Equifax was not a new thing. It was just bigger, and no one really understands why they (data brokers) have our information in the first place, so the audacity was off the chart and therefore it got a lot of media attention. Check 
+It is an email that reports that the blackmailer has compromised your computer camera and recorded you doing embarrassing things. To "prove" the claim, the attacker shows you one of your legitimate passwords. Don't worry, this is also a ruse. Your passwords have been compromised and leaked by a plethora of sites over the last decade or so, over and over again. Your personal information has likely also been available for sale on the black market for years, too. Best advice, *do not reuse passwords across sites*. Easy way to get pwned. Say you use the same password on linkedin as you do for your online banking portal. Bad move, linkedin got breached in 2012. Sites get breached every day. Equifax was not a new thing. It was just bigger, and no one really understands why they (data brokers) have our information in the first place, so the audacity was off the chart and therefore it got a lot of media attention. Check
 [https://haveibeenpwned.com/](haveibeenpwned) to see which mega-breaches your email account(s) may have been involved in. It's a legit service run by Troy Hunt, security researcher. Sponsored by 1password password manager, which I also use and recommend.
 
 See [here](https://krebsonsecurity.com/2018/07/sextortion-scam-uses-recipients-hacked-passwords/) for more.
@@ -73,7 +74,7 @@ A later version of the letter had these revisions:
 * First sentence is "I know about the secret you are keeping from your wife" instead of "I know you cheated on your wife."
 * There's a reference to "I stumbled across your misadventures while working a job around [location close to victim's address]", whereas before the location was not specified.
 
-I know my name (all our names) are on a lot of lists for sale out there (the same lists that junk mailers use), but I still wonder, which list did the scammer use for this? Knowing that would answer the question -- "why me?". Probably just a mundane "people who are married" list of some kind, with random selection from the list. It's not even a "people who are married and who probably have $2,000 to spare" list, because I got targeted when I was a doctoral student ¯\\\_ツ\_/¯. 
+I know my name (all our names) are on a lot of lists for sale out there (the same lists that junk mailers use), but I still wonder, which list did the scammer use for this? Knowing that would answer the question -- "why me?". Probably just a mundane "people who are married" list of some kind, with random selection from the list. It's not even a "people who are married and who probably have $2,000 to spare" list, because I got targeted when I was a doctoral student ¯\\\_ツ\_/¯.
 
 The other thing is that before, I got a letter postmarked from my local city (which was unnerving). So did another victim who contacted me last year. I wonder how the attacker pulled that off. Are there such things as local letter-sending mules? But this time, it's all from Nashville?
 
@@ -85,11 +86,11 @@ The other thing is that before, I got a letter postmarked from my local city (wh
 
 **Update 11/22/2017**: Another wave has been released! I've had another dozen people contact me so far. Dates for this wave are Nov 17th and 18th. A disproportionate number of people who have contacted me have been lawyers -- seems the targeting is getting more sophisticated. One person reported that multiple people in their neighborhood received copies of the letter. Letter contents are exactly the same, except that the extortion amount has increased to either $2,500 or $3,500 (interesting, isn't it?).
 
-Again, victims are all over the U.S. 
+Again, victims are all over the U.S.
 
 **Update 12/14/2017**: Two more waves have come out. One on December 1st, postmarked from Chattanooga TN 374, asking $2500. Another on December 2nd, again from Nashville, TN 370. Unsure about the dates of several sent in, but overall less people contacted me this time. Another received on December 11th, postmarked Birmingham AL 350. I wonder if the attacker is getting nervous about only using Nashville, so he's using nearby post offices.
 
-**Update 1/8/2018**: Birmingham from December 11th was a huge wave. Another wave started on Jan 2nd, 2018, this time out of Evansville, Indiana (IN). Evansville is noteworthy because it's within two-ish hours from  Nashville. Birmingham was also close to Nashville. Extortion amount for the Evansville wave is $3,500 (with a few interesting cases at $3,450 and $3,600 -- I don't know what to make of the small variance in pricing). The Birmingham wave demand got as high as $8,000! 
+**Update 1/8/2018**: Birmingham from December 11th was a huge wave. Another wave started on Jan 2nd, 2018, this time out of Evansville, Indiana (IN). Evansville is noteworthy because it's within two-ish hours from  Nashville. Birmingham was also close to Nashville. Extortion amount for the Evansville wave is $3,500 (with a few interesting cases at $3,450 and $3,600 -- I don't know what to make of the small variance in pricing). The Birmingham wave demand got as high as $8,000!
 
 (An earlier version of this update incorrectly stated that the new wave was out of *Evanston Illinois*. I got mixed up because someone in Evanston IL got a letter from Evansville IN.)
 
@@ -147,7 +148,7 @@ Posted: 1/26/2018
 
 ## Original Letter I received in October 2016
 
-My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyway.): 
+My scans of the letter I got in October 2016 (nothing received at the bitcoin address yet, I already checked. Probably unique anyway.):
 
 {% include image.html image='blackmail/page-1.jpg' alt='blackmail page 1' %}
 
@@ -199,7 +200,7 @@ At this point you may be thinking, "[Used to say "This is blackmail!] I'll just 
 </blockquote>
 </div>
 
-10 days is too long I guess, had to make it 9? I notice that in [Brian Kreb's transcription of the letter his reader sent him](https://krebsonsecurity.com/wp-content/uploads/2018/01/extortionletter.pdf), the deadline was **12** days. 
+10 days is too long I guess, had to make it 9? I notice that in [Brian Kreb's transcription of the letter his reader sent him](https://krebsonsecurity.com/wp-content/uploads/2018/01/extortionletter.pdf), the deadline was **12** days.
 
 Wife's name peppered throughout? Supposedly as an indicator that he actually knows something, I guess.
 

@@ -1,8 +1,8 @@
 ---
 title: Notes on ML model evaluation
-tags: analytics
 description: Classical statistics vs Machine Learning; Model interpretation vs evaluation; Fitting a model vs Using it; R vs Python for analytics.
 last_modified_at: 2021-08-18 23:30:00 +0000
+tags: analytics
 include_toc: true
 ---
 
@@ -20,7 +20,7 @@ I'm honored. :heart: u, class of 2019-2020.
 
 ---
 
-This post is a first-pass attempt to organize my thoughts for_evaluating machine learning models, for my security analytics class. When I wrote this post,
+This post is a first-pass attempt to organize my thoughts for evaluating machine learning models, for my security analytics class. When I wrote this post,
 the program curriculum was such that my class was students' first exposure to machine learning. This post is sprawling and ungainly, abandon all hope etc etc.
 
 I use at least two paradigms in this post: CRISP-DM and the different "applications" of business analytics.

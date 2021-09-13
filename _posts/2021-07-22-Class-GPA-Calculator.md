@@ -1,6 +1,7 @@
 ---
 title: Class GPA Calculator
 description: Some schools have guidelines for distribution of letter grades for a class. Announcing a tool that helps with compliance with those guidelines.
+tags: pedagogy tools
 ---
 _Some schools have guidelines for distribution of letter grades for a class. Announcing a tool that helps with compliance with those guidelines._
 

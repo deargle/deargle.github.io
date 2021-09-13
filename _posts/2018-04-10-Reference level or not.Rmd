@@ -1,7 +1,7 @@
 ---
 title: "Interpreting dummy-coded parameter estimates with and without a model intercept"
 description: null
-tags: R logistic-regression
+tags: R analytics
 ---
 
 This post is to illustrate the differences in model parameter estimates for dummy-coded factors when the model includes an intercept versus when it does not.
@@ -32,7 +32,7 @@ my.data <- read_csv("https://daveeargle.com/classes/data/LendingClub_2007_2014_C
 ## Reference level with an intercept
 
 If we fit a logistic regression model, by default, an intercept will be estimated. In R, by default,
-the first level is used as the reference level. 
+the first level is used as the reference level.
 
 
 ```{r}
@@ -45,10 +45,10 @@ equal to the reference level (grade A), then no modification is made. This is be
 is the estimated prediction for the reference level, Grade A, and all other estimates are relative to
 Grade A._
 
-Using a reference level has the benefit of adding interpretabilty to the z-scores for each of the 
+Using a reference level has the benefit of adding interpretabilty to the z-scores for each of the
 parameter estimates. Because each of the estimates is _relative to the reference level_, we can answer
 the question "Are the average values for Grade B statisictally significantly different from those of Grade A?" The answer to that is found by looking at the z-score for the gradeB estimate -- 5.954, which has
-a very small associated p-value, therefore we can reject the hypothesis that the means of gradeA and gradeB are the same. All other grade parameter estimates can likewise be interpreted as pairwise comparisons between each level and gradeA. Comparisons between other pairs can be obtained by contrasting 
+a very small associated p-value, therefore we can reject the hypothesis that the means of gradeA and gradeB are the same. All other grade parameter estimates can likewise be interpreted as pairwise comparisons between each level and gradeA. Comparisons between other pairs can be obtained by contrasting
 least-square means for each grade level.
 
 Least-square mean estimates:
@@ -85,10 +85,8 @@ Least-square means in this case are equivalent to what they were previously.
 lsmeans(m, 'grade')
 ```
 
-# More than one predictor 
+# More than one predictor
 
 Note that least-square mean estimates are not reliable when interaction terms are present in the model. Also, when more than one predictor is used, least-square mean estimates are the mean effect for each level
 of the requested factor _holding all other predictors constant at their averages_. In other words, they
-are mean estimates "controlling for" the effect of other predictors. 
-
-
+are mean estimates "controlling for" the effect of other predictors.

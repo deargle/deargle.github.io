@@ -2,7 +2,7 @@
 layout: syllabus
 published: true
 permalink: /classes/pitt/busbis1605/
-title: BUSBIS 1605 Sec 1210 &ndash; Database Management
+title: BUSBIS 1605 Sec 1210 &ndash; Database Management 
 ---
 
 _Spring 2016_
@@ -10,11 +10,11 @@ _Spring 2016_
 <div id='nav-bar'></div>
 
 Instructor
-: Dave Eargle ([contact]({% link contact.md %})) 
+: Dave Eargle ([contact]({% link contact.md %}))
 
 Class
-: Tues/Thurs 12:30PM - 1:45PM 
-: 209 Mervis Hall 
+: Tues/Thurs 12:30PM - 1:45PM
+: 209 Mervis Hall
 
 Office Hours
 : By appointment (Skype or Hangouts preferred)
@@ -73,7 +73,7 @@ We will use [MySQL Workbench](http://www.mysql.com/products/workbench/) for data
 
 1. Laptop for individual assignments and exams: <br>
    Download and install [MySQL Community Server](http://dev.mysql.com/downloads/mysql/) (or, if you're interested in Web Dev, [WAMP](http://www.wampserver.com/en/) or [MAMP](https://www.mamp.info/en/))<br>
-1. Server for SQL exercises: <br> 
+1. Server for SQL exercises: <br>
     Hostname: mysql.daveeargle.com. Username and password on CourseWeb. Default schema: Text.
 1. Server for group work <br>
    Hostname: mysql.daveeargle.com. You will get a group id and password.
@@ -100,7 +100,7 @@ In this class, you will work in teams. As a result, review a short report on [te
 ### Freeloader policy
 It occasionally happens in class and enterprise settings that someone in a group is not prepared to do his/her share. In the case of my classes, I recommend that the team give the freeloader one warning and then fire that person from the team. That person will then do group assignments individually or find another team to join. The team should notify me of the change in team composition immediately. I distribute a [form]({{site.baseurl}}/classes/general/Peereval.docx) to assess team participation at the end of the semester. If a major disparity in team contribution is reported, I will adjust team project grades.
 
-### Laptop policy 
+### Laptop policy
 Students are welcome to use laptops in class for note taking and completing class exercises, exclusively. If you plan to take notes, please advise and email a copy of the notes at the end of each class.
 
 
@@ -132,7 +132,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
     <td>
         <b>Data Modeling</b>
         <p>A tennis store wants to keep track of its inventory. Each type of racquet has a manufacturer, model name, composition, color, price, quantity on hand, grip type, string tension, and a racquet code (e.g., N123D). Racquets are classified as junior, amateur or professional. Create the data model with MySQL workbench.</p>
-        
+
         <b>SQL</b>
         <ul>
             <li>List each product's name and its MSRP increased by 10%. </li>
@@ -146,7 +146,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
     <td>
         <b>Data modeling</b>
         <p>Create a data model to record details of a firm's managers and the projects they supervise. A typical manager is assigned to supervise several projects. However, a project is assigned to only one manager. For each manager, the firm wants to know the person's name and email address. A project's name, final cost, and expected cost are required. You can assume a unique name for each project but not for each manager. </p>
-        
+
         <b>SQL</b>
         <ul>
             <li>Report the number of employees in each country.</li>
@@ -164,7 +164,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
         <b>SQL</b>
         <ul>
             <li>Report the value of each cancelled order for each customer. Sort by customer name and order number.</li>
-            <li>Report the total value ordered for each product line in January 2004 sorted by product line. 
+            <li>Report the total value ordered for each product line in January 2004 sorted by product line.
             : See <a href='http://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html'>MySQL date functions</a>.</li>
         </ul>
     </td>
@@ -175,7 +175,7 @@ See the class schedule for the due date. The due time is 11:59pm on the due date
     <td>
         <b>Data modeling</b>
         <p>At a local sport facility, a club can have many players, but a player can play only for one club. Each club has, at most, one player known as a "rising-star." For every club, record the name of the club, its address, and phone number. A player can be at one of three levels: beginner (B), intermediate (I), or advanced (A). Furthermore, each player can have, at the most, one other player as a mentor.</p>
-    
+
         <b>SQL</b>
         <ul>
             <li>Which sales reps report to Bow?</li>
@@ -324,7 +324,7 @@ Some suggested topics are listed below (assigned topics have a date of presentat
 </tr>
 </tbody>
 </table>
-</div> 
+</div>
 
 ## Database design and implementation project #1 (group)
 
@@ -373,7 +373,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
 # Quick Links
 <ul>
    <li>The <a href='https://goo.gl/forms/3FY7iFDAQLdwqITZ2'>I'm Done Quiz</a></li>
-   
+
    <li><a href='http://www.richardtwatson.com/dm6e/index.html'>Textbook homepage</a></li>
    <ul>
       <li><a href='http://www.richardtwatson.com/dm6e/Reader/slides.html'>Textbook slides</a></li>
@@ -408,7 +408,7 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
       <td>
           <ul>
             <li>Read <a href='https://www.weforum.org/agenda/2015/10/worlds-best-job-the-answer-might-surprise-you/'>World's best job</a>. Compare to Glassdoor's best jobs for 2016.</li>
-          </ul> 
+          </ul>
       </td>
       <td><a href='https://goo.gl/forms/sOwiofKLeJqYHUGP2'>In-class survey</a></td>
       <td>&nbsp;</td>
@@ -447,11 +447,11 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
         <ul>
             <li>Install <a href='http://www.mysql.com/products/workbench/'>MySQL Workbench</a></li>
             <li>Install <a href='http://dev.mysql.com/downloads/mysql/'>MySQL Community Server</a> (or full stack equivalent, see <a href='#software'>sofware section</a>)</li>
-            <li>Complete three MySQL Workbench tutorials: 
+            <li>Complete three MySQL Workbench tutorials:
                 <ol>
                     <li><a href='https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-create-connection.html'>Creating A New MySQL Connection</a></li>
                     <li><a href='https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-creating-a-model.html'>Creating a Model</a></li>
-                    <li><a href='https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-adding-data.html'>Adding Data</a></li> 
+                    <li><a href='https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-adding-data.html'>Adding Data</a></li>
                 </ol>
             </li>
         </ul>
@@ -750,5 +750,3 @@ Follow the [guidelines for database project submissions]({{ site.baseurl }}/clas
 <br><br>
 
 _This syllabus is a fork of one created by [Rick Watson](http://people.terry.uga.edu/rwatson/) for his Data Management class at UGA. Many thanks to Rick._
-
-

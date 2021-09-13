@@ -1,11 +1,11 @@
 ---
 title: Canvas LMS Quiz.Next Partial Credit Hack
 description: Javascript hack for granting partial credit in Canvas Quiz.Next quizzes
-tags: canvas
+tags: canvas pedagogy
 ---
 
 Much to my consernation, as of 12-12-2019, Canvas' new Quiz format "Quiz.Next" does not calculate partial credit for "select all that apply"-type questions. Their _old_ ("classic") quiz
-architecture offers this, but not their new one. And there are no definitive plans to offer this functionality in the future. 
+architecture offers this, but not their new one. And there are no definitive plans to offer this functionality in the future.
 
 
 {% include image.html image='canvas-partial-credit-under-discussion.PNG' %}
@@ -19,7 +19,7 @@ _screenshot from [here](https://community.canvaslms.com/docs/DOC-12115-quizzesne
 Sigh. Last year, I had to calculate partial credit by hand. That was tedious and error-prone, so I wrote me some javascript to automate the process.
 
 {% highlight javascript %}
-// Quiz.Next uses React webframework, so this function is needed to trigger the change-event after 
+// Quiz.Next uses React webframework, so this function is needed to trigger the change-event after
 // programmatically setting a question's point score.
 //https://stackoverflow.com/questions/30683628/react-js-setting-value-of-input/52486921#52486921
 function setNativeValue(element, value) {
@@ -71,7 +71,7 @@ Then, paste in the code below and execute it by pressing "enter":
 
 Review the updated scores. If things look good, **click the `Update` button at the bottom of the quiz.** The score should update.
 
-Chrome dev console allows javascript "snippets" to be saved within the browser, to be reusable later. The screenshot above shows that I have saved this code as a "snippet". Snippets can be selected from the `Sources` 
+Chrome dev console allows javascript "snippets" to be saved within the browser, to be reusable later. The screenshot above shows that I have saved this code as a "snippet". Snippets can be selected from the `Sources`
 tab (as shown in the image above), and run by pressing `Ctrl+Enter` within the snippet focus window.
 
 Took me less than an hour to figure this out. Looking at you, Quiz.Next devs...

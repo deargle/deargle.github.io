@@ -1,6 +1,7 @@
 ---
 title: Metasploitable2 in vagrant
 description: Preparing a Metasploitable2 base box (libvirt provider) that will work with vagrant
+tags: security
 ---
 
 <div class='page-header text-center well'>
