@@ -1,0 +1,18 @@
+---
+---
+$color-grey: #6c757d !important;
+
+code {
+  color: $color-grey;
+}
+
+@media print {
+
+  #webaddress {
+    color: $color-grey;
+  }
+
+  h3 {
+    color: $color-grey;
+  }
+}

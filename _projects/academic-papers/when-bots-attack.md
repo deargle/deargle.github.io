@@ -2,7 +2,8 @@
 include_in_vita: true
 type: research
 tags: work-in-progress
-order: 4
+stream: Crowd-sourced psychology data collection
+order: 5
 title: "When Bots Attack: Threat Modeling and Mitigations of Attacks Against Online Behavioral Experiments"
 with: "Todd M. Gureckis, Jordan W. Suchow"
 ---
@@ -16,7 +17,4 @@ including the development of machine learning models to detect anomalous partici
 participating researchers' data. The behavioral research community can use these models to defend collected data, and to
 argue for cross-industry grants to develop novel approaches.
 
-Links:
-- psiTurk -- An open platform for science on Amazon Mechanical Turk. I have been the lead developer for psiTurk since 2016.
-  - [landing page](https://psiturk.org/)
-  - [source code](https://github.com/NYUCCL/psiTurk)
+_Ongoing research_

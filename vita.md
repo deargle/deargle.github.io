@@ -26,12 +26,12 @@ Information Systems Management Researcher
 Updated 2021/07/22
 
 ## Currently
-`2017-`
-I'm an Assistant Professor in the Organizational Leadership and Information Analytics group
+`2017-present`
+I am an Assistant Professor in the Organizational Leadership and Information Analytics group
 at the
 Leeds School of Business, University of Colorado Boulder
 
-`2017-`
+`2017-present`
 I also have a courtesy appointment as Assistant Professor in the
 Department of Information Science\
 at the University of Colorado Boulder
@@ -40,12 +40,12 @@ at the University of Colorado Boulder
 
 - Human side of Information Systems Security (Behavioral InfoSec)
 - Dark Side of Information Technology, including online group polarization
-- Design science -- tools for research and for mitigating information security risks
 - Neuroscience applications to Human-Computer Interaction and Information Security
+- Machine learning and visualization approaches to performing literature reviews
 
 ## Teaching Interests
 
-- Information security management
+- Cybersecurity management
 - Descriptive, Predictive, and Prescriptive Business Analytics
 - Programming for business majors (Python, R); Databases; Cloud Computing, Web and app development
 
@@ -95,18 +95,23 @@ __Web Developer__\
 
 ## Works in progress
 
-{% assign projects = site.projects | where: "include_in_vita", true | where: "tags", "work-in-progress" | sort: order %}
+See <{{ "/projects" | absolute_url }}> for links to resources for these works in progress.
+
+{% assign projects = site.projects | where: "include_in_vita", true | where: "tags", "work-in-progress" | sort: "order" %}
 
 {% for project in projects %}
 ### {{ forloop.index }}.
 
 __{{ project.title }}__\
 *With: {{ project.with }}*
+
+{{ project.description_short }}
 {{ project.content | markdownify }}
 {% endfor %}
 
 
 ## Journal Publications
+
 {: .reference }
 `Forthcoming`
 Vance, A., __Eargle, D.__, Eggett, D., Straub, D., Ouimet, K. “Do Security Fear Appeals
@@ -141,7 +146,7 @@ warnings." *Decision Support Systems*, 92 (2016), 3-13. doi: 10.1016/j.dss.2016.
 {: .reference }
 `2016`
 Jenkins, J., Anderson, B., Vance, A., Kirwan, B. and __Eargle, D.__ "More harm than good?
-How security messages that interupt make us vulnerable."
+How security messages that interrupt make us vulnerable."
 *Information Systems Research*, 27, 4 (2016), 880-896. __Awarded ISR’s “Best Published Paper” for 2016__.
 doi: 10.1287/isre.2016.0644
 
@@ -694,10 +699,10 @@ Member
 
 <!-- fa are fontawesome, ai are academicons -->
 <ul class='no-list-style'>
-<li> <i class="fa fa-globe"></i> <a href='{{ site.url }}'>{{ site.url }}</a></li>
-<li> <i class="fa fa-envelope"></i> <a href="mailto:{{ site.email }}">{{ site.email }}</a> </li>
-<li> <i class="fa fa-github"></i> <a href="{{ github_profile_url }}">{{ site.github_username }}</a> </li>
-<li> <i class="fa fa-stack-overflow"></i> <a href="{{ site.stackoverflow }}">StackOverflow</a> </li>
-<li> <i class="ai ai-google-scholar"></i> <a href="{{ site.google_scholar }}">Google scholar</a> </li>
-<li> <i class="ai ai-orcid"></i> <a href="{{ site.orcid }}}}">ORCiD</a> </li>
+  <li> <i class="fa fa-globe"></i> <a href='{{ site.url }}'>{{ site.url }}</a></li>
+  <li> <i class="fa fa-envelope"></i> <a href="mailto:{{ site.email }}">{{ site.email }}</a> </li>
+  <li> <i class="fa fa-github"></i> <a href="{{ github_profile_url }}">{{ site.github_username }}</a> </li>
+  <li> <i class="fa fa-stack-overflow"></i> <a href="{{ site.stackoverflow }}">StackOverflow</a> </li>
+  <li> <i class="ai ai-google-scholar"></i> <a href="{{ site.google_scholar }}">Google scholar</a> </li>
+  <li> <i class="ai ai-orcid"></i> <a href="{{ site.orcid }}}}">ORCiD</a> </li>
 </ul>

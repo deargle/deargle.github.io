@@ -10,41 +10,58 @@ include_toc: true
 Some research I'm working on; some things I've made.
 
 
-## Research | Works in Progress
+<h1>Research</h1>
 
-Some pages and tools related to research I am currently working on.
-
-{% assign research_projects = site.projects | where: 'type', 'research' | where: 'tags', 'work-in-progress' %}
-{% for project in research_projects %}
-
-### "{{ project.title }}"
-{% if project.with -%}
-*With: {{ project.with }}*
-{%- endif %}
-
-{{ project.content | markdownify }}
-{% endfor %}
-
-## Research | Completed
-
-_This list is not exhaustive._ The projects listed here are just ones that have neat live links to show off.
+Recent research, grouped by stream.
 
 See [my vita]({{ '/vita/' | relative_url }}) or [my google scholar profile]({{ site.google_scholar }})
 for a full list of my publications.
 
-{% assign research_projects = site.projects | where: 'type', 'research' | where: 'tags', 'completed' %}
+{% assign research_streams = site.data.research_streams | sort: "order" %}
+{% assign research_projects_by_stream = site.projects | where: 'type', 'research' | group_by: "stream" %}
 
-{% for project in research_projects %}
-### "{{ project.title }}"
-{% if project.with -%}
-*With: {{ project.with }}*
-{%- endif %}
+<div class="">
+{% for stream_meta in research_streams %}
+
+  {% assign stream = research_projects_by_stream | where: 'name', stream_meta.id | first %}
+
+  <h2 data-toc-text="{{ stream_meta.name }}">Stream: {{ stream_meta.name }}</h2>
+
+  {% assign projects = stream.items | sort: "order" %}
+  {% for project in projects -%}
+    <h3>{{ project.title }}</h3>
+
+    {%- if project.with -%}
+      <p><em>With: {{ project.with }}</em></p>
+    {%- endif %}
+
+<p>{{ project.description_short }}</p>
 
 {{ project.content | markdownify }}
-{% endfor %}
+
+    {% if project.resources -%}
+      {% assign resources = project.resources %}
+      {%- if resources.links -%}
+      <p>Links to resources:
+        <ul>
+        {%- for link in resources.links -%}
+          <li><a href='{{ link.url }}'>{{ link.text }}</a></li>
+        {%- endfor -%}
+        </ul>
+      </p>
+      {% endif %}
+
+      {%- if resources.markdown %}
+{{ resources.markdown | markdownify }}
+      {% endif -%}
+    {%- endif -%}
+
+  {%- endfor %}
+{%- endfor %}
+</div>
 
 
-## Github Projects
+<h1>Github Projects</h1>
 
 Check out my github activity! <a href="{{ site.github_username }}"><i class="fab fa-github"></i> deargle</a>
 
@@ -54,56 +71,29 @@ I encourage my students to contribute to class-related repos. Sometimes they do.
 
 I am involved more heavily with development of a few open-source repositories, such as the ones below.
 
-### Psiturk
+{% assign opensource_projects = site.projects | where: 'type', 'opensource' %}
 
-_An open platform for science on Amazon Mechanical Turk._
+{% for project in opensource_projects -%}
 
-Psiturk is a python Flask app bundled with a javascript library to facilitate interacting with
-mturkers through all stages of the AMT process -- posting HITs, serving an experiment
-website, approving work, analyzing data.
+  <h2 {% if project.title_short %}data-toc-text="{{ project.title_short }}"{% endif %}>{{ project.title }}</h2>
 
-I have been a core developer for psiTurk since during my phd in ~2016.
+  {% if project.with -%}
+  <em>With: {{ project.with }}</em>
+  {%- endif %}
 
-Repo
-: <https://github.com/NYUCCL/psiturk>
+{{ project.content | markdownify }}
 
-Docs
-: <https://psiturk.readthedocs.io/en/latest/>
-
-Paper
-: <https://doi.org/10.5281/zenodo.3598651>
+{% endfor %}
 
 
-### Kepler-mapper
-
-_Kepler-mapper is a library implementing the Mapper algorithm in Python. KeplerMapper can be used for visualization of high-dimensional data and 3D point cloud data. KeplerMapper can make use of Scikit-Learn API compatible cluster and scaling algorithms._
-
-_KeplerMapper employs approaches based on the MAPPER algorithm (Singh et al.) as first described in the paper “Topological Methods for the Analysis of High Dimensional Data Sets and 3D Object Recognition”._
-
-I became a somewhat-major contributor to Kepler-Mapper for a few years now. I do work both on the python side
-and also the javascript / html d3 visualization side. I've done work on the psiturk command-line shell,
-a web interface, python unit testing, database optimizations, and bug fixes and features-adds throughout
-the python code.
-
-Repo
-: <https://github.com/scikit-tda/kepler-mapper>
-
-Docs
-: <https://kepler-mapper.scikit-tda.org/en/latest/>
-
-Paper
-: <https://joss.theoj.org/papers/10.21105/joss.01315>
-
-
-
-## Tools
+<h1>Tools</h1>
 
 Some things I've made. Links are scattered throughout blog posts, so I'm gathering them here.
 
 
 {% assign tools = site.projects | where: 'type', 'tool' %}
 {% for tool in tools %}
-### {{ tool.title }}
+<h2 {% if tool.title_short %}data-toc-text="{{ tool.title_short }}"{% endif %}>{{ tool.title }}</h2>
 
 {% if tool.link %}
 <{{tool.link}}>
