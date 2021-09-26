@@ -16,11 +16,17 @@ stackoverflow: https://stackoverflow.com/users/1396649/deargle
 Information Systems Management Researcher
 
 <div id="webaddress">
-<a href="mailto:{{ site.email }}">{{ site.email }}</a>
-|
-<i class="fa fa-github"></i> <a href="{{ github_profile_url }}">{{ site.github_username }}</a>
-|
-<i class="fa fa-globe"></i> <a href='{{ site.url }}'>{{ site.url }}</a>
+  <span class='item-wrapper'>
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </span>
+  |
+  <span class='item-wrapper'>
+    <i class="fa fa-github"></i> <a class='expand-me' href="{{ github_profile_url }}">{{ site.github_username }}</a>
+  </span>
+  |
+  <span class='item-wrapper'>
+    <i class="fa fa-globe"></i> <a href='{{ site.url }}'>{{ site.url }}</a>
+  </span>
 </div>
 
 Updated 2021/07/22
@@ -87,8 +93,8 @@ __Web Developer__\
 - Core developer for syllabus section of _Learning Suite_, BYU's Learning Management System
 
 ## Scholarship metrics
-* <i class="ai ai-google-scholar"></i> <a href="{{ site.google_scholar }}">My Google scholar profile</a>
-* <i class="ai ai-orcid"></i> <a href="{{ site.orcid }}">ORCiD</a>
+* <i class="ai ai-google-scholar"></i> <a class='expand-me' href="{{ site.google_scholar }}">My Google scholar profile</a>
+* <i class="ai ai-orcid"></i> <a class='expand-me' href="{{ site.orcid }}">ORCiD</a>
 * 728 citations per Google Scholar (641 citations since 2016)
 * 10 H-index per Google Scholar
 
@@ -498,8 +504,7 @@ departments of the University of Pittsburgh’s College of Business Administrati
 
 `2013-2015`
 __Microsoft Excel workshops for Katz Graduate students__
-
-Taught four beginner-to-advanced-level Microsoft Excel workshops to part-time Katz
+- Taught four beginner-to-advanced-level Microsoft Excel workshops to part-time Katz
 MBA students
 
 ### Department of Information Systems, Marriott School of Management, Brigham Young University
@@ -728,8 +733,8 @@ Member
 <ul class='no-list-style'>
   <li> <i class="fa fa-globe"></i> <a href='{{ site.url }}'>{{ site.url }}</a></li>
   <li> <i class="fa fa-envelope"></i> <a href="mailto:{{ site.email }}">{{ site.email }}</a> </li>
-  <li> <i class="fa fa-github"></i> <a href="{{ github_profile_url }}">{{ site.github_username }}</a> </li>
-  <li> <i class="fa fa-stack-overflow"></i> <a href="{{ site.stackoverflow }}">StackOverflow</a> </li>
-  <li> <i class="ai ai-google-scholar"></i> <a href="{{ site.google_scholar }}">Google scholar</a> </li>
-  <li> <i class="ai ai-orcid"></i> <a href="{{ site.orcid }}}}">ORCiD</a> </li>
+  <li> <i class="fa fa-github"></i> <a class='expand-me' href="{{ github_profile_url }}">{{ site.github_username }}</a> </li>
+  <li> <i class="fa fa-stack-overflow"></i> <a class='expand-me' href="{{ site.stackoverflow }}">StackOverflow</a> </li>
+  <li> <i class="ai ai-google-scholar"></i> <a class='expand-me' href="{{ site.google_scholar }}">Google scholar</a> </li>
+  <li> <i class="ai ai-orcid"></i> <a class='expand-me' href="{{ site.orcid }}}}">ORCiD</a> </li>
 </ul>

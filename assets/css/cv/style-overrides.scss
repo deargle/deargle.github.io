@@ -14,10 +14,22 @@ sup {
 @media print {
   #webaddress {
     color: $color-grey;
+
+    // .item-wrapper {
+    //   display: block;
+    // }
   }
 
   h3 {
     color: $color-grey;
+  }
+
+  table {
+    page-break-inside: avoid;
+  }
+
+  a.expand-me::after{
+    content: " (" attr(href) ") ";
   }
 }
 
