@@ -29,7 +29,7 @@ Information Systems Management Researcher
   </span>
 </div>
 
-Updated 2021/07/22
+Updated 2021/09/25
 
 ## Currently
 `2017-present`
