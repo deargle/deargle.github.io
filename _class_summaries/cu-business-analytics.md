@@ -4,7 +4,7 @@ school_short: cu
 title: Business Analytics
 course_materials: "https://classes.daveeargle.com/business-analytics/"
 course_materials_class: btn-warning
-priority: 3
+priority: 03
 ---
 
 - Descriptive: querying, and ETL/wrangling data with Alteryx

@@ -18,8 +18,10 @@ description_short: |
   read and reacted to polarizing news articles, with article-content being
   presented as if from random sources.
 resources:
-  links:
-    -
-      text: A live testing page for the experiment protocol. Loads all articles from the mongo db, and permits injecting the article content into one of three publication source templates.
-      url: http://deargle-news-followup.herokuapp.com/admin/groupby/Topic
+  markdown: |
+    Resources:
+
+    * [A live testing page for the experiment protocol][testing-page]. Loads all articles from the mongo db, and permits injecting the article content into one of three publication source templates.
+
+    [testing-page]: http://deargle-news-followup.herokuapp.com/admin/groupby/Topic
 ---

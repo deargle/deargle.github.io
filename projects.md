@@ -25,11 +25,18 @@ for a full list of my publications.
 
   {% assign stream = research_projects_by_stream | where: 'name', stream_meta.id | first %}
 
-  <h2 data-toc-text="{{ stream_meta.name }}">Stream: {{ stream_meta.name }}</h2>
+  {% if stream_meta.name_short %}
+    {% assign stream_toc_text = stream_meta.name_short %}
+  {% else %}
+    {% assign stream_toc_text = stream_meta.name %}
+  {% endif %}
+  <h2 data-toc-text="{{ stream_toc_text }}">Stream: {{ stream_meta.name }}</h2>
+
+  <p class='lead'>{{ stream_meta.description }}</p>
 
   {% assign projects = stream.items | sort: "order" %}
   {% for project in projects -%}
-    <h3>{{ project.title }}</h3>
+    <h3>{{ forloop.index }}. {{ project.title }}</h3>
 
     {%- if project.with -%}
       <p><em>With: {{ project.with }}</em></p>
@@ -57,6 +64,7 @@ for a full list of my publications.
     {%- endif -%}
 
   {%- endfor %}
+
 {%- endfor %}
 </div>
 

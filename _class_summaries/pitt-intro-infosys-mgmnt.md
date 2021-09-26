@@ -2,7 +2,7 @@
 title: "Introduction to Information Systems Management"
 school: "College of Business Administration at the University of Pittsburgh"
 school_short: pitt
-priority: 2
+priority: 99
 ---
 
 * Full responsibility for a class of 60 undergraduate students from various

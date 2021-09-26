@@ -6,8 +6,12 @@ code {
   color: $color-grey;
 }
 
-@media print {
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
 
+@media print {
   #webaddress {
     color: $color-grey;
   }

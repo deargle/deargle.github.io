@@ -93,23 +93,6 @@ __Web Developer__\
 * 10 H-index per Google Scholar
 
 
-## Works in progress
-
-See <{{ "/projects" | absolute_url }}> for links to resources for these works in progress.
-
-{% assign projects = site.projects | where: "include_in_vita", true | where: "tags", "work-in-progress" | sort: "order" %}
-
-{% for project in projects %}
-### {{ forloop.index }}.
-
-__{{ project.title }}__\
-*With: {{ project.with }}*
-
-{{ project.description_short }}
-{{ project.content | markdownify }}
-{% endfor %}
-
-
 ## Journal Publications
 
 {: .reference }
@@ -334,6 +317,24 @@ Anderson, B., Vance, A., Hansen, J., Kirwan, B., __Eargle, D.__, Hinkle, L. and 
 "Neural correlates of gender differences in distinguishing malware warnings and
 legitimate websites: A NeuroIS study." In *IFIP WG8.11/WG11.13*, Provo, UT: (2012).
 
+
+## Works in progress
+
+See <{{ "/projects" | absolute_url }}> for links to resources for these works in progress.
+
+{% assign projects = site.projects | where: "include_in_vita", true | where: "tags", "work-in-progress" | sort: "order" %}
+
+{% for project in projects %}
+### {{ forloop.index }}.
+
+__{{ project.title }}__\
+*With: {{ project.with }}*
+
+{{ project.description_short }}
+{{ project.content | markdownify }}
+{% endfor %}
+
+
 ## Teaching Experience
 
 
@@ -343,34 +344,20 @@ In four years:
 - Taught 4 unique courses
 - Taught at 3000, 4000 (including honors students), and 5000 (graduate, including MBAs) levels
 
-__Courses:__
+_Courses:_
 
-*Information Security Management (undergraduate)*
-- Exploration of human, organizational, and technical domains of information security management.
-- self-created hands-on Google Cloud virtual machine labs to teach students to "think like attackers"
+{% assign cu_classes = site.class_summaries | where: 'school_short', 'cu' | sort: 'priority' %}
+{% for class in cu_classes %}
+**{{ class.title }}**
+{{ class.content | markdownify }}
+{% endfor %}
 
-*Information Security Management (graduate)*
-- Taught within the Masters of Business Analytics - Security track.
-- Compared to the ugrad offering, has a stronger focus on specific security behaviors that
-  generate data amenable to machine learning -- e.g., post mortem reports from Mandiant and
-  the House Oversight Committee (equifax, OPM)
+_Course Evaluation Metrics:_
 
-*Business Analytics*
-- descriptive: querying, and ETL/wrangling data with Alteryx
-- predictive: supervised vs unsupervised machine learning algorithms
-- used Alteryx and DataRobot AutoML
-- covering topics such as association rules, k-means clusters,
-  regressions, correlations, and text mining
+The table below shows course evaluation metrics for each semester-course I have
+taught at CU Boulder. The "Course Overall" and "Instructor Overall" columns also
+include college averages parenthetically, when available.
 
-*Security Analytics with Python*
-- a projects-based class focused on applying machine learning to security-related data.
-  Topics include malware classification (binomial and multinomial), modeling using mobile sensor
-  data, network traffic parsing (pcaps => netflows) and malicious IP, domain classification
-- a focus on using python-sklearn -- on reading documentation and source code
-- also a focus on "open data science" -- on hosted jupyter notebooks, on using git and github to store
-  and share code projects. Also on sharing and programmatically consuming shared data.
-- labs have students host models behind API endpoints (Flask app). Models are also deployed to AWS and GCP's
-  machine learning platforms.
 
 {: .table .table-sm }
 <table id='table-courses' class='table'>
@@ -379,11 +366,11 @@ __Courses:__
       <th class='text-left'  scope="col">AY Year</th>
       <th class='text-left'  scope="col">Term</th>
       <th class='text-left'  scope="col">Course</th>
-      <th class='text-left'  scope="col">Course Code</th>
+      <!-- <th class='text-left'  scope="col">Course Code</th> -->
       <th class='text-left'  scope="col">Level</th>
       <th class='text-right' scope="col">Enrolled</th>
-      <th class='text-right' scope="col">Course Overall</th>
-      <th class='text-right' scope="col">Instructor Overall</th>
+      <th class='text-right' scope="col">Course&nbsp;Overall (college&nbsp;avg.)</th>
+      <th class='text-right' scope="col">Instructor&nbsp;Overall (college&nbsp;avg.)</th>
     </tr>
   </thead>
   <tbody>
@@ -391,107 +378,109 @@ __Courses:__
       <th class='text-left' scope="row" rowspan="2">2017&#8209;18</th>
       <td class='text-left'>Fall</td>
       <td class='text-left'>Infosec Management</td>
-      <td class='text-left'>BAIM-4250</td>
+      <!-- <td class='text-left'>BAIM-4250</td> -->
       <td class='text-left'>ugrad</td>
       <td class='text-right'>19</td>
-      <td class='text-right'>5.5/6.0</td>
-      <td class='text-right'>5.8/6.0</td>
+      <td class='text-right'>5.5/6.0 (4.6)</td>
+      <td class='text-right'>5.8/6.0 (5.1)</td>
     </tr>
     <tr>
       <!-- <th scope="row">2017&#8209;18</th> -->
       <td class='text-left'>Spring</td>
       <td class='text-left'>Business Analytics</td>
-      <td class='text-left'>MGMT-3200</td>
+      <!-- <td class='text-left'>MGMT-3200</td> -->
       <td class='text-left'>ugrad</td>
       <td class='text-right'>41</td>
-      <td class='text-right'>3.8/6.0</td>
-      <td class='text-right'>4.2/6.0</td>
+      <td class='text-right'>3.8/6.0 (4.7)</td>
+      <td class='text-right'>4.2/6.0 (4.2)</td>
     </tr>
     <tr>
       <th class='text-left' scope="row" rowspan="2">2018&#8209;19</th>
       <td class='text-left' rowspan="2">Fall</td>
       <td class='text-left'>Infosec Management</td>
-      <td class='text-left'>BAIM-4250, MSBX 4580 (cross-listed)</td>
-      <td class='text-left'>ugrad & grad (incl. MBAs)</td>
+      <!-- <td class='text-left'>BAIM-4250, MSBX 4580 (cross-listed)</td> -->
+      <td class='text-left'>ugrad & grad (incl.&nbsp;MBAs)</td>
       <td class='text-right'>45</td>
-      <td class='text-right'>4.6/6.0</td>
-      <td class='text-right'>4.6/6.0</td>
+      <td class='text-right'>4.6/6.0 (4.5)</td>
+      <td class='text-right'>4.6/6.0 (5.0)</td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2018&#8209;19</th> -->
       <!-- <td class='text-left'>Fall</td> -->
       <td class='text-left'>Business Analytics</td>
-      <td class='text-left'>BAIM-3200, MKTG 3201 (cross-listed)</td>
+      <!-- <td class='text-left'>BAIM-3200, MKTG 3201 (cross-listed)</td> -->
       <td class='text-left'>ugrad</td>
       <td class='text-right'>45</td>
-      <td class='text-right'>3.6/6.0</td>
-      <td class='text-right'>4.0/6.0</td>
+      <td class='text-right'>3.6/6.0 (4.5)</td>
+      <td class='text-right'>4.0/6.0 (5.0)</td>
     </tr>
     <tr>
       <th class='text-left' scope="row" rowspan="3">2019&#8209;20</th>
       <td class='text-left' rowspan="2">Fall</td>
       <td class='text-left'>Infosec Management</td>
-      <td class='text-left'>BAIM-4250</td>
+      <!-- <td class='text-left'>BAIM-4250</td> -->
       <td class='text-left'>ugrad</td>
       <td class='text-right'>39</td>
-      <td class='text-right'>5.2/6.0</td>
-      <td class='text-right'>5.4/6.0</td>
+      <td class='text-right'>5.2/6.0 (4.5)</td>
+      <td class='text-right'>5.4/6.0 (5.0)</td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2019&#8209;20</th> -->
       <!-- <td class='text-left'>Fall</td> -->
       <td class='text-left'>Infosec Management</td>
-      <td class='text-left'>MSBX-5480</td>
-      <td class='text-left'>grad (incl. MBAs)</td>
+      <!-- <td class='text-left'>MSBX-5480</td> -->
+      <td class='text-left'>grad (incl.&nbsp;MBAs)</td>
       <td class='text-right'>10</td>
-      <td class='text-right'>5.8/6.0</td>
-      <td class='text-right'>5.7/6.0</td>
+      <td class='text-right'>5.8/6.0 (4.5)</td>
+      <td class='text-right'>5.7/6.0 (5.0)</td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2019&#8209;20</th> -->
       <td class='text-left'>Spring</td>
       <td class='text-left'>Security Analytics with Python</td>
-      <td class='text-left'>MSBX-5500</td>
-      <td class='text-left'>grad (incl. MBAs)</td>
+      <!-- <td class='text-left'>MSBX-5500</td> -->
+      <td class='text-left'>grad (incl.&nbsp;MBAs)</td>
       <td class='text-right'>6</td>
-      <td class='text-right'>4.9/5.0*</td>
-      <td class='text-right'>4.9/5.0*</td>
+      <td class='text-right'>4.9/5.0 <sup>1,2</sup></td>
+      <td class='text-right'>4.9/5.0 <sup>1,2</sup></td>
 
     </tr>
     <tr>
       <th class='text-left' scope="row" rowspan="3">2020&#8209;21</th>
       <td class='text-left' rowspan="2">Fall</td>
       <td class='text-left'>Infosec Management</td>
-      <td class='text-left'>BAIM-4250</td>
+      <!-- <td class='text-left'>BAIM-4250</td> -->
       <td class='text-left'>ugrad (honors)</td>
       <td class='text-right'>33</td>
-      <td class='text-right'>4.24/5.0*</td>
-      <td class='text-right'>4.46/5.0*</td>
+      <td class='text-right'>4.4/5.0&nbsp;(4.3)&nbsp;<sup>1</sup></td>
+      <td class='text-right'>4.4/5.0 (4.3) <sup>1</sup></td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2020&#8209;21</th> -->
       <!-- <td class='text-left'>Fall</td> -->
       <td class='text-left'>Infosec Management</td>
-      <td class='text-left'>MSBX-5480</td>
-      <td class='text-left'>grad (incl. MBAs)</td>
+      <!-- <td class='text-left'>MSBX-5480</td> -->
+      <td class='text-left'>grad (incl.&nbsp;MBAs)</td>
       <td class='text-right'>13</td>
-      <td class='text-right'>4.8/5.0*</td>
-      <td class='text-right'>4.7/5.0*</td>
+      <td class='text-right'>4.7/5.0 (4.3) <sup>1</sup></td>
+      <td class='text-right'>4.7/5.0 (4.3) <sup>1</sup></td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2020&#8209;21</th> -->
       <td class='text-left'>Spring</td>
       <td class='text-left'>Security Analytics with Python</td>
-      <td class='text-left'>MSBA-5500</td>
+      <!-- <td class='text-left'>MSBA-5500</td> -->
       <td class='text-left'>grad</td>
       <td class='text-right'>14</td>
-      <td class='text-right'>4.7/5.0*</td>
-      <td class='text-right'>4.7/5.0*</td>
+      <td class='text-right'>4.7/5.0 (4.4) <sup>1</sup></td>
+      <td class='text-right'>4.7/5.0 (4.4) <sup>1</sup></td>
     </tr>
   </tbody>
 </table>
 
-_* Average of all available metrics. Typical course and instructor overall evaluation metrics not collected by CU during these semesters because of Covid._
+<sup>1</sup> Average of all available metrics. Typical course and instructor overall evaluation metrics not collected by CU during these semesters because of Covid.
+
+<sup>2</sup> Due to the mid-semester move to remote learning, college FCQ results for spring 2020 are not available.
 
 
 

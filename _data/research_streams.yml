@@ -1,16 +1,41 @@
 -
-  id: machine-learning-literature-reviews
-  name: Machine Learning
-  order: 3
--
   id: user-interface cybersecurity
-  name: Cybersecurity
+  name: Behavioral Cybersecurity
+  name_short:
   order: 1
--
-  id: Crowd-sourced psychology data collection
-  name: Crowdsourcing
-  order: 4
+  description: |
+    This research seeks to understand predictors of why individuals disregard
+    security messages, and to develop and test interventions for mitigating the
+    same. It applies theories and methods from both psychology and neuroscience.
 -
   id: Online News Political Divides
   name: Online News
+  name_short:
   order: 2
+  description: |
+    This stream tests the degree to which political ideological confirmation bias
+    influences individual’s reactions to online news. It tests elements such as
+    reader-source and reader-content ideological alignment, in addition to
+    predictors of perceptions of comments posted related to online news. It seeks
+    mitigations that can help address online news-related societal divides.
+-
+  id: machine-learning-literature-reviews
+  name: Identifying the IS Nomological Network via Machine learning
+  name_short: IS Nomological Network
+  order: 3
+  description: |
+    This stream applies methods from machine learning and topographical data
+    analysis to explore the nomological network of constructs used in information
+    systems research, and to create tools to improve academic literature review and
+    construct-creation processes.
+-
+  id: Crowd-sourced psychology data collection
+  name: Crowdsourcing
+  name_short:
+  order: 4
+  description: |
+    This research is related to developing and using open-source code to collect
+    data on crowdsourcing platforms. It stems from collaborations that have arisen
+    from my open-source code contributions to code projects used to facilitate
+    collecting experimental design data on online crowdsourcing platforms, such as
+    psiTurk.

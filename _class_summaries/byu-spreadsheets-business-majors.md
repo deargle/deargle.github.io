@@ -2,6 +2,7 @@
 school: "Department of Information Systems, Marriott School of Management, Brigham Young University"
 school_short: byu
 title: "Spreadsheets for Business Majors"
+priority: 95
 ---
 
 Full responsibility for four college-level class sections on computer spreadsheet skills,
