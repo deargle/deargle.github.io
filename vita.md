@@ -369,8 +369,8 @@ include college averages parenthetically, when available.
       <!-- <th class='text-left'  scope="col">Course Code</th> -->
       <th class='text-left'  scope="col">Level</th>
       <th class='text-right' scope="col">Enrolled</th>
-      <th class='text-right' scope="col">Course&nbsp;Overall (college&nbsp;avg.)</th>
-      <th class='text-right' scope="col">Instructor&nbsp;Overall (college&nbsp;avg.)</th>
+      <th class='text-right' scope="col">Course Overall (college&nbsp;avg.)</th>
+      <th class='text-right' scope="col">Instructor Overall (college&nbsp;avg.)</th>
     </tr>
   </thead>
   <tbody>
@@ -381,8 +381,8 @@ include college averages parenthetically, when available.
       <!-- <td class='text-left'>BAIM-4250</td> -->
       <td class='text-left'>ugrad</td>
       <td class='text-right'>19</td>
-      <td class='text-right'>5.5/6.0 (4.6)</td>
-      <td class='text-right'>5.8/6.0 (5.1)</td>
+      <td class='text-right'>5.5/6.0&nbsp;(4.6)</td>
+      <td class='text-right'>5.8/6.0&nbsp;(5.1)</td>
     </tr>
     <tr>
       <!-- <th scope="row">2017&#8209;18</th> -->
@@ -391,8 +391,8 @@ include college averages parenthetically, when available.
       <!-- <td class='text-left'>MGMT-3200</td> -->
       <td class='text-left'>ugrad</td>
       <td class='text-right'>41</td>
-      <td class='text-right'>3.8/6.0 (4.7)</td>
-      <td class='text-right'>4.2/6.0 (4.2)</td>
+      <td class='text-right'>3.8/6.0&nbsp;(4.7)</td>
+      <td class='text-right'>4.2/6.0&nbsp;(4.2)</td>
     </tr>
     <tr>
       <th class='text-left' scope="row" rowspan="2">2018&#8209;19</th>
@@ -401,8 +401,8 @@ include college averages parenthetically, when available.
       <!-- <td class='text-left'>BAIM-4250, MSBX 4580 (cross-listed)</td> -->
       <td class='text-left'>ugrad & grad (incl.&nbsp;MBAs)</td>
       <td class='text-right'>45</td>
-      <td class='text-right'>4.6/6.0 (4.5)</td>
-      <td class='text-right'>4.6/6.0 (5.0)</td>
+      <td class='text-right'>4.6/6.0&nbsp;(4.5)</td>
+      <td class='text-right'>4.6/6.0&nbsp;(5.0)</td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2018&#8209;19</th> -->
@@ -411,8 +411,8 @@ include college averages parenthetically, when available.
       <!-- <td class='text-left'>BAIM-3200, MKTG 3201 (cross-listed)</td> -->
       <td class='text-left'>ugrad</td>
       <td class='text-right'>45</td>
-      <td class='text-right'>3.6/6.0 (4.5)</td>
-      <td class='text-right'>4.0/6.0 (5.0)</td>
+      <td class='text-right'>3.6/6.0&nbsp;(4.5)</td>
+      <td class='text-right'>4.0/6.0&nbsp;(5.0)</td>
     </tr>
     <tr>
       <th class='text-left' scope="row" rowspan="3">2019&#8209;20</th>
@@ -421,8 +421,8 @@ include college averages parenthetically, when available.
       <!-- <td class='text-left'>BAIM-4250</td> -->
       <td class='text-left'>ugrad</td>
       <td class='text-right'>39</td>
-      <td class='text-right'>5.2/6.0 (4.5)</td>
-      <td class='text-right'>5.4/6.0 (5.0)</td>
+      <td class='text-right'>5.2/6.0&nbsp;(4.5)</td>
+      <td class='text-right'>5.4/6.0&nbsp;(5.0)</td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2019&#8209;20</th> -->
@@ -431,8 +431,8 @@ include college averages parenthetically, when available.
       <!-- <td class='text-left'>MSBX-5480</td> -->
       <td class='text-left'>grad (incl.&nbsp;MBAs)</td>
       <td class='text-right'>10</td>
-      <td class='text-right'>5.8/6.0 (4.5)</td>
-      <td class='text-right'>5.7/6.0 (5.0)</td>
+      <td class='text-right'>5.8/6.0&nbsp;(4.5)</td>
+      <td class='text-right'>5.7/6.0&nbsp;(5.0)</td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2019&#8209;20</th> -->
@@ -441,8 +441,8 @@ include college averages parenthetically, when available.
       <!-- <td class='text-left'>MSBX-5500</td> -->
       <td class='text-left'>grad (incl.&nbsp;MBAs)</td>
       <td class='text-right'>6</td>
-      <td class='text-right'>4.9/5.0 <sup>1,2</sup></td>
-      <td class='text-right'>4.9/5.0 <sup>1,2</sup></td>
+      <td class='text-right'>4.9/5.0&nbsp;<sup>1,2</sup></td>
+      <td class='text-right'>4.9/5.0&nbsp;<sup>1,2</sup></td>
 
     </tr>
     <tr>
@@ -453,7 +453,7 @@ include college averages parenthetically, when available.
       <td class='text-left'>ugrad (honors)</td>
       <td class='text-right'>33</td>
       <td class='text-right'>4.4/5.0&nbsp;(4.3)&nbsp;<sup>1</sup></td>
-      <td class='text-right'>4.4/5.0 (4.3) <sup>1</sup></td>
+      <td class='text-right'>4.4/5.0&nbsp;(4.3)&nbsp;<sup>1</sup></td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2020&#8209;21</th> -->
@@ -462,8 +462,8 @@ include college averages parenthetically, when available.
       <!-- <td class='text-left'>MSBX-5480</td> -->
       <td class='text-left'>grad (incl.&nbsp;MBAs)</td>
       <td class='text-right'>13</td>
-      <td class='text-right'>4.7/5.0 (4.3) <sup>1</sup></td>
-      <td class='text-right'>4.7/5.0 (4.3) <sup>1</sup></td>
+      <td class='text-right'>4.7/5.0&nbsp;(4.3)&nbsp;<sup>1</sup></td>
+      <td class='text-right'>4.7/5.0&nbsp;(4.3)&nbsp;<sup>1</sup></td>
     </tr>
     <tr>
       <!-- <th class='text-left' scope="row">2020&#8209;21</th> -->
@@ -472,8 +472,8 @@ include college averages parenthetically, when available.
       <!-- <td class='text-left'>MSBA-5500</td> -->
       <td class='text-left'>grad</td>
       <td class='text-right'>14</td>
-      <td class='text-right'>4.7/5.0 (4.4) <sup>1</sup></td>
-      <td class='text-right'>4.7/5.0 (4.4) <sup>1</sup></td>
+      <td class='text-right'>4.7/5.0&nbsp;(4.4)&nbsp;<sup>1</sup></td>
+      <td class='text-right'>4.7/5.0&nbsp;(4.4)&nbsp;<sup>1</sup></td>
     </tr>
   </tbody>
 </table>
@@ -613,65 +613,103 @@ current research projects are typically marked as "private"
 
 ### Habituation and Generalization Studies
 
-Describes full "academic stack" development for web-based field experiments,
-including data collection, analysis, and hypothesis testing.
+This example describes what I call Full "Academic Stack" Development that I have done for one of the research projects in my cybersecurity stream. It includes the creation of web-based field experiments, data collection, analysis, and hypothesis testing.
 
-* I used npm and yarn for javascript package management, and git / github for source code control.
-* Each "modal" (popup) in this study shares common code, so I used webpack to let me write javascript
-  classes with inheritance. Webpack and grunt scripts also build and bundle the source javascript and scss files, bootstrap for css and modals.
-* The front-end uses jquery / d3 / underscore for interactivity.
-* The web task dynamically loads page elements, in order to keep responsivity high.
-  I used python Flask app for serving the task, and for running a json api that the client-side
-  javascript talks to.
-* User data is stored in a mysql/postgres db (depending on the server host). The database is
-  built automatically and interfaced with by python code using sqlalchemy.
-* The task integrates a Qualtrics survey. Data is passed to the survey via web url parameters, so each participant's
-  identifier gets recorded into the qualtrics data for matching later.
-* The task is deployed to Heroku, Salesforce's platform-as-a-service solution, which runs containerized applications
-  on AWS hardware.
-* I wrote "campaign" functionality to automate staggered posting of tasks to AWS mechanical turk. using python boto3 via
-  the psiturk library.
-* At analysis time, I query data using sqlalchemy. After parsing json datastrings, I join multiple tables --
-  task behavior, mouse-tracking data, and survey data -- using pandas dataframes. I save these to csv files.
-* I did statistical analysis primarily in R, using the tidyverse collection of packages (dplyr, ggplot2). I created
-  models using `glm` and `lm`, and I specified followup contrasts using `emmeans`. I rendered a report
-  using r-markdown, via `knitr`.
+* I used `npm` and `yarn` for javascript package management, and `git` /
+  `github` for source code control.
+* Each "modal" (popup) in this study shares common code, so I used `webpack` to
+  let me write javascript classes with inheritance. `webpack` and `grunt`
+  scripts also build and bundle the source javascript and `scss` files that are
+  used by the modals.
+* The front-end uses `jquery` / `d3` / `underscore` for interactivity.
+* The web task dynamically loads page elements in order to keep responsivity
+  high. I used python `Flask` for serving the task and for running a json api
+  that the client-side javascript calls.
+* User data is stored in a `mysql`/`postgres` database (depending on the server
+  host). The database is built automatically and interfaced with by python code
+  using `sqlalchemy`.
+* The task integrates a Qualtrics survey. Data is passed to the survey via web
+  url parameters, so each participant's identifier gets recorded into the
+  Qualtrics data for matching later.
+* The task is deployed to Heroku, Salesforce's platform-as-a-service solution.
+  This runs containerized applications on AWS hardware.
+* I wrote "campaign" functionality to automate staggered posting of tasks to AWS
+  Mechanical Turk, using the python `boto3` library integrated with the
+  `psiturk` library.
+* At analysis time, I queried data using `sqlalchemy`. After parsing json
+  datastrings, I use `pandas` DataFrames to merge together task behavior,
+  mouse-tracking data, and survey data tables. I save these to csv files.
+* I did statistical analysis primarily in `R`, using the `tidyverse` collection
+  of packages (`dplyr`, `ggplot2`, etc.). I created models using `glm` and `lm`,
+  and I specified follow-up contrasts using `emmeans`. I used `knitr` to render
+  a report from an r-markdown file.
+
 
 ### Studies on confirmation bias for readers of online news
 
-* I manually downloaded snapshots of dozens of news articles from various online publication sources. Then I wrote python classes
-  for each publication source to scrape the articles' content, headlines, and header image. This data was stored in a mongodb.
-* I created an api that could display article content as if from any source, using Flask templates.
-* I collected mouse-tracking data while participants read news articles, and posted it to AWS firehose via an AWS api gateway. The firehose stored data in s3. This was crawled with AWS glue, to create query-able AWS Athena tables.
-* I used Python scripts to query the Athena tables, and to group the mouse-tracking data by article-interaction, based on timestamps
-  recorded in task-tracking data. I used R scripts to automate statistical analysis, using `lme4` for linear mixed models,
-  since the data was of repeated-measures nature.
+This example demonstrates consuming cloud-computing services -- specifically, stringing together several AWS cloud computing services in order
+to capture mouse-tracking data for a web-based field experiment.
+
+* I manually downloaded snapshots of dozens of news articles from various online
+  publication sources. Then I wrote python classes for each publication source
+  to scrape the articles' content, headlines, and header image. This data was
+  stored in a `mongodb`.
+* I created an api that could display article content as if from any source,
+  using `Flask` templates.
+* I collected mouse-tracking data while participants read news articles, and
+  posted it to `AWS firehose` via an `AWS api gateway`. Firehose stored data in
+  `s3`. This was crawled with `AWS glue`, to create query-able `AWS Athena` tables.
+* I used Python scripts to query the Athena tables, and to group the
+  mouse-tracking data by article-interaction, based on timestamps recorded in
+  task-tracking data. I used `R` scripts to automate statistical analysis, using
+  `lme4` for linear mixed models, since the data was of repeated-measures
+  nature.
+
 
 ### Topological Data Analysis for a Nomological Network of IS Survey Items
 
-* I computed semantic space embeddings for IS survey items, using embedding libraries such as word2vec and GloVe.
-* I used sklearn to feed the data through various modeling algorithms, including neural nets (Tensorflow). I also fit models using DataRobot's AutoML platform.
-* I wrote a script to use python to interact with a Java trained ML model downloaded from DataRobot
-* Then, I used numpy and scipy to pull together model predictions from DataRobot
-* I applied various dimensionality reduction techniques (projections) to get from 11k to 3- or 2-dimensions, using sklearn IsolationForest, T-SNE, PCA, L2norm, etc.
-* I calculated shortest walking distances between all item-pairs from the graph. scipy to do distance calculations (such as pdist, and csgraph shortest_path)
-* I used the  _Mapper_ algorithm (via python KeplerMapper library) to divide the projection into a grid of hyperspheres --
-  Agglomerative clustering performed on each cluster to obtain nodes. Overlapping nodes are linked, creating a graph.
-* I (inadvertently) became a core developer of the python KeplerMapper library.
-* I used KeplerMapper to visualize the graph using javascript d3-force graph.
+This example demonstrates some of my experience with using machine learning packages for research.
+
+* I computed semantic space embeddings for IS survey items, using embedding
+  libraries such as `word2vec` and `GloVe`.
+* I used `sklearn` to feed the data through various modeling algorithms. I also
+  fit models using DataRobot's AutoML platform.
+* I wrote a script to use python to interact with a Java trained ML model
+  downloaded from DataRobot
+* Then, I used `numpy` and `scipy` to pull together model predictions from
+  DataRobot
+* I applied various dimensionality reduction techniques (projections) to get
+  from 11-thousand down to 3- or 2-dimensions, using various `sklearn`
+  manifolds, including IsolationForest, `t-SNE`, l2-norm, and PCA.
+* I used `scipy.sparse.csgraph.shortest_path` to calculate shortest walking distances between all item-pairs from the graph, which I prepared using
+`scipy.spatial.distance.pdist`.
+* I used the  _Mapper_ algorithm (via python `KeplerMapper` library) to divide the
+  projection into a grid of hyperspheres. Then I used agglomerative clustering (via `sklearn.cluster.AgglomerativeClustering`)
+  on each cluster to obtain nodes. I linked overlapping nodes, creating a "graph."
+* I became a core developer of the scikit-tda python KeplerMapper library.
+* I used KeplerMapper to visualize the graph using javascript `d3-force` graph.
+
 
 ### InfoSec DevOps
 
-I moved everything from usb-based "golden image" virtualbox ISOs, to full code-as-infrastructure DevOps.
+This example demonstrates some of my self-taught efforts with cloud-based DevOps.
+It involved moving virtual machines from usb-based "golden image" virtualbox ISOs to full code-as-infrastructure DevOps.
 
-* I used Packer to automate the preparation of a raw image of Debian-based Kali OS to be able
-  to run on Google Cloud (cheaper for students than AWS).
-* I used virt-manager on a gcp-launched kali image (that's nested virtualization!) so students
-  can launch several "penetration testing lab" virtual machines for class assignments.
-* I used vagrant and chef to provision the virtual machine images. Vagrant means that I can update the vagrant build script, and have
-  students download and rerun the script to get fixed VM images, if needed. I used chef because that's what metasploitable3 uses, and I wanted to be able to contribute back to metasploitable3.
-* I used terraform to launch a vpn server and a vulnerable midterm assessment server for _each student team_.
-  The vulnerable servers are only accessible via a connection to the given vpn server, _except_ that ssh is open to the world so that I can ssh in and fix images if needed, via ansible.
+* I used `packer` to automate the preparation of a raw image of Debian-based
+  Kali OS to be able to run on Google Cloud (GCP -- it's cheaper for students
+  than AWS).
+* I used `virt-manager` on a gcp-launched kali image (that's nested
+  virtualization!) so students can launch several "penetration testing lab"
+  virtual machines for class assignments.
+* I used `vagrant` and `chef` to provision the virtual machine images. The use
+  of Vagrant  means that I can update the vagrant build script and have
+  students download and rerun the script to get fixed VM images mid-semester, if needed. I
+  used chef because that is what metasploitable3 uses, and I wanted to be able to
+  contribute back to metasploitable3.
+* I used `terraform` to launch a separate subnet, vpn server, and vulnerable midterm assessment
+  server for each student team. The vulnerable servers are only accessible
+  via a connection to the given vpn server, _except_ that ssh is open to the
+  world so that I can ssh in and fix images if needed, via `ansible`.
 
 
 ## Professional Affiliations
