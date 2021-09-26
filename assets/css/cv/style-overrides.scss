@@ -20,3 +20,65 @@ sup {
     color: $color-grey;
   }
 }
+
+h2 {
+  margin-top: 1em;
+}
+
+h2+ul {
+  margin-top: 2px;
+}
+
+h2+p {
+  margin-top: 1px;
+}
+
+p.reference {
+  margin-left: 2em;
+  text-indent: -2em;
+}
+
+p.reference code {
+  right: -16%; /* fallback if needed */
+  right: calc(-20% + 2em);
+}
+
+h3 {
+  line-height: 1.4em;
+  margin-top: 2em;
+}
+
+h3+p {
+  margin-top: 4px;
+}
+
+h3+ul {
+  margin-top: 4px;
+}
+
+.table {
+  position: relative;
+  left: 25%;
+  width: 55% !important;
+  margin-bottom: 1.5em;
+}
+
+ul {
+  width: 55%;
+}
+
+ul.no-list-style li:before {
+  content: none;
+}
+
+dl {
+  position: relative;
+  left: 25%;
+  margin-bottom: 0.7em;
+  margin-right: 0;
+  width: 55%;
+}
+
+dt {
+  font-style: italic;
+}
