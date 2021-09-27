@@ -59,8 +59,9 @@ at the University of Colorado Boulder
 `2017`
 __Ph.D., Information Systems and Technology Management__\
 *Katz Graduate School of Business, University of Pittsburgh, Pittsburgh, Pennsylvania, USA.*\
-Dissertation: "Security Messages: Or, How I Learned to Stop Disregarding and Heed the Warning"
-
+Dissertation: "Security Messages: Or, How I Learned to Stop Disregarding and Heed the Warning" [(pdf)]({{ site.url }}{{ site.baseurl }}{% link /assets/papers/dissertation.pdf %}){: .expand-me }
+- Two papers exploring whether integrating human facial expressions of fear and threat into security messages can help invoke attention and more secure behavior. A third paper exploring the degree to which various magnitudes of monetary cost impact work/study performance-security tradeoff behaviors.
+- Used online lab study methods (amazon mturk) and fMRI; used deception protocols.
 
 `2013`
 __Master of Information Systems Management__\

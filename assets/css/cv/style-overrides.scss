@@ -77,6 +77,16 @@ h3+ul {
 
 ul {
   width: 55%;
+  list-style-type: "- ";
+
+  li:before {
+    content: none;
+  }
+
+  li {
+    padding-left: 0;
+    text-indent: 0;
+  }
 }
 
 ul.no-list-style li:before {
