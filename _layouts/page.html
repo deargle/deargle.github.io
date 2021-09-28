@@ -8,6 +8,10 @@ layout: default
 
     <h1 class="display-4 text-primary" data-toc-skip>{{ page.title | smartify }}</h1>
 
+    {% if page.description %}
+      <p class='lead'>{{ page.description }}</p>
+    {% endif %}
+
     {{ content }}
 
     </div>
