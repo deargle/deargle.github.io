@@ -1,0 +1,9 @@
+---
+layout: post
+---
+
+{{ content }}
+
+{% assign src = '/assets/img/' | append: page.image_filename | relative_url %}
+
+<a href='{{ src }}'><img class='img-fluid img-max img-thumbnail' src="{{ src }}" /></a>
