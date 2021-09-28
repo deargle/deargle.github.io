@@ -11,7 +11,7 @@ I'm trying to find the video from the first one a few years back.
 The event below is a pep rally for a jogathon fundraiser, and the flamingos and
 a tiger are lined up for a race across the blacktop. The audience includes
 grades kindergarten through 6th. The two flamingo-riders had been working the
-crowd for about ten minutes previous to the clip, "builing a relationship" with
+crowd for about ten minutes previous to the clip, "building a relationship" with
 the audience, as my wife puts it. That explains the screams of horror as the
 dinosaur feasts on flamingo flesh.
 
