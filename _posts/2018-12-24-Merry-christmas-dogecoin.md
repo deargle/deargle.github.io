@@ -2,6 +2,7 @@
 title: Merry Christmas Dogecoin
 description: Instructions to my family for how to get gift of dogecoin from me
 tags: cryptocurrency
+category: unprofessional
 ---
 
 ![](/assets/img/dogecoin-300.png){: width="200px" }

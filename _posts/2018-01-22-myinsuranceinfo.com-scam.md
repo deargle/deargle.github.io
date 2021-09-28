@@ -2,6 +2,7 @@
 title: myinsuranceinfo.com Legit-yet-scammy Letter
 description:
 tags: security
+category: professional
 ---
 
 <style>

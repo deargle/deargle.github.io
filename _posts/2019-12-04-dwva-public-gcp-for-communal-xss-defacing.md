@@ -2,6 +2,7 @@
 title: Group activity website defacement via XSS playground
 description: dwva public gcp for communal xss defacing
 tags: security pedagogy
+category: professional
 ---
 
 lol I'm teaching Web Security today to my b-school students. It's a collection of miscellaneous random attacks possible against content hosted online -- XSS, SQLi, cloud storage bucket permissions, shopping cart attacks. I like live-demoing XSS website defacement during the class lecture. All students have access to [DVWA](http://www.dvwa.co.uk/) via their metasploitable2 instances, but I wanted a way where we could all deface the same website, for the visual impact. Figured one out -- [DVWA has a docker container](https://hub.docker.com/r/vulnerables/web-dvwa), and GCP makes it easy to launch docker instances as GCP virtual instances. Two commands in `gcloud`:

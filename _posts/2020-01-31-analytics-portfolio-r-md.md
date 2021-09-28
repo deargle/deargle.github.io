@@ -4,6 +4,7 @@ description: >
     This post is my first attempt at learning cool ways to upload and displaying an online data analytics portfolio,
     to show my students.
 tags: R analytics
+category: professional
 ---
 
 This is the first post of several in which I will explore ways to build an online analytics portfolio.

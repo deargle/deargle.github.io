@@ -2,6 +2,7 @@
 title: Canvas LMS Quiz.Next Partial Credit Hack
 description: Javascript hack for granting partial credit in Canvas Quiz.Next quizzes
 tags: canvas pedagogy
+category: professional
 ---
 
 Much to my consernation, as of 12-12-2019, Canvas' new Quiz format "Quiz.Next" does not calculate partial credit for "select all that apply"-type questions. Their _old_ ("classic") quiz

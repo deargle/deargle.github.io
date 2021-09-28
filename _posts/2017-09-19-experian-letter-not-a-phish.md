@@ -2,6 +2,7 @@
 title: Was almost certain this was an Experian postal phish
 description:
 tags: security
+category: professional
 ---
 
 I froze my credit in the wake of the Equifax breach. Got two letters in the mail today, one for me and one for my wife, that I strongly suspected was a phishing scam. I

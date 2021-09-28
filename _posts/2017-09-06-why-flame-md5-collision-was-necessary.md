@@ -2,6 +2,7 @@
 title: Why Flame md5 collision was necessary
 description:
 tags: security
+category: professional
 ---
 
 I read [Countdown to Zero Day](https://www.amazon.com/Countdown-Zero-Day-Stuxnet-Digital/dp/0770436196) (and really enjoyed it!) but I still didn't have a firm grasp

@@ -2,6 +2,7 @@
 title: Creating Church Manuals
 description: A lesson I taught to a class of 14-18 year olds in church
 tags: church
+category: unprofessional
 ---
 
 These are notes on a lesson I taught to a class older youth on my views of how

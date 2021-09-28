@@ -2,6 +2,7 @@
 title: How to learn lockpicking
 description:
 tags: security pedagogy
+category: professional
 ---
 
 I'm preparing to teach lockpicking to my class of 20 students in my information security management course at CU Boulder as an object lesson on the importance of physical security.

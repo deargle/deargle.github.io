@@ -3,6 +3,7 @@ title: Notes on ML model evaluation
 description: Classical statistics vs Machine Learning; Model interpretation vs evaluation; Fitting a model vs Using it; R vs Python for analytics.
 last_modified_at: 2021-08-18 23:30:00 +0000
 tags: analytics
+category: professional
 include_toc: true
 ---
 

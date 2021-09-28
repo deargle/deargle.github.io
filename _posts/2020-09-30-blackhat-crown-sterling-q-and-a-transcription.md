@@ -3,6 +3,7 @@ title: Transcription of Crown Sterling Time AI Blackhat 2019 Q&A Session
 description: A transcription of a recording of the question and answer
   session from Robert Grant's BlackHat 2019 presentatino about Time AI
 tags: security
+category: professional
 ---
 
 For use in teaching asymmetric cryptography to

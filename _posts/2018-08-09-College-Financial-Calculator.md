@@ -2,6 +2,7 @@
 title: I made a college financial calculator
 description: Calculator to assist in optimizing investment strategies for future expenses.
 tags: finances tools
+category: unprofessional
 ---
 
 <div class='page-header text-center well'><h2>Find the calculator <a href='https://daveeargle.com/college-financial-calculator/'>here</a>.</h2></div>

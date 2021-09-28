@@ -2,6 +2,7 @@
 title: I social engineer my own banks
 description:
 tags: security
+category: professional
 ---
 
 For miscellaneous reasons, I have several different checking accounts at different banks. The most wild reason for opening a new account

@@ -2,6 +2,7 @@
 title: Vulnerable servers on GCP
 description: A follow-up to an older post, now with automate-all-the-things.
 tags: security pedagogy
+category: professional
 ---
 
 In an [older post]({% post_url 2017-03-28-Hosting-vulnerable-servers-on-AWS %}), I described painfully and tediously configuring a single OpenVPN server which would connect a user to a private network of vulnerable servers. The idea was to shield

@@ -3,6 +3,7 @@ title: Hosting vulnerable servers on AWS
 description: Notebook on how I configured an AWS VPC with an OpenVPN server for hosting a set of vulnerable virtual images,
     intended for students to do vulnerability assessments with.
 tags: security pedagogy
+category: professional
 ---
 
 <div class='alert alert-info'><strong>Update 11/7/2019</strong> see <a href='{% post_url 2019-11-07-gcp-vulnerable-servers %}'>this newer post</a> for an automation of the tedium of the steps in this post, albeit deployed on GCP instead of AWS.</div>

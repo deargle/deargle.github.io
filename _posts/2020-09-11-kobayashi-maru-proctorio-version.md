@@ -2,6 +2,7 @@
 title: Teaching Students how to Cheat During the Pandemic
 description: Modification of Kobayahsi Maru for all-virtual classes
 tags: pedagogy security
+category: professional
 ---
 
 I use a variation of Conti and Caroland (2011)'s "memorize the first 100 digits of pi"

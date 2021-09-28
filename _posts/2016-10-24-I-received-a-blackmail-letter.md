@@ -2,6 +2,7 @@
 title: I received a blackmail letter
 description: Original report of receiving a blackmail letter in the mail in 2016. Includes ongoing analysis as wave after wave of new letters have gone out over the following years. Includes contact information to USPIS inspector covering the case.
 tags: security
+category: professional
 ---
 
 

@@ -4,6 +4,7 @@ description: Church lesson I taught riffing off of a talk by Elder Oaks about
   the limiting factor of self-labels, merged with an exercised from an
   organizational behavior phd seminar I had at Pitt.
 tags: church
+category: unprofessional
 ---
 
 

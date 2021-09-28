@@ -3,6 +3,7 @@ title: Teacher Council -- Lectures versus Discussions
 description: several argued that for classes taught at church,
   discussions are far superior to lectures. But are they?
 tags: church
+category: unprofessional
 ---
 
 Takeaways:

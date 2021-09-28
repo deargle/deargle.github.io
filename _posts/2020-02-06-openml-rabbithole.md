@@ -1,9 +1,8 @@
 ---
 title: OpenML rabbithole
 tags: analytics
+category: professional
 ---
-
-
 
 If the goal is to post a sample jupyter notebook online as a portfolio demonstration piece, then one of the first "problems" one encounters is,
 what dataset to use. If the goal of the portfolio piece is moreso to demonstrate model-building skills, and less-so domain knowledge of the dataset

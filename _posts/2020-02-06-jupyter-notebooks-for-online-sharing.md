@@ -1,6 +1,7 @@
 ---
 title: Sharing code with Jupyter Notebooks
 tags: analytics
+category: professional
 ---
 
 This post is a follow-up to an [earlier post about starting an online analytics portfolio]({% post_url 2020-01-31-analytics-portfolio-r-md %}),

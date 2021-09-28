@@ -2,6 +2,7 @@
 title: "Interpreting dummy-coded parameter estimates with and without a model intercept"
 description: null
 tags: R analytics
+category: professional
 ---
 
 This post is to illustrate the differences in model parameter estimates for dummy-coded factors when the model includes an intercept versus when it does not.

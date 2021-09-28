@@ -107,7 +107,13 @@ exclude:
 
 
 #number of items in RSS feed
-rss_limit: 10
+feed:
+  path: "/feed.xml"
+  posts_limit: 10
+  categories:
+    - professional
+    - unprofessional
+
 
 #permalink structure, see http://jekyllrb.com/docs/permalinks/
 permalink: /:year/:month/:day/:title/

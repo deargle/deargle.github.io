@@ -2,6 +2,7 @@
 title: Canvas LMS "Unpublish All" Hack
 description: A hacky javascript workaround to avoid hundreds of clicks to unpublish items after copying a course to a new semester
 tags: canvas pedagogy
+category: professional
 ---
 
 Canvas Learning Management System (LMS) is visually pretty, but is sorely lacking in core usability functionality.
