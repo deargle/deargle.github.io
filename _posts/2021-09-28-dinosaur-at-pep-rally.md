@@ -1,6 +1,6 @@
 ---
 title: Dinosuit Sighting at 2021 Elementary School Pep Rally
-description: Announcing the creation of a log of some of the times I've worn one of those inflatable dinosuits.
+description: Unexpected T-rex feasts on flamingos racing a tiger at an elementary school pep rally, horrifying young children.
 tags: dinosuit
 category: unprofessional
 ---
