@@ -17,6 +17,8 @@ dinosaur feasts on flamingo flesh.
 
 It was literally 100 degrees outside, and the dinosuit inflation fan fell out mid chase. I nearly collided with a basketball hoop pole.
 
+[reddit post](https://www.reddit.com/r/trexgonewild/comments/pxgytx/unexpected_trex_feasts_on_flamingos_racing_a/).
+
 <div class='text-center'>
 <video controls width="400">
 
