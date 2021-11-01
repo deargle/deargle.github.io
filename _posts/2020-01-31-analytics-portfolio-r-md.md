@@ -46,82 +46,89 @@ On [an earlier blog post]({% post_url 2018-04-10-Reference level or not %}) I de
 
 A `demo.Rmd` file may look like this:
 
-    ---
-    title: "Demo .Rmd to .md"
-    output: github_document
-    ---
+{% highlight markdown %}
+---
+title: "Demo .Rmd to .md"
+output: github_document
+---
 
-    ```{r setup, include=FALSE}
-    knitr::opts_chunk$set(echo = TRUE)
-    ```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-    ```{r library, message=FALSE, warning=FALSE}
-    library(readr)
-    library(lsmeans)
+```{r library, message=FALSE, warning=FALSE}
+library(readr)
+library(lsmeans)
 
-    my.data <- read_csv("https://raw.githubusercontent.com/deargle/deargle.github.io/master/assets/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv")
-    ```
+my.data <- read_csv("https://raw.githubusercontent.com/deargle/deargle.github.io/master/assets/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv")
+```
 
-    ## Reference level with an intercept
+## Reference level with an intercept
 
-    If we fit a logistic regression model, by default, an intercept will be estimated. In R, by default,
-    the first level is used as the reference level.
+If we fit a logistic regression model, by default, an intercept will be estimated. In R, by default,
+the first level is used as the reference level.
 
 
-    ```{r model}
-    m <- glm(loan_status ~ grade, family='binomial', data=my.data)
-    summary(m)
-    ```
+```{r model}
+m <- glm(loan_status ~ grade, family='binomial', data=my.data)
+summary(m)
+```
+
+{% endhighlight %}
 
 `Knit`ing this file would produce a `demo.md` file, in addition to an .html preview. For the above, that would look like this:
 
-    Demo .Rmd to .md
-    ================
+{% highlight markdown %}
 
-    ``` r
-    library(readr)
-    library(lsmeans)
+Demo .Rmd to .md
+================
 
-    my.data <- read_csv("https://raw.githubusercontent.com/deargle/deargle.github.io/master/assets/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv")
-    ```
+``` r
+library(readr)
+library(lsmeans)
 
-    Reference level with an intercept
-    ---------------------------------
+my.data <- read_csv("https://raw.githubusercontent.com/deargle/deargle.github.io/master/assets/data/LendingClub_2007_2014_Cleaned_Reduced_NoTargetLeak.csv")
+```
 
-    If we fit a logistic regression model, by default, an intercept will be estimated. In R, by default, the first level is used as the reference level.
+Reference level with an intercept
+---------------------------------
 
-    ``` r
-    m <- glm(loan_status ~ grade, family='binomial', data=my.data)
-    summary(m)
-    ```
+If we fit a logistic regression model, by default, an intercept will be estimated. In R, by default, the first level is used as the reference level.
 
-        ##
-        ## Call:
-        ## glm(formula = loan_status ~ grade, family = "binomial", data = my.data)
-        ##
-        ## Deviance Residuals:
-        ##     Min       1Q   Median       3Q      Max  
-        ## -1.5829  -0.6222  -0.4769  -0.3523   2.3710  
-        ##
-        ## Coefficients:
-        ##             Estimate Std. Error z value Pr(>|z|)    
-        ## (Intercept) -2.74868    0.09153 -30.030  < 2e-16 ***
-        ## gradeB       0.63193    0.10614   5.954 2.62e-09 ***
-        ## gradeC       1.20502    0.10544  11.429  < 2e-16 ***
-        ## gradeD       1.53512    0.11264  13.629  < 2e-16 ***
-        ## gradeE       1.83239    0.14778  12.399  < 2e-16 ***
-        ## gradeF       1.95645    0.26251   7.453 9.14e-14 ***
-        ## gradeG       3.66497    0.84165   4.355 1.33e-05 ***
-        ## ---
-        ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-        ##
-        ## (Dispersion parameter for binomial family taken to be 1)
-        ##
-        ##     Null deviance: 8070.2  on 9999  degrees of freedom
-        ## Residual deviance: 7719.6  on 9993  degrees of freedom
-        ## AIC: 7733.6
-        ##
-        ## Number of Fisher Scoring iterations: 5
+``` r
+m <- glm(loan_status ~ grade, family='binomial', data=my.data)
+summary(m)
+```
+
+    ##
+    ## Call:
+    ## glm(formula = loan_status ~ grade, family = "binomial", data = my.data)
+    ##
+    ## Deviance Residuals:
+    ##     Min       1Q   Median       3Q      Max  
+    ## -1.5829  -0.6222  -0.4769  -0.3523   2.3710  
+    ##
+    ## Coefficients:
+    ##             Estimate Std. Error z value Pr(>|z|)    
+    ## (Intercept) -2.74868    0.09153 -30.030  < 2e-16 ***
+    ## gradeB       0.63193    0.10614   5.954 2.62e-09 ***
+    ## gradeC       1.20502    0.10544  11.429  < 2e-16 ***
+    ## gradeD       1.53512    0.11264  13.629  < 2e-16 ***
+    ## gradeE       1.83239    0.14778  12.399  < 2e-16 ***
+    ## gradeF       1.95645    0.26251   7.453 9.14e-14 ***
+    ## gradeG       3.66497    0.84165   4.355 1.33e-05 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ##
+    ## (Dispersion parameter for binomial family taken to be 1)
+    ##
+    ##     Null deviance: 8070.2  on 9999  degrees of freedom
+    ## Residual deviance: 7719.6  on 9993  degrees of freedom
+    ## AIC: 7733.6
+    ##
+    ## Number of Fisher Scoring iterations: 5
+
+{% endhighlight %}
 
 Which, when copy-pasted into a post such as the one you're reading right now and built on jekyll / github pages, would render as...:
 
