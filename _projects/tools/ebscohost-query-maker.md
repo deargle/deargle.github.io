@@ -1,6 +1,6 @@
 ---
 type: tool
-title: College Financial Calculator
+title: Ebscohost Query Maker
 link: https://daveeargle.com/ebscohost-query-maker/
 ---
 
