@@ -5,15 +5,7 @@ hero: true
 
 {{ content }}
 
-{% for post in site.posts %}
-  {% assign include_post = false %}
-  {% for include_tag in page.include_tags %}
-    {% if post.tags contains include_tag %}
-      {% assign include_post = true %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-  {% if include_post %}
+{% for post in site.categories.professional %}
     <div class="row mb-2">
         <div class="col-sm-9">
             <a href="{{ post.url | relative_url }}">{{ post.title | smartify }}</a>
@@ -22,5 +14,4 @@ hero: true
             <small>{{ post.date | date: '%B %-d, %Y' }}</small>
         </div>
     </div>
-  {% endif %}
 {% endfor %}
