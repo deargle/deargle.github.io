@@ -20,7 +20,7 @@ layout: default
         {{ content }}
       </div>
 
-      {% if page.tags %}
+      {% if page.tags and page.tags.size != 0 %}
       <div class="mb-2">
         <small><span class="fst-italic">Tags: {{ page.tags | join: ", " }}</span></small>
       </div>
