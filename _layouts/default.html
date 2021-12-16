@@ -97,7 +97,7 @@
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-      var $container = $('#grid');
+      var $container = $('#photo-grid');
 
       $container.masonry({
         percentPosition: true, initLayout: false
@@ -105,13 +105,13 @@
 
       // initialize Masonry after all images have loaded
       $container.imagesLoaded( function() {
+        $container.removeClass('is-loading');
         $container.masonry();
         document.getElementById('loading-spinner-container').remove();
       })
-      .progress( function(imgLoad, image ){
-        var $placeholder = $( image.img ).closest('.card');
-        $placeholder.removeClass('is-loading');
-      });
+      .progress(function(x, image) {
+        $( image.img ).closest('.card').removeClass('is-loading');
+      })
 
     </script>
     {% endif %}

@@ -31,7 +31,7 @@ include_masonry: true
     background-repeat: no-repeat;
   }
 
-  .card.is-loading {
+  .is-loading {
     display: none;
   }
 
@@ -45,7 +45,7 @@ include_masonry: true
     </div>
   </div>
 
-  <div class="row" id='grid'>
+  <div class="row is-loading" id='photo-grid'>
 
   {% for photo in page.photos %}
 
