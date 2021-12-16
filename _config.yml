@@ -4,7 +4,7 @@ remote_theme: deargle/retlab
 
 title: Dave Eargle
 tagline: Information Systems Management Researcher
-description: Personal website of David Eargle, Information Systems Management Researcher
+description: Personal website of David Eargle
 author: David Eargle
 
 github_username: deargle
@@ -65,11 +65,13 @@ job_title: Assistant Professor, Organizational Leadership and Information Analyt
 
 # Collections
 collections:
-    classes:
-        output: true
-    class_summaries: # This exists because this repo currently has classes within it which I'll eventually move out into their own repos.
-    schools:
-    projects:
+  classes:
+    output: true
+  class_summaries: # This exists because this repo currently has classes within it which I'll eventually move out into their own repos.
+  schools:
+  projects:
+  woodworking:
+    output: true
 
 #files to exclude, array
 exclude:
@@ -140,6 +142,12 @@ defaults:
         type: "classes"
     values:
         layout: "syllabus"
+  -
+    scope:
+      path: ""
+      type: "woodworking"
+    values:
+      layout: photo-page
 
 # Plugins
 plugins:

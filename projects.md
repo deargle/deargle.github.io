@@ -1,13 +1,27 @@
 ---
 title: Projects
-description: A collection of links to project pages referenced in blog posts and the like
+description: Some things I'm working on; some things I've made.
 layout: page
 permalink: /projects/
 include_toc: true
 ---
 
-{: .lead }
-Some research I'm working on; some things I've made.
+<h1>Tools</h1>
+
+Some things I've made. Links are scattered throughout blog posts, so I'm gathering them here.
+
+
+{% assign tools = site.projects | where: 'type', 'tool' %}
+{% for tool in tools %}
+<h2 {% if tool.title_short %}data-toc-text="{{ tool.title_short }}"{% endif %}>{{ tool.title }}</h2>
+
+{% if tool.link %}
+<{{tool.link}}>
+{% endif %}
+
+{{tool.content | markdownify }}
+
+{% endfor %}
 
 
 <h1>Research</h1>
@@ -94,19 +108,9 @@ I am involved more heavily with development of a few open-source repositories, s
 {% endfor %}
 
 
-<h1>Tools</h1>
 
-Some things I've made. Links are scattered throughout blog posts, so I'm gathering them here.
+<h1>Extras</h1>
 
-
-{% assign tools = site.projects | where: 'type', 'tool' %}
-{% for tool in tools %}
-<h2 {% if tool.title_short %}data-toc-text="{{ tool.title_short }}"{% endif %}>{{ tool.title }}</h2>
-
-{% if tool.link %}
-<{{tool.link}}>
-{% endif %}
-
-{{tool.content | markdownify }}
-
-{% endfor %}
+<div class="mb-2">
+<a class='btn btn-success' href='{% link woodworking.md %}'>Go to Woodworking Projects</a>
+</div>

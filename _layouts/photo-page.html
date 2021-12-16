@@ -1,0 +1,76 @@
+---
+layout: page
+include_masonry: true
+---
+
+{% if page.date %}
+<p>
+  <em>Created {{ page.date | date: "%Y-%m-%d" }}</em>
+</p>
+{% endif %}
+
+
+{% if page.collection %}
+<p>
+  <em>Part of the <a href="/{{ page.collection }}">{{ page.collection }}</a> collection.</em>
+</p>
+{% endif %}
+
+{% if page.photos.size > 1 %}
+{{ content }}
+{% endif %}
+
+
+<style media="screen">
+  .placeholder {
+    min-height: 140px;
+    min-width: 100px;
+    display: block;
+    background-color: black;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .card.is-loading {
+    display: none;
+  }
+
+</style>
+
+<div class="">
+
+  <div id='loading-spinner-container' class="d-flex justify-content-center align-items-center mb-2">
+    <div class="loading-spinner spinner-border text-light" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="row" id='grid'>
+
+  {% for photo in page.photos %}
+
+    {% capture href %}/assets/img/woodworking/{{ photo.filename }}{% endcapture %}
+
+    <div class="col-sm-6 col-lg-4 mb-4">
+      <div class="card is-loading">
+        <a href='{{ href }}' target='_blank'>
+          <img src="{{ href }}" class="card-img-top" alt="{{ photo.filename }}">
+        </a>
+        {% if photo.title or photo.date or photo.description %}
+        <div class="card-body">
+          {% if photo.title %}<h5 class="card-title">{{ photo.title }}</h5>{% endif %}
+          {% if photo.date %}<h6 class="card-subtitle mb-2 text-muted">{{ photo.date }}</h6>{% endif %}
+          {% if photo.description %}<p class="card-text">{{ photo.description }}</p>{% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+  {% endfor %}
+
+  </div>
+</div>
+
+{% if page.photos.size == 1 %}
+{{ content }}
+{% endif %}

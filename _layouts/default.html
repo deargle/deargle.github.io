@@ -65,6 +65,11 @@
     <script type="text/javascript">twttr.conversion.trackPid('{{ site.twitter.property_id }}', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
     {% endif %}
 
+
+    {% if page.include_toc or layout.include_masonry %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    {% endif %}
+
     {% if page.include_toc %}
     <!-- add after bootstrap.min.css -->
     <link
@@ -72,7 +77,6 @@
     href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"
     />
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
 
@@ -85,6 +89,30 @@
         var $spy = $(this).scrollspy('refresh')
       })
     })
+    </script>
+    {% endif %}
+
+    {% if layout.include_masonry %}
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      var $container = $('#grid');
+
+      $container.masonry({
+        percentPosition: true, initLayout: false
+      });
+
+      // initialize Masonry after all images have loaded
+      $container.imagesLoaded( function() {
+        $container.masonry();
+        document.getElementById('loading-spinner-container').remove();
+      })
+      .progress( function(imgLoad, image ){
+        var $placeholder = $( image.img ).closest('.card');
+        $placeholder.removeClass('is-loading');
+      });
+
     </script>
     {% endif %}
 
