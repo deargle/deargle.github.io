@@ -6,13 +6,15 @@ layout: default
   <div class="row">
     <div class="col-md-9 offset-md-1">
 
-    <h1 class="display-4 text-primary" data-toc-skip>{{ page.title | smartify }}</h1>
+    <h1 class="display-1 text-primary" data-toc-skip>{{ page.title | smartify }}</h1>
 
     {% if page.description %}
       <p class='lead'>{{ page.description }}</p>
     {% endif %}
 
+    <div class="page-content">  
     {{ content }}
+    </div>
 
     </div>
     {% if page.include_toc %}

@@ -6,14 +6,14 @@ permalink: /projects/
 include_toc: true
 ---
 
-<h1>Tools</h1>
+<h1 class='display-3'>Tools</h1>
 
 Some things I've made. Links are scattered throughout blog posts, so I'm gathering them here.
 
 
 {% assign tools = site.projects | where: 'type', 'tool' %}
 {% for tool in tools %}
-<h2 {% if tool.title_short %}data-toc-text="{{ tool.title_short }}"{% endif %}>{{ tool.title }}</h2>
+<h2 class='' {% if tool.title_short %}data-toc-text="{{ tool.title_short }}"{% endif %}>{{ tool.title }}</h2>
 
 {% if tool.link %}
 <{{tool.link}}>
@@ -24,7 +24,7 @@ Some things I've made. Links are scattered throughout blog posts, so I'm gatheri
 {% endfor %}
 
 
-<h1>Research</h1>
+<h1 class='display-3'>Research</h1>
 
 Recent research, grouped by stream.
 
@@ -44,7 +44,7 @@ for a full list of my publications.
   {% else %}
     {% assign stream_toc_text = stream_meta.name %}
   {% endif %}
-  <h2 data-toc-text="{{ stream_toc_text }}">Stream: {{ stream_meta.name }}</h2>
+  <h2 class='display-5' data-toc-text="{{ stream_toc_text }}">Stream: {{ stream_meta.name }}</h2>
 
   <p class='lead'>{{ stream_meta.description }}</p>
 
@@ -83,7 +83,7 @@ for a full list of my publications.
 </div>
 
 
-<h1>Github Projects</h1>
+<h1 class='display-3'>Github Projects</h1>
 
 Check out my github activity! <a href="{{ site.github_username }}"><i class="fab fa-github"></i> deargle</a>
 
@@ -109,8 +109,11 @@ I am involved more heavily with development of a few open-source repositories, s
 
 
 
-<h1>Extras</h1>
+<h1 class='display-3'>Extras</h1>
 
 <div class="mb-2">
-<a class='btn btn-success' href='{% link woodworking.md %}'>Go to Woodworking Projects</a>
+  <ul>
+    <li><a href="{% link woodworking.md %}">Woodworking projects</a></li>
+    <li><a href="{% link gardening/index.md %}">Gardening notes</a></li>
+  </ul>
 </div>
