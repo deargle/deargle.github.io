@@ -72,6 +72,7 @@ collections:
   projects:
   woodworking:
     output: true
+  opensource_projects:
 
 #files to exclude, array
 exclude:

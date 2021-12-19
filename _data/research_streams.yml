@@ -1,7 +1,7 @@
 -
   id: user-interface cybersecurity
   name: Behavioral Cybersecurity
-  name_short:
+  name_short: Behavioral Cybersecurity
   order: 1
   description: |
     This research seeks to understand predictors of why individuals disregard
@@ -9,8 +9,8 @@
     same. It applies theories and methods from both psychology and neuroscience.
 -
   id: Online News Political Divides
-  name: Online News
-  name_short:
+  name: Political biases in Online News Consumption
+  name_short: Online News
   order: 2
   description: |
     This stream tests the degree to which political ideological confirmation bias
@@ -20,8 +20,8 @@
     mitigations that can help address online news-related societal divides.
 -
   id: machine-learning-literature-reviews
-  name: Identifying the IS Nomological Network via Machine learning
-  name_short: IS Nomological Network
+  name: Identifying the informaiton systems research Nomological Network via Machine learning
+  name_short: The IS Nomological Network
   order: 3
   description: |
     This stream applies methods from machine learning and topographical data
@@ -30,8 +30,8 @@
     construct-creation processes.
 -
   id: Crowd-sourced psychology data collection
-  name: Crowdsourcing
-  name_short:
+  name: Using crowdsourcing platforms for research data collection
+  name_short: Crowdsourcing
   order: 4
   description: |
     This research is related to developing and using open-source code to collect

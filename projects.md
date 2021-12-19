@@ -4,6 +4,7 @@ description: Some things I'm working on; some things I've made.
 layout: page
 permalink: /projects/
 include_toc: true
+regenerate: true
 ---
 
 <h1 class='display-3'>Tools</h1>
@@ -24,88 +25,35 @@ Some things I've made. Links are scattered throughout blog posts, so I'm gatheri
 {% endfor %}
 
 
-<h1 class='display-3'>Research</h1>
+<h1 class='display-3'>Academic Research</h1>
 
-Recent research, grouped by stream.
+{% assign research_stream_names = site.data.research_streams | map: "name"  %}
 
-See [my vita]({{ '/vita/' | relative_url }}) or [my google scholar profile]({{ site.google_scholar }})
-for a full list of my publications.
+I do academic research on things like the following:
+<ul>
+{% for stream_name in research_stream_names %}
+<li>{{ stream_name }}</li>
+{% endfor %}
+</ul>
 
-{% assign research_streams = site.data.research_streams | sort: "order" %}
-{% assign research_projects_by_stream = site.projects | where: 'type', 'research' | group_by: "stream" %}
-
-<div class="">
-{% for stream_meta in research_streams %}
-
-  {% assign stream = research_projects_by_stream | where: 'name', stream_meta.id | first %}
-
-  {% if stream_meta.name_short %}
-    {% assign stream_toc_text = stream_meta.name_short %}
-  {% else %}
-    {% assign stream_toc_text = stream_meta.name %}
-  {% endif %}
-  <h2 class='display-5' data-toc-text="{{ stream_toc_text }}">Stream: {{ stream_meta.name }}</h2>
-
-  <p class='lead'>{{ stream_meta.description }}</p>
-
-  {% assign projects = stream.items | sort: "order" %}
-  {% for project in projects -%}
-    <h3>{{ forloop.index }}. {{ project.title }}</h3>
-
-    {%- if project.with -%}
-      <p><em>With: {{ project.with }}</em></p>
-    {%- endif %}
-
-<p>{{ project.description_short }}</p>
-
-{{ project.content | markdownify }}
-
-    {% if project.resources -%}
-      {% assign resources = project.resources %}
-      {%- if resources.links -%}
-      <p>Links to resources:
-        <ul>
-        {%- for link in resources.links -%}
-          <li><a href='{{ link.url }}'>{{ link.text }}</a></li>
-        {%- endfor -%}
-        </ul>
-      </p>
-      {% endif %}
-
-      {%- if resources.markdown %}
-{{ resources.markdown | markdownify }}
-      {% endif -%}
-    {%- endif -%}
-
-  {%- endfor %}
-
-{%- endfor %}
-</div>
+Learn more on my <a href="{% link research.md %}">research page</a>.
 
 
 <h1 class='display-3'>Github Projects</h1>
 
 Check out my github activity! <a href="{{ site.github_username }}"><i class="fab fa-github"></i> deargle</a>
 
-I publish as much of my class content as I can online, via Github Pages rendering.
-Much of that content is in the [<i class="fab fa-github"></i> deargle-classes](https://github.com/deargle-classes) github organization.
-I encourage my students to contribute to class-related repos. Sometimes they do.
+I publish some of my class content in the
+[<i class="fab fa-github"></i> deargle-classes](https://github.com/deargle-classes)
+github organization.
 
 I am involved more heavily with development of a few open-source repositories, such as the ones below.
 
-{% assign opensource_projects = site.projects | where: 'type', 'opensource' %}
-
-{% for project in opensource_projects -%}
-
-  <h2 {% if project.title_short %}data-toc-text="{{ project.title_short }}"{% endif %}>{{ project.title }}</h2>
-
-  {% if project.with -%}
-  <em>With: {{ project.with }}</em>
-  {%- endif %}
-
-{{ project.content | markdownify }}
-
+<ul>
+{% for project in site.opensource_projects %}
+<li> <strong><a href="{{ project.repo_link }}">{{ project.title }}</a></strong>. {{ project.my_involvement }}  </li>
 {% endfor %}
+</ul>
 
 
 
@@ -114,6 +62,5 @@ I am involved more heavily with development of a few open-source repositories, s
 <div class="mb-2">
   <ul>
     <li><a href="{% link woodworking.md %}">Woodworking projects</a></li>
-    <li><a href="{% link gardening/index.md %}">Gardening notes</a></li>
   </ul>
 </div>
