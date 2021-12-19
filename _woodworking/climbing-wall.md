@@ -7,7 +7,7 @@ photos:
 ---
 
 I followed plans from
-[this excellent blog post](http://mincingthoughts.blogspot.com/2015/07/kids-climbing-play-structure-building.html), although I had to adopt the plans for rough-cut wood dimensions. One of my first times using Sketchup, it was fun.
+[this excellent blog post](http://mincingthoughts.blogspot.com/2015/07/kids-climbing-play-structure-building.html), although I had to adapt the plans for rough-cut wood dimensions. One of my first times using Sketchup, it was fun.
 
 Cedar fence pickets for the climbing wall boards. 5/8" weren't thick enough to
 not bow without an additional backer board running vertically behind all
