@@ -9,6 +9,15 @@ photos:
     title: Kitchen Cabinet Remodel
     date: 2021-04-08
     description: Done!
+  - filename: kitchen-before-1.png
+    title: Before...
+    date: 2017-07-04
+  - filename: kitchen-before-3.png
+    title: Before...
+    date: 2017-07-04
+  - filename: kitchen-before.png
+    title: Before...
+    date: 2017-07-04
 #  - filename: 2020-10-24_223722-range-hood.jpg
 #  - filename: 2020-10-26_214610-new-cabinet-in-void.jpg
 #  - filename: 2020-11-02_143931-under-cabinet-lighting.jpg
