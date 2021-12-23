@@ -61,6 +61,6 @@ I am involved more heavily with development of a few open-source repositories, s
 
 <div class="mb-2">
   <ul>
-    <li><a href="{% link woodworking.md %}">Woodworking projects</a></li>
+    <li><a href="{% link woodworking/index.md %}">Woodworking projects</a></li>
   </ul>
 </div>

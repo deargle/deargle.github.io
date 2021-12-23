@@ -1,5 +1,6 @@
 ---
 type: woodworking
+date: 2021-04-29
 photos:
   - filename: 2021-04-29-headboard.jfif
 ---

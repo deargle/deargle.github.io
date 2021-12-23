@@ -23,7 +23,7 @@
 
 .page-content {
     h1, h2, h3, h4, h5, h6 {
-      &:not(.card-title) {
+      &:not(.card-title, .card-subtitle) {
         margin-top: 50px;
         padding-top: 20px;
         border-top: 2px solid white;

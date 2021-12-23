@@ -1,18 +1,24 @@
 ---
+layout: photo-page
 type: woodworking
-title: Woodworking Workshop
+title: My Woodworking Workshop
 thumbnail:
+filename_prefix: workshop/
 photos:
   - filename: 2020-04-27_211821-shop-photo-workbench.jpg
     title: Workbench
     date: 2020-04-27
-    description: Birth of the workbench
+    description: First major project after moving to Colorado
+  - filename: 2020-05-12_160908-router-table-stand.jpg
+    title: Router table stand
+    date: 2020-05-12
+    description: A rolling cart for the router table
   - filename: 2021-12-15-094119_009-shop-photo-against-wall.jpeg
-    title: Moved against wall
+    title: Shop put away
     description: Can quickly make room for one car
-    date: 2021-12-15
+    date: 2020-06-22
   - filename: 2020-06-22_144110-shop-photo-against-wall.jpg
-    title: Moved against wall
+    title: Shop put away
     date: 2020-06-22
     description: Can quickly make room for one car
   - filename: 2020-12-23_145520-shop-photo-clamp-wall.jpg
@@ -28,9 +34,18 @@ photos:
     title: Table saw stand
     date: 2020-12-24
     description: Table saw mobile station with drawers
-  - filename: 2020-12-24_225050-shop-photo-wood-cart.jpg
-    title: Wood cart
-    date: 2020-12-24
+  - filename: 2021-01-01_164530-mitre-saw-hood.jpg
+    title: Mitre saw hood
+    date: 2021-01-01
+    description: A not-very-good hood for the mitre saw
+  - filename: 2020-07-17_175045-panel-storage.jpg
+    title: Overhead panel storage
+    date: 2020-07-17
+    description: I put the panel on the ground when using a circular saw to cut full plywood sheets
+  - filename: 2020-06-02_173223-lumber-cart.jpg
+    title: Lumber cart
+    date: 2020-06-02
+    description: Now I can hoard wood even more effectively!
   - filename: 2020-12-24_225002-shop-photo-shop-vac.jpg
     title: Shop vac stand
     date: 2020-12-24
@@ -43,12 +58,19 @@ photos:
       Mobile miter saw station with folding extension tables. Dust is still a nightmare, going to modify with a tent.
   - filename: workshop-table-saw-stand.jfif
     title: Table saw stand
-  - filename: workshop-cart.jfif
-    title: Wood cart
+    date: 2020-05-14
+  - filename: 2020-05-14_220933-table-saw-stand-in-progress.jpg
+    title: Table saw stand -- in progress
+    date: 2020-05-14
+  - filename: 2020-05-13_132905-rolling-utility-cart.jpg
+    title: Utility cart
+    date: 2020-05-13
   - filename: 2020-12-24_225149-shop-photo-tube-station.jpg
     title: Tube station
-    description: >
-      A cabinet with slanted shelves for storing caulk tubes and cans
+    date: 2020-12-24
+    description: A cabinet with slanted shelves for storing caulk tubes and cans
 ---
 
 My workshop. Most of the plans came from Steve Ramsey's woodworking courses.
+
+See more of my [woodworking projects]({% link woodworking/index.md %}).

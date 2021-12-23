@@ -4,6 +4,7 @@ title: Climbing Wall
 date: 2018-06-27
 photos:
   - filename: 2018-06-27-climbing-wall.jpg
+    description: We soon moved it away from these rocks and onto the grass.
 ---
 
 I followed plans from

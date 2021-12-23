@@ -2,6 +2,7 @@
 type: woodworking
 thumbnail: 2021-01-13-box-red.jpg
 title: Lockbox
+date: 2021-02-03
 photos:
   - filename: 2021-01-13-box-red.jpg
     description: >

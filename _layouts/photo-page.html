@@ -47,9 +47,11 @@ include_masonry: true
 
   <div class="row is-loading" id='photo-grid'>
 
-  {% for photo in page.photos %}
+  {% assign photos = page.photos | sort: "date" | reverse %}
 
-    {% capture href %}/assets/img/woodworking/{{ photo.filename }}{% endcapture %}
+  {% for photo in photos %}
+
+    {% capture href %}/assets/img/woodworking/{{ page.filename_prefix }}{{ photo.filename }}{% endcapture %}
 
     <div class="col-sm-6 col-lg-4 mb-4">
       <div class="card is-loading">
@@ -59,7 +61,7 @@ include_masonry: true
         {% if photo.title or photo.date or photo.description %}
         <div class="card-body">
           {% if photo.title %}<h5 class="card-title">{{ photo.title }}</h5>{% endif %}
-          {% if photo.date %}<h6 class="card-subtitle mb-2 text-muted">{{ photo.date }}</h6>{% endif %}
+          {% if photo.date %}<h6 class="card-subtitle mb-2 text-muted">{{ photo.date | date: "%Y-%m-%d" }}</h6>{% endif %}
           {% if photo.description %}<p class="card-text">{{ photo.description }}</p>{% endif %}
         </div>
         {% endif %}
