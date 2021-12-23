@@ -47,7 +47,7 @@ include_masonry: true
 
   <div class="row is-loading" id='photo-grid'>
 
-  {% assign photos = page.photos | sort: "date" | reverse %}
+  {% assign photos = page.photos %}
 
   {% for photo in photos %}
 
