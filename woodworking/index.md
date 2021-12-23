@@ -68,8 +68,8 @@ regenerate: true
   </div>
 
   <div class="col">
-    <img src="/assets/img/woodworking/kitchen/2021-04-08-kitchen-cabinets.jpg" class="card-img-top thumbnail-img" alt="workshop-thumbnail">
     <div class="card" style="width: 18rem;" >
+      <img src="/assets/img/woodworking/kitchen/2021-04-08-kitchen-cabinets.jpg" class="card-img-top thumbnail-img" alt="workshop-thumbnail">
       <div class="card-body">
         <h5 class="card-title">Kitchen Cabinet Remodel</h5>
         <a class='stretched-link' href="{% link woodworking/kitchen-cabinets.md %}"></a>
