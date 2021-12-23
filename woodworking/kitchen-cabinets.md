@@ -9,6 +9,21 @@ photos:
     title: Kitchen Cabinet Remodel
     date: 2021-04-08
     description: Done!
+  - filename: 2020-10-24_223719-new-hood-cropped.jpg
+    title: New range hood
+  - filename: 2020-10-26_214618-new-cabinet-in-void-cropped.jpg
+    title: New cabinet
+    description: In what previously was a void
+  - filename: 2020-11-02_143931-under-cabinet-lighting-cropped.jpg
+    title: Under-cabinet lighting
+  - filename: 2021-02-08_214942-making-cabinet-doors.jpg
+    title: Cabinet door glue-up
+    description: Tongue-and-groove rails and stiles
+  - filename: 2021-02-10_152757-hanging-cabinet-doors-to-dry.jpg
+    title: Cabinet door drying rack
+    description: >
+      Early iteration. Moved elsewhere after I forgot these were here when opening
+      the garage door <i class="far fa-grimace"></i>
   - filename: kitchen-before-1.png
     title: Before...
     date: 2017-07-04
@@ -18,11 +33,7 @@ photos:
   - filename: kitchen-before.png
     title: Before...
     date: 2017-07-04
-#  - filename: 2020-10-24_223722-range-hood.jpg
-#  - filename: 2020-10-26_214610-new-cabinet-in-void.jpg
-#  - filename: 2020-11-02_143931-under-cabinet-lighting.jpg
-#  - filename: 2021-02-08_214942-making-cabinet-doors.jpg
-#  - filename: 2021-02-10_152757-hanging-cabinet-doors-to-dry.jpg
+
 ---
 
 
