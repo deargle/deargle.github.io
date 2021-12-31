@@ -1,5 +1,5 @@
 ---
-title: Securing paypal "smart button" client via shared-secret hash signatures
+title: Securing paypal "smart buttons" via shared-secret hash signatures
 description: >
   The paypal javascript client by default is totally open to integrity attacks.
   That's a problem if paypal orders trigger webhooks that do business logic.
