@@ -82,7 +82,7 @@ I have documented the build process [in this github repo](https://github.com/dea
 ---
 
 <a name="footnote-1">*</a> trying my best to not say "google-searching". Except, duckduckgo sucked at guessing
-that I was looking for [the vagrant-libvirt project landing page -- it's github repo](https://github.com/vagrant-libvirt/vagrant-libvirt) -- when I searched `vagrant-libvirt` -- that repo's
+that I was looking for [the vagrant-libvirt project landing page -- its github repo](https://github.com/vagrant-libvirt/vagrant-libvirt) -- when I searched `vagrant-libvirt` -- that repo's
 _readme_ is the seventh hit for that search. Where the root of the repo is the
 _first_ hit for a google search. So, hat tip to google for coding searching, I guess.
 
