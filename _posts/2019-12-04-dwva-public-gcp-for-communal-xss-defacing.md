@@ -15,9 +15,11 @@ Launch the containerized instance, pointing to the docker hub dvwa container, an
 
     gcloud compute instances create-with-container dvwa --container-image vulnerables/web-dvwa --tags http-server
 
-Once that finishes spinning up, one can visit the public ip address of their instance, and DVWA will be ready to go. The public IP can be found from the GCP web console.
+The instance, once launched, will pull the image, and run it. The pulling make take a minute or two -- the serial console will show the progress.
 
-If perchance it gets compromised and wrecked by an internet denizen before I can demo the site to the class, or if perchance a student wrecks it, it's easy enough to spin up a fresh dvwa instance by rerunning the `gcloud create` command above. Be mindful that you can't have two instances with the same name, though (`dvwa` in the example above).
+Then, because [GCP runs the container in host networking mode](https://cloud.google.com/compute/docs/containers/configuring-options-to-run-containers), and because the container runs its webserver on port 80, the DVWA app will be accessible via the instance's public IP address. The public IP can be found from the GCP web console.
+
+If perchance the instance gets compromised and wrecked by an internet denizen before I can demo the site to the class, or if perchance a student wrecks it, it's easy enough to spin up a fresh dvwa instance by rerunning the `gcloud create` command above. Be mindful that you can't have two instances with the same name, though (`dvwa` in the example above).
 
 {% include image.html image='ncage.gif' %}
 
