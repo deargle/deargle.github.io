@@ -6,7 +6,6 @@ stream: "user-interface cybersecurity"
 order: 3
 title: "How much is your security worth? Applying a risk tradeoff paradigm to explain the bimodal nature of user elaboration over interruptive security messages"
 with: "Dennis Galletta"
-targeting: MISQ submission in first quarter 2022
 ---
 
 Why do employees disregard computer security messages, opening the organization
@@ -26,5 +25,3 @@ behaviors. The monetary "cost" of disregarding a security message is
 experimentally varied, and its impact on prompting attention and security
 behaviors is examined. Survey data and focus group data is also captured to
 probe users' thought processes.
-
-_Targeting MISQ submission in first quarter 2022_
