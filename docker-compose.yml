@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  jekyll:
+    image: jekyll/jekyll:3.8
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/srv/jekyll
+      - my-bundle:/usr/local/bundle
+    restart: unless-stopped
+    command: jekyll serve --incremental --force_polling
+
+volumes:
+  my-bundle:
+    external: true
