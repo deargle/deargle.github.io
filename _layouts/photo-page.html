@@ -51,7 +51,7 @@ include_masonry: true
 
   {% for photo in photos %}
 
-    {% capture href %}/assets/img/woodworking/{{ page.filename_prefix }}{{ photo.filename }}{% endcapture %}
+    {% capture href %}/assets/img/{{ page.type }}/{{ page.filename_prefix }}{{ photo.filename }}{% endcapture %}
 
     <div class="col-sm-6 col-lg-4 mb-4">
       <div class="card is-loading">
