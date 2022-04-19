@@ -75,6 +75,7 @@ collections:
   opensource_projects:
   arts_and_crafts:
     output: true
+    permalink: /arts-and-crafts/:name
 
 #files to exclude, array
 exclude:

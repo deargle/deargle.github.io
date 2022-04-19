@@ -1,6 +1,7 @@
 ---
 title: Macrame Market Bag
 type: macrame
+date: 2022-04-04
 photos:
   - title: Market bag action shot
     filename: 2022-04-04 - macrame - bag.jpg

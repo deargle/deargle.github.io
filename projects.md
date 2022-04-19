@@ -82,5 +82,6 @@ Also, I publish a lot of my class content online. For example:
 <div class="mb-2">
   <ul>
     <li><a href="{% link woodworking/index.md %}">Woodworking projects</a></li>
+    <li><a href="{% link arts-and-crafts.md %}">Arts and crafts</a></li>
   </ul>
 </div>
