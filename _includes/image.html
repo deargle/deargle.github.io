@@ -1,2 +1,22 @@
 {%- assign image_path = '/assets/img/' | append: include.image | relative_url -%}
-<img {% if include.alt %}alt="{{ include.alt }}"{% endif %} {% if include.width %}width="{{ include.width }}"{% endif %} class="img-thumbnail" src="{{image_path}}" />
+<div class="">
+  <a href="{{ image_path }}" target="_blank">
+    <img
+      src="{{ image_path }}"
+      class="shadow-sm img-fluid img-thumbnail mb-2"
+      {%- if include.width %}
+        width="{{ include.width }}"
+      {%- else %}
+        width="400px"
+      {%- endif -%}
+      {%- if include.alt %}
+        alt="{{ include.alt }}"
+      {%- else %}
+        alt="{{ include.image | replace: '-', ' ' | replace: '.png', '' | replace: '.jpg', '' | replace: '.gif', '' }}"
+      {%- endif -%}
+    />
+  </a>
+  {%- if include.caption -%}
+    <p class='fw-lighter fst-italic'>{{ include.caption }}</p>
+  {%- endif -%}
+</div>
