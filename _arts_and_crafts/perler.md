@@ -26,6 +26,9 @@ photos:
     - title: Pascal
       filename: 2022-04-04 - perler - pascal.jpg
 
+    - title: Bat
+      filename: 2022-04-04 - perler - bat.jpg
+
     - title: Child Creation
       filename: 2022-04-04 - perler - child b.jpg
 
