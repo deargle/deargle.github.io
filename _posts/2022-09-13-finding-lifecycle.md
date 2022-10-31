@@ -5,9 +5,9 @@ tags: consulting
 category: professional
 ...
 
-I originally wanted to publish this on the company blog, until I realized that company blogs are for _assertive statements of reality_ as opposed to missives about professional growth an realizations. So this post is coming here instead!
+I originally wanted to publish this on the company blog, until I realized that company blogs are for _assertive statements of reality_ as opposed to missives about professional growth and realizations. So this post is coming here instead!
 
-I'm replacing the company name with `Firm`, not because it's confidential, but because I don't want posts like these to come up in SEO for the company.
+I'm replacing the company name with `Firm`, not because it's confidential, but because the company might not want posts like these to come in up SEO for them.
 
 Oh and I left academia back in June and joined an information security consulting group. Having so much fun.
 

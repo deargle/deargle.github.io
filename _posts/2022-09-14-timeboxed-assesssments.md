@@ -69,6 +69,9 @@ For **both** the client and **also** for whomever the client is trying to impres
 
 But a **key point** is this: no such vendor-selection control is possible with a bug bounty program, so any company that needs to have an assessment performed by a vendor with a certain minimum expertise/reputation *must* specifically hire a consultancy, whether from an approved vendor list, or whether of their own choice.
 
+---
+
+PS: :wave: I quit academia and joined [Carve Systems](https://carvesystems.com), a cybersecurity consultanty! I'm having a great time. See also [this recent blog post]({% post_url 2022-09-13-finding-lifecycle %}).
 
 
 [^students_gpa_vs_referral]: This is similar to a student trying to get their first job in an industry. Prospective employers can review external signals such as their GPA's or test scores. Or they can rely on a referral. Or an evaluation of the candidate's internship performance. (Hopefully it was a paid internship!) Employers probably prefer referrals over GPAs. They probably prefer internship evaluation most of all -- a self-referral, as it were -- but the candidate would prefer to skip straight to getting paid well. If the candidate is worth it, the employer probably prefers hiring them right away, too. Because speed is better for business.
